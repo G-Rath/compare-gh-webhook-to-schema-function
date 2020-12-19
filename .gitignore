@@ -1,0 +1,19 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# compiled typescript goes in here
+.build
+
+.env.development
+.env.prod
+.envrc
+
+coverage/
+
+/lib
+.tmp/
+!.tmp/.gitkeep

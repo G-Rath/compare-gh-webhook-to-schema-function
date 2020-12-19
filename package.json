@@ -1,0 +1,24 @@
+{
+  "name": "compare-gh-webhook-to-schema-function",
+  "version": "0.0.0",
+  "description": "Azure function that compares gh webhook payloads against their schema",
+  "keywords": [],
+  "homepage": "https://github.com/G-Rath/compare-gh-webhook-to-schema-function#readme",
+  "bugs": {
+    "url": "https://github.com/G-Rath/compare-gh-webhook-to-schema-function/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/G-Rath/compare-gh-webhook-to-schema-function.git"
+  },
+  "license": "ISC",
+  "author": "Gareth Jones",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
