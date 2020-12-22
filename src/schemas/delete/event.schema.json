@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "delete$event",
+  "type": "object",
+  "required": [
+    "ref",
+    "ref_type",
+    "pusher_type",
+    "repository",
+    "sender"
+  ],
+  "properties": {
+    "ref": {
+      "type": "string"
+    },
+    "ref_type": {
+      "type": "string"
+    },
+    "pusher_type": {
+      "type": "string"
+    },
+    "repository": {
+      "$ref": "$repository"
+    },
+    "sender": {
+      "$ref": "$user"
+    },
+    "installation": {
+      "$ref": "$installation"
+    },
+    "organization": {
+      "$ref": "$organization"
+    }
+  },
+  "additionalProperties": false
+}

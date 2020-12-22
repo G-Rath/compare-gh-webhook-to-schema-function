@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "repository$edited",
+  "type": "object",
+  "required": [
+    "action",
+    "repository",
+    "sender"
+  ],
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "edited"
+      ]
+    },
+    "repository": {
+      "$ref": "$repository"
+    },
+    "sender": {
+      "$ref": "$user"
+    },
+    "installation": {
+      "$ref": "$installation"
+    },
+    "organization": {
+      "$ref": "$organization"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,47 @@
+service: gh-webhooks-schema-checker
+
+frameworkVersion: '2'
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-plugin-scripts
+  - serverless-azure-functions
+
+provider:
+  name: azure
+  region: Australia East
+  runtime: nodejs12
+  stage: dev
+
+custom:
+  outDir: ${file(./tsconfig.build.json):compilerOptions.outDir}
+  prepareForPacking: &prepareForPacking |
+    npm run --silent build
+  scripts:
+    hooks:
+      'before:package:createDeploymentArtifacts': *prepareForPacking
+      'before:deploy:function:packageFunction': *prepareForPacking
+
+package:
+  include:
+    - ${self:custom.outDir}/**/*
+    - package.json
+  exclude:
+    - '**/*'
+    - '!node_modules/**'
+    - '!**/function.json'
+    - '**/*.d.ts'
+    - '**/*.md'
+
+functions:
+  compareWebhookPayloadToSchema:
+    handler: lib/index.handler
+    events:
+      - http: true
+        authLevel: anonymous
+        methods:
+          - post
+        route: github
+      - http: true
+        direction: out
+        name: '$return'

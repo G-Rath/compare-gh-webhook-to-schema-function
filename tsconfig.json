@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "lib": ["ES2020"],
+    "rootDir": "./",
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "useDefineForClassFields": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "esModuleInterop": true
+  },
+  "exclude": [".serverless", "coverage", "node_modules", "lib"],
+  "files": [".eslintrc.js", "jest.config.ts"],
+  "include": ["**/*.js", "**/*.ts"]
+}
