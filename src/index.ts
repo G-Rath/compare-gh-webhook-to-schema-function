@@ -16,6 +16,7 @@ enum SentimentEmoji {
 interface FnResult {
   summary: string;
   errors?: unknown[];
+  error?: Error;
 }
 
 interface FnResponse {
@@ -85,7 +86,7 @@ export const handler: AzureFunction = async (
     });
 
     return {
-      body: { summary: 'oh noes!' },
+      body: { summary: 'oh noes!', error },
       headers: { 'X-Invocation-Id': context.invocationId },
       statusCode: 500
     };
