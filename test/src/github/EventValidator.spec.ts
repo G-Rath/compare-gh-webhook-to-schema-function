@@ -1,4 +1,6 @@
 import Ajv, { ValidateFunction } from 'ajv';
+import { OneOfError } from 'ajv/dist/vocabularies/applicator/oneOf';
+import { EnumError } from 'ajv/dist/vocabularies/validation/enum';
 import { JSONSchema7 } from 'json-schema';
 import { vol } from 'memfs';
 import { mocked } from 'ts-jest/utils';
@@ -18,6 +20,15 @@ const mockLogger: jest.Mocked<Logger> = {
   error: jest.fn()
 };
 
+const oneOfError = (): OneOfError => ({
+  keyword: 'oneOf',
+  dataPath: '',
+  schemaPath: '#/oneOf',
+  // https://github.com/ajv-validator/ajv/issues/1367
+  params: { passingSchemas: (null as unknown) as [number, number] },
+  message: 'should match exactly one schema in oneOf'
+});
+
 describe('EventValidator', () => {
   beforeEach(() => {
     mockedAjv.prototype.compile.mockReturnValue(schemaValidatorMock);
@@ -27,15 +38,7 @@ describe('EventValidator', () => {
   describe('~validate', () => {
     it('returns the result of #validate', () => {
       const event: GithubEvent = { name: 'ping', payload: pingEvent };
-      const errors: typeof schemaValidatorMock.errors = [
-        {
-          keyword: 'oneOf',
-          dataPath: '',
-          schemaPath: '#/oneOf',
-          params: { passingSchemas: null },
-          message: 'should match exactly one schema in oneOf'
-        }
-      ];
+      const errors: typeof schemaValidatorMock.errors = [oneOfError()];
 
       schemaValidatorMock.errors = errors;
 
@@ -111,6 +114,92 @@ describe('EventValidator', () => {
       validator.validate(event);
 
       expect(schemaValidatorMock).toHaveBeenCalledWith(event.payload);
+    });
+
+    describe('when the errors include an enum', () => {
+      const enumError = (
+        allowedValues: string[],
+        dataPath: string
+      ): EnumError => ({
+        keyword: 'enum',
+        dataPath,
+        schemaPath: '#/properties/action/enum',
+        params: { allowedValues },
+        message: 'should be equal to one of the allowed values'
+      });
+
+      it('merges them', () => {
+        schemaValidatorMock.errors = [
+          enumError(['opened'], '/action'),
+          enumError(['locked'], '/action'),
+          {
+            keyword: 'additionalProperties',
+            dataPath: '/pull_request',
+            schemaPath: '#/properties/pull_request/additionalProperties',
+            params: { additionalProperty: 'active_lock_reason' },
+            message: 'should NOT have additional properties'
+          },
+          {
+            keyword: 'additionalProperties',
+            dataPath: '/pull_request',
+            schemaPath: '#/properties/pull_request/additionalProperties',
+            params: { additionalProperty: 'active_lock_reason' },
+            message: 'should NOT have additional properties (seriously)'
+          },
+          enumError(['unlocked'], '/action'),
+          oneOfError()
+        ];
+
+        const event: GithubEvent = { name: 'ping', payload: pingEvent };
+        const validator = new EventValidator(event.name, mockLogger);
+
+        const resultedErrors = validator.validate(event);
+
+        expect(resultedErrors).toStrictEqual([
+          enumError(['opened', 'locked', 'unlocked'], '/action'),
+          {
+            keyword: 'additionalProperties',
+            dataPath: '/pull_request',
+            schemaPath: '#/properties/pull_request/additionalProperties',
+            params: { additionalProperty: 'active_lock_reason' },
+            message: 'should NOT have additional properties'
+          },
+          {
+            keyword: 'additionalProperties',
+            dataPath: '/pull_request',
+            schemaPath: '#/properties/pull_request/additionalProperties',
+            params: { additionalProperty: 'active_lock_reason' },
+            message: 'should NOT have additional properties (seriously)'
+          },
+          oneOfError()
+        ]);
+      });
+
+      it('merges them based on their dataPaths', () => {
+        schemaValidatorMock.errors = [
+          enumError(['completed'], '/action'),
+          enumError(['queued'], '/check_run/status'),
+          enumError(['completed'], '/check_run/status'),
+          {
+            keyword: 'oneOf',
+            dataPath: '',
+            schemaPath: '#/oneOf',
+            params: { passingSchemas: null },
+            message: 'should match exactly one schema in oneOf'
+          }
+        ];
+
+        const event: GithubEvent = { name: 'ping', payload: pingEvent };
+        const validator = new EventValidator(event.name, mockLogger);
+
+        const resultedErrors = validator.validate(event);
+
+        expect(resultedErrors).toStrictEqual([
+          enumError(['completed'], '/action'),
+          enumError(['queued', 'completed'], '/check_run/status'),
+          oneOfError()
+        ]);
+      });
     });
   });
 });

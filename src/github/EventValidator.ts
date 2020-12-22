@@ -1,4 +1,4 @@
-import Ajv, { ErrorObject, ValidateFunction } from 'ajv';
+import Ajv, { DefinedError, ErrorObject, ValidateFunction } from 'ajv';
 import { strict as assert } from 'assert';
 import fs from 'fs';
 import { JSONSchema7 } from 'json-schema';
@@ -97,6 +97,22 @@ export class EventValidator<
   public validate(event: TEvent): ErrorObject[] {
     this._validator(event.payload);
 
-    return this._validator.errors ?? [];
+    const finalErrors: ErrorObject[] = [];
+
+    this._validator.errors?.forEach(error => {
+      const similarError = finalErrors.find(
+        er => er.keyword === error.keyword && er.dataPath === error.dataPath
+      ) as DefinedError | undefined;
+
+      if (similarError?.keyword === 'enum') {
+        similarError.params.allowedValues.push(...error.params.allowedValues);
+
+        return;
+      }
+
+      finalErrors.push(error);
+    });
+
+    return finalErrors;
   }
 }
