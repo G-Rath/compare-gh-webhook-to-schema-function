@@ -78,5 +78,6 @@
       "$ref": "$organization"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "push event"
 }

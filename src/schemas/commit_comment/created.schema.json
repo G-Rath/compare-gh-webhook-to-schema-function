@@ -165,5 +165,6 @@
       "$ref": "$organization"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "commit_comment created event"
 }

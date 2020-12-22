@@ -130,5 +130,6 @@
       "$ref": "$organization"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "organization member_invited event"
 }

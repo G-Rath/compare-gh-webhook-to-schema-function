@@ -151,5 +151,6 @@
       "$ref": "$organization"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "page_build event"
 }

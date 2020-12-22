@@ -49,5 +49,6 @@
       "$ref": "$organization"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "content_reference created event"
 }

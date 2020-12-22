@@ -537,5 +537,6 @@
       "additionalProperties": false
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "meta deleted event"
 }

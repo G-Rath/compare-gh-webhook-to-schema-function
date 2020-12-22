@@ -148,5 +148,6 @@
       "additionalProperties": false
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "security_advisory published event"
 }

@@ -626,5 +626,6 @@
       "$ref": "$organization"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "issues unlabeled event"
 }

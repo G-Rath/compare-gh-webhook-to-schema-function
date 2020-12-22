@@ -73,6 +73,7 @@ const createSchemaForAction = (
 
   newSchema.properties.action.enum = [action];
   newSchema.$id = `${idPrefix}$${action}`;
+  newSchema.title = `${idPrefix} ${action} event`;
 
   return newSchema;
 };
@@ -99,6 +100,7 @@ const copyEventSchema = (eventName: string) => {
     const newSchema = cloneObject(eventSchema);
 
     newSchema.$id = `${eventName}$event`;
+    newSchema.title = `${eventName} event`;
 
     schemas.push(['event', newSchema]);
   }

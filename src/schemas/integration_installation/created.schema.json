@@ -249,5 +249,6 @@
       "$ref": "$user"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "integration_installation created event"
 }

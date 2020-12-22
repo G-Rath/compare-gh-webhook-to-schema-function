@@ -1848,5 +1848,6 @@
       "$ref": "$user"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "pull_request closed event"
 }

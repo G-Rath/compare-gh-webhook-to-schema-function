@@ -108,5 +108,6 @@
       "$ref": "$user"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "member added event"
 }

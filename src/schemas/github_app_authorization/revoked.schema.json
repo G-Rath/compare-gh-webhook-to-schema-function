@@ -17,5 +17,6 @@
       "$ref": "$user"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "github_app_authorization revoked event"
 }

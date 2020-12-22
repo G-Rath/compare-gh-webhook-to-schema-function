@@ -687,5 +687,6 @@
       "$ref": "$organization"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "issue_comment deleted event"
 }

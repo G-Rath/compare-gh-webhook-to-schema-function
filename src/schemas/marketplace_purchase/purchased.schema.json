@@ -322,5 +322,6 @@
       "additionalProperties": false
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "marketplace_purchase purchased event"
 }

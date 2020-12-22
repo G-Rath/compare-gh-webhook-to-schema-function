@@ -162,5 +162,6 @@
       "$ref": "$installation"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "membership removed event"
 }

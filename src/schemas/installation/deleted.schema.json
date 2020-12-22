@@ -320,5 +320,6 @@
       "additionalProperties": false
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "installation deleted event"
 }

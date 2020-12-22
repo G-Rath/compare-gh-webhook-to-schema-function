@@ -608,5 +608,6 @@
       "$ref": "$installation"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "project_card moved event"
 }
