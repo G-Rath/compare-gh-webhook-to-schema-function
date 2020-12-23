@@ -228,6 +228,32 @@ const listEvents = async () => {
     .map(dirent => dirent.name);
 };
 
+const buildEventPayloadMap = (events: string[]): string => {
+  const [imports, properties] = events.reduce<
+    [imports: string[], properties: string[]]
+  >(
+    (importsAndProperties, event) => {
+      const interfaceName = `${guessAtInterfaceName(event)}Event`;
+
+      importsAndProperties[0].push(
+        `import { ${interfaceName} } from './${event}';`
+      );
+      importsAndProperties[1].push(`  ${event}: ${interfaceName};`);
+
+      return importsAndProperties;
+    },
+    [[], []]
+  );
+
+  return [
+    ...imports,
+    '',
+    'export interface EventPayloadMap {',
+    ...properties,
+    '}'
+  ].join('\n');
+};
+
 (async () => {
   const events = await listEvents();
 
@@ -242,7 +268,7 @@ const listEvents = async () => {
     })
   );
 
-  await writeBarrelForDirectory('');
+  await writeBarrelForDirectory('', `\n${buildEventPayloadMap(events)}`);
 })().catch(error => {
   console.error(error);
   process.exitCode = 1;
