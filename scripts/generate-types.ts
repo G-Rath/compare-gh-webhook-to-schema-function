@@ -124,28 +124,81 @@ const writeTypesForSchema = async (pathToSchema: string) => {
   );
 };
 
-const writeBarrelForDirectory = async (directory: string) => {
+const writeBarrelForDirectory = async (directory: string, extra = '') => {
   const pathToDirectory = `${pathToWebhookSchemas}/${directory}`;
   const directoryContents = await fs.readdir(pathToDirectory, {
     withFileTypes: true
   });
 
+  const fileContents = directoryContents
+    .filter(d => d.isDirectory() || d.name.endsWith('.schema.json'))
+    .map(({ name }) =>
+      name.endsWith('.schema.json')
+        ? removeExtension(name, '.schema.json')
+        : name
+    )
+    .map(name => `export * from './${name}';`)
+    .concat(extra.trimEnd())
+    .join('\n');
+
   await fs.writeFile(
     `${pathToDirectory}/index.d.ts`,
-    directoryContents
-      .filter(d => d.isDirectory() || d.name.endsWith('.schema.json'))
-      .map(({ name }) =>
-        name.endsWith('.schema.json')
-          ? removeExtension(name, '.schema.json')
-          : name
-      )
-      .map(name => `export * from './${name}';`)
-      .concat('') // add an empty line for a trailing newline
-      .join('\n')
+    `${fileContents.trim()}\n`
   );
 };
 
-const writeTypesForEvent = async (eventName: string) => {
+const titleCase = (str: string) => `${str[0].toUpperCase()}${str.substring(1)}`;
+
+const guessAtInterfaceName = (str: string) =>
+  str.split('_').map(titleCase).join('');
+
+const buildUnion = (name: string, elements: string[]): string[] => {
+  const union = `export type ${name} = ${elements.join(' | ')};`;
+
+  if (elements.length > 1 && union.length > 80) {
+    const lastIndex = elements.length - 1;
+
+    return [
+      `export type ${name} =`,
+      ...elements.map(
+        (element, i) => `  | ${element}${lastIndex === i ? ';' : ''}`
+      )
+    ];
+  }
+
+  return [union];
+};
+
+const buildEventUnion = (eventName: string, schemas: string[]) => {
+  // singular events are already called "event", so don't need a union
+  if (schemas.includes('event.schema.json')) {
+    return '';
+  }
+
+  const eventInterfaceName = guessAtInterfaceName(eventName);
+  const schemaAndInterfaceNames: Array<
+    [schemaName: string, interfaceName: string]
+  > = schemas
+    .map(fileName => removeExtension(fileName, '.schema.json'))
+    .map(schemaName => [
+      schemaName,
+      `${eventInterfaceName}${guessAtInterfaceName(schemaName)}Event`
+    ]);
+
+  const imports = schemaAndInterfaceNames.map(
+    ([schemaName, interfaceName]) =>
+      `import { ${interfaceName} } from './${schemaName}';`
+  );
+
+  const formattedUnion = buildUnion(
+    `${eventInterfaceName}Event`,
+    schemaAndInterfaceNames.map(([, interfaceName]) => interfaceName)
+  );
+
+  return ['', ...imports, '', ...formattedUnion].join('\n');
+};
+
+const writeTypesForEvent = async (eventName: string, noUnion = false) => {
   const pathToEventSchemasDir = `${pathToWebhookSchemas}/${eventName}`;
   const schemas = (await fs.readdir(pathToEventSchemasDir)).filter(fileName =>
     fileName.endsWith('.schema.json')
@@ -157,7 +210,10 @@ const writeTypesForEvent = async (eventName: string) => {
     })
   );
 
-  await writeBarrelForDirectory(eventName);
+  await writeBarrelForDirectory(
+    eventName,
+    noUnion ? '' : buildEventUnion(eventName, schemas)
+  );
 
   console.log('generated', schemas.length, 'types for', eventName);
 };
@@ -178,7 +234,7 @@ const listEvents = async () => {
   console.log('found', events.length, 'events');
 
   // technically not an event, but it'll be fine
-  await writeTypesForEvent('common');
+  await writeTypesForEvent('common', true);
 
   await Promise.all(
     events.map(async eventName => {
