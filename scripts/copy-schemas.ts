@@ -4,6 +4,7 @@
 
 import fs from 'fs';
 import { JSONSchema7 } from 'json-schema';
+import path from 'path';
 
 /*
   this requires the octokit/webhooks repo cloned, and the schemas pr branch checked out:
@@ -19,7 +20,11 @@ const makeDirectory = (target: string) => {
   fs.mkdirSync(target, { recursive: true });
 };
 
-const copyDirectory = (source: string, target: string, recursive = false) => {
+const copyDirectory = (
+  source: string,
+  target: string,
+  afterCopyingFile?: (filePath: string) => void
+) => {
   const contents = fs.readdirSync(source, { withFileTypes: true });
 
   makeDirectory(target);
@@ -28,13 +33,9 @@ const copyDirectory = (source: string, target: string, recursive = false) => {
     const from = `${source}/${dirent.name}`;
     const to = `${target}/${dirent.name}`;
 
-    if (dirent.isDirectory() && recursive) {
-      copyDirectory(from, to);
-
-      continue;
-    }
-
     fs.copyFileSync(from, to);
+
+    afterCopyingFile?.(to);
   }
 };
 
@@ -133,8 +134,24 @@ const eventsWithSchemas = fs
 console.log('found', eventsWithSchemas.length, 'schemas');
 
 makeDirectory(outDir);
-copyDirectory(`${pathToWebhookSchemas}/common`, `${outDir}/common`);
+copyDirectory(
+  `${pathToWebhookSchemas}/common`,
+  `${outDir}/common`,
+  filePath => {
+    const contents = JSON.parse(
+      fs.readFileSync(filePath, 'utf-8')
+    ) as JSONSchema7;
 
+    const { base } = path.parse(filePath);
+
+    // give each common schema a fileName based on their file name
+    const fileName = base.substring(0, base.length - '.schema.json'.length);
+
+    contents.title = `${fileName[0].toUpperCase()}${fileName.substring(1)}`;
+
+    fs.writeFileSync(filePath, JSON.stringify(contents, null, 2));
+  }
+);
 eventsWithSchemas.forEach(eventName => {
   const eventDirectory = `${outDir}/${eventName}`;
 

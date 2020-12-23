@@ -1,7 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "$organization",
-  "type": ["object", "null"],
+  "type": [
+    "object",
+    "null"
+  ],
   "properties": {
     "login": {
       "type": "string"
@@ -16,7 +19,10 @@
       "type": "string"
     },
     "company": {
-      "type": ["object", "null"],
+      "type": [
+        "object",
+        "null"
+      ],
       "properties": {
         "type": {
           "type": "string"
@@ -24,7 +30,10 @@
       }
     },
     "blog": {
-      "type": ["object", "null"],
+      "type": [
+        "object",
+        "null"
+      ],
       "properties": {
         "type": {
           "type": "string"
@@ -32,7 +41,10 @@
       }
     },
     "location": {
-      "type": ["object", "null"],
+      "type": [
+        "object",
+        "null"
+      ],
       "properties": {
         "type": {
           "type": "string"
@@ -40,7 +52,10 @@
       }
     },
     "email": {
-      "type": ["object", "null"],
+      "type": [
+        "object",
+        "null"
+      ],
       "properties": {
         "type": {
           "type": "string"
@@ -48,7 +63,10 @@
       }
     },
     "twitter_username": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "is_verified": {
       "type": "boolean"
@@ -111,5 +129,6 @@
       "type": "string"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "Organization"
 }
