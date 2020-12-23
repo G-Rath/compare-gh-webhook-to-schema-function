@@ -18,7 +18,8 @@ export const getEvent = (request: HttpRequest): GithubEvent => {
 
   if (verify(GITHUB_WEBHOOK_SECRET, rawBody, signature)) {
     // ensure we're referencing a header that is defined, outside of the cast
-    const name: GithubEvent['name'] = request.headers['x-github-event'];
+    // https://github.com/Azure/azure-functions-nodejs-worker/pull/359
+    const name = request.headers['x-github-event'] as GithubEvent['name'];
     const payload = JSON.parse(rawBody) as Record<string, unknown>;
 
     return { name, payload } as GithubEvent;
