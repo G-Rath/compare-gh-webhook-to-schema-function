@@ -9,7 +9,7 @@ const config = {
   },
   env: { node: true },
   extends: ['ackama', 'ackama/@typescript-eslint'],
-  ignorePatterns: ['.build/', '.serverless/', '.tmp/'],
+  ignorePatterns: ['.build/', '.serverless/', '.tmp/', 'gh-schemas'],
   overrides: [
     {
       files: ['test/**'],
