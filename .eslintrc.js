@@ -15,6 +15,14 @@ const config = {
       files: ['test/**'],
       extends: ['ackama/jest'],
       rules: { 'jest/prefer-expect-assertions': 'off' }
+    },
+    {
+      files: ['src/schemas/**/**.d.ts'],
+      rules: {
+        '@typescript-eslint/naming-convention': 'off',
+        '@typescript-eslint/array-type': 'off',
+        '@typescript-eslint/ban-types': 'off'
+      }
     }
   ],
   rules: {}
