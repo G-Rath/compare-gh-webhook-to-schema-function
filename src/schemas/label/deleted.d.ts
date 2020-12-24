@@ -15,6 +15,7 @@ export interface LabelDeletedEvent {
     name: string;
     color: string;
     default: boolean;
+    description?: string | null;
   };
   changes?: {
     [k: string]: unknown;

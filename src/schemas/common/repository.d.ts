@@ -116,5 +116,7 @@ export interface Repository {
     pull: boolean;
     push: boolean;
     admin: boolean;
+    maintain?: boolean;
+    triage?: boolean;
   };
 }

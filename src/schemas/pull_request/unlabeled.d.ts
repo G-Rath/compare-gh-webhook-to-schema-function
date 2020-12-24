@@ -397,6 +397,9 @@ export interface PullRequestUnlabeledEvent {
       };
     };
     author_association: string;
+    active_lock_reason:
+      | null
+      | ('resolved' | 'off-topic' | 'too heated' | 'spam');
     draft: boolean;
     merged: boolean;
     mergeable: null | boolean;

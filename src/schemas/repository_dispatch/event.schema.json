@@ -20,31 +20,20 @@
     },
     "client_payload": {
       "type": "object",
-      "required": [
-        "unit",
-        "integration"
-      ],
-      "properties": {
-        "unit": {
-          "type": "boolean"
-        },
-        "integration": {
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false
+      "properties": {},
+      "additionalProperties": true
     },
     "repository": {
-      "$ref": "$repository"
+      "$ref": "common/repository.schema.json"
     },
     "sender": {
-      "$ref": "$user"
+      "$ref": "common/user.schema.json"
     },
     "installation": {
-      "$ref": "$installation"
+      "$ref": "common/installation.schema.json"
     },
     "organization": {
-      "$ref": "$organization"
+      "$ref": "common/organization.schema.json"
     }
   },
   "additionalProperties": false,

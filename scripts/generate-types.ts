@@ -31,24 +31,28 @@ const removeExtension = (fileName: string, ext: string): string => {
   return fileName.substring(0, fileName.length - ext.length);
 };
 
-const fetchCommonSchemas = async () => {
+const fetchCommonSchemas = async (): Promise<Map<string, JSONSchema7>> => {
   const pathToCommonSchemasDir = `${pathToWebhookSchemas}/common`;
   const commonSchemaFiles = (
     await fs.readdir(pathToCommonSchemasDir)
   ).filter(fileName => fileName.endsWith('.schema.json'));
 
-  return Promise.all(
-    commonSchemaFiles.map(async name => {
-      const schema = JSON.parse(
-        await fs.readFile(`${pathToCommonSchemasDir}/${name}`, 'utf-8')
-      ) as JSONSchema7;
+  return new Map(
+    await Promise.all(
+      commonSchemaFiles.map(async name => {
+        const schema = JSON.parse(
+          await fs.readFile(`${pathToCommonSchemasDir}/${name}`, 'utf-8')
+        ) as JSONSchema7;
 
-      if (!schema.title) {
-        console.warn(`common schema ${name} does an empty or undefined title`);
-      }
+        if (!schema.title) {
+          console.warn(
+            `common schema ${name} does an empty or undefined title`
+          );
+        }
 
-      return schema;
-    })
+        return [name, schema] as const;
+      })
+    )
   );
 };
 
@@ -64,7 +68,7 @@ interface ExternalInterfaceSchemaResolver extends ResolverOptions {
   addImports(code: string): string;
 }
 
-let commonSchemas: JSONSchema7[];
+let commonSchemas: Map<string, JSONSchema7>;
 
 const createCommonSchemaResolver = async (): Promise<ExternalInterfaceSchemaResolver> => {
   const interfacesToImport = new Set<string>();
@@ -73,14 +77,10 @@ const createCommonSchemaResolver = async (): Promise<ExternalInterfaceSchemaReso
   commonSchemas ||= await fetchCommonSchemas();
 
   return {
-    canRead: file => {
-      const { base } = path.parse(file.url);
-
-      return commonSchemas.find(({ $id }) => base === $id) !== undefined;
-    },
+    canRead: /common\/.*\.schema\.json$/u,
     read: file => {
       const { base } = path.parse(file.url);
-      const schema = commonSchemas.find(({ $id }) => $id === base);
+      const schema = commonSchemas.get(base);
 
       assert.ok(schema);
 

@@ -10,8 +10,7 @@ export interface RepositoryDispatchEvent {
   action: string;
   branch: string;
   client_payload: {
-    unit: boolean;
-    integration: boolean;
+    [k: string]: unknown;
   };
   repository: Repository;
   sender: User;

@@ -56,6 +56,7 @@
         "base",
         "_links",
         "author_association",
+        "active_lock_reason",
         "draft",
         "merged",
         "mergeable",
@@ -1667,6 +1668,22 @@
         "author_association": {
           "type": "string"
         },
+        "active_lock_reason": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "resolved",
+                "off-topic",
+                "too heated",
+                "spam"
+              ]
+            }
+          ]
+        },
         "draft": {
           "type": "boolean"
         },
@@ -1836,16 +1853,16 @@
       "additionalProperties": false
     },
     "repository": {
-      "$ref": "$repository"
+      "$ref": "common/repository.schema.json"
     },
     "installation": {
-      "$ref": "$installation"
+      "$ref": "common/installation.schema.json"
     },
     "organization": {
-      "$ref": "$organization"
+      "$ref": "common/organization.schema.json"
     },
     "sender": {
-      "$ref": "$user"
+      "$ref": "common/user.schema.json"
     }
   },
   "additionalProperties": false,

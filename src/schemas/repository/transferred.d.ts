@@ -8,6 +8,9 @@ import { Installation, Organization, Repository, User } from '../common';
 
 export interface RepositoryTransferredEvent {
   action: 'transferred';
+  changes?: {
+    [k: string]: unknown;
+  };
   repository: Repository;
   sender: User;
   installation?: Installation;

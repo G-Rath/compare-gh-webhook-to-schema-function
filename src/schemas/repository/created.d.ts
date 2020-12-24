@@ -8,6 +8,9 @@ import { Installation, Organization, Repository, User } from '../common';
 
 export interface RepositoryCreatedEvent {
   action: 'created';
+  changes?: {
+    [k: string]: unknown;
+  };
   repository: Repository;
   sender: User;
   installation?: Installation;

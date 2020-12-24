@@ -10,9 +10,10 @@ export interface StatusEvent {
   id: number;
   sha: string;
   name: string;
-  target_url: null;
+  avatar_url?: null | string;
+  target_url: null | string;
   context: string;
-  description: null;
+  description: null | string;
   state: 'pending' | 'success' | 'failure' | 'error';
   commit: {
     sha: string;

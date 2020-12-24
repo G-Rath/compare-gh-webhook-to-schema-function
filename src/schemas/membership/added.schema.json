@@ -101,7 +101,7 @@
       "additionalProperties": false
     },
     "sender": {
-      "$ref": "$user"
+      "$ref": "common/user.schema.json"
     },
     "team": {
       "type": "object",
@@ -156,10 +156,10 @@
       "additionalProperties": false
     },
     "organization": {
-      "$ref": "$organization"
+      "$ref": "common/organization.schema.json"
     },
     "installation": {
-      "$ref": "$installation"
+      "$ref": "common/installation.schema.json"
     }
   },
   "additionalProperties": false,

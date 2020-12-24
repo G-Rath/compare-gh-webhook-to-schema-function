@@ -99,13 +99,13 @@
       "type": "object"
     },
     "repository": {
-      "$ref": "$repository"
+      "$ref": "common/repository.schema.json"
     },
     "installation": {
-      "$ref": "$installation"
+      "$ref": "common/installation.schema.json"
     },
     "sender": {
-      "$ref": "$user"
+      "$ref": "common/user.schema.json"
     }
   },
   "additionalProperties": false,

@@ -15,6 +15,7 @@ export interface LabelCreatedEvent {
     name: string;
     color: string;
     default: boolean;
+    description?: string | null;
   };
   changes?: {
     [k: string]: unknown;
