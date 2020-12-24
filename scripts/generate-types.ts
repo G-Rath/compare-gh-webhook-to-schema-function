@@ -64,9 +64,13 @@ interface ExternalInterfaceSchemaResolver extends ResolverOptions {
   addImports(code: string): string;
 }
 
+let commonSchemas: JSONSchema7[];
+
 const createCommonSchemaResolver = async (): Promise<ExternalInterfaceSchemaResolver> => {
-  const commonSchemas = await fetchCommonSchemas();
   const interfacesToImport = new Set<string>();
+
+  // cache results of fetch in-case we're called again
+  commonSchemas ||= await fetchCommonSchemas();
 
   return {
     canRead: file => {
@@ -258,6 +262,9 @@ const buildEventPayloadMap = (events: string[]): string => {
   const events = await listEvents();
 
   console.log('found', events.length, 'events');
+
+  // populate cache early to avoid doing it more than once
+  commonSchemas = await fetchCommonSchemas();
 
   // technically not an event, but it'll be fine
   await writeTypesForEvent('common', true);
