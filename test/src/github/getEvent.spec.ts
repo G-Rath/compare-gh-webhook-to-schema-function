@@ -43,7 +43,7 @@ describe('getEvent', () => {
     it('throws', () => {
       const request = buildHttpRequest({ name: 'ping', payload: pingEvent });
 
-      request.headers['x-hub-signature'] = '';
+      request.headers['x-hub-signature-256'] = '';
 
       expect(() => getEvent(request)).toThrowErrorMatchingInlineSnapshot(
         `"[@octokit/webhooks] secret, eventPayload & signature required"`
