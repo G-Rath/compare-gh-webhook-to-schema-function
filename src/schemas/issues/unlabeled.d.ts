@@ -39,7 +39,7 @@ export interface IssuesUnlabeledEvent {
       type: string;
       site_admin: boolean;
     };
-    labels: {
+    labels?: {
       id: number;
       node_id: string;
       url: string;
@@ -47,9 +47,9 @@ export interface IssuesUnlabeledEvent {
       color: string;
       default: boolean;
     }[];
-    state: string;
-    locked: boolean;
-    assignee: null | {
+    state?: string;
+    locked?: boolean;
+    assignee?: null | {
       login: string;
       id: number;
       node_id: string;
@@ -131,6 +131,10 @@ export interface IssuesUnlabeledEvent {
     updated_at: string;
     closed_at: null;
     author_association: string;
+    active_lock_reason:
+      | null
+      | ('resolved' | 'off-topic' | 'too heated' | 'spam');
+    performed_via_github_app?: null;
     pull_request?: {
       url?: string;
       html_url?: string;

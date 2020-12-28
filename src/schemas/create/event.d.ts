@@ -10,7 +10,7 @@ export interface CreateEvent {
   ref: string;
   ref_type: string;
   master_branch: string;
-  description: null;
+  description: string | null;
   pusher_type: string;
   repository: Repository;
   sender: User;

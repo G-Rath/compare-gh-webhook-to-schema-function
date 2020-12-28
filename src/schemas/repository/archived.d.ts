@@ -8,6 +8,9 @@ import { Installation, Organization, Repository, User } from '../common';
 
 export interface RepositoryArchivedEvent {
   action: 'archived';
+  changes?: {
+    [k: string]: unknown;
+  };
   repository: Repository;
   sender: User;
   installation?: Installation;

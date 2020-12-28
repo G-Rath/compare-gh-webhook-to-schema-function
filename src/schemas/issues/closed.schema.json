@@ -29,10 +29,6 @@
         "number",
         "title",
         "user",
-        "labels",
-        "state",
-        "locked",
-        "assignee",
         "assignees",
         "milestone",
         "comments",
@@ -40,6 +36,7 @@
         "updated_at",
         "closed_at",
         "author_association",
+        "active_lock_reason",
         "body"
       ],
       "properties": {
@@ -543,6 +540,25 @@
         "author_association": {
           "type": "string"
         },
+        "active_lock_reason": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "resolved",
+                "off-topic",
+                "too heated",
+                "spam"
+              ]
+            }
+          ]
+        },
+        "performed_via_github_app": {
+          "type": "null"
+        },
         "pull_request": {
           "type": "object",
           "properties": {
@@ -603,27 +619,27 @@
       }
     },
     "assignee": {
-      "$ref": "$user"
+      "$ref": "common/user.schema.json"
     },
     "assignees": {
       "type": "array",
       "items": [
         {
-          "$ref": "$user"
+          "$ref": "common/user.schema.json"
         }
       ]
     },
     "repository": {
-      "$ref": "$repository"
+      "$ref": "common/repository.schema.json"
     },
     "sender": {
-      "$ref": "$user"
+      "$ref": "common/user.schema.json"
     },
     "installation": {
-      "$ref": "$installation"
+      "$ref": "common/installation.schema.json"
     },
     "organization": {
-      "$ref": "$organization"
+      "$ref": "common/organization.schema.json"
     }
   },
   "additionalProperties": false,

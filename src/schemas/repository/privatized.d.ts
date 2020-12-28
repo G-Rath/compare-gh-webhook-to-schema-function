@@ -8,6 +8,9 @@ import { Installation, Organization, Repository, User } from '../common';
 
 export interface RepositoryPrivatizedEvent {
   action: 'privatized';
+  changes?: {
+    [k: string]: unknown;
+  };
   repository: Repository;
   sender: User;
   installation?: Installation;
