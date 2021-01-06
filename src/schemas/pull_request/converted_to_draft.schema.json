@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "pull_request$reopened",
+  "$id": "pull_request$converted_to_draft",
   "type": "object",
   "required": [
     "action",
@@ -13,7 +13,7 @@
     "action": {
       "type": "string",
       "enum": [
-        "reopened"
+        "converted_to_draft"
       ]
     },
     "number": {
@@ -1865,5 +1865,5 @@
     }
   },
   "additionalProperties": false,
-  "title": "pull_request reopened event"
+  "title": "pull_request ready_for_review event"
 }

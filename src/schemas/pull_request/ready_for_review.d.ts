@@ -443,7 +443,7 @@ export interface PullRequestReadyForReviewEvent {
     site_admin: boolean;
   };
   repository: Repository;
-  installation: Installation;
+  installation?: Installation;
   organization?: Organization;
   sender: User;
 }

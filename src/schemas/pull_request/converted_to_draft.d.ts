@@ -6,8 +6,8 @@ import { Installation, Organization, Repository, User } from '../common';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface PullRequestSynchronizeEvent {
-  action: 'synchronize';
+export interface PullRequestReadyForReviewEvent {
+  action: 'converted_to_draft';
   number: number;
   pull_request: {
     url: string;

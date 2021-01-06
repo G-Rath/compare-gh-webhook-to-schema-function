@@ -7,7 +7,6 @@
     "number",
     "pull_request",
     "repository",
-    "installation",
     "sender"
   ],
   "properties": {
