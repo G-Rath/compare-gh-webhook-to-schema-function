@@ -5,6 +5,10 @@
     "object",
     "null"
   ],
+  "required": [
+    "id",
+    "node_id"
+  ],
   "properties": {
     "id": {
       "type": "integer"
