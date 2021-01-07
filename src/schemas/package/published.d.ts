@@ -128,5 +128,5 @@ export interface PackagePublishedEvent {
   };
   repository: Repository;
   sender: User;
-  organization?: Organization;
+  organization?: Organization | null;
 }

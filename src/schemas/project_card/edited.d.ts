@@ -42,6 +42,6 @@ export interface ProjectCardEditedEvent {
   };
   repository: Repository;
   sender: User;
-  organization?: Organization;
-  installation?: Installation;
+  organization?: Organization | null;
+  installation?: Installation | null;
 }

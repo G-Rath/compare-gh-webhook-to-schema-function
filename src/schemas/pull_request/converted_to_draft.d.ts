@@ -6,8 +6,8 @@ import { Installation, Organization, Repository, User } from '../common';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface PullRequestLockedEvent {
-  action: 'locked';
+export interface PullRequestConvertedToDraftEvent {
+  action: 'converted_to_draft';
   number: number;
   pull_request: {
     url: string;

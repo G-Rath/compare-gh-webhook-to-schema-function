@@ -5,8 +5,8 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface InstallationDeletedEvent {
-  action: 'deleted';
+export interface InstallationNewPermissionsAcceptedEvent {
+  action: 'new_permissions_accepted';
   installation: {
     id: number;
     account: {

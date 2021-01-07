@@ -10,6 +10,6 @@ export interface RepositoryImportEvent {
   status: 'success' | 'cancelled' | 'failure';
   repository: Repository;
   sender: User;
-  installation?: Installation;
-  organization: Organization;
+  installation?: Installation | null;
+  organization: Organization | null;
 }

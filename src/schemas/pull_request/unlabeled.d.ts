@@ -443,7 +443,7 @@ export interface PullRequestUnlabeledEvent {
     site_admin: boolean;
   };
   repository: Repository;
-  installation: Installation;
-  organization?: Organization;
+  installation?: Installation | null;
+  organization?: Organization | null;
   sender: User;
 }

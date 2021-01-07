@@ -43,6 +43,6 @@ export interface MembershipAddedEvent {
     repositories_url: string;
     permission: string;
   };
-  organization: Organization;
-  installation?: Installation;
+  organization: Organization | null;
+  installation?: Installation | null;
 }

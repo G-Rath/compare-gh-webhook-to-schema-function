@@ -12,6 +12,6 @@ export interface DeleteEvent {
   pusher_type: string;
   repository: Repository;
   sender: User;
-  installation?: Installation;
-  organization?: Organization;
+  installation?: Installation | null;
+  organization?: Organization | null;
 }

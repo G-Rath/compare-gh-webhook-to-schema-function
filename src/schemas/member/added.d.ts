@@ -32,6 +32,6 @@ export interface MemberAddedEvent {
     [k: string]: unknown;
   };
   repository: Repository;
-  installation?: Installation;
+  installation?: Installation | null;
   sender: User;
 }

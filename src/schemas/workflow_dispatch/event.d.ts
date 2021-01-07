@@ -13,7 +13,7 @@ export interface WorkflowDispatchEvent {
   ref: string;
   repository: Repository;
   sender: User;
-  installation?: Installation;
-  organization: Organization;
+  installation?: Installation | null;
+  organization: Organization | null;
   workflow: string;
 }
