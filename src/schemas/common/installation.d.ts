@@ -6,9 +6,9 @@
  */
 
 export type Installation = {
-  id?: number;
-  node_id?: string;
+  id: number;
+  node_id: string;
 } & ({
-  id?: number;
-  node_id?: string;
+  id: number;
+  node_id: string;
 } | null);
