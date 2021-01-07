@@ -35,6 +35,6 @@ export interface OrganizationMemberAddedEvent {
     };
   };
   sender: User;
-  installation?: Installation;
-  organization: Organization;
+  installation?: Installation | null;
+  organization: Organization | null;
 }

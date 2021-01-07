@@ -29,33 +29,38 @@ export interface InstallationDeletedEvent {
       type: string;
       site_admin: boolean;
     };
-    repository_selection: string;
+    repository_selection: 'all' | 'selected';
     access_tokens_url: string;
     repositories_url: string;
     html_url: string;
     app_id: number;
+    app_slug?: string;
     target_id: number;
-    target_type: string;
+    target_type: 'User' | 'Organization';
     permissions: {
       administration?: string;
-      checks?: string;
-      contents?: string;
-      deployments?: string;
-      issues?: string;
-      pages?: string;
-      pull_requests?: string;
-      repository_hooks?: string;
-      repository_projects?: string;
-      statuses?: string;
-      metadata?: string;
-      vulnerability_alerts?: string;
+      checks?: 'read' | 'write';
+      contents?: 'read' | 'write';
+      deployments?: 'read' | 'write';
+      issues?: 'read' | 'write';
+      pages?: 'read' | 'write';
+      pull_requests?: 'read' | 'write';
+      repository_hooks?: 'read' | 'write';
+      repository_projects?: 'read' | 'write';
+      statuses?: 'read' | 'write';
+      metadata?: 'read' | 'write';
+      vulnerability_alerts?: 'read' | 'write';
     };
-    events: unknown[];
+    events: string[];
     created_at: number;
     updated_at: number;
     single_file_name: null | string;
+    has_multiple_single_files?: boolean;
+    single_file_paths?: unknown[];
+    suspended_by?: null | string;
+    suspended_at?: null | string;
   };
-  repositories: {
+  repositories?: {
     id: number;
     node_id: string;
     name: string;
@@ -79,7 +84,7 @@ export interface InstallationDeletedEvent {
     repos_url: string;
     events_url: string;
     received_events_url: string;
-    type: string;
+    type: 'User' | 'Organization';
     site_admin: boolean;
   };
 }

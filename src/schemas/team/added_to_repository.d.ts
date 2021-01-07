@@ -24,5 +24,5 @@ export interface TeamAddedToRepositoryEvent {
   };
   repository?: Repository;
   sender: User;
-  organization: Organization;
+  organization: Organization | null;
 }

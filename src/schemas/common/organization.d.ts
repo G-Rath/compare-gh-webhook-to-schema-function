@@ -5,88 +5,18 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Organization = {
-  login?: string;
-  id?: number;
-  type?: string;
-  name?: string;
-  company?: {
-    type?: string;
-    [k: string]: unknown;
-  } | null;
-  blog?: {
-    type?: string;
-    [k: string]: unknown;
-  } | null;
-  location?: {
-    type?: string;
-    [k: string]: unknown;
-  } | null;
-  email?: {
-    type?: string;
-    [k: string]: unknown;
-  } | null;
-  twitter_username?: string | null;
-  is_verified?: boolean;
-  has_organization_projects?: boolean;
-  has_repository_projects?: boolean;
-  public_repos?: number;
-  public_gists?: number;
-  followers?: number;
-  following?: number;
-  node_id?: string;
-  url?: string;
+export interface Organization {
+  login: string;
+  id: number;
+  node_id: string;
+  url: string;
   html_url?: string;
-  repos_url?: string;
-  events_url?: string;
-  hooks_url?: string;
-  issues_url?: string;
-  members_url?: string;
-  public_members_url?: string;
-  avatar_url?: string;
-  description?: string;
-  created_at?: string;
-  updated_at?: string;
-} & ({
-  login?: string;
-  id?: number;
-  type?: string;
-  name?: string;
-  company?: {
-    type?: string;
-    [k: string]: unknown;
-  } | null;
-  blog?: {
-    type?: string;
-    [k: string]: unknown;
-  } | null;
-  location?: {
-    type?: string;
-    [k: string]: unknown;
-  } | null;
-  email?: {
-    type?: string;
-    [k: string]: unknown;
-  } | null;
-  twitter_username?: string | null;
-  is_verified?: boolean;
-  has_organization_projects?: boolean;
-  has_repository_projects?: boolean;
-  public_repos?: number;
-  public_gists?: number;
-  followers?: number;
-  following?: number;
-  node_id?: string;
-  url?: string;
-  html_url?: string;
-  repos_url?: string;
-  events_url?: string;
-  hooks_url?: string;
-  issues_url?: string;
-  members_url?: string;
-  public_members_url?: string;
-  avatar_url?: string;
-  description?: string;
-  created_at?: string;
-  updated_at?: string;
-} | null);
+  repos_url: string;
+  events_url: string;
+  hooks_url: string;
+  issues_url: string;
+  members_url: string;
+  public_members_url: string;
+  avatar_url: string;
+  description: string;
+}

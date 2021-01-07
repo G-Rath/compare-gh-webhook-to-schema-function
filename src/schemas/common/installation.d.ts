@@ -5,10 +5,7 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Installation = {
-  id?: number;
-  node_id?: string;
-} & ({
-  id?: number;
-  node_id?: string;
-} | null);
+export interface Installation {
+  id: number;
+  node_id: string;
+}

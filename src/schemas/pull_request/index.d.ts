@@ -1,5 +1,6 @@
 export * from './assigned';
 export * from './closed';
+export * from './converted_to_draft';
 export * from './edited';
 export * from './labeled';
 export * from './locked';
@@ -15,6 +16,7 @@ export * from './unlocked';
 
 import { PullRequestAssignedEvent } from './assigned';
 import { PullRequestClosedEvent } from './closed';
+import { PullRequestConvertedToDraftEvent } from './converted_to_draft';
 import { PullRequestEditedEvent } from './edited';
 import { PullRequestLabeledEvent } from './labeled';
 import { PullRequestLockedEvent } from './locked';
@@ -31,6 +33,7 @@ import { PullRequestUnlockedEvent } from './unlocked';
 export type PullRequestEvent =
   | PullRequestAssignedEvent
   | PullRequestClosedEvent
+  | PullRequestConvertedToDraftEvent
   | PullRequestEditedEvent
   | PullRequestLabeledEvent
   | PullRequestLockedEvent

@@ -373,7 +373,7 @@ export interface PullRequestReviewCommentCreatedEvent {
     author_association: string;
   };
   repository: Repository;
-  installation?: Installation;
-  organization?: Organization;
+  installation?: Installation | null;
+  organization?: Organization | null;
   sender: User;
 }
