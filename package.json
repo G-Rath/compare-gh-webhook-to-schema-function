@@ -28,6 +28,11 @@
     "test": "jest",
     "typecheck": "tsc -p . --noEmit"
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "prettier": "prettier-config-ackama",
   "dependencies": {
     "@octokit/webhooks": "^7.21.0",
