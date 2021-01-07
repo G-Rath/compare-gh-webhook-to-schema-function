@@ -5,7 +5,6 @@ import { GithubEvent } from './types';
 declare global {
   export namespace NodeJS {
     export interface ProcessEnv {
-      // eslint-disable-next-line @typescript-eslint/naming-convention
       GITHUB_WEBHOOK_SECRET: string;
     }
   }
