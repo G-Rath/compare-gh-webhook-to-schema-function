@@ -22,6 +22,7 @@
     "build:ts": "tsc -p tsconfig.build.json",
     "copy-schemas": "ts-node -T scripts/copy-schemas.ts",
     "coverage": "jest --coverage",
+    "format": "prettier --write *.md *.yml --ignore-path .gitignore",
     "generate-types": "ts-node -T scripts/generate-types.ts",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "lint-fix": "eslint '*/**/*.{js,ts,tsx}' --fix",
