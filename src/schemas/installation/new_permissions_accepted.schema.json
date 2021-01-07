@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "installation$created",
+  "$id": "installation$new_permissions_accepted",
   "type": "object",
   "required": [
     "action",
@@ -11,7 +11,7 @@
     "action": {
       "type": "string",
       "enum": [
-        "created"
+        "new_permissions_accepted"
       ]
     },
     "installation": {
@@ -408,5 +408,5 @@
     }
   },
   "additionalProperties": false,
-  "title": "installation created event"
+  "title": "installation new_permissions_accepted event"
 }

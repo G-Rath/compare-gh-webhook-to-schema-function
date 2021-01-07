@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "pull_request$unassigned",
+  "$id": "pull_request$converted_to_draft",
   "type": "object",
   "required": [
     "action",
@@ -13,7 +13,7 @@
     "action": {
       "type": "string",
       "enum": [
-        "unassigned"
+        "converted_to_draft"
       ]
     },
     "number": {
@@ -1879,5 +1879,5 @@
     }
   },
   "additionalProperties": false,
-  "title": "pull_request unassigned event"
+  "title": "pull_request converted_to_draft event"
 }

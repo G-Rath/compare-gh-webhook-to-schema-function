@@ -5,7 +5,6 @@
   "required": [
     "action",
     "installation",
-    "repositories",
     "sender"
   ],
   "properties": {
@@ -118,7 +117,11 @@
           "additionalProperties": false
         },
         "repository_selection": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "all",
+            "selected"
+          ]
         },
         "access_tokens_url": {
           "type": "string"
@@ -132,11 +135,18 @@
         "app_id": {
           "type": "integer"
         },
+        "app_slug": {
+          "type": "string"
+        },
         "target_id": {
           "type": "integer"
         },
         "target_type": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "User",
+            "Organization"
+          ]
         },
         "permissions": {
           "type": "object",
@@ -146,44 +156,90 @@
               "type": "string"
             },
             "checks": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "contents": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "deployments": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "issues": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "pages": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "pull_requests": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "repository_hooks": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "repository_projects": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "statuses": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "metadata": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "vulnerability_alerts": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             }
           },
           "additionalProperties": false
         },
         "events": {
           "type": "array",
-          "items": {}
+          "items": {
+            "type": "string"
+          }
         },
         "created_at": {
           "type": "integer"
@@ -192,6 +248,33 @@
           "type": "integer"
         },
         "single_file_name": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "has_multiple_single_files": {
+          "type": "boolean"
+        },
+        "single_file_paths": {
+          "type": "array",
+          "items": {}
+        },
+        "suspended_by": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "suspended_at": {
           "oneOf": [
             {
               "type": "null"
@@ -311,7 +394,11 @@
           "type": "string"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "User",
+            "Organization"
+          ]
         },
         "site_admin": {
           "type": "boolean"
