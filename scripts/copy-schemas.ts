@@ -2,41 +2,20 @@
 
 /* eslint-disable node/no-sync */
 
+import webhooksSchema from '@octokit/webhooks-definitions/schema.json';
+import { strict as assert } from 'assert';
 import fs from 'fs';
 import { JSONSchema7 } from 'json-schema';
-import path from 'path';
 
-/*
-  this requires the octokit/webhooks repo cloned, and the schemas pr branch checked out:
-
-  git clone git@github.com:octokit/webhooks.git gh-schemas
-  cd gh-schemas
-  git checkout pr/186
- */
-const pathToWebhookSchemas = 'gh-schemas/payload-schemas/schemas';
 const outDir = 'src/schemas';
 
-const makeDirectory = (target: string) => {
-  fs.mkdirSync(target, { recursive: true });
-};
-
-const copyDirectory = (
-  source: string,
-  target: string,
-  afterCopyingFile?: (filePath: string) => void
-) => {
-  const contents = fs.readdirSync(source, { withFileTypes: true });
-
-  makeDirectory(target);
-
-  for (const dirent of contents) {
-    const from = `${source}/${dirent.name}`;
-    const to = `${target}/${dirent.name}`;
-
-    fs.copyFileSync(from, to);
-
-    afterCopyingFile?.(to);
+const getOriginalEventName = (name: string): string => {
+  // common schemas don't end with 'event'
+  if (!name.endsWith('_event')) {
+    return `common/${name}`;
   }
+
+  return `${name.substring(0, name.length - '_event'.length)}`;
 };
 
 const findEventActions = (schema: JSONSchema7): string[] => {
@@ -79,14 +58,10 @@ const createSchemaForAction = (
   return newSchema;
 };
 
-const copyEventSchema = (eventName: string) => {
+const createEventSchemas = (eventName: string, eventSchema: JSONSchema7) => {
   const eventFolder = `${outDir}/${eventName}`;
 
-  makeDirectory(eventFolder);
-
-  const eventSchema = JSON.parse(
-    fs.readFileSync(`${pathToWebhookSchemas}/${eventName}.schema.json`, 'utf-8')
-  ) as JSONSchema7;
+  fs.mkdirSync(eventFolder, { recursive: true });
 
   const actions = findEventActions(eventSchema);
   const schemas: Array<
@@ -116,48 +91,67 @@ const copyEventSchema = (eventName: string) => {
   return schemas;
 };
 
-const getEventName = (fileName: string): string => {
-  const split = fileName.split('.');
+fs.mkdirSync(`${outDir}/common`, { recursive: true });
 
-  if (split.length > 3) {
-    console.warn('event name for', fileName, "probably won't be right");
-  }
+type NameAndSchema = [name: string, schema: JSONSchema7];
 
-  return split[0];
-};
+// splits the schema.json in @octokit/webhooks-definitions into
+// the schema-per-event file format that the source repo has,
+// as that's whats expected by the other scripts (for now)
 
-const eventsWithSchemas = fs
-  .readdirSync(pathToWebhookSchemas)
-  .filter(fileName => fileName.endsWith('.schema.json'))
-  .map(fileName => getEventName(fileName));
+const [eventsWithSchemas, commonsWithSchemas] = Object.entries(
+  webhooksSchema.definitions as Record<string, JSONSchema7>
+).reduce<
+  [eventsWithSchemas: NameAndSchema[], commonsWithSchemas: NameAndSchema[]]
+>(
+  (arrays, nameAndSchema) => {
+    const originalName = getOriginalEventName(nameAndSchema[0]);
+    const isCommonSchema = originalName.startsWith('common/');
+    const arr = arrays[isCommonSchema ? 1 : 0];
 
-console.log('found', eventsWithSchemas.length, 'schemas');
+    arr.push(nameAndSchema);
 
-makeDirectory(outDir);
-copyDirectory(
-  `${pathToWebhookSchemas}/common`,
-  `${outDir}/common`,
-  filePath => {
-    const contents = JSON.parse(
-      fs.readFileSync(filePath, 'utf-8')
-    ) as JSONSchema7;
-
-    const { base } = path.parse(filePath);
-
-    // give each common schema a fileName based on their file name
-    const fileName = base.substring(0, base.length - '.schema.json'.length);
-
-    contents.title = `${fileName[0].toUpperCase()}${fileName.substring(1)}`;
-
-    fs.writeFileSync(filePath, `${JSON.stringify(contents, null, 2)}\n`);
-  }
+    return arrays;
+  },
+  [[], []]
 );
-eventsWithSchemas.forEach(eventName => {
-  const eventDirectory = `${outDir}/${eventName}`;
 
-  makeDirectory(eventDirectory);
+assert.ok(eventsWithSchemas.length > 0, 'no event schemas found!');
+assert.ok(commonsWithSchemas.length > 0, 'no common schemas found!');
 
-  const schemas = copyEventSchema(eventName);
+console.log('found', eventsWithSchemas.length, 'event schemas');
+console.log('found', commonsWithSchemas.length, 'common schemas');
+
+commonsWithSchemas.forEach(([name, contents]) => {
+  const fileName = `common/${name}.schema.json`;
+  const schema = cloneObject(contents);
+
+  schema.title = `${name[0].toUpperCase()}${name.substring(1)}`;
+  schema.$id = fileName;
+
+  fs.writeFileSync(
+    `${outDir}/${fileName}`,
+    `${JSON.stringify(schema, null, 2)}\n`
+  );
+});
+
+eventsWithSchemas.forEach(([name, definition]) => {
+  const eventName = getOriginalEventName(name);
+  const schemas = createEventSchemas(
+    eventName,
+    JSON.parse(
+      JSON.stringify(definition, (key, value: unknown) => {
+        if (typeof value === 'string' && value.startsWith('#/definitions/')) {
+          const ref = value.substring('#/definitions/'.length);
+
+          // restore $refs back to pointing at common schemas
+          return `common/${ref}.schema.json`;
+        }
+
+        return value;
+      })
+    )
+  );
 
   console.log('wrote', schemas.length, 'schemas for', eventName);
 });

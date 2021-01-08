@@ -16,13 +16,6 @@ const prettierConfig: Options = {
   printWidth: 80
 };
 
-/*
-  this requires the octokit/webhooks repo cloned, and the schemas pr branch checked out:
-
-  git clone git@github.com:octokit/webhooks.git gh-schemas
-  cd gh-schemas
-  git checkout pr/186
- */
 const pathToWebhookSchemas = 'src/schemas';
 
 const removeExtension = (fileName: string, ext: string): string => {
