@@ -10,6 +10,6 @@ export interface WatchStartedEvent {
   action: 'started';
   repository: Repository;
   sender: User;
-  installation?: Installation | null;
-  organization?: Organization | null;
+  installation?: Installation;
+  organization?: Organization;
 }

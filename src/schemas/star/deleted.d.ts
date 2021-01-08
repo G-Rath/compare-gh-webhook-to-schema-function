@@ -11,5 +11,5 @@ export interface StarDeletedEvent {
   starred_at: null | string;
   repository: Repository;
   sender: User;
-  organization?: Organization | null;
+  organization?: Organization;
 }

@@ -22,6 +22,6 @@ export interface User {
   repos_url: string;
   events_url: string;
   received_events_url: string;
-  type: string;
+  type: 'Bot' | 'User' | 'Organization';
   site_admin: boolean;
 }

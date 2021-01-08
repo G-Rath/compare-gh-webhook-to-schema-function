@@ -102,14 +102,7 @@
       "$ref": "common/repository.schema.json"
     },
     "installation": {
-      "oneOf": [
-        {
-          "$ref": "common/installation.schema.json"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "$ref": "common/installation.schema.json"
     },
     "sender": {
       "$ref": "common/user.schema.json"

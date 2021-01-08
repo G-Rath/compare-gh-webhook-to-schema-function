@@ -9,6 +9,6 @@ import { Installation, Organization, Repository, User } from '../common';
 export interface PublicEvent {
   repository: Repository;
   sender: User;
-  installation?: Installation | null;
-  organization?: Organization | null;
+  installation?: Installation;
+  organization?: Organization;
 }

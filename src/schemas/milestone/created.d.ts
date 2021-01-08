@@ -47,6 +47,6 @@ export interface MilestoneCreatedEvent {
   };
   repository: Repository;
   sender: User;
-  installation?: Installation | null;
-  organization?: Organization | null;
+  installation?: Installation;
+  organization?: Organization;
 }
