@@ -1,9 +1,9 @@
 service: gh-webhooks-schema-checker
 
 frameworkVersion: '2'
+useDotenv: true
 
 plugins:
-  - serverless-dotenv-plugin
   - serverless-plugin-scripts
   - serverless-azure-functions
 
@@ -12,6 +12,11 @@ provider:
   region: Australia East
   runtime: nodejs12
   stage: dev
+
+  # These environment vars are installed into **all** functions in the service
+  environment:
+    SLACK_WEBHOOK_URL: ${env:SLACK_WEBHOOK_URL}
+    GITHUB_WEBHOOK_SECRET: ${env:GITHUB_WEBHOOK_SECRET}
 
 custom:
   outDir: ${file(./tsconfig.build.json):compilerOptions.outDir}

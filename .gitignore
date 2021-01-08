@@ -5,15 +5,10 @@ jspm_packages
 # Serverless directories
 .serverless
 
-# compiled typescript goes in here
-.build
-
-.env.development
-.env.prod
+.env*
+!.env.*example
 .envrc
 
 coverage/
 
 /lib
-.tmp/
-!.tmp/.gitkeep
