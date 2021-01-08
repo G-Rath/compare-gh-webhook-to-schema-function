@@ -24,5 +24,5 @@ export interface TeamDeletedEvent {
   };
   repository?: Repository;
   sender: User;
-  organization: Organization | null;
+  organization: Organization;
 }

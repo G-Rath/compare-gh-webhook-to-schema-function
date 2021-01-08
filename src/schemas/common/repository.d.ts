@@ -119,4 +119,5 @@ export interface Repository {
     maintain?: boolean;
     triage?: boolean;
   };
+  public?: boolean;
 }

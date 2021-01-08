@@ -35,6 +35,6 @@ export interface OrganizationMemberRemovedEvent {
     };
   };
   sender: User;
-  installation?: Installation | null;
-  organization: Organization | null;
+  installation?: Installation;
+  organization: Organization;
 }

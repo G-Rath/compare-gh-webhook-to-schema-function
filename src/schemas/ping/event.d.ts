@@ -34,5 +34,5 @@ export interface PingEvent {
   };
   repository?: Repository;
   sender: User;
-  organization?: Organization | null;
+  organization?: Organization;
 }

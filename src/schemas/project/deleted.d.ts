@@ -44,6 +44,6 @@ export interface ProjectDeletedEvent {
   };
   repository: Repository;
   sender: User;
-  installation?: Installation | null;
-  organization?: Organization | null;
+  installation?: Installation;
+  organization?: Organization;
 }
