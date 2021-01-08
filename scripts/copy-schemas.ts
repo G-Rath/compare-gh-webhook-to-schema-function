@@ -109,7 +109,7 @@ const copyEventSchema = (eventName: string) => {
   schemas.forEach(([name, schema]) => {
     fs.writeFileSync(
       `${eventFolder}/${name}.schema.json`,
-      JSON.stringify(schema, null, 2)
+      `${JSON.stringify(schema, null, 2)}\n`
     );
   });
 
@@ -149,7 +149,7 @@ copyDirectory(
 
     contents.title = `${fileName[0].toUpperCase()}${fileName.substring(1)}`;
 
-    fs.writeFileSync(filePath, JSON.stringify(contents, null, 2));
+    fs.writeFileSync(filePath, `${JSON.stringify(contents, null, 2)}\n`);
   }
 );
 eventsWithSchemas.forEach(eventName => {
