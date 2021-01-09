@@ -82,5 +82,4 @@ Deployments are done using the serverless cli, like so:
 
     sls deploy --stage <stage>
 
-Currently, deployments are done manually but ideally will be moved to CI at some
-point.
+Deployments are done by CI when content is pushed to the `main` branch.

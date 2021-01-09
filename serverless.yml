@@ -16,7 +16,7 @@ provider:
   # These environment vars are installed into **all** functions in the service
   environment:
     SLACK_WEBHOOK_URL: ${env:SLACK_WEBHOOK_URL}
-    GITHUB_WEBHOOK_SECRET: ${env:GITHUB_WEBHOOK_SECRET}
+    GH_WEBHOOK_SECRET: ${env:GH_WEBHOOK_SECRET}
 
 custom:
   outDir: ${file(./tsconfig.build.json):compilerOptions.outDir}
