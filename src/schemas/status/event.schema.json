@@ -179,13 +179,42 @@
                   "type": "boolean"
                 },
                 "reason": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "expired_key",
+                    "not_signing_key",
+                    "gpgverify_error",
+                    "gpgverify_unavailable",
+                    "unsigned",
+                    "unknown_signature_type",
+                    "no_user",
+                    "unverified_email",
+                    "bad_email",
+                    "unknown_key",
+                    "malformed_signature",
+                    "invalid",
+                    "valid"
+                  ]
                 },
                 "signature": {
-                  "type": "string"
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "payload": {
-                  "type": "string"
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 }
               },
               "additionalProperties": false

@@ -43,7 +43,14 @@
           "type": "string"
         },
         "head_branch": {
-          "type": "string"
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "head_sha": {
           "type": "string"
@@ -70,9 +77,7 @@
               "type": "null"
             },
             {
-              "type": [
-                "string"
-              ],
+              "type": "string",
               "enum": [
                 "success",
                 "failure",
@@ -216,6 +221,9 @@
             "id": {
               "type": "integer"
             },
+            "slug": {
+              "type": "string"
+            },
             "node_id": {
               "type": "string"
             },
@@ -265,61 +273,144 @@
               ],
               "properties": {
                 "administration": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
+                },
+                "actions": {
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "checks": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "contents": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "deployments": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "issues": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "members": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "metadata": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "organization_administration": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "organization_hooks": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "organization_plan": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "organization_projects": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "organization_user_blocking": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "pages": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "pull_requests": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "repository_hooks": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "repository_projects": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "statuses": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "team_discussions": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 },
                 "vulnerability_alerts": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "read",
+                    "write"
+                  ]
                 }
               },
               "additionalProperties": false

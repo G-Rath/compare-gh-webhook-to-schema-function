@@ -16,7 +16,11 @@
       "type": "string"
     },
     "ref_type": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "tag",
+        "branch"
+      ]
     },
     "master_branch": {
       "type": "string"

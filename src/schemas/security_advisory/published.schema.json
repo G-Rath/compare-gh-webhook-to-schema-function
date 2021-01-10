@@ -89,7 +89,14 @@
           "type": "string"
         },
         "withdrawn_at": {
-          "type": "null"
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "vulnerabilities": {
           "type": "array",
@@ -127,16 +134,23 @@
                     "type": "string"
                   },
                   "first_patched_version": {
-                    "type": "object",
-                    "required": [
-                      "identifier"
-                    ],
-                    "properties": {
-                      "identifier": {
-                        "type": "string"
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "required": [
+                          "identifier"
+                        ],
+                        "properties": {
+                          "identifier": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
                       }
-                    },
-                    "additionalProperties": false
+                    ]
                   }
                 },
                 "additionalProperties": false

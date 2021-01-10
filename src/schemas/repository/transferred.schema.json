@@ -4,6 +4,7 @@
   "type": "object",
   "required": [
     "action",
+    "changes",
     "repository",
     "sender"
   ],
@@ -16,25 +17,15 @@
     },
     "changes": {
       "type": "object",
+      "required": [
+        "owner"
+      ],
       "properties": {
-        "description": {
-          "type": "object",
-          "properties": {
-            "from": {
-              "type": "string"
-            }
-          }
-        },
-        "default_branch": {
-          "type": "object",
-          "properties": {
-            "from": {
-              "type": "string"
-            }
-          }
-        },
         "owner": {
           "type": "object",
+          "required": [
+            "from"
+          ],
           "properties": {
             "from": {
               "type": "object",
@@ -42,19 +33,12 @@
                 "user": {
                   "$ref": "common/user.schema.json"
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
-        },
-        "homepage": {
-          "type": "object",
-          "properties": {
-            "from": {
-              "type": "string"
-            }
-          }
-        },
-        "additionalProperties": false
+          },
+          "additionalProperties": false
+        }
       },
       "additionalProperties": false
     },

@@ -57,10 +57,6 @@
       },
       "additionalProperties": false
     },
-    "changes": {
-      "type": "object",
-      "properties": {}
-    },
     "repository": {
       "$ref": "common/repository.schema.json"
     },

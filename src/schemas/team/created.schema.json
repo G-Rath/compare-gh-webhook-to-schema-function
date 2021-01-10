@@ -15,11 +15,6 @@
         "created"
       ]
     },
-    "changes": {
-      "type": "object",
-      "required": [],
-      "additionalProperties": false
-    },
     "team": {
       "type": "object",
       "required": [

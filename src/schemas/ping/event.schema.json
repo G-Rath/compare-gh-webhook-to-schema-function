@@ -5,8 +5,7 @@
   "required": [
     "zen",
     "hook_id",
-    "hook",
-    "sender"
+    "hook"
   ],
   "properties": {
     "zen": {

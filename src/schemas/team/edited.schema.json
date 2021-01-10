@@ -4,6 +4,7 @@
   "type": "object",
   "required": [
     "action",
+    "changes",
     "team",
     "organization",
     "sender"
@@ -18,6 +19,77 @@
     "changes": {
       "type": "object",
       "required": [],
+      "properties": {
+        "description": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "privacy": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "repository": {
+          "type": "object",
+          "required": [
+            "permissions"
+          ],
+          "properties": {
+            "permissions": {
+              "type": "object",
+              "required": [
+                "from"
+              ],
+              "properties": {
+                "from": {
+                  "type": "object",
+                  "properties": {
+                    "admin": {
+                      "type": "boolean"
+                    },
+                    "pull": {
+                      "type": "boolean"
+                    },
+                    "push": {
+                      "type": "boolean"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
       "additionalProperties": false
     },
     "team": {
