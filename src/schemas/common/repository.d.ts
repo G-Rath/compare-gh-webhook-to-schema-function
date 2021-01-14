@@ -14,8 +14,8 @@ export interface Repository {
   owner: {
     login: string;
     id: number;
-    name?: null | string;
-    email?: null | string;
+    name?: string | null;
+    email?: string | null;
     node_id: string;
     avatar_url: string;
     gravatar_id: string;
@@ -34,7 +34,7 @@ export interface Repository {
     site_admin: boolean;
   };
   html_url: string;
-  description: null | string;
+  description: string | null;
   fork: boolean;
   url: string;
   forks_url: string;
@@ -80,37 +80,37 @@ export interface Repository {
   ssh_url: string;
   clone_url: string;
   svn_url: string;
-  homepage: null | string;
+  homepage: string | null;
   size: number;
   stargazers_count: number;
   watchers_count: number;
-  language: null | string;
+  language: string | null;
   has_issues: boolean;
   has_projects: boolean;
   has_downloads: boolean;
   has_wiki: boolean;
   has_pages: boolean;
   forks_count: number;
-  mirror_url: null | string;
+  mirror_url: string | null;
   archived: boolean;
   disabled?: boolean;
   open_issues_count: number;
-  license:
-    | null
-    | string
-    | {
-        key?: string;
-        name?: string;
-        spdx_id?: string;
-        url?: string;
-        node_id?: string;
-        [k: string]: unknown;
-      };
+  license: {
+    key: string;
+    name: string;
+    spdx_id: string;
+    url: string;
+    node_id: string;
+  } | null;
   forks: number;
   open_issues: number;
   watchers: number;
   stargazers?: number;
   default_branch: string;
+  allow_squash_merge?: boolean;
+  allow_merge_commit?: boolean;
+  allow_rebase_merge?: boolean;
+  delete_branch_on_merge?: boolean;
   master_branch?: string;
   permissions?: {
     pull: boolean;

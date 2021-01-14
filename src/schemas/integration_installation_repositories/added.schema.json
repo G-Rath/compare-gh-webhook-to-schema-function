@@ -198,7 +198,9 @@
         },
         "events": {
           "type": "array",
-          "items": {}
+          "items": {
+            "type": "string"
+          }
         },
         "created_at": {
           "type": "integer"
@@ -218,41 +220,65 @@
     "repositories_added": {
       "type": "array",
       "items": {
-        "anyOf": [
-          {
-            "type": "object",
-            "required": [
-              "id",
-              "node_id",
-              "name",
-              "full_name",
-              "private"
-            ],
-            "properties": {
-              "id": {
-                "type": "integer"
-              },
-              "node_id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "full_name": {
-                "type": "string"
-              },
-              "private": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
+        "type": "object",
+        "required": [
+          "id",
+          "node_id",
+          "name",
+          "full_name",
+          "private"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "full_name": {
+            "type": "string"
+          },
+          "private": {
+            "type": "boolean"
           }
-        ]
+        },
+        "additionalProperties": false
       }
     },
     "repositories_removed": {
       "type": "array",
-      "items": {}
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "node_id",
+          "name",
+          "full_name",
+          "private"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "full_name": {
+            "type": "string"
+          },
+          "private": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "maxItems": 0
     },
     "sender": {
       "$ref": "common/user.schema.json"

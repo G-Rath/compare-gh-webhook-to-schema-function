@@ -33,6 +33,6 @@ export interface PingEvent {
     };
   };
   repository?: Repository;
-  sender: User;
+  sender?: User;
   organization?: Organization;
 }

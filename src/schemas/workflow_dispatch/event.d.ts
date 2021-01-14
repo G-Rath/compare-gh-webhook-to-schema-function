@@ -14,6 +14,6 @@ export interface WorkflowDispatchEvent {
   repository: Repository;
   sender: User;
   installation?: Installation;
-  organization: Organization;
+  organization?: Organization;
   workflow: string;
 }

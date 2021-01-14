@@ -51,7 +51,7 @@ export interface IntegrationInstallationCreatedEvent {
       metadata: string;
       vulnerability_alerts: string;
     };
-    events: unknown[];
+    events: string[];
     created_at: number;
     updated_at: number;
     single_file_name: null;

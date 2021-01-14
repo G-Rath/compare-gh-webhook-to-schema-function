@@ -55,11 +55,11 @@ export interface InstallationDeletedEvent {
     events: string[];
     created_at: number;
     updated_at: number;
-    single_file_name: null | string;
+    single_file_name: string | null;
     has_multiple_single_files?: boolean;
-    single_file_paths?: unknown[];
-    suspended_by?: null | string;
-    suspended_at?: null | string;
+    single_file_paths?: string[];
+    suspended_by?: string | null;
+    suspended_at?: string | null;
   };
   repositories?: {
     id: number;
@@ -68,5 +68,6 @@ export interface InstallationDeletedEvent {
     full_name: string;
     private: boolean;
   }[];
+  requester?: null;
   sender: User;
 }

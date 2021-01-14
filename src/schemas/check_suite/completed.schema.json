@@ -43,46 +43,41 @@
           "type": "string"
         },
         "head_branch": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "head_sha": {
           "type": "string"
         },
         "status": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "type": "string",
-              "enum": [
-                "requested",
-                "in_progress",
-                "completed",
-                "queued"
-              ]
-            }
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "requested",
+            "in_progress",
+            "completed",
+            "queued",
+            null
           ]
         },
         "conclusion": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "type": [
-                "string"
-              ],
-              "enum": [
-                "success",
-                "failure",
-                "neutral",
-                "cancelled",
-                "timed_out",
-                "action_required",
-                "stale"
-              ]
-            }
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "success",
+            "failure",
+            "neutral",
+            "cancelled",
+            "timed_out",
+            "action_required",
+            "stale",
+            null
           ]
         },
         "url": {
@@ -97,241 +92,70 @@
         "pull_requests": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "required": [
+              "url",
+              "id",
+              "number",
+              "head",
+              "base"
+            ],
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "number": {
+                "type": "integer"
+              },
+              "head": {
                 "type": "object",
                 "required": [
-                  "url",
-                  "id",
-                  "number",
-                  "head",
-                  "base"
+                  "ref",
+                  "sha",
+                  "repo"
                 ],
                 "properties": {
-                  "url": {
+                  "ref": {
                     "type": "string"
                   },
-                  "id": {
-                    "type": "integer"
+                  "sha": {
+                    "type": "string"
                   },
-                  "number": {
-                    "type": "integer"
+                  "repo": {
+                    "$ref": "common/repo-ref.schema.json"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "base": {
+                "type": "object",
+                "required": [
+                  "ref",
+                  "sha",
+                  "repo"
+                ],
+                "properties": {
+                  "ref": {
+                    "type": "string"
                   },
-                  "head": {
-                    "type": "object",
-                    "required": [
-                      "ref",
-                      "sha",
-                      "repo"
-                    ],
-                    "properties": {
-                      "ref": {
-                        "type": "string"
-                      },
-                      "sha": {
-                        "type": "string"
-                      },
-                      "repo": {
-                        "type": "object",
-                        "required": [
-                          "id",
-                          "url",
-                          "name"
-                        ],
-                        "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
-                          "url": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "type": "string"
-                          }
-                        },
-                        "additionalProperties": false
-                      }
-                    },
-                    "additionalProperties": false
+                  "sha": {
+                    "type": "string"
                   },
-                  "base": {
-                    "type": "object",
-                    "required": [
-                      "ref",
-                      "sha",
-                      "repo"
-                    ],
-                    "properties": {
-                      "ref": {
-                        "type": "string"
-                      },
-                      "sha": {
-                        "type": "string"
-                      },
-                      "repo": {
-                        "type": "object",
-                        "required": [
-                          "id",
-                          "url",
-                          "name"
-                        ],
-                        "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
-                          "url": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "type": "string"
-                          }
-                        },
-                        "additionalProperties": false
-                      }
-                    },
-                    "additionalProperties": false
+                  "repo": {
+                    "$ref": "common/repo-ref.schema.json"
                   }
                 },
                 "additionalProperties": false
               }
-            ]
+            },
+            "additionalProperties": false
           }
         },
         "app": {
-          "type": "object",
-          "required": [
-            "id",
-            "node_id",
-            "owner",
-            "name",
-            "description",
-            "external_url",
-            "html_url",
-            "created_at",
-            "updated_at",
-            "permissions",
-            "events"
-          ],
-          "properties": {
-            "id": {
-              "type": "integer"
-            },
-            "node_id": {
-              "type": "string"
-            },
-            "owner": {
-              "$ref": "common/user.schema.json"
-            },
-            "name": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "external_url": {
-              "type": "string"
-            },
-            "html_url": {
-              "type": "string"
-            },
-            "created_at": {
-              "type": "string"
-            },
-            "updated_at": {
-              "type": "string"
-            },
-            "permissions": {
-              "type": "object",
-              "required": [
-                "administration",
-                "checks",
-                "contents",
-                "deployments",
-                "issues",
-                "members",
-                "metadata",
-                "organization_administration",
-                "organization_hooks",
-                "organization_plan",
-                "organization_projects",
-                "organization_user_blocking",
-                "pages",
-                "pull_requests",
-                "repository_hooks",
-                "repository_projects",
-                "statuses",
-                "team_discussions",
-                "vulnerability_alerts"
-              ],
-              "properties": {
-                "administration": {
-                  "type": "string"
-                },
-                "checks": {
-                  "type": "string"
-                },
-                "contents": {
-                  "type": "string"
-                },
-                "deployments": {
-                  "type": "string"
-                },
-                "issues": {
-                  "type": "string"
-                },
-                "members": {
-                  "type": "string"
-                },
-                "metadata": {
-                  "type": "string"
-                },
-                "organization_administration": {
-                  "type": "string"
-                },
-                "organization_hooks": {
-                  "type": "string"
-                },
-                "organization_plan": {
-                  "type": "string"
-                },
-                "organization_projects": {
-                  "type": "string"
-                },
-                "organization_user_blocking": {
-                  "type": "string"
-                },
-                "pages": {
-                  "type": "string"
-                },
-                "pull_requests": {
-                  "type": "string"
-                },
-                "repository_hooks": {
-                  "type": "string"
-                },
-                "repository_projects": {
-                  "type": "string"
-                },
-                "statuses": {
-                  "type": "string"
-                },
-                "team_discussions": {
-                  "type": "string"
-                },
-                "vulnerability_alerts": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
-            },
-            "events": {
-              "type": "array",
-              "items": {
-                "type": "object"
-              }
-            }
-          },
-          "additionalProperties": false
+          "$ref": "common/app.schema.json"
         },
         "created_at": {
           "type": "string"

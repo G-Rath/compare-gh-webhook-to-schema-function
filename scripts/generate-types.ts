@@ -6,7 +6,7 @@ import { promises as fs } from 'fs';
 import { JSONSchema7 } from 'json-schema';
 import { compileFromFile } from 'json-schema-to-typescript';
 import path from 'path';
-import { Options } from 'prettier';
+import { Options, format } from 'prettier';
 import { prettier as prettierConfigPackage } from '../package.json';
 
 const prettierConfig: Options = {
@@ -77,7 +77,7 @@ const createCommonSchemaResolver = async (): Promise<ExternalInterfaceSchemaReso
 
       assert.ok(schema);
 
-      const tsType = schema.title ?? schema.$id ?? base;
+      const tsType = guessAtInterfaceName(schema.title ?? schema.$id ?? base);
 
       interfacesToImport.add(tsType);
 
@@ -117,7 +117,10 @@ const writeTypesForSchema = async (pathToSchema: string) => {
 
   await fs.writeFile(
     `${dir}/${fileName}.d.ts`,
-    await compileSchema(pathToSchema)
+    format(await compileSchema(pathToSchema), {
+      ...prettierConfig,
+      parser: 'typescript'
+    })
   );
 };
 
@@ -146,8 +149,11 @@ const writeBarrelForDirectory = async (directory: string, extra = '') => {
 
 const titleCase = (str: string) => `${str[0].toUpperCase()}${str.substring(1)}`;
 
-const guessAtInterfaceName = (str: string) =>
-  str.split('_').map(titleCase).join('');
+const guessAtInterfaceName = (str: string): string =>
+  str
+    .split(/[$_ -]/u)
+    .map(titleCase)
+    .join('');
 
 const buildUnion = (name: string, elements: string[]): string[] => {
   const union = `export type ${name} = ${elements.join(' | ')};`;

@@ -8,28 +8,6 @@ import { Installation, Organization, Repository, User } from '../common';
 
 export interface RepositoryCreatedEvent {
   action: 'created';
-  changes?: {
-    description?: {
-      from?: string;
-      [k: string]: unknown;
-    };
-    default_branch?: {
-      from?: string;
-      [k: string]: unknown;
-    };
-    owner?: {
-      from?: {
-        user?: User;
-        [k: string]: unknown;
-      };
-      [k: string]: unknown;
-    };
-    homepage?: {
-      from?: string;
-      [k: string]: unknown;
-    };
-    additionalProperties?: false;
-  };
   repository: Repository;
   sender: User;
   installation?: Installation;

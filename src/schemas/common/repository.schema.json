@@ -122,23 +122,15 @@
           "type": "integer"
         },
         "name": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "type": "string"
-            }
+          "type": [
+            "string",
+            "null"
           ]
         },
         "email": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "type": "string"
-            }
+          "type": [
+            "string",
+            "null"
           ]
         },
         "node_id": {
@@ -196,13 +188,9 @@
       "type": "string"
     },
     "description": {
-      "oneOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "string"
-        }
+      "type": [
+        "string",
+        "null"
       ]
     },
     "fork": {
@@ -355,13 +343,9 @@
       "type": "string"
     },
     "homepage": {
-      "oneOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "string"
-        }
+      "type": [
+        "string",
+        "null"
       ]
     },
     "size": {
@@ -374,13 +358,9 @@
       "type": "integer"
     },
     "language": {
-      "oneOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "string"
-        }
+      "type": [
+        "string",
+        "null"
       ]
     },
     "has_issues": {
@@ -402,13 +382,9 @@
       "type": "integer"
     },
     "mirror_url": {
-      "oneOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "string"
-        }
+      "type": [
+        "string",
+        "null"
       ]
     },
     "archived": {
@@ -421,34 +397,35 @@
       "type": "integer"
     },
     "license": {
-      "oneOf": [
-        {
-          "type": "null"
-        },
-        {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "key",
+        "name",
+        "spdx_id",
+        "url",
+        "node_id"
+      ],
+      "properties": {
+        "key": {
           "type": "string"
         },
-        {
-          "type": "object",
-          "properties": {
-            "key": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "spdx_id": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
-            },
-            "node_id": {
-              "type": "string"
-            }
-          }
+        "name": {
+          "type": "string"
+        },
+        "spdx_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "node_id": {
+          "type": "string"
         }
-      ]
+      },
+      "additionalProperties": false
     },
     "forks": {
       "type": "integer"
@@ -464,6 +441,18 @@
     },
     "default_branch": {
       "type": "string"
+    },
+    "allow_squash_merge": {
+      "type": "boolean"
+    },
+    "allow_merge_commit": {
+      "type": "boolean"
+    },
+    "allow_rebase_merge": {
+      "type": "boolean"
+    },
+    "delete_branch_on_merge": {
+      "type": "boolean"
     },
     "master_branch": {
       "type": "string"

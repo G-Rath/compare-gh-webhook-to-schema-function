@@ -28,36 +28,24 @@
       "type": "string"
     },
     "avatar_url": {
-      "oneOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "string"
-        }
+      "type": [
+        "string",
+        "null"
       ]
     },
     "target_url": {
-      "oneOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "string"
-        }
+      "type": [
+        "string",
+        "null"
       ]
     },
     "context": {
       "type": "string"
     },
     "description": {
-      "oneOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "string"
-        }
+      "type": [
+        "string",
+        "null"
       ]
     },
     "state": {
@@ -179,13 +167,34 @@
                   "type": "boolean"
                 },
                 "reason": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "expired_key",
+                    "not_signing_key",
+                    "gpgverify_error",
+                    "gpgverify_unavailable",
+                    "unsigned",
+                    "unknown_signature_type",
+                    "no_user",
+                    "unverified_email",
+                    "bad_email",
+                    "unknown_key",
+                    "malformed_signature",
+                    "invalid",
+                    "valid"
+                  ]
                 },
                 "signature": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "payload": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "additionalProperties": false
@@ -372,41 +381,37 @@
     "branches": {
       "type": "array",
       "items": {
-        "anyOf": [
-          {
+        "type": "object",
+        "required": [
+          "name",
+          "commit",
+          "protected"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "commit": {
             "type": "object",
             "required": [
-              "name",
-              "commit",
-              "protected"
+              "sha",
+              "url"
             ],
             "properties": {
-              "name": {
+              "sha": {
                 "type": "string"
               },
-              "commit": {
-                "type": "object",
-                "required": [
-                  "sha",
-                  "url"
-                ],
-                "properties": {
-                  "sha": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string"
-                  }
-                },
-                "additionalProperties": false
-              },
-              "protected": {
-                "type": "boolean"
+              "url": {
+                "type": "string"
               }
             },
             "additionalProperties": false
+          },
+          "protected": {
+            "type": "boolean"
           }
-        ]
+        },
+        "additionalProperties": false
       }
     },
     "created_at": {

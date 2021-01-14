@@ -8,7 +8,7 @@ import { Organization, Repository, User } from '../common';
 
 export interface StarCreatedEvent {
   action: 'created';
-  starred_at: null | string;
+  starred_at: string;
   repository: Repository;
   sender: User;
   organization?: Organization;

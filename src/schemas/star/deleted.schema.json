@@ -16,14 +16,7 @@
       ]
     },
     "starred_at": {
-      "oneOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "string"
-        }
-      ]
+      "type": "null"
     },
     "repository": {
       "$ref": "common/repository.schema.json"

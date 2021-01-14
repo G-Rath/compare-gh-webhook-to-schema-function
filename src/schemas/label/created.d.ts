@@ -17,9 +17,6 @@ export interface LabelCreatedEvent {
     default: boolean;
     description?: string | null;
   };
-  changes?: {
-    [k: string]: unknown;
-  };
   repository: Repository;
   sender: User;
   installation?: Installation;
