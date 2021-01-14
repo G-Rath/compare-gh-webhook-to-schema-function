@@ -5,7 +5,7 @@ import { GithubEvent } from './types';
 declare global {
   export namespace NodeJS {
     export interface ProcessEnv {
-      GITHUB_WEBHOOK_SECRET: string;
+      GH_WEBHOOK_SECRET: string;
     }
   }
 }
@@ -13,9 +13,9 @@ declare global {
 export const getEvent = (request: HttpRequest): GithubEvent => {
   const rawBody = (request.rawBody as string) || '{}';
   const signature: string = request.headers['x-hub-signature-256'];
-  const { GITHUB_WEBHOOK_SECRET } = process.env;
+  const { GH_WEBHOOK_SECRET } = process.env;
 
-  if (verify(GITHUB_WEBHOOK_SECRET, rawBody, signature)) {
+  if (verify(GH_WEBHOOK_SECRET, rawBody, signature)) {
     // ensure we're referencing a header that is defined, outside of the cast
     // https://github.com/Azure/azure-functions-nodejs-worker/pull/359
     const name = request.headers['x-github-event'] as GithubEvent['name'];

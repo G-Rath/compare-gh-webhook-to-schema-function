@@ -25,10 +25,10 @@ const buildHttpRequest = (
 };
 
 describe('getEvent', () => {
-  beforeEach(() => (process.env.GITHUB_WEBHOOK_SECRET = 'mysecret'));
+  beforeEach(() => (process.env.GH_WEBHOOK_SECRET = 'mysecret'));
 
   describe('when the secret is missing from the env', () => {
-    beforeEach(() => (process.env.GITHUB_WEBHOOK_SECRET = ''));
+    beforeEach(() => (process.env.GH_WEBHOOK_SECRET = ''));
 
     it('throws', () => {
       const request = buildHttpRequest({ name: 'ping', payload: pingEvent });

@@ -1,0 +1,140 @@
+name: 'deploy'
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  # reduces noise from npm post-install scripts
+  DISABLE_OPENCOLLECTIVE: true
+  OPEN_SOURCE_CONTRIBUTOR: true
+
+jobs:
+  cancel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.6.0
+        with:
+          access_token: ${{ github.token }}
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
+      - run: npm run lint
+
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
+      - run: npm run typecheck
+
+  test:
+    name: Test on ${{ matrix.os }} using Node.js v12
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
+      - run: npm test -- --coverage
+
+  deploy:
+    runs-on: windows-latest
+    needs:
+      - cancel
+      - lint
+      - typecheck
+      - test
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
+
+      - if: always()
+        run: |
+          curl -sX POST ${{ secrets.SLACK_WEBHOOK_URL }} --data \
+          "{ 'text': ':information_source: Starting deployment to Azure' }"
+
+      - name: serverless deploy
+        run: npx sls deploy
+        env:
+          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          GH_WEBHOOK_SECRET: ${{ secrets.GH_WEBHOOK_SECRET }}
+
+      - if: success()
+        run: |
+          curl -sX POST ${{ secrets.SLACK_WEBHOOK_URL }} --data \
+          "{ 'text': ':rocket: Successfully deployed to Azure' }"
+
+      - if: cancelled()
+        run: |
+          curl -sX POST ${{ secrets.SLACK_WEBHOOK_URL }} --data \
+          "{ 'text': ':information_source: A deployment to Azure was cancalled' }"
+
+      - if: failure()
+        run: |
+          curl -sX POST ${{ secrets.SLACK_WEBHOOK_URL }} --data \
+          "{ 'text': ':warning: An error occurred when deploying to Azure' }"
