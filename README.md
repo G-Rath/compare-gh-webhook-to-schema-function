@@ -1,6 +1,30 @@
 # compare-gh-webhook-to-schema-function
 
-Azure function that compares gh webhook payloads against their schema
+Azure function that compares gh webhook payloads against their schema.
+
+## Usage
+
+This project is deployed as an azure function using serverless, and can be found
+[here](https://sls-ause-dev-gh-webhooks-schema-checker.azurewebsites.net/api/github).
+
+Alternatively you can deploy your own instance of this function to Azure - to do
+this, follow the steps
+[here](https://www.serverless.com/framework/docs/providers/azure/guide/credentials/)
+to set up credentials, and then run `sls deploy`.
+
+Create a new webhook in GitHub by following the steps in the
+[docs](https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/creating-webhooks),
+using the url of the azure function.
+
+(The secret value is currently a secret - you can contact me on Github if you
+wish to know it)
+
+When an event triggers the webhook, the function will validate the event against
+the appropriate json schemas, and returns the results of the validation as its
+response.
+
+You can review these results in webhook's management page on GitHub, in the
+"Recent Deliveries" section.
 
 ## Contributing
 
