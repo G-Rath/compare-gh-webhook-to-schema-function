@@ -111,6 +111,10 @@ export interface Repository {
   watchers: number;
   stargazers?: number;
   default_branch: string;
+  allow_squash_merge?: boolean;
+  allow_merge_commit?: boolean;
+  allow_rebase_merge?: boolean;
+  delete_branch_on_merge?: boolean;
   master_branch?: string;
   permissions?: {
     pull: boolean;

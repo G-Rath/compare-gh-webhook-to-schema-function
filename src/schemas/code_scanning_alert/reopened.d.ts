@@ -21,8 +21,8 @@ export interface CodeScanningAlertReopenedEvent {
     }[];
     state: string;
     dismissed_by: null;
-    dismissed_at: null;
-    dismissed_reason: null;
+    dismissed_at: null | string;
+    dismissed_reason: null | string;
     rule: {
       id: string;
       severity: string;

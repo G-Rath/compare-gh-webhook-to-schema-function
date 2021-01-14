@@ -68,5 +68,6 @@ export interface InstallationNewPermissionsAcceptedEvent {
     full_name: string;
     private: boolean;
   }[];
+  requester?: null;
   sender: User;
 }

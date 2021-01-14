@@ -15,8 +15,48 @@ export interface PushEvent {
   forced: boolean;
   base_ref: null;
   compare: string;
-  commits: unknown[];
-  head_commit: null;
+  commits: {
+    id: string;
+    tree_id: string;
+    distinct: boolean;
+    message: string;
+    timestamp: string;
+    url: string;
+    author: {
+      name: string;
+      email: string;
+      username: string;
+    };
+    committer: {
+      name: string;
+      email: string;
+      username: string;
+    };
+    added: string[];
+    removed: string[];
+    modified: string[];
+  }[];
+  head_commit: null | {
+    id: string;
+    tree_id: string;
+    distinct: boolean;
+    message: string;
+    timestamp: string;
+    url: string;
+    author: {
+      name: string;
+      email: string;
+      username: string;
+    };
+    committer: {
+      name: string;
+      email: string;
+      username: string;
+    };
+    added: string[];
+    removed: string[];
+    modified: string[];
+  };
   repository: Repository;
   pusher: {
     name: string;

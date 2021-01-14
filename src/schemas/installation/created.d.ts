@@ -68,5 +68,6 @@ export interface InstallationCreatedEvent {
     full_name: string;
     private: boolean;
   }[];
+  requester?: null;
   sender: User;
 }

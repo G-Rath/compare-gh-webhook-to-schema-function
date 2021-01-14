@@ -11,5 +11,5 @@ export interface RepositoryImportEvent {
   repository: Repository;
   sender: User;
   installation?: Installation;
-  organization: Organization;
+  organization?: Organization;
 }

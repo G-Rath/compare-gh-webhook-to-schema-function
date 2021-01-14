@@ -19,26 +19,7 @@ export interface IssuesEditedEvent {
     node_id: string;
     number: number;
     title: string;
-    user: {
-      login: string;
-      id: number;
-      node_id: string;
-      avatar_url: string;
-      gravatar_id: string;
-      url: string;
-      html_url: string;
-      followers_url: string;
-      following_url: string;
-      gists_url: string;
-      starred_url: string;
-      subscriptions_url: string;
-      organizations_url: string;
-      repos_url: string;
-      events_url: string;
-      received_events_url: string;
-      type: string;
-      site_admin: boolean;
-    };
+    user: User;
     labels?: {
       id: number;
       node_id: string;
@@ -47,48 +28,10 @@ export interface IssuesEditedEvent {
       color: string;
       default: boolean;
     }[];
-    state?: string;
+    state?: 'open' | 'closed';
     locked?: boolean;
-    assignee?: null | {
-      login: string;
-      id: number;
-      node_id: string;
-      avatar_url: string;
-      gravatar_id: string;
-      url: string;
-      html_url: string;
-      followers_url: string;
-      following_url: string;
-      gists_url: string;
-      starred_url: string;
-      subscriptions_url: string;
-      organizations_url: string;
-      repos_url: string;
-      events_url: string;
-      received_events_url: string;
-      type: string;
-      site_admin: boolean;
-    };
-    assignees: {
-      login: string;
-      id: number;
-      node_id: string;
-      avatar_url: string;
-      gravatar_id: string;
-      url: string;
-      html_url: string;
-      followers_url: string;
-      following_url: string;
-      gists_url: string;
-      starred_url: string;
-      subscriptions_url: string;
-      organizations_url: string;
-      repos_url: string;
-      events_url: string;
-      received_events_url: string;
-      type: string;
-      site_admin: boolean;
-    }[];
+    assignee?: null | User;
+    assignees: User[];
     milestone: null | {
       url: string;
       html_url: string;
@@ -98,26 +41,7 @@ export interface IssuesEditedEvent {
       number: number;
       title: string;
       description: string;
-      creator: {
-        login: string;
-        id: number;
-        node_id: string;
-        avatar_url: string;
-        gravatar_id: string;
-        url: string;
-        html_url: string;
-        followers_url: string;
-        following_url: string;
-        gists_url: string;
-        starred_url: string;
-        subscriptions_url: string;
-        organizations_url: string;
-        repos_url: string;
-        events_url: string;
-        received_events_url: string;
-        type: string;
-        site_admin: boolean;
-      };
+      creator: User;
       open_issues: number;
       closed_issues: number;
       state: string;
@@ -129,8 +53,16 @@ export interface IssuesEditedEvent {
     comments: number;
     created_at: string;
     updated_at: string;
-    closed_at: null;
-    author_association: string;
+    closed_at: null | string;
+    author_association:
+      | 'COLLABORATOR'
+      | 'CONTRIBUTOR'
+      | 'FIRST_TIMER'
+      | 'FIRST_TIME_CONTRIBUTOR'
+      | 'MANNEQUIN'
+      | 'MEMBER'
+      | 'NONE'
+      | 'OWNER';
     active_lock_reason:
       | null
       | ('resolved' | 'off-topic' | 'too heated' | 'spam');
@@ -153,14 +85,15 @@ export interface IssuesEditedEvent {
     default?: boolean;
     [k: string]: unknown;
   };
-  changes?: {
+  changes: {
     body?: {
-      from?: string;
-      [k: string]: unknown;
+      from: string;
     };
-    [k: string]: unknown;
+    title?: {
+      from: string;
+    };
   };
-  assignee?: User;
+  assignee?: null | User;
   assignees?: [] | [User];
   repository: Repository;
   sender: User;

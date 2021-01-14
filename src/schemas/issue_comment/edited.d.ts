@@ -8,12 +8,10 @@ import { Installation, Organization, Repository, User } from '../common';
 
 export interface IssueCommentEditedEvent {
   action: 'edited';
-  changes?: {
+  changes: {
     body?: {
-      from?: string;
-      [k: string]: unknown;
+      from: string;
     };
-    [k: string]: unknown;
   };
   issue: {
     url: string;
@@ -26,26 +24,7 @@ export interface IssueCommentEditedEvent {
     node_id: string;
     number: number;
     title: string;
-    user: {
-      login: string;
-      id: number;
-      node_id: string;
-      avatar_url: string;
-      gravatar_id: string;
-      url: string;
-      html_url: string;
-      followers_url: string;
-      following_url: string;
-      gists_url: string;
-      starred_url: string;
-      subscriptions_url: string;
-      organizations_url: string;
-      repos_url: string;
-      events_url: string;
-      received_events_url: string;
-      type: string;
-      site_admin: boolean;
-    };
+    user: User;
     labels: {
       id: number;
       node_id: string;
@@ -54,48 +33,10 @@ export interface IssueCommentEditedEvent {
       color: string;
       default: boolean;
     }[];
-    state: string;
+    state: 'open' | 'closed';
     locked: boolean;
-    assignee: {
-      login: string;
-      id: number;
-      node_id: string;
-      avatar_url: string;
-      gravatar_id: string;
-      url: string;
-      html_url: string;
-      followers_url: string;
-      following_url: string;
-      gists_url: string;
-      starred_url: string;
-      subscriptions_url: string;
-      organizations_url: string;
-      repos_url: string;
-      events_url: string;
-      received_events_url: string;
-      type: string;
-      site_admin: boolean;
-    };
-    assignees: {
-      login: string;
-      id: number;
-      node_id: string;
-      avatar_url: string;
-      gravatar_id: string;
-      url: string;
-      html_url: string;
-      followers_url: string;
-      following_url: string;
-      gists_url: string;
-      starred_url: string;
-      subscriptions_url: string;
-      organizations_url: string;
-      repos_url: string;
-      events_url: string;
-      received_events_url: string;
-      type: string;
-      site_admin: boolean;
-    }[];
+    assignee: null | User;
+    assignees: User[];
     milestone: {
       url: string;
       html_url: string;
@@ -105,26 +46,7 @@ export interface IssueCommentEditedEvent {
       number: number;
       title: string;
       description: string;
-      creator: {
-        login: string;
-        id: number;
-        node_id: string;
-        avatar_url: string;
-        gravatar_id: string;
-        url: string;
-        html_url: string;
-        followers_url: string;
-        following_url: string;
-        gists_url: string;
-        starred_url: string;
-        subscriptions_url: string;
-        organizations_url: string;
-        repos_url: string;
-        events_url: string;
-        received_events_url: string;
-        type: string;
-        site_admin: boolean;
-      };
+      creator: User;
       open_issues: number;
       closed_issues: number;
       state: string;
@@ -137,7 +59,18 @@ export interface IssueCommentEditedEvent {
     created_at: string;
     updated_at: string;
     closed_at: null;
-    author_association: string;
+    author_association:
+      | 'COLLABORATOR'
+      | 'CONTRIBUTOR'
+      | 'FIRST_TIMER'
+      | 'FIRST_TIME_CONTRIBUTOR'
+      | 'MANNEQUIN'
+      | 'MEMBER'
+      | 'NONE'
+      | 'OWNER';
+    active_lock_reason:
+      | null
+      | ('resolved' | 'off-topic' | 'too heated' | 'spam');
     body: string;
   };
   comment: {
@@ -146,29 +79,18 @@ export interface IssueCommentEditedEvent {
     issue_url: string;
     id: number;
     node_id: string;
-    user: {
-      login: string;
-      id: number;
-      node_id: string;
-      avatar_url: string;
-      gravatar_id: string;
-      url: string;
-      html_url: string;
-      followers_url: string;
-      following_url: string;
-      gists_url: string;
-      starred_url: string;
-      subscriptions_url: string;
-      organizations_url: string;
-      repos_url: string;
-      events_url: string;
-      received_events_url: string;
-      type: string;
-      site_admin: boolean;
-    };
+    user: User;
     created_at: string;
     updated_at: string;
-    author_association: string;
+    author_association:
+      | 'COLLABORATOR'
+      | 'CONTRIBUTOR'
+      | 'FIRST_TIMER'
+      | 'FIRST_TIME_CONTRIBUTOR'
+      | 'MANNEQUIN'
+      | 'MEMBER'
+      | 'NONE'
+      | 'OWNER';
     body: string;
   };
   repository: Repository;

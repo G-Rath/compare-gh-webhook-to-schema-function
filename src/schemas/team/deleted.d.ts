@@ -8,7 +8,6 @@ import { Organization, Repository, User } from '../common';
 
 export interface TeamDeletedEvent {
   action: 'deleted';
-  changes?: {};
   team: {
     name: string;
     id: number;

@@ -11,33 +11,22 @@ export interface PullRequestReviewSubmittedEvent {
   review: {
     id: number;
     node_id: string;
-    user: {
-      login: string;
-      id: number;
-      node_id: string;
-      avatar_url: string;
-      gravatar_id: string;
-      url: string;
-      html_url: string;
-      followers_url: string;
-      following_url: string;
-      gists_url: string;
-      starred_url: string;
-      subscriptions_url: string;
-      organizations_url: string;
-      repos_url: string;
-      events_url: string;
-      received_events_url: string;
-      type: string;
-      site_admin: boolean;
-    };
-    body: null;
+    user: User;
+    body: null | string;
     commit_id: string;
     submitted_at: string;
     state: string;
     html_url: string;
     pull_request_url: string;
-    author_association: string;
+    author_association:
+      | 'COLLABORATOR'
+      | 'CONTRIBUTOR'
+      | 'FIRST_TIMER'
+      | 'FIRST_TIME_CONTRIBUTOR'
+      | 'MANNEQUIN'
+      | 'MEMBER'
+      | 'NONE'
+      | 'OWNER';
     _links: {
       html: {
         href: string;
@@ -56,41 +45,46 @@ export interface PullRequestReviewSubmittedEvent {
     patch_url: string;
     issue_url: string;
     number: number;
-    state: string;
+    state: 'open' | 'closed';
     locked: boolean;
     title: string;
-    user: {
-      login: string;
-      id: number;
-      node_id: string;
-      avatar_url: string;
-      gravatar_id: string;
-      url: string;
-      html_url: string;
-      followers_url: string;
-      following_url: string;
-      gists_url: string;
-      starred_url: string;
-      subscriptions_url: string;
-      organizations_url: string;
-      repos_url: string;
-      events_url: string;
-      received_events_url: string;
-      type: string;
-      site_admin: boolean;
-    };
+    user: User;
     body: string;
     created_at: string;
     updated_at: string;
-    closed_at: null;
-    merged_at: null;
-    merge_commit_sha: string;
-    assignee: null;
-    assignees: unknown[];
+    closed_at: null | string;
+    merged_at: null | string;
+    merge_commit_sha: null | string;
+    assignee: null | User;
+    assignees: User[];
     requested_reviewers: unknown[];
     requested_teams: unknown[];
-    labels: unknown[];
-    milestone: null;
+    labels: {
+      id: number;
+      node_id: string;
+      url: string;
+      name: string;
+      color: string;
+      default: boolean;
+    }[];
+    milestone: null | {
+      url: string;
+      html_url: string;
+      labels_url: string;
+      id: number;
+      node_id: string;
+      number: number;
+      title: string;
+      description: string;
+      creator: User;
+      open_issues: number;
+      closed_issues: number;
+      state: string;
+      created_at: string;
+      updated_at: string;
+      due_on: string;
+      closed_at: null | string;
+    };
     commits_url: string;
     review_comments_url: string;
     review_comment_url: string;
@@ -174,7 +168,15 @@ export interface PullRequestReviewSubmittedEvent {
         href: string;
       };
     };
-    author_association: string;
+    author_association:
+      | 'COLLABORATOR'
+      | 'CONTRIBUTOR'
+      | 'FIRST_TIMER'
+      | 'FIRST_TIME_CONTRIBUTOR'
+      | 'MANNEQUIN'
+      | 'MEMBER'
+      | 'NONE'
+      | 'OWNER';
   };
   repository: Repository;
   installation?: Installation;
