@@ -1,0 +1,19 @@
+{
+  "extends": ["config:base"],
+  "rangeStrategy": "replace",
+  "postUpdateOptions": ["npmDedupe"],
+  "packageRules": [
+    {
+      "packagePatterns": ["*"],
+      "excludePackageNames": ["@octokit/webhooks-definitions"],
+      "enabled": false
+    },
+    {
+      "packageNames": ["@octokit/webhooks-definitions"],
+      "postUpgradeTasks": {
+        "commands": ["npm run copy-schemas", "npm run generate-types"],
+        "fileFilters": ["src/schemas/**/*.d.ts", "src/schemas/**/*.schema.json"]
+      }
+    }
+  ]
+}
