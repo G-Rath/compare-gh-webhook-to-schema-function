@@ -63,7 +63,10 @@ interface ExternalInterfaceSchemaResolver extends ResolverOptions {
 
 let commonSchemas: Map<string, JSONSchema7>;
 
-const createCommonSchemaResolver = async (): Promise<ExternalInterfaceSchemaResolver> => {
+const createCommonSchemaResolver = async (
+  pathToSchema: string
+): Promise<ExternalInterfaceSchemaResolver> => {
+  const isForCommonSchema = pathToSchema.includes('common/');
   const interfacesToImport = new Set<string>();
 
   // cache results of fetch in-case we're called again
@@ -89,11 +92,16 @@ const createCommonSchemaResolver = async (): Promise<ExternalInterfaceSchemaReso
       }
 
       const lines = code.split('\n');
+      const importPath = isForCommonSchema ? '.' : '../common';
       const joinedIdentifiers = Array.from(interfacesToImport)
         .sort((a, b) => a.localeCompare(b))
         .join(', ');
 
-      lines.splice(1, 0, `import { ${joinedIdentifiers} } from '../common';`);
+      lines.splice(
+        1,
+        0,
+        `import { ${joinedIdentifiers} } from '${importPath}';`
+      );
 
       return lines.join('\n');
     }
@@ -101,11 +109,16 @@ const createCommonSchemaResolver = async (): Promise<ExternalInterfaceSchemaReso
 };
 
 const compileSchema = async (pathToSchema: string): Promise<string> => {
-  const commonSchemaResolver = await createCommonSchemaResolver();
+  const commonSchemaResolver = await createCommonSchemaResolver(pathToSchema);
 
   return commonSchemaResolver.addImports(
     await compileFromFile(pathToSchema, {
-      $refOptions: { resolve: { commonSchemaResolver } },
+      $refOptions: {
+        resolve: {
+          commonSchemaResolver,
+          file: { order: Infinity }
+        }
+      },
       style: prettierConfig
     })
   );
