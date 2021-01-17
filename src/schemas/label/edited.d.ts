@@ -18,7 +18,12 @@ export interface LabelEditedEvent {
     description?: string | null;
   };
   changes?: {
-    [k: string]: unknown;
+    color?: {
+      from: string;
+    };
+    name?: {
+      from: string;
+    };
   };
   repository: Repository;
   sender: User;

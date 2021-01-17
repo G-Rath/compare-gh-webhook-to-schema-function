@@ -8,7 +8,7 @@ import { Installation, Organization, Repository, User } from '../common';
 
 export interface CreateEvent {
   ref: string;
-  ref_type: string;
+  ref_type: 'tag' | 'branch';
   master_branch: string;
   description: string | null;
   pusher_type: string;

@@ -10,10 +10,10 @@ export interface StatusEvent {
   id: number;
   sha: string;
   name: string;
-  avatar_url?: null | string;
-  target_url: null | string;
+  avatar_url?: string | null;
+  target_url: string | null;
   context: string;
-  description: null | string;
+  description: string | null;
   state: 'pending' | 'success' | 'failure' | 'error';
   commit: {
     sha: string;
@@ -38,9 +38,22 @@ export interface StatusEvent {
       comment_count: number;
       verification: {
         verified: boolean;
-        reason: string;
-        signature: string;
-        payload: string;
+        reason:
+          | 'expired_key'
+          | 'not_signing_key'
+          | 'gpgverify_error'
+          | 'gpgverify_unavailable'
+          | 'unsigned'
+          | 'unknown_signature_type'
+          | 'no_user'
+          | 'unverified_email'
+          | 'bad_email'
+          | 'unknown_key'
+          | 'malformed_signature'
+          | 'invalid'
+          | 'valid';
+        signature: string | null;
+        payload: string | null;
       };
     };
     url: string;

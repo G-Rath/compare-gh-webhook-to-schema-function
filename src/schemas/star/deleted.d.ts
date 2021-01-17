@@ -8,7 +8,7 @@ import { Organization, Repository, User } from '../common';
 
 export interface StarDeletedEvent {
   action: 'deleted';
-  starred_at: null | string;
+  starred_at: null;
   repository: Repository;
   sender: User;
   organization?: Organization;

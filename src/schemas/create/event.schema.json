@@ -16,19 +16,19 @@
       "type": "string"
     },
     "ref_type": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "tag",
+        "branch"
+      ]
     },
     "master_branch": {
       "type": "string"
     },
     "description": {
-      "oneOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
+      "type": [
+        "string",
+        "null"
       ]
     },
     "pusher_type": {

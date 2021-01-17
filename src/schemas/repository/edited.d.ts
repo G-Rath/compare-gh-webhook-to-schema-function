@@ -8,27 +8,16 @@ import { Installation, Organization, Repository, User } from '../common';
 
 export interface RepositoryEditedEvent {
   action: 'edited';
-  changes?: {
+  changes: {
     description?: {
-      from?: string;
-      [k: string]: unknown;
+      from: string;
     };
     default_branch?: {
-      from?: string;
-      [k: string]: unknown;
-    };
-    owner?: {
-      from?: {
-        user?: User;
-        [k: string]: unknown;
-      };
-      [k: string]: unknown;
+      from: string;
     };
     homepage?: {
-      from?: string;
-      [k: string]: unknown;
+      from: string;
     };
-    additionalProperties?: false;
   };
   repository: Repository;
   sender: User;

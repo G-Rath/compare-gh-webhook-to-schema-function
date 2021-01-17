@@ -8,27 +8,12 @@ import { Installation, Organization, Repository, User } from '../common';
 
 export interface RepositoryTransferredEvent {
   action: 'transferred';
-  changes?: {
-    description?: {
-      from?: string;
-      [k: string]: unknown;
-    };
-    default_branch?: {
-      from?: string;
-      [k: string]: unknown;
-    };
-    owner?: {
-      from?: {
+  changes: {
+    owner: {
+      from: {
         user?: User;
-        [k: string]: unknown;
       };
-      [k: string]: unknown;
     };
-    homepage?: {
-      from?: string;
-      [k: string]: unknown;
-    };
-    additionalProperties?: false;
   };
   repository: Repository;
   sender: User;

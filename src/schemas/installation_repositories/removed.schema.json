@@ -120,7 +120,11 @@
           "additionalProperties": false
         },
         "repository_selection": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "all",
+            "selected"
+          ]
         },
         "access_tokens_url": {
           "type": "string"
@@ -145,47 +149,97 @@
           "required": [],
           "properties": {
             "administration": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "statuses": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "repository_projects": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "repository_hooks": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "pull_requests": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "pages": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "issues": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "deployments": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "contents": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "checks": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "metadata": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             },
             "vulnerability_alerts": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "read",
+                "write"
+              ]
             }
           },
           "additionalProperties": false
         },
         "events": {
           "type": "array",
-          "items": {}
+          "items": {
+            "type": "string"
+          }
         },
         "created_at": {
           "type": "integer"
@@ -194,13 +248,9 @@
           "type": "integer"
         },
         "single_file_name": {
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
+          "type": [
+            "string",
+            "null"
           ]
         }
       },
@@ -212,41 +262,65 @@
     "repositories_added": {
       "type": "array",
       "items": {
-        "anyOf": [
-          {
-            "type": "object",
-            "required": [
-              "id",
-              "node_id",
-              "name",
-              "full_name",
-              "private"
-            ],
-            "properties": {
-              "id": {
-                "type": "integer"
-              },
-              "node_id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "full_name": {
-                "type": "string"
-              },
-              "private": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
+        "type": "object",
+        "required": [
+          "id",
+          "node_id",
+          "name",
+          "full_name",
+          "private"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "full_name": {
+            "type": "string"
+          },
+          "private": {
+            "type": "boolean"
           }
-        ]
-      }
+        },
+        "additionalProperties": false
+      },
+      "maxItems": 0
     },
     "repositories_removed": {
       "type": "array",
-      "items": {}
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "node_id",
+          "name",
+          "full_name",
+          "private"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "full_name": {
+            "type": "string"
+          },
+          "private": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
     },
     "sender": {
       "$ref": "common/user.schema.json"

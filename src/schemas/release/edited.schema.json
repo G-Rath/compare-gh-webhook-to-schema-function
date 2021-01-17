@@ -4,6 +4,7 @@
   "type": "object",
   "required": [
     "action",
+    "changes",
     "release",
     "repository",
     "sender"
@@ -14,6 +15,36 @@
       "enum": [
         "edited"
       ]
+    },
+    "changes": {
+      "type": "object",
+      "properties": {
+        "body": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
     },
     "release": {
       "type": "object",
@@ -69,84 +100,7 @@
           "type": "boolean"
         },
         "author": {
-          "type": "object",
-          "required": [
-            "login",
-            "id",
-            "node_id",
-            "avatar_url",
-            "gravatar_id",
-            "url",
-            "html_url",
-            "followers_url",
-            "following_url",
-            "gists_url",
-            "starred_url",
-            "subscriptions_url",
-            "organizations_url",
-            "repos_url",
-            "events_url",
-            "received_events_url",
-            "type",
-            "site_admin"
-          ],
-          "properties": {
-            "login": {
-              "type": "string"
-            },
-            "id": {
-              "type": "integer"
-            },
-            "node_id": {
-              "type": "string"
-            },
-            "avatar_url": {
-              "type": "string"
-            },
-            "gravatar_id": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
-            },
-            "html_url": {
-              "type": "string"
-            },
-            "followers_url": {
-              "type": "string"
-            },
-            "following_url": {
-              "type": "string"
-            },
-            "gists_url": {
-              "type": "string"
-            },
-            "starred_url": {
-              "type": "string"
-            },
-            "subscriptions_url": {
-              "type": "string"
-            },
-            "organizations_url": {
-              "type": "string"
-            },
-            "repos_url": {
-              "type": "string"
-            },
-            "events_url": {
-              "type": "string"
-            },
-            "received_events_url": {
-              "type": "string"
-            },
-            "type": {
-              "type": "string"
-            },
-            "site_admin": {
-              "type": "boolean"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "common/user.schema.json"
         },
         "prerelease": {
           "type": "boolean"
@@ -159,7 +113,9 @@
         },
         "assets": {
           "type": "array",
-          "items": {}
+          "items": {
+            "$ref": "common/asset.schema.json"
+          }
         },
         "tarball_url": {
           "type": "string"
@@ -168,7 +124,10 @@
           "type": "string"
         },
         "body": {
-          "type": "null"
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "additionalProperties": false

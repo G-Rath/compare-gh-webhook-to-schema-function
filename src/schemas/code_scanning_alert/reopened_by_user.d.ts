@@ -21,8 +21,8 @@ export interface CodeScanningAlertReopenedByUserEvent {
     }[];
     state: string;
     dismissed_by: null;
-    dismissed_at: null;
-    dismissed_reason: null;
+    dismissed_at: string | null;
+    dismissed_reason: string | null;
     rule: {
       id: string;
       severity: string;
@@ -36,7 +36,7 @@ export interface CodeScanningAlertReopenedByUserEvent {
   ref: string;
   commit_oid: string;
   repository: Repository;
-  sender?: User;
+  sender: User;
   installation?: Installation;
-  organization: Organization;
+  organization?: Organization;
 }

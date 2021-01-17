@@ -21,7 +21,7 @@ export interface SecurityAdvisoryPublishedEvent {
     }[];
     published_at: string;
     updated_at: string;
-    withdrawn_at: null;
+    withdrawn_at: string | null;
     vulnerabilities: {
       package: {
         ecosystem: string;
@@ -31,7 +31,7 @@ export interface SecurityAdvisoryPublishedEvent {
       vulnerable_version_range: string;
       first_patched_version: {
         identifier: string;
-      };
+      } | null;
     }[];
   };
 }

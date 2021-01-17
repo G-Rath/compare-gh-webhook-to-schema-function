@@ -48,7 +48,7 @@ export interface MarketplacePurchaseChangedEvent {
       yearly_price_in_cents: number;
       price_model: string;
       has_free_trial: boolean;
-      unit_name: null | string;
+      unit_name: string | null;
       bullets: string[];
     };
   };
@@ -72,7 +72,7 @@ export interface MarketplacePurchaseChangedEvent {
       yearly_price_in_cents: number;
       price_model: string;
       has_free_trial: boolean;
-      unit_name: null | string;
+      unit_name: string | null;
       bullets: string[];
     };
   };

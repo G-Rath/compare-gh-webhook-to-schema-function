@@ -51,7 +51,7 @@ export interface IntegrationInstallationRepositoriesAddedEvent {
       metadata: string;
       vulnerability_alerts: string;
     };
-    events: unknown[];
+    events: string[];
     created_at: number;
     updated_at: number;
     single_file_name: null;
@@ -64,6 +64,6 @@ export interface IntegrationInstallationRepositoriesAddedEvent {
     full_name: string;
     private: boolean;
   }[];
-  repositories_removed: unknown[];
+  repositories_removed: [];
   sender: User;
 }

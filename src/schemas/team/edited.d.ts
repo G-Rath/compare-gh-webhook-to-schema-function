@@ -8,13 +8,32 @@ import { Organization, Repository, User } from '../common';
 
 export interface TeamEditedEvent {
   action: 'edited';
-  changes?: {};
+  changes: {
+    description?: {
+      from: string;
+    };
+    name?: {
+      from: string;
+    };
+    privacy?: {
+      from: string;
+    };
+    repository?: {
+      permissions: {
+        from: {
+          admin?: boolean;
+          pull?: boolean;
+          push?: boolean;
+        };
+      };
+    };
+  };
   team: {
     name: string;
     id: number;
     node_id: string;
     slug: string;
-    description: null | string;
+    description: string | null;
     privacy: string;
     url: string;
     html_url: string;

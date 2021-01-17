@@ -8,7 +8,7 @@
     "ref",
     "commit_oid",
     "repository",
-    "organization"
+    "sender"
   ],
   "properties": {
     "action": {
@@ -48,32 +48,28 @@
         "instances": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
-                "type": "object",
-                "required": [
-                  "ref",
-                  "analysis_key",
-                  "environment",
-                  "state"
-                ],
-                "properties": {
-                  "ref": {
-                    "type": "string"
-                  },
-                  "analysis_key": {
-                    "type": "string"
-                  },
-                  "environment": {
-                    "type": "string"
-                  },
-                  "state": {
-                    "type": "string"
-                  }
-                },
-                "additionalProperties": false
+            "type": "object",
+            "required": [
+              "ref",
+              "analysis_key",
+              "environment",
+              "state"
+            ],
+            "properties": {
+              "ref": {
+                "type": "string"
+              },
+              "analysis_key": {
+                "type": "string"
+              },
+              "environment": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
               }
-            ]
+            },
+            "additionalProperties": false
           }
         },
         "state": {
@@ -83,10 +79,16 @@
           "type": "null"
         },
         "dismissed_at": {
-          "type": "null"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "dismissed_reason": {
-          "type": "null"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "rule": {
           "type": "object",

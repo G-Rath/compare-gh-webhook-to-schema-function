@@ -5,8 +5,7 @@
   "required": [
     "zen",
     "hook_id",
-    "hook",
-    "sender"
+    "hook"
   ],
   "properties": {
     "zen": {
@@ -45,11 +44,7 @@
         "events": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              }
-            ]
+            "type": "string"
           }
         },
         "config": {

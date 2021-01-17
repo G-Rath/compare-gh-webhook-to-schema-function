@@ -45,13 +45,9 @@
           "type": "boolean"
         },
         "description": {
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
+          "type": [
+            "string",
+            "null"
           ]
         }
       },
@@ -59,7 +55,33 @@
     },
     "changes": {
       "type": "object",
-      "properties": {}
+      "properties": {
+        "color": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
     },
     "repository": {
       "$ref": "common/repository.schema.json"

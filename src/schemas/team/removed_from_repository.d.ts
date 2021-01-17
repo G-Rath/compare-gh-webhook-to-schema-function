@@ -8,13 +8,12 @@ import { Organization, Repository, User } from '../common';
 
 export interface TeamRemovedFromRepositoryEvent {
   action: 'removed_from_repository';
-  changes?: {};
   team: {
     name: string;
     id: number;
     node_id: string;
     slug: string;
-    description: null | string;
+    description: string | null;
     privacy: string;
     url: string;
     html_url: string;

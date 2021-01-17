@@ -15,5 +15,5 @@ export interface RepositoryDispatchEvent {
   repository: Repository;
   sender: User;
   installation: Installation;
-  organization: Organization;
+  organization?: Organization;
 }

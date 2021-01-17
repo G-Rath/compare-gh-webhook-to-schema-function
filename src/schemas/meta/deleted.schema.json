@@ -47,11 +47,7 @@
         "events": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              }
-            ]
+            "type": "string"
           }
         },
         "config": {

@@ -45,21 +45,13 @@
           "type": "boolean"
         },
         "description": {
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
+          "type": [
+            "string",
+            "null"
           ]
         }
       },
       "additionalProperties": false
-    },
-    "changes": {
-      "type": "object",
-      "properties": {}
     },
     "repository": {
       "$ref": "common/repository.schema.json"

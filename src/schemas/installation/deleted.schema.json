@@ -248,13 +248,9 @@
           "type": "integer"
         },
         "single_file_name": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "type": "string"
-            }
+          "type": [
+            "string",
+            "null"
           ]
         },
         "has_multiple_single_files": {
@@ -262,26 +258,20 @@
         },
         "single_file_paths": {
           "type": "array",
-          "items": {}
+          "items": {
+            "type": "string"
+          }
         },
         "suspended_by": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "type": "string"
-            }
+          "type": [
+            "string",
+            "null"
           ]
         },
         "suspended_at": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "type": "string"
-            }
+          "type": [
+            "string",
+            "null"
           ]
         }
       },
@@ -290,37 +280,36 @@
     "repositories": {
       "type": "array",
       "items": {
-        "anyOf": [
-          {
-            "type": "object",
-            "required": [
-              "id",
-              "node_id",
-              "name",
-              "full_name",
-              "private"
-            ],
-            "properties": {
-              "id": {
-                "type": "integer"
-              },
-              "node_id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "full_name": {
-                "type": "string"
-              },
-              "private": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
+        "type": "object",
+        "required": [
+          "id",
+          "node_id",
+          "name",
+          "full_name",
+          "private"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "full_name": {
+            "type": "string"
+          },
+          "private": {
+            "type": "boolean"
           }
-        ]
+        },
+        "additionalProperties": false
       }
+    },
+    "requester": {
+      "type": "null"
     },
     "sender": {
       "$ref": "common/user.schema.json"

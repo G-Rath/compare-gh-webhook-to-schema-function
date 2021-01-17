@@ -30,7 +30,7 @@ export interface InstallationRepositoriesRemovedEvent {
       type: string;
       site_admin: boolean;
     };
-    repository_selection: string;
+    repository_selection: 'all' | 'selected';
     access_tokens_url: string;
     repositories_url: string;
     html_url: string;
@@ -38,32 +38,32 @@ export interface InstallationRepositoriesRemovedEvent {
     target_id: number;
     target_type: string;
     permissions: {
-      administration?: string;
-      statuses?: string;
-      repository_projects?: string;
-      repository_hooks?: string;
-      pull_requests?: string;
-      pages?: string;
-      issues?: string;
-      deployments?: string;
-      contents?: string;
-      checks?: string;
-      metadata?: string;
-      vulnerability_alerts?: string;
+      administration?: 'read' | 'write';
+      statuses?: 'read' | 'write';
+      repository_projects?: 'read' | 'write';
+      repository_hooks?: 'read' | 'write';
+      pull_requests?: 'read' | 'write';
+      pages?: 'read' | 'write';
+      issues?: 'read' | 'write';
+      deployments?: 'read' | 'write';
+      contents?: 'read' | 'write';
+      checks?: 'read' | 'write';
+      metadata?: 'read' | 'write';
+      vulnerability_alerts?: 'read' | 'write';
     };
-    events: unknown[];
+    events: string[];
     created_at: number;
     updated_at: number;
     single_file_name: string | null;
   };
   repository_selection: string;
-  repositories_added: {
+  repositories_added: [];
+  repositories_removed: {
     id: number;
     node_id: string;
     name: string;
     full_name: string;
     private: boolean;
   }[];
-  repositories_removed: unknown[];
   sender: User;
 }
