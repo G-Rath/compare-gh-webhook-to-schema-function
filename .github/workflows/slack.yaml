@@ -1,0 +1,22 @@
+name: 'slack'
+
+on:
+  push:
+    branches:
+      - test-slack-message
+
+env:
+  # reduces noise from npm post-install scripts
+  DISABLE_OPENCOLLECTIVE: true
+  OPEN_SOURCE_CONTRIBUTOR: true
+
+jobs:
+  lint:
+    runs-on: windows-latest
+    steps:
+      #Invoke-RestMethod -Uri $Uri -Headers @{Authorization = "token $env:TOKEN"; "Content-Type" = "application/json"} -Body @{body = "Merry Xmas to you too!"}
+      - run: |
+          Invoke-RestMethod -Uri ${{ secrets.SLACK_WEBHOOK_URL }} -Method Post -ContentType "application/json" -Body @{text = ":information_source: Starting deployment to Azure"}
+      - run: |
+          curl -sX POST ${{ secrets.SLACK_WEBHOOK_URL }} --header "Content-Type: application/json" --data \
+          '\"{ \"text\": \":information_source: Starting deployment to Azure\" }\"'
