@@ -193,36 +193,10 @@
               "type": "string"
             },
             "author": {
-              "type": "object",
-              "required": [
-                "name",
-                "email"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/committer.schema.json"
             },
             "committer": {
-              "type": "object",
-              "required": [
-                "name",
-                "email"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/committer.schema.json"
             }
           },
           "additionalProperties": false

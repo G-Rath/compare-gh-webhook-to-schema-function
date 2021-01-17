@@ -138,36 +138,10 @@
           ],
           "properties": {
             "author": {
-              "type": "object",
-              "required": [
-                "email",
-                "name"
-              ],
-              "properties": {
-                "email": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/committer.schema.json"
             },
             "committer": {
-              "type": "object",
-              "required": [
-                "email",
-                "name"
-              ],
-              "properties": {
-                "email": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/committer.schema.json"
             },
             "id": {
               "type": "string"

@@ -242,20 +242,7 @@
       "$ref": "common/repository.schema.json"
     },
     "pusher": {
-      "type": "object",
-      "required": [
-        "name",
-        "email"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
+      "$ref": "common/committer.schema.json"
     },
     "sender": {
       "$ref": "common/user.schema.json"
