@@ -7,7 +7,7 @@ import { User } from '../common';
  */
 
 export interface InstallationUnsuspendedEvent {
-  action: 'unsuspended';
+  action: 'unsuspend';
   installation: {
     id: number;
     account: {

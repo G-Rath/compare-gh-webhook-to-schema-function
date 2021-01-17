@@ -7,7 +7,7 @@ import { User } from '../common';
  */
 
 export interface InstallationSuspendedEvent {
-  action: 'suspended';
+  action: 'suspend';
   installation: {
     id: number;
     account: {
