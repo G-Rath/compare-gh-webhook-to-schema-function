@@ -55,7 +55,7 @@
       "type": "string"
     },
     "uploader": {
-      "$ref": "common/user.schema.json"
+      "$ref": "user.schema.json"
     }
   },
   "additionalProperties": false,

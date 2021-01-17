@@ -46,8 +46,12 @@ Object.entries(
       if (typeof value === 'string' && value.startsWith('#/definitions/')) {
         const ref = value.substring('#/definitions/'.length);
 
+        const fileName = `${ref}.schema.json`;
+
         // restore $refs back to pointing at common schemas
-        return `common/${ref}.schema.json`;
+        return folderName !== 'common' || key === '$id'
+          ? `common/${fileName}`
+          : fileName;
       }
 
       return value;

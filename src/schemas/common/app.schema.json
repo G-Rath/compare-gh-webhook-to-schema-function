@@ -24,7 +24,7 @@
       "type": "string"
     },
     "owner": {
-      "$ref": "common/user.schema.json"
+      "$ref": "user.schema.json"
     },
     "name": {
       "type": "string"
