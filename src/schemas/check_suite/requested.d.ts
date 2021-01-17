@@ -1,6 +1,7 @@
 /* tslint:disable */
 import {
   App,
+  Committer,
   Installation,
   Organization,
   RepoRef,
@@ -58,14 +59,8 @@ export interface CheckSuiteRequestedEvent {
       tree_id: string;
       message: string;
       timestamp: string;
-      author: {
-        name: string;
-        email: string;
-      };
-      committer: {
-        name: string;
-        email: string;
-      };
+      author: Committer;
+      committer: Committer;
     };
   };
   repository: Repository;

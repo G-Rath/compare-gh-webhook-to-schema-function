@@ -1,5 +1,6 @@
 export * from './app';
 export * from './asset';
+export * from './committer';
 export * from './installation';
 export * from './organization';
 export * from './repo-ref';
