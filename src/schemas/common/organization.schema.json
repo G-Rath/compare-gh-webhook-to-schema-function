@@ -54,7 +54,10 @@
       "type": "string"
     },
     "description": {
-      "type": "string"
+      "type": [
+        "string",
+        "null"
+      ]
     }
   },
   "additionalProperties": false,

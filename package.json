@@ -45,7 +45,7 @@
     "@apidevtools/json-schema-ref-parser": "^9.0.6",
     "@azure/functions": "^1.2.2",
     "@jest/types": "^26.6.2",
-    "@octokit/webhooks-definitions": "3.45.1",
+    "@octokit/webhooks-definitions": "3.46.0",
     "@types/eslint": "^7.2.6",
     "@types/jest": "^26.0.20",
     "@types/json-schema": "^7.0.6",

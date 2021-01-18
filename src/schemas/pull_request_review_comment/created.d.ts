@@ -45,6 +45,13 @@ export interface PullRequestReviewCommentCreatedEvent {
         href: string;
       };
     };
+    start_line?: null;
+    original_start_line?: null;
+    start_side?: null;
+    line?: null;
+    original_line?: number;
+    side?: 'RIGHT';
+    in_reply_to_id?: number;
   };
   pull_request: {
     url: string;

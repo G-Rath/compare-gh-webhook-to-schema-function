@@ -160,22 +160,43 @@
               "type": "string"
             },
             "status": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "queued",
+                "in_progress",
+                "completed"
+              ]
             },
             "conclusion": {
               "type": [
                 "string",
                 "null"
+              ],
+              "enum": [
+                "success",
+                "failure",
+                "neutral",
+                "cancelled",
+                "timed_out",
+                "action_required",
+                "stale",
+                null
               ]
             },
             "url": {
               "type": "string"
             },
             "before": {
-              "type": "string"
+              "type": [
+                "string",
+                "null"
+              ]
             },
             "after": {
-              "type": "string"
+              "type": [
+                "string",
+                "null"
+              ]
             },
             "pull_requests": {
               "type": "array",

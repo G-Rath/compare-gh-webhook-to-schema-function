@@ -419,7 +419,10 @@
           "type": "string"
         },
         "url": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "node_id": {
           "type": "string"

@@ -18,5 +18,5 @@ export interface Organization {
   members_url: string;
   public_members_url: string;
   avatar_url: string;
-  description: string;
+  description: string | null;
 }

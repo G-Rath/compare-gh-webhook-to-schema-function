@@ -23,18 +23,10 @@ export interface CheckRunCreatedEvent {
     url: string;
     html_url: string;
     details_url?: string;
-    status: 'queued' | 'in_progress' | 'completed';
-    conclusion:
-      | 'success'
-      | 'failure'
-      | 'neutral'
-      | 'cancelled'
-      | 'timed_out'
-      | 'action_required'
-      | 'stale'
-      | null;
+    status: 'queued' | 'in_progress';
+    conclusion: null;
     started_at: string;
-    completed_at: string | null;
+    completed_at: null;
     output: {
       title?: string | null;
       summary: string | null;
@@ -49,10 +41,10 @@ export interface CheckRunCreatedEvent {
       head_branch: string | null;
       head_sha: string;
       status: string;
-      conclusion: string | null;
+      conclusion: null;
       url: string;
-      before: string;
-      after: string;
+      before: string | null;
+      after: string | null;
       pull_requests: {
         url: string;
         id: number;
