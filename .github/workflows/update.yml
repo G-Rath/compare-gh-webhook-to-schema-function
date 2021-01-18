@@ -36,4 +36,4 @@ jobs:
             regenerating the types that are derived from `@octokit/webhooks`.
           branch: 'update-octokit-webhooks'
           author: 'github-actions <41898282+github-actions[bot]@users.noreply.github.com>'
-          commit-message: 'feat: update \`@octokit/webhooks-definitions\`'
+          commit-message: 'feat: update `@octokit/webhooks-definitions`'
