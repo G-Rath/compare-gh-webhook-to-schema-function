@@ -6,8 +6,13 @@ import { Installation, Organization, Repository, Team, User } from '../common';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface PullRequestReviewSubmittedEvent {
-  action: 'submitted';
+export interface PullRequestReviewEditedEvent {
+  action: 'edited';
+  changes: {
+    body: {
+      from: string;
+    };
+  };
   review: {
     id: number;
     node_id: string;

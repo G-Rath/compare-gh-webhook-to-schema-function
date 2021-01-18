@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "pull_request_review$submitted",
+  "$id": "pull_request_review$dismissed",
   "type": "object",
   "required": [
     "action",
@@ -13,7 +13,7 @@
     "action": {
       "type": "string",
       "enum": [
-        "submitted"
+        "dismissed"
       ]
     },
     "review": {
@@ -750,5 +750,5 @@
     }
   },
   "additionalProperties": false,
-  "title": "pull_request_review submitted event"
+  "title": "pull_request_review dismissed event"
 }

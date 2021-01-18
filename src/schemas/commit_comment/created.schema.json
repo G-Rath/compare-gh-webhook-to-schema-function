@@ -49,13 +49,22 @@
           "$ref": "common/user.schema.json"
         },
         "position": {
-          "type": "null"
+          "type": [
+            "integer",
+            "null"
+          ]
         },
         "line": {
-          "type": "null"
+          "type": [
+            "integer",
+            "null"
+          ]
         },
         "path": {
-          "type": "null"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "commit_id": {
           "type": "string"

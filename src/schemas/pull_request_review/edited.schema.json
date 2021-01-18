@@ -1,9 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "pull_request_review$submitted",
+  "$id": "pull_request_review$edited",
   "type": "object",
   "required": [
     "action",
+    "changes",
     "review",
     "pull_request",
     "repository",
@@ -13,8 +14,29 @@
     "action": {
       "type": "string",
       "enum": [
-        "submitted"
+        "edited"
       ]
+    },
+    "changes": {
+      "type": "object",
+      "required": [
+        "body"
+      ],
+      "properties": {
+        "body": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
     },
     "review": {
       "type": "object",
@@ -138,8 +160,8 @@
         "requested_reviewers",
         "requested_teams",
         "labels",
-        "milestone",
         "draft",
+        "milestone",
         "commits_url",
         "review_comments_url",
         "review_comment_url",
@@ -750,5 +772,5 @@
     }
   },
   "additionalProperties": false,
-  "title": "pull_request_review submitted event"
+  "title": "pull_request_review edited event"
 }
