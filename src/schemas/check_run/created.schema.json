@@ -59,34 +59,17 @@
           "type": "string",
           "enum": [
             "queued",
-            "in_progress",
-            "completed"
+            "in_progress"
           ]
         },
         "conclusion": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "enum": [
-            "success",
-            "failure",
-            "neutral",
-            "cancelled",
-            "timed_out",
-            "action_required",
-            "stale",
-            null
-          ]
+          "type": "null"
         },
         "started_at": {
           "type": "string"
         },
         "completed_at": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "null"
         },
         "output": {
           "type": "object",
@@ -164,7 +147,6 @@
             },
             "conclusion": {
               "type": [
-                "string",
                 "null"
               ]
             },
@@ -172,10 +154,16 @@
               "type": "string"
             },
             "before": {
-              "type": "string"
+              "type": [
+                "string",
+                "null"
+              ]
             },
             "after": {
-              "type": "string"
+              "type": [
+                "string",
+                "null"
+              ]
             },
             "pull_requests": {
               "type": "array",

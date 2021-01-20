@@ -148,6 +148,13 @@
             "write"
           ]
         },
+        "packages": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "pull_requests": {
           "type": "string",
           "enum": [

@@ -32,6 +32,7 @@ export interface App {
     organization_projects?: 'read' | 'write';
     organization_user_blocking?: 'read' | 'write';
     pages?: 'read' | 'write';
+    packages?: 'read' | 'write';
     pull_requests?: 'read' | 'write';
     repository_hooks?: 'read' | 'write';
     repository_projects?: 'read' | 'write';

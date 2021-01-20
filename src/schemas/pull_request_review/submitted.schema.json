@@ -139,6 +139,7 @@
         "requested_teams",
         "labels",
         "milestone",
+        "draft",
         "commits_url",
         "review_comments_url",
         "review_comment_url",
@@ -147,7 +148,8 @@
         "head",
         "base",
         "_links",
-        "author_association"
+        "author_association",
+        "active_lock_reason"
       ],
       "properties": {
         "url": {
@@ -255,36 +257,7 @@
         "labels": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "id",
-              "node_id",
-              "url",
-              "name",
-              "color",
-              "default"
-            ],
-            "properties": {
-              "id": {
-                "type": "integer"
-              },
-              "node_id": {
-                "type": "string"
-              },
-              "url": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "color": {
-                "type": "string"
-              },
-              "default": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
+            "$ref": "common/label.schema.json"
           }
         },
         "milestone": {
@@ -365,6 +338,9 @@
           },
           "additionalProperties": false
         },
+        "draft": {
+          "type": "boolean"
+        },
         "commits_url": {
           "type": "string"
         },
@@ -400,84 +376,7 @@
               "type": "string"
             },
             "user": {
-              "type": "object",
-              "required": [
-                "login",
-                "id",
-                "node_id",
-                "avatar_url",
-                "gravatar_id",
-                "url",
-                "html_url",
-                "followers_url",
-                "following_url",
-                "gists_url",
-                "starred_url",
-                "subscriptions_url",
-                "organizations_url",
-                "repos_url",
-                "events_url",
-                "received_events_url",
-                "type",
-                "site_admin"
-              ],
-              "properties": {
-                "login": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                },
-                "node_id": {
-                  "type": "string"
-                },
-                "avatar_url": {
-                  "type": "string"
-                },
-                "gravatar_id": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "html_url": {
-                  "type": "string"
-                },
-                "followers_url": {
-                  "type": "string"
-                },
-                "following_url": {
-                  "type": "string"
-                },
-                "gists_url": {
-                  "type": "string"
-                },
-                "starred_url": {
-                  "type": "string"
-                },
-                "subscriptions_url": {
-                  "type": "string"
-                },
-                "organizations_url": {
-                  "type": "string"
-                },
-                "repos_url": {
-                  "type": "string"
-                },
-                "events_url": {
-                  "type": "string"
-                },
-                "received_events_url": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                },
-                "site_admin": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/user.schema.json"
             },
             "repo": {
               "$ref": "common/repository.schema.json"
@@ -505,84 +404,7 @@
               "type": "string"
             },
             "user": {
-              "type": "object",
-              "required": [
-                "login",
-                "id",
-                "node_id",
-                "avatar_url",
-                "gravatar_id",
-                "url",
-                "html_url",
-                "followers_url",
-                "following_url",
-                "gists_url",
-                "starred_url",
-                "subscriptions_url",
-                "organizations_url",
-                "repos_url",
-                "events_url",
-                "received_events_url",
-                "type",
-                "site_admin"
-              ],
-              "properties": {
-                "login": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                },
-                "node_id": {
-                  "type": "string"
-                },
-                "avatar_url": {
-                  "type": "string"
-                },
-                "gravatar_id": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "html_url": {
-                  "type": "string"
-                },
-                "followers_url": {
-                  "type": "string"
-                },
-                "following_url": {
-                  "type": "string"
-                },
-                "gists_url": {
-                  "type": "string"
-                },
-                "starred_url": {
-                  "type": "string"
-                },
-                "subscriptions_url": {
-                  "type": "string"
-                },
-                "organizations_url": {
-                  "type": "string"
-                },
-                "repos_url": {
-                  "type": "string"
-                },
-                "events_url": {
-                  "type": "string"
-                },
-                "received_events_url": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                },
-                "site_admin": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/user.schema.json"
             },
             "repo": {
               "$ref": "common/repository.schema.json"
@@ -713,6 +535,19 @@
             "MEMBER",
             "NONE",
             "OWNER"
+          ]
+        },
+        "active_lock_reason": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "resolved",
+            "off-topic",
+            "too heated",
+            "spam",
+            null
           ]
         }
       },

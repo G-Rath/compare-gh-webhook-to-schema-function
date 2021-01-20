@@ -81,36 +81,7 @@
         "labels": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "id",
-              "node_id",
-              "url",
-              "name",
-              "color",
-              "default"
-            ],
-            "properties": {
-              "id": {
-                "type": "integer"
-              },
-              "node_id": {
-                "type": "string"
-              },
-              "url": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "color": {
-                "type": "string"
-              },
-              "default": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
+            "$ref": "common/label.schema.json"
           }
         },
         "state": {
@@ -249,8 +220,35 @@
             null
           ]
         },
+        "pull_request": {
+          "type": "object",
+          "required": [
+            "url",
+            "html_url",
+            "diff_url",
+            "patch_url"
+          ],
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "html_url": {
+              "type": "string"
+            },
+            "diff_url": {
+              "type": "string"
+            },
+            "patch_url": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
         "body": {
           "type": "string"
+        },
+        "performed_via_github_app": {
+          "type": "null"
         }
       },
       "additionalProperties": false

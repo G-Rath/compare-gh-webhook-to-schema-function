@@ -146,6 +146,30 @@
             }
           },
           "additionalProperties": false
+        },
+        "start_line": {
+          "type": "null"
+        },
+        "original_start_line": {
+          "type": "null"
+        },
+        "start_side": {
+          "type": "null"
+        },
+        "line": {
+          "type": "null"
+        },
+        "original_line": {
+          "type": "integer"
+        },
+        "side": {
+          "type": "string",
+          "enum": [
+            "RIGHT"
+          ]
+        },
+        "in_reply_to_id": {
+          "type": "integer"
         }
       },
       "additionalProperties": false
@@ -293,36 +317,7 @@
         "labels": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "id",
-              "node_id",
-              "url",
-              "name",
-              "color",
-              "default"
-            ],
-            "properties": {
-              "id": {
-                "type": "integer"
-              },
-              "node_id": {
-                "type": "string"
-              },
-              "url": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "color": {
-                "type": "string"
-              },
-              "default": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
+            "$ref": "common/label.schema.json"
           }
         },
         "milestone": {

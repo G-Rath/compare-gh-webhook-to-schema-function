@@ -48,11 +48,18 @@ export interface CheckRunCompletedEvent {
       node_id?: string;
       head_branch: string | null;
       head_sha: string;
-      status: string;
-      conclusion: string | null;
+      status: 'completed';
+      conclusion:
+        | 'success'
+        | 'failure'
+        | 'neutral'
+        | 'cancelled'
+        | 'timed_out'
+        | 'action_required'
+        | 'stale';
       url: string;
-      before: string;
-      after: string;
+      before: string | null;
+      after: string | null;
       pull_requests: {
         url: string;
         id: number;
