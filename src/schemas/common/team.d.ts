@@ -10,8 +10,8 @@ export interface Team {
   id: number;
   node_id: string;
   slug: string;
-  description: string;
-  privacy: 'open' | 'closed';
+  description: string | null;
+  privacy: 'open' | 'closed' | 'secret';
   url: string;
   html_url: string;
   members_url: string;

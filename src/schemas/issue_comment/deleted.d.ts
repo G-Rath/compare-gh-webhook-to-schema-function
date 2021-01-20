@@ -64,7 +64,14 @@ export interface IssueCommentDeletedEvent {
       | 'NONE'
       | 'OWNER';
     active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
+    pull_request?: {
+      url: string;
+      html_url: string;
+      diff_url: string;
+      patch_url: string;
+    };
     body: string;
+    performed_via_github_app?: null;
   };
   comment: {
     url: string;

@@ -61,7 +61,11 @@ export interface StatusEvent {
     comments_url: string;
     author: User;
     committer: User;
-    parents: unknown[];
+    parents: {
+      sha: string;
+      url: string;
+      html_url: string;
+    }[];
   };
   branches: {
     name: string;
