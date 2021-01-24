@@ -1,5 +1,6 @@
 export * from './app';
 export * from './asset';
+export * from './author_association';
 export * from './committer';
 export * from './installation';
 export * from './label';

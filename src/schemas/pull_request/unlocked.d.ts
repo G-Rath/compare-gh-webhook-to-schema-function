@@ -1,5 +1,6 @@
 /* tslint:disable */
 import {
+  AuthorAssociation,
   Installation,
   Label,
   Organization,
@@ -103,15 +104,7 @@ export interface PullRequestUnlockedEvent {
         href: string;
       };
     };
-    author_association:
-      | 'COLLABORATOR'
-      | 'CONTRIBUTOR'
-      | 'FIRST_TIMER'
-      | 'FIRST_TIME_CONTRIBUTOR'
-      | 'MANNEQUIN'
-      | 'MEMBER'
-      | 'NONE'
-      | 'OWNER';
+    author_association: AuthorAssociation;
     active_lock_reason: null;
     draft: boolean;
     merged: boolean;

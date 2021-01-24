@@ -1,5 +1,6 @@
 /* tslint:disable */
 import {
+  AuthorAssociation,
   Installation,
   Label,
   Organization,
@@ -32,15 +33,7 @@ export interface PullRequestReviewCommentDeletedEvent {
     updated_at: string;
     html_url: string;
     pull_request_url: string;
-    author_association:
-      | 'COLLABORATOR'
-      | 'CONTRIBUTOR'
-      | 'FIRST_TIMER'
-      | 'FIRST_TIME_CONTRIBUTOR'
-      | 'MANNEQUIN'
-      | 'MEMBER'
-      | 'NONE'
-      | 'OWNER';
+    author_association: AuthorAssociation;
     _links: {
       self: {
         href: string;
@@ -140,15 +133,7 @@ export interface PullRequestReviewCommentDeletedEvent {
         href: string;
       };
     };
-    author_association:
-      | 'COLLABORATOR'
-      | 'CONTRIBUTOR'
-      | 'FIRST_TIMER'
-      | 'FIRST_TIME_CONTRIBUTOR'
-      | 'MANNEQUIN'
-      | 'MEMBER'
-      | 'NONE'
-      | 'OWNER';
+    author_association: AuthorAssociation;
   };
   repository: Repository;
   installation?: Installation;

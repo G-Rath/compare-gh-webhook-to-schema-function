@@ -1,5 +1,6 @@
 /* tslint:disable */
 import {
+  AuthorAssociation,
   Installation,
   Label,
   Organization,
@@ -30,15 +31,7 @@ export interface PullRequestReviewEditedEvent {
     state: string;
     html_url: string;
     pull_request_url: string;
-    author_association:
-      | 'COLLABORATOR'
-      | 'CONTRIBUTOR'
-      | 'FIRST_TIMER'
-      | 'FIRST_TIME_CONTRIBUTOR'
-      | 'MANNEQUIN'
-      | 'MEMBER'
-      | 'NONE'
-      | 'OWNER';
+    author_association: AuthorAssociation;
     _links: {
       html: {
         href: string;
@@ -136,15 +129,7 @@ export interface PullRequestReviewEditedEvent {
         href: string;
       };
     };
-    author_association:
-      | 'COLLABORATOR'
-      | 'CONTRIBUTOR'
-      | 'FIRST_TIMER'
-      | 'FIRST_TIME_CONTRIBUTOR'
-      | 'MANNEQUIN'
-      | 'MEMBER'
-      | 'NONE'
-      | 'OWNER';
+    author_association: AuthorAssociation;
     active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
   };
   repository: Repository;
