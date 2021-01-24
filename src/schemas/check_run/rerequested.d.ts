@@ -1,7 +1,7 @@
 /* tslint:disable */
 import {
   App,
-  Installation,
+  InstallationLite,
   Organization,
   RepoRef,
   Repository,
@@ -16,14 +16,26 @@ import {
 export interface CheckRunRerequestedEvent {
   action: 'rerequested';
   check_run: {
+    /**
+     * The id of the check.
+     */
     id: number;
     node_id?: string;
+    /**
+     * The SHA of the commit that is being checked.
+     */
     head_sha: string;
     external_id: string;
     url: string;
     html_url: string;
     details_url?: string;
-    status: 'queued' | 'in_progress' | 'completed';
+    /**
+     * The phase of the lifecycle that the check is currently in.
+     */
+    status: 'completed';
+    /**
+     * The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `skipped`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`.
+     */
     conclusion:
       | 'success'
       | 'failure'
@@ -33,8 +45,14 @@ export interface CheckRunRerequestedEvent {
       | 'action_required'
       | 'stale'
       | null;
+    /**
+     * The time that the check run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
+     */
     started_at: string;
-    completed_at: string | null;
+    /**
+     * The time the check completed. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
+     */
+    completed_at: string;
     output: {
       title?: string | null;
       summary: string | null;
@@ -42,13 +60,19 @@ export interface CheckRunRerequestedEvent {
       annotations_count: number;
       annotations_url: string;
     };
+    /**
+     * The name of the check.
+     */
     name: string;
     check_suite: {
       id: number;
       node_id?: string;
       head_branch: string | null;
+      /**
+       * The SHA of the head commit that is being checked.
+       */
       head_sha: string;
-      status: 'queued' | 'in_progress' | 'completed';
+      status: 'completed';
       conclusion:
         | 'success'
         | 'failure'
@@ -56,8 +80,7 @@ export interface CheckRunRerequestedEvent {
         | 'cancelled'
         | 'timed_out'
         | 'action_required'
-        | 'stale'
-        | null;
+        | 'stale';
       url: string;
       before: string | null;
       after: string | null;
@@ -102,6 +125,6 @@ export interface CheckRunRerequestedEvent {
   } | null;
   repository: Repository;
   sender: User;
-  installation?: Installation;
+  installation?: InstallationLite;
   organization?: Organization;
 }

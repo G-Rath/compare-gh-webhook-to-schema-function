@@ -5,11 +5,23 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * A git repository
+ */
 export interface Repository {
+  /**
+   * Unique identifier of the repository
+   */
   id: number;
   node_id: string;
+  /**
+   * The name of the repository.
+   */
   name: string;
   full_name: string;
+  /**
+   * Whether the repository is private or public.
+   */
   private: boolean;
   owner: {
     login: string;
@@ -85,14 +97,32 @@ export interface Repository {
   stargazers_count: number;
   watchers_count: number;
   language: string | null;
+  /**
+   * Whether issues are enabled.
+   */
   has_issues: boolean;
+  /**
+   * Whether projects are enabled.
+   */
   has_projects: boolean;
+  /**
+   * Whether downloads are enabled.
+   */
   has_downloads: boolean;
+  /**
+   * Whether the wiki is enabled.
+   */
   has_wiki: boolean;
   has_pages: boolean;
   forks_count: number;
   mirror_url: string | null;
+  /**
+   * Whether the repository is archived.
+   */
   archived: boolean;
+  /**
+   * Returns whether or not this repository is disabled.
+   */
   disabled?: boolean;
   open_issues_count: number;
   license: {
@@ -106,10 +136,25 @@ export interface Repository {
   open_issues: number;
   watchers: number;
   stargazers?: number;
+  /**
+   * The default branch of the repository.
+   */
   default_branch: string;
+  /**
+   * Whether to allow squash merges for pull requests.
+   */
   allow_squash_merge?: boolean;
+  /**
+   * Whether to allow merge commits for pull requests.
+   */
   allow_merge_commit?: boolean;
+  /**
+   * Whether to allow rebase merges for pull requests.
+   */
   allow_rebase_merge?: boolean;
+  /**
+   * Whether to delete head branches when pull requests are merged
+   */
   delete_branch_on_merge?: boolean;
   master_branch?: string;
   permissions?: {

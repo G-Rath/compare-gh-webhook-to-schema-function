@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "page_build$event",
+  "description": "Page Build",
   "type": "object",
   "required": [
     "id",
@@ -38,7 +39,10 @@
           ],
           "properties": {
             "message": {
-              "type": "null"
+              "type": [
+                "string",
+                "null"
+              ]
             }
           },
           "additionalProperties": false
@@ -68,7 +72,7 @@
       "$ref": "common/user.schema.json"
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     },
     "organization": {
       "$ref": "common/organization.schema.json"

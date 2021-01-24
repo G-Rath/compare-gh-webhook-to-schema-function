@@ -1,11 +1,11 @@
 /* tslint:disable */
 import {
   App,
-  Committer,
-  Installation,
+  InstallationLite,
   Organization,
   RepoRef,
   Repository,
+  SimpleCommit,
   User
 } from '../common';
 /**
@@ -20,6 +20,9 @@ export interface CheckSuiteRerequestedEvent {
     id: number;
     node_id: string;
     head_branch: string | null;
+    /**
+     * The SHA of the head commit that is being checked.
+     */
     head_sha: string;
     status: 'requested' | 'in_progress' | 'completed' | 'queued' | null;
     conclusion:
@@ -54,17 +57,10 @@ export interface CheckSuiteRerequestedEvent {
     updated_at: string;
     latest_check_runs_count: number;
     check_runs_url: string;
-    head_commit: {
-      id: string;
-      tree_id: string;
-      message: string;
-      timestamp: string;
-      author: Committer;
-      committer: Committer;
-    };
+    head_commit: SimpleCommit;
   };
   repository: Repository;
   sender: User;
-  installation?: Installation;
+  installation?: InstallationLite;
   organization?: Organization;
 }

@@ -34,16 +34,20 @@
       ],
       "properties": {
         "owner_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "html_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "columns_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "id": {
           "type": "integer"
@@ -52,25 +56,37 @@
           "type": "string"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name of the project"
         },
         "body": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Body of the project"
         },
         "number": {
           "type": "integer"
         },
         "state": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "open",
+            "closed"
+          ],
+          "description": "State of the project; either 'open' or 'closed'"
         },
         "creator": {
           "$ref": "common/user.schema.json"
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         }
       },
       "additionalProperties": false
@@ -82,7 +98,7 @@
       "$ref": "common/user.schema.json"
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     },
     "organization": {
       "$ref": "common/organization.schema.json"

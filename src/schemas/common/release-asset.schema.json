@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "common/asset.schema.json",
+  "$id": "common/release-asset.schema.json",
+  "description": "Data related to a release.",
   "type": "object",
   "required": [
     "url",
@@ -19,10 +20,12 @@
   ],
   "properties": {
     "url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "browser_download_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "id": {
       "type": "integer"
@@ -31,13 +34,18 @@
       "type": "string"
     },
     "name": {
+      "description": "The file name of the asset.",
       "type": "string"
     },
     "label": {
       "type": "string"
     },
     "state": {
-      "type": "string"
+      "description": "State of the release asset.",
+      "type": "string",
+      "enum": [
+        "uploaded"
+      ]
     },
     "content_type": {
       "type": "string"
@@ -49,15 +57,17 @@
       "type": "integer"
     },
     "created_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "updated_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "uploader": {
       "$ref": "user.schema.json"
     }
   },
   "additionalProperties": false,
-  "title": "Asset"
+  "title": "Release Asset"
 }

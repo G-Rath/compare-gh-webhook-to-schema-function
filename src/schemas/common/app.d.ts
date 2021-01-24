@@ -6,17 +6,32 @@ import { User } from '.';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.
+ */
 export interface App {
+  /**
+   * Unique identifier of the GitHub app
+   */
   id: number;
+  /**
+   * The slug name of the GitHub app
+   */
   slug?: string;
   node_id: string;
   owner: User;
+  /**
+   * The name of the GitHub app
+   */
   name: string;
   description: string | null;
   external_url: string;
   html_url: string;
   created_at: string;
   updated_at: string;
+  /**
+   * The set of permissions for the GitHub app
+   */
   permissions?: {
     administration?: 'read' | 'write';
     actions?: 'read' | 'write';
@@ -40,5 +55,8 @@ export interface App {
     team_discussions?: 'read' | 'write';
     vulnerability_alerts?: 'read' | 'write';
   };
+  /**
+   * The list of events for the GitHub app
+   */
   events?: string[];
 }

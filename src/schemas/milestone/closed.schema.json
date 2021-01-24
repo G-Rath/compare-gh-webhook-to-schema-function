@@ -16,6 +16,7 @@
       ]
     },
     "milestone": {
+      "description": "A collection of related issues and pull requests.",
       "type": "object",
       "required": [
         "url",
@@ -37,13 +38,16 @@
       ],
       "properties": {
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "html_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "labels_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "id": {
           "type": "integer"
@@ -52,13 +56,18 @@
           "type": "string"
         },
         "number": {
-          "type": "integer"
+          "type": "integer",
+          "description": "The number of the milestone."
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "description": "The title of the milestone."
         },
         "description": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "creator": {
           "$ref": "common/user.schema.json"
@@ -70,22 +79,30 @@
           "type": "integer"
         },
         "state": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "closed"
+          ],
+          "description": "The state of the milestone."
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "due_on": {
-          "type": "string"
-        },
-        "closed_at": {
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "format": "date-time"
+        },
+        "closed_at": {
+          "type": "string",
+          "format": "date-time"
         }
       },
       "additionalProperties": false
@@ -97,7 +114,7 @@
       "$ref": "common/user.schema.json"
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     },
     "organization": {
       "$ref": "common/organization.schema.json"

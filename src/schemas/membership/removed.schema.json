@@ -36,7 +36,7 @@
       "$ref": "common/organization.schema.json"
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     }
   },
   "additionalProperties": false,

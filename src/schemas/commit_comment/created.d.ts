@@ -1,7 +1,7 @@
 /* tslint:disable */
 import {
   AuthorAssociation,
-  Installation,
+  InstallationLite,
   Organization,
   Repository,
   User
@@ -31,6 +31,6 @@ export interface CommitCommentCreatedEvent {
   };
   repository: Repository;
   sender: User;
-  installation?: Installation;
+  installation?: InstallationLite;
   organization?: Organization;
 }

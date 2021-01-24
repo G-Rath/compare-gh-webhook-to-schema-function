@@ -65,22 +65,28 @@
       ],
       "properties": {
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri",
+          "description": "URL for the issue"
         },
         "repository_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "labels_url": {
           "type": "string"
         },
         "comments_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "events_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "html_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "id": {
           "type": "integer"
@@ -92,7 +98,8 @@
           "type": "integer"
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "description": "Title of the issue"
         },
         "user": {
           "$ref": "common/user.schema.json"
@@ -108,7 +115,8 @@
           "enum": [
             "open",
             "closed"
-          ]
+          ],
+          "description": "State of the issue; either 'open' or 'closed'"
         },
         "locked": {
           "type": "boolean"
@@ -205,10 +213,12 @@
           "type": "integer"
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "closed_at": {
           "type": "null"
@@ -239,25 +249,37 @@
           ],
           "properties": {
             "url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "html_url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "diff_url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "patch_url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             }
           },
           "additionalProperties": false
         },
         "body": {
-          "type": "string"
+          "type": "string",
+          "description": "Contents of the issue"
         },
         "performed_via_github_app": {
-          "type": "null"
+          "oneOf": [
+            {
+              "$ref": "common/app.schema.json"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
       "additionalProperties": false
@@ -278,16 +300,21 @@
       ],
       "properties": {
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri",
+          "description": "URL for the issue comment"
         },
         "html_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "issue_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "description": "Unique identifier of the issue comment"
         },
         "node_id": {
           "type": "string"
@@ -296,16 +323,19 @@
           "$ref": "common/user.schema.json"
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "author_association": {
           "$ref": "common/author_association.schema.json"
         },
         "body": {
-          "type": "string"
+          "type": "string",
+          "description": "Contents of the issue comment"
         }
       },
       "additionalProperties": false
@@ -317,7 +347,7 @@
       "$ref": "common/user.schema.json"
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     },
     "organization": {
       "$ref": "common/organization.schema.json"
