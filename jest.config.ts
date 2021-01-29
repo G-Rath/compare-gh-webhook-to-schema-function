@@ -9,6 +9,14 @@ const config: Config.InitialOptions = {
       isolatedModules: true
     }
   },
+  coverageThreshold: {
+    global: {
+      statements: 100,
+      branches: 100,
+      functions: 100,
+      lines: 100
+    }
+  },
   testEnvironment: 'node',
   setupFilesAfterEnv: [
     './test/setupExpectEachTestHasAssertions.ts',
