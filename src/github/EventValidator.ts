@@ -20,12 +20,12 @@ export class EventValidator<
 
   public static validate<TStaticEvent extends GithubEvent>(
     event: TStaticEvent,
-    logger: Logger = console
+    logger: Logger
   ): ErrorObject[] {
     return new this(event.name, logger).validate(event);
   }
 
-  public constructor(eventName: TEventName, logger: Logger = console) {
+  public constructor(eventName: TEventName, logger: Logger) {
     this._eventName = eventName;
     this._logger = logger;
 

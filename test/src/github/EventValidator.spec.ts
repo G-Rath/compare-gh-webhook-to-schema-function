@@ -96,13 +96,11 @@ describe('EventValidator', () => {
       );
     });
 
-    describe('when given a custom logger', () => {
-      it('is used for logging', () => {
-        // eslint-disable-next-line no-new
-        new EventValidator('ping', mockLogger);
+    it('logs to the given logger', () => {
+      // eslint-disable-next-line no-new
+      new EventValidator('ping', mockLogger);
 
-        expect(mockLogger.info).toHaveBeenCalledWith(expect.any(String));
-      });
+      expect(mockLogger.info).toHaveBeenCalledWith(expect.any(String));
     });
   });
 
