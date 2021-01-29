@@ -51,7 +51,6 @@ export const handler = async (
 
     if (errors.length) {
       await notifier.send({
-        channel: '#platforms-debug',
         text: `${SentimentEmoji.Warning} ${eventDescription} does not match its schema!`
       });
 
@@ -65,7 +64,6 @@ export const handler = async (
     }
 
     await notifier.send({
-      channel: '#platforms-debug',
       text: `${SentimentEmoji.Success} ${eventDescription} matches its schema!`
     });
 
@@ -80,10 +78,7 @@ export const handler = async (
 
     context.log.error(error);
 
-    await notifier.send({
-      channel: '#platforms-debug',
-      text: `\`\`\`${message}\`\`\``
-    });
+    await notifier.send({ text: `\`\`\`${message}\`\`\`` });
 
     return {
       body: { summary: 'oh noes!', error },
