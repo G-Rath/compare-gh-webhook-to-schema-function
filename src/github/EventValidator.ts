@@ -1,4 +1,5 @@
 import Ajv, { DefinedError, ErrorObject, ValidateFunction } from 'ajv';
+import addFormats from 'ajv-formats';
 import { strict as assert } from 'assert';
 import fs from 'fs';
 import { JSONSchema7 } from 'json-schema';
@@ -13,7 +14,7 @@ export class EventValidator<
   TEventName extends GithubEvent['name'],
   TEvent extends Extract<GithubEvent, { name: TEventName }>
 > {
-  private readonly _ajv = new Ajv();
+  private readonly _ajv = addFormats(new Ajv({}), {});
   private readonly _validator: ValidateFunction<TEvent>;
   private readonly _eventName: string;
   private readonly _logger: Logger;

@@ -39,6 +39,7 @@
     "@octokit/webhooks": "^7.21.0",
     "@slack/webhook": "^5.0.4",
     "ajv": "^7.0.3",
+    "ajv-formats": "^1.5.1",
     "source-map-support": "^0.5.19"
   },
   "devDependencies": {
