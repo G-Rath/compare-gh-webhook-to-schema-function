@@ -56,7 +56,7 @@
       "$ref": "common/organization.schema.json"
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     },
     "sender": {
       "$ref": "common/user.schema.json"

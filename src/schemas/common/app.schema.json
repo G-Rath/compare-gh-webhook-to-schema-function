@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "common/app.schema.json",
+  "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
   "type": "object",
   "required": [
     "id",
@@ -15,9 +16,11 @@
   ],
   "properties": {
     "id": {
+      "description": "Unique identifier of the GitHub app",
       "type": "integer"
     },
     "slug": {
+      "description": "The slug name of the GitHub app",
       "type": "string"
     },
     "node_id": {
@@ -27,6 +30,7 @@
       "$ref": "user.schema.json"
     },
     "name": {
+      "description": "The name of the GitHub app",
       "type": "string"
     },
     "description": {
@@ -36,18 +40,23 @@
       ]
     },
     "external_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "html_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "created_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "updated_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "permissions": {
+      "description": "The set of permissions for the GitHub app",
       "type": "object",
       "properties": {
         "administration": {
@@ -201,6 +210,7 @@
       "additionalProperties": false
     },
     "events": {
+      "description": "The list of events for the GitHub app",
       "type": "array",
       "items": {
         "type": "string"

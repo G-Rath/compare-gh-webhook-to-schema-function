@@ -6,14 +6,23 @@ import { User } from '.';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface Asset {
+/**
+ * Data related to a release.
+ */
+export interface ReleaseAsset {
   url: string;
   browser_download_url: string;
   id: number;
   node_id: string;
+  /**
+   * The file name of the asset.
+   */
   name: string;
   label: string;
-  state: string;
+  /**
+   * State of the release asset.
+   */
+  state: 'uploaded';
   content_type: string;
   size: number;
   download_count: number;

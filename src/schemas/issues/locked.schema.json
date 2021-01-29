@@ -41,22 +41,28 @@
       ],
       "properties": {
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri",
+          "description": "URL for the issue"
         },
         "repository_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "labels_url": {
           "type": "string"
         },
         "comments_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "events_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "html_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "id": {
           "type": "integer"
@@ -68,7 +74,8 @@
           "type": "integer"
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "description": "Title of the issue"
         },
         "user": {
           "$ref": "common/user.schema.json"
@@ -84,7 +91,8 @@
           "enum": [
             "open",
             "closed"
-          ]
+          ],
+          "description": "State of the issue; either 'open' or 'closed'"
         },
         "locked": {
           "type": "boolean",
@@ -109,94 +117,32 @@
           }
         },
         "milestone": {
-          "type": [
-            "object",
-            "null"
-          ],
-          "required": [
-            "url",
-            "html_url",
-            "labels_url",
-            "id",
-            "node_id",
-            "number",
-            "title",
-            "description",
-            "creator",
-            "open_issues",
-            "closed_issues",
-            "state",
-            "created_at",
-            "updated_at",
-            "due_on",
-            "closed_at"
-          ],
-          "properties": {
-            "url": {
-              "type": "string"
+          "oneOf": [
+            {
+              "$ref": "common/milestone.schema.json"
             },
-            "html_url": {
-              "type": "string"
-            },
-            "labels_url": {
-              "type": "string"
-            },
-            "id": {
-              "type": "integer"
-            },
-            "node_id": {
-              "type": "string"
-            },
-            "number": {
-              "type": "integer"
-            },
-            "title": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "creator": {
-              "$ref": "common/user.schema.json"
-            },
-            "open_issues": {
-              "type": "integer"
-            },
-            "closed_issues": {
-              "type": "integer"
-            },
-            "state": {
-              "type": "string"
-            },
-            "created_at": {
-              "type": "string"
-            },
-            "updated_at": {
-              "type": "string"
-            },
-            "due_on": {
-              "type": "string"
-            },
-            "closed_at": {
-              "type": "string"
+            {
+              "type": "null"
             }
-          },
-          "additionalProperties": false
+          ]
         },
         "comments": {
           "type": "integer"
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "closed_at": {
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "format": "date-time"
         },
         "author_association": {
           "$ref": "common/author_association.schema.json"
@@ -211,28 +157,40 @@
           ]
         },
         "performed_via_github_app": {
-          "type": "null"
+          "oneOf": [
+            {
+              "$ref": "common/app.schema.json"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "pull_request": {
           "type": "object",
           "properties": {
             "url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "html_url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "diff_url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "patch_url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             }
           },
           "additionalProperties": false
         },
         "body": {
-          "type": "string"
+          "type": "string",
+          "description": "Contents of the issue"
         }
       },
       "additionalProperties": false
@@ -263,7 +221,7 @@
       "$ref": "common/user.schema.json"
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     },
     "organization": {
       "$ref": "common/organization.schema.json"

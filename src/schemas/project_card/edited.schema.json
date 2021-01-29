@@ -33,19 +33,23 @@
       ],
       "properties": {
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "project_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "column_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "column_id": {
           "type": "integer"
         },
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "description": "The project card's ID"
         },
         "node_id": {
           "type": "string"
@@ -54,19 +58,23 @@
           "type": "string"
         },
         "archived": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether or not the card is archived"
         },
         "creator": {
           "$ref": "common/user.schema.json"
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "content_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       },
       "additionalProperties": false
@@ -81,7 +89,7 @@
       "$ref": "common/organization.schema.json"
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     }
   },
   "additionalProperties": false,

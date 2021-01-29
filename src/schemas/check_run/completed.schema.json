@@ -35,13 +35,15 @@
       ],
       "properties": {
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "description": "The id of the check."
         },
         "node_id": {
           "type": "string"
         },
         "head_sha": {
-          "type": "string"
+          "type": "string",
+          "description": "The SHA of the commit that is being checked."
         },
         "external_id": {
           "type": "string"
@@ -58,10 +60,9 @@
         "status": {
           "type": "string",
           "enum": [
-            "queued",
-            "in_progress",
             "completed"
-          ]
+          ],
+          "description": "The phase of the lifecycle that the check is currently in."
         },
         "conclusion": {
           "type": [
@@ -77,16 +78,16 @@
             "action_required",
             "stale",
             null
-          ]
+          ],
+          "description": "The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `skipped`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`."
         },
         "started_at": {
-          "type": "string"
+          "type": "string",
+          "description": "The time that the check run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`."
         },
         "completed_at": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string",
+          "description": "The time the check completed. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`."
         },
         "output": {
           "type": "object",
@@ -125,7 +126,8 @@
           "additionalProperties": false
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "The name of the check."
         },
         "check_suite": {
           "type": "object",
@@ -157,7 +159,8 @@
               ]
             },
             "head_sha": {
-              "type": "string"
+              "type": "string",
+              "description": "The SHA of the head commit that is being checked."
             },
             "status": {
               "type": "string",
@@ -263,10 +266,12 @@
               "$ref": "common/app.schema.json"
             },
             "created_at": {
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             },
             "updated_at": {
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             }
           },
           "additionalProperties": false
@@ -361,7 +366,7 @@
       "$ref": "common/user.schema.json"
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     },
     "organization": {
       "$ref": "common/organization.schema.json"

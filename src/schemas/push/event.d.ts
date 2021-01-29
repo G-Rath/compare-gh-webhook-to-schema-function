@@ -1,7 +1,8 @@
 /* tslint:disable */
 import {
+  Commit,
   Committer,
-  Installation,
+  InstallationLite,
   Organization,
   Repository,
   User
@@ -21,51 +22,11 @@ export interface PushEvent {
   forced: boolean;
   base_ref: null;
   compare: string;
-  commits: {
-    id: string;
-    tree_id: string;
-    distinct: boolean;
-    message: string;
-    timestamp: string;
-    url: string;
-    author: {
-      name: string;
-      email: string;
-      username: string;
-    };
-    committer: {
-      name: string;
-      email: string;
-      username: string;
-    };
-    added: string[];
-    removed: string[];
-    modified: string[];
-  }[];
-  head_commit: {
-    id: string;
-    tree_id: string;
-    distinct: boolean;
-    message: string;
-    timestamp: string;
-    url: string;
-    author: {
-      name: string;
-      email: string;
-      username: string;
-    };
-    committer: {
-      name: string;
-      email: string;
-      username: string;
-    };
-    added: string[];
-    removed: string[];
-    modified: string[];
-  } | null;
+  commits: Commit[];
+  head_commit: Commit | null;
   repository: Repository;
   pusher: Committer;
   sender: User;
-  installation?: Installation;
+  installation?: InstallationLite;
   organization?: Organization;
 }

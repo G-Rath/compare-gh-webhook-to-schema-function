@@ -1,9 +1,9 @@
 /* tslint:disable */
 import {
-  Committer,
-  Installation,
+  InstallationLite,
   Organization,
   Repository,
+  SimpleCommit,
   User
 } from '../common';
 /**
@@ -37,14 +37,7 @@ export interface WorkflowRunRequestedEvent {
     created_at: string;
     event: string;
     head_branch: string;
-    head_commit: {
-      author: Committer;
-      committer: Committer;
-      id: string;
-      message: string;
-      timestamp: string;
-      tree_id: string;
-    };
+    head_commit: SimpleCommit;
     head_repository: {
       archive_url: string;
       assignees_url: string;
@@ -123,6 +116,9 @@ export interface WorkflowRunRequestedEvent {
       git_tags_url: string;
       hooks_url: string;
       html_url: string;
+      /**
+       * Unique identifier of the repository
+       */
       id: number;
       issue_comment_url: string;
       issue_events_url: string;
@@ -132,10 +128,16 @@ export interface WorkflowRunRequestedEvent {
       languages_url: string;
       merges_url: string;
       milestones_url: string;
+      /**
+       * The name of the repository.
+       */
       name: string;
       node_id: string;
       notifications_url: string;
       owner: User;
+      /**
+       * Whether the repository is private or public.
+       */
       private: boolean;
       pulls_url: string;
       releases_url: string;
@@ -156,5 +158,5 @@ export interface WorkflowRunRequestedEvent {
     workflow_id: number;
     workflow_url: string;
   };
-  installation?: Installation;
+  installation?: InstallationLite;
 }

@@ -1,8 +1,9 @@
 /* tslint:disable */
 import {
   AuthorAssociation,
-  Installation,
+  InstallationLite,
   Label,
+  Milestone,
   Organization,
   Repository,
   Team,
@@ -25,9 +26,18 @@ export interface PullRequestConvertedToDraftEvent {
     diff_url: string;
     patch_url: string;
     issue_url: string;
+    /**
+     * Number uniquely identifying the pull request within its repository.
+     */
     number: number;
+    /**
+     * State of this Pull Request. Either `open` or `closed`.
+     */
     state: 'open' | 'closed';
     locked: boolean;
+    /**
+     * The title of the pull request.
+     */
     title: string;
     user: User;
     body: string;
@@ -41,24 +51,7 @@ export interface PullRequestConvertedToDraftEvent {
     requested_reviewers: (User | Team)[];
     requested_teams: Team[];
     labels: Label[];
-    milestone: {
-      url: string;
-      html_url: string;
-      labels_url: string;
-      id: number;
-      node_id: string;
-      number: number;
-      title: string;
-      description: string;
-      creator: User;
-      open_issues: number;
-      closed_issues: number;
-      state: string;
-      created_at: string;
-      updated_at: string;
-      due_on: string;
-      closed_at: string | null;
-    } | null;
+    milestone: Milestone | null;
     commits_url: string;
     review_comments_url: string;
     review_comment_url: string;
@@ -106,6 +99,9 @@ export interface PullRequestConvertedToDraftEvent {
     };
     author_association: AuthorAssociation;
     active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
+    /**
+     * Indicates whether or not the pull request is a draft.
+     */
     draft: true;
     merged: boolean;
     mergeable: boolean | null;
@@ -114,6 +110,9 @@ export interface PullRequestConvertedToDraftEvent {
     merged_by: null;
     comments: number;
     review_comments: number;
+    /**
+     * Indicates whether maintainers can modify the pull request.
+     */
     maintainer_can_modify: boolean;
     commits: number;
     additions: number;
@@ -123,7 +122,7 @@ export interface PullRequestConvertedToDraftEvent {
   label?: Label;
   assignee?: User;
   repository: Repository;
-  installation?: Installation;
+  installation?: InstallationLite;
   organization?: Organization;
   sender: User;
 }

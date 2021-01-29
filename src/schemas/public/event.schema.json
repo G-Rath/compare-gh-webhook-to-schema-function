@@ -9,6 +9,7 @@
   "properties": {
     "repository": {
       "type": "object",
+      "description": "A git repository",
       "required": [
         "id",
         "node_id",
@@ -85,13 +86,15 @@
       ],
       "properties": {
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "description": "Unique identifier of the repository"
         },
         "node_id": {
           "type": "string"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "The name of the repository."
         },
         "full_name": {
           "type": "string"
@@ -100,13 +103,15 @@
           "type": "boolean",
           "enum": [
             false
-          ]
+          ],
+          "description": "Whether the repository is private or public."
         },
         "owner": {
           "$ref": "common/user.schema.json"
         },
         "html_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "description": {
           "type": [
@@ -118,7 +123,8 @@
           "type": "boolean"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "forks_url": {
           "type": "string"
@@ -234,12 +240,14 @@
               "type": "integer"
             },
             {
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             }
           ]
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "pushed_at": {
           "oneOf": [
@@ -247,7 +255,8 @@
               "type": "integer"
             },
             {
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             }
           ]
         },
@@ -267,7 +276,8 @@
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "format": "uri"
         },
         "size": {
           "type": "integer"
@@ -285,16 +295,24 @@
           ]
         },
         "has_issues": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether issues are enabled.",
+          "default": true
         },
         "has_projects": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether projects are enabled.",
+          "default": true
         },
         "has_downloads": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether downloads are enabled.",
+          "default": true
         },
         "has_wiki": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the wiki is enabled.",
+          "default": true
         },
         "has_pages": {
           "type": "boolean"
@@ -309,10 +327,13 @@
           ]
         },
         "archived": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the repository is archived.",
+          "default": false
         },
         "disabled": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Returns whether or not this repository is disabled."
         },
         "open_issues_count": {
           "type": "integer"
@@ -339,7 +360,10 @@
                   "type": "string"
                 },
                 "url": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "node_id": {
                   "type": "string"
@@ -368,19 +392,28 @@
           "type": "integer"
         },
         "default_branch": {
-          "type": "string"
+          "type": "string",
+          "description": "The default branch of the repository."
         },
         "allow_squash_merge": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether to allow squash merges for pull requests.",
+          "default": true
         },
         "allow_merge_commit": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether to allow merge commits for pull requests.",
+          "default": true
         },
         "allow_rebase_merge": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether to allow rebase merges for pull requests.",
+          "default": true
         },
         "delete_branch_on_merge": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether to delete head branches when pull requests are merged",
+          "default": false
         },
         "master_branch": {
           "type": "string"
@@ -418,7 +451,7 @@
       "$ref": "common/user.schema.json"
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     },
     "organization": {
       "$ref": "common/organization.schema.json"

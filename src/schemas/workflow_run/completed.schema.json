@@ -127,36 +127,7 @@
           "type": "string"
         },
         "head_commit": {
-          "type": "object",
-          "required": [
-            "author",
-            "committer",
-            "id",
-            "message",
-            "timestamp",
-            "tree_id"
-          ],
-          "properties": {
-            "author": {
-              "$ref": "common/committer.schema.json"
-            },
-            "committer": {
-              "$ref": "common/committer.schema.json"
-            },
-            "id": {
-              "type": "string"
-            },
-            "message": {
-              "type": "string"
-            },
-            "timestamp": {
-              "type": "string"
-            },
-            "tree_id": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "common/commit-simple.schema.json"
         },
         "head_repository": {
           "type": "object",
@@ -487,10 +458,12 @@
               "type": "string"
             },
             "html_url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "id": {
-              "type": "integer"
+              "type": "integer",
+              "description": "Unique identifier of the repository"
             },
             "issue_comment_url": {
               "type": "string"
@@ -517,7 +490,8 @@
               "type": "string"
             },
             "name": {
-              "type": "string"
+              "type": "string",
+              "description": "The name of the repository."
             },
             "node_id": {
               "type": "string"
@@ -529,7 +503,8 @@
               "$ref": "common/user.schema.json"
             },
             "private": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "Whether the repository is private or public."
             },
             "pulls_url": {
               "type": "string"
@@ -559,7 +534,8 @@
               "type": "string"
             },
             "url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             }
           },
           "additionalProperties": false
@@ -589,7 +565,7 @@
       "additionalProperties": false
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     }
   },
   "additionalProperties": false,

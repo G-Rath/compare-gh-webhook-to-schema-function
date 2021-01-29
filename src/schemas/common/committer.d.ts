@@ -5,7 +5,11 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * Metaproperties for Git author/committer information.
+ */
 export interface Committer {
-  email: string;
   name: string;
+  email: string;
+  date?: string;
 }

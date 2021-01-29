@@ -29,28 +29,35 @@
       ],
       "properties": {
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "project_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "cards_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "description": "The unique identifier of the project column"
         },
         "node_id": {
           "type": "string"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name of the project column"
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         }
       },
       "additionalProperties": false
@@ -62,7 +69,7 @@
       "$ref": "common/user.schema.json"
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     },
     "organization": {
       "$ref": "common/organization.schema.json"

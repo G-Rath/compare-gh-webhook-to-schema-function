@@ -1,8 +1,10 @@
 /* tslint:disable */
 import {
+  App,
   AuthorAssociation,
-  Installation,
+  InstallationLite,
   Label,
+  Milestone,
   Organization,
   Repository,
   User
@@ -16,6 +18,9 @@ import {
 export interface IssuesLabeledEvent {
   action: 'labeled';
   issue: {
+    /**
+     * URL for the issue
+     */
     url: string;
     repository_url: string;
     labels_url: string;
@@ -25,44 +30,36 @@ export interface IssuesLabeledEvent {
     id: number;
     node_id: string;
     number: number;
+    /**
+     * Title of the issue
+     */
     title: string;
     user: User;
     labels?: Label[];
+    /**
+     * State of the issue; either 'open' or 'closed'
+     */
     state?: 'open' | 'closed';
     locked?: boolean;
     assignee?: User | null;
     assignees: User[];
-    milestone: {
-      url: string;
-      html_url: string;
-      labels_url: string;
-      id: number;
-      node_id: string;
-      number: number;
-      title: string;
-      description: string;
-      creator: User;
-      open_issues: number;
-      closed_issues: number;
-      state: string;
-      created_at: string;
-      updated_at: string;
-      due_on: string;
-      closed_at: string;
-    } | null;
+    milestone: Milestone | null;
     comments: number;
     created_at: string;
     updated_at: string;
     closed_at: string | null;
     author_association: AuthorAssociation;
     active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
-    performed_via_github_app?: null;
+    performed_via_github_app?: App | null;
     pull_request?: {
       url?: string;
       html_url?: string;
       diff_url?: string;
       patch_url?: string;
     };
+    /**
+     * Contents of the issue
+     */
     body: string;
   };
   label?: Label;
@@ -70,6 +67,6 @@ export interface IssuesLabeledEvent {
   assignees?: User[];
   repository: Repository;
   sender: User;
-  installation?: Installation;
+  installation?: InstallationLite;
   organization?: Organization;
 }

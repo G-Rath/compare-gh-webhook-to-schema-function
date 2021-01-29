@@ -59,52 +59,69 @@
       ],
       "properties": {
         "url": {
-          "type": "string"
+          "type": "string",
+          "description": "URL for the pull request review comment"
         },
         "pull_request_review_id": {
-          "type": "integer"
+          "type": "integer",
+          "description": "The ID of the pull request review to which the comment belongs."
         },
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "description": "The ID of the pull request review comment."
         },
         "node_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The node ID of the pull request review comment."
         },
         "diff_hunk": {
-          "type": "string"
+          "type": "string",
+          "description": "The diff of the line that the comment refers to."
         },
         "path": {
-          "type": "string"
+          "type": "string",
+          "description": "The relative path of the file to which the comment applies."
         },
         "position": {
-          "type": "integer"
+          "type": "integer",
+          "description": "The line index in the diff to which the comment applies."
         },
         "original_position": {
-          "type": "integer"
+          "type": "integer",
+          "description": "The index of the original line in the diff to which the comment applies."
         },
         "commit_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The SHA of the commit to which the comment applies."
         },
         "original_commit_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The SHA of the original commit to which the comment applies."
         },
         "user": {
           "$ref": "common/user.schema.json"
         },
         "body": {
-          "type": "string"
+          "type": "string",
+          "description": "The text of the comment."
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "html_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri",
+          "description": "HTML URL for the pull request review comment."
         },
         "pull_request_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri",
+          "description": "URL for the pull request that the review comment belongs to."
         },
         "author_association": {
           "$ref": "common/author_association.schema.json"
@@ -124,7 +141,8 @@
               ],
               "properties": {
                 "href": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "uri"
                 }
               },
               "additionalProperties": false
@@ -136,7 +154,8 @@
               ],
               "properties": {
                 "href": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "uri"
                 }
               },
               "additionalProperties": false
@@ -148,13 +167,60 @@
               ],
               "properties": {
                 "href": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "uri"
                 }
               },
               "additionalProperties": false
             }
           },
           "additionalProperties": false
+        },
+        "start_line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "The first line of the range for a multi-line comment."
+        },
+        "original_start_line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "The first line of the range for a multi-line comment."
+        },
+        "start_side": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "LEFT",
+            "RIGHT"
+          ],
+          "default": "RIGHT",
+          "description": "The side of the first line of the range for a multi-line comment."
+        },
+        "line": {
+          "type": "integer",
+          "description": "The line of the blob to which the comment applies. The last line of the range for a multi-line comment"
+        },
+        "original_line": {
+          "type": "integer",
+          "description": "The line of the blob to which the comment applies. The last line of the range for a multi-line comment"
+        },
+        "side": {
+          "type": "string",
+          "enum": [
+            "LEFT",
+            "RIGHT"
+          ],
+          "description": "The side of the first line of the range for a multi-line comment."
+        },
+        "in_reply_to_id": {
+          "type": "integer",
+          "description": "The comment ID to reply to."
         }
       },
       "additionalProperties": false
@@ -306,82 +372,14 @@
           }
         },
         "milestone": {
-          "type": [
-            "object",
-            "null"
-          ],
-          "required": [
-            "url",
-            "html_url",
-            "labels_url",
-            "id",
-            "node_id",
-            "number",
-            "title",
-            "description",
-            "creator",
-            "open_issues",
-            "closed_issues",
-            "state",
-            "created_at",
-            "updated_at",
-            "due_on",
-            "closed_at"
-          ],
-          "properties": {
-            "url": {
-              "type": "string"
+          "oneOf": [
+            {
+              "$ref": "common/milestone.schema.json"
             },
-            "html_url": {
-              "type": "string"
-            },
-            "labels_url": {
-              "type": "string"
-            },
-            "id": {
-              "type": "integer"
-            },
-            "node_id": {
-              "type": "string"
-            },
-            "number": {
-              "type": "integer"
-            },
-            "title": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "creator": {
-              "$ref": "common/user.schema.json"
-            },
-            "open_issues": {
-              "type": "integer"
-            },
-            "closed_issues": {
-              "type": "integer"
-            },
-            "state": {
-              "type": "string"
-            },
-            "created_at": {
-              "type": "string"
-            },
-            "updated_at": {
-              "type": "string"
-            },
-            "due_on": {
-              "type": "string"
-            },
-            "closed_at": {
-              "type": [
-                "string",
-                "null"
-              ]
+            {
+              "type": "null"
             }
-          },
-          "additionalProperties": false
+          ]
         },
         "commits_url": {
           "type": "string"
@@ -576,7 +574,7 @@
       "$ref": "common/repository.schema.json"
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "$ref": "common/installation-lite.schema.json"
     },
     "organization": {
       "$ref": "common/organization.schema.json"

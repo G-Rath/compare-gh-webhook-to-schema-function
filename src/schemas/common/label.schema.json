@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "common/label.schema.json",
+  "description": "Color-coded labels help you categorize and filter your issues (just like labels in Gmail).",
   "type": "object",
   "required": [
     "id",
@@ -19,9 +20,12 @@
       "type": "string"
     },
     "url": {
-      "type": "string"
+      "description": "URL for the label",
+      "type": "string",
+      "format": "uri"
     },
     "name": {
+      "description": "The name of the label.",
       "type": "string"
     },
     "description": {
@@ -31,6 +35,7 @@
       ]
     },
     "color": {
+      "description": "6-character hex code, without the leading #, identifying the color",
       "type": "string"
     },
     "default": {
