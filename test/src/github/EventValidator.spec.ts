@@ -8,6 +8,7 @@ import { EventValidator, GithubEvent, Logger } from '../../../src/github';
 import pingEvent from '../../fixtures/ping.json';
 
 jest.mock('ajv');
+jest.mock('ajv-formats', () => (ajv: Ajv) => ajv);
 
 const mockedAjv = mocked(Ajv, true);
 const schemaValidatorMock = (jest.fn() as unknown) as jest.MockedFunction<ValidateFunction>;
@@ -31,6 +32,9 @@ const oneOfError = (): OneOfError => ({
 
 describe('EventValidator', () => {
   beforeEach(() => {
+    // manually reset the `errors` array
+    delete schemaValidatorMock.errors;
+
     mockedAjv.prototype.compile.mockReturnValue(schemaValidatorMock);
     vol.fromNestedJSON({ common: {}, ping: {} }, 'src/schemas');
   });
