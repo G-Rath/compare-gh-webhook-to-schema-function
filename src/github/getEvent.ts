@@ -11,7 +11,7 @@ declare global {
 }
 
 export const getEvent = (request: HttpRequest): GithubEvent => {
-  const rawBody = (request.rawBody as string) || '{}';
+  const rawBody = request.rawBody as string;
   const signature: string = request.headers['x-hub-signature-256'];
   const { GH_WEBHOOK_SECRET } = process.env;
 
