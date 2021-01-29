@@ -1,7 +1,8 @@
 service: gh-webhooks-schema-checker
 
-frameworkVersion: '2'
 useDotenv: true
+frameworkVersion: '2'
+unresolvedVariablesNotificationMode: error
 
 plugins:
   - serverless-plugin-scripts
