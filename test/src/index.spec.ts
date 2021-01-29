@@ -153,7 +153,6 @@ describe('handler', () => {
 
       // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(mockNotifier.prototype.send).toHaveBeenCalledWith({
-        channel: expect.stringMatching(/^#/u) as string,
         text: expect.stringContaining('oh noes!') as string
       });
     });
@@ -184,7 +183,6 @@ describe('handler', () => {
 
         // eslint-disable-next-line @typescript-eslint/unbound-method
         expect(mockNotifier.prototype.send).toHaveBeenCalledWith({
-          channel: expect.stringMatching(/^#/u) as string,
           text: expect.stringContaining(
             "oh noes, we don't have a stack trace!"
           ) as string
