@@ -1,4 +1,4 @@
-import { AzureFunction, HttpRequest } from '@azure/functions';
+import { Context, HttpRequest } from '@azure/functions';
 import 'source-map-support/register';
 import { EventValidator, GithubEvent, getEvent } from './github';
 import { Notifier } from './notifier';
@@ -36,8 +36,8 @@ const describeEvent = (event: GithubEvent): string => {
   return event.name;
 };
 
-export const handler: AzureFunction = async (
-  context,
+export const handler = async (
+  context: Context,
   request: HttpRequest
 ): Promise<FnResponse> => {
   context.log(request);
