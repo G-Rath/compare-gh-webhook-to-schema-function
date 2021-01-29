@@ -1,6 +1,6 @@
 import { Context, HttpRequest } from '@azure/functions';
 import 'source-map-support/register';
-import { EventValidator, GithubEvent, getEvent } from './github';
+import { EventValidator, describeEvent, getEvent } from './github';
 import { Notifier } from './notifier';
 
 enum SentimentEmoji {
@@ -27,14 +27,6 @@ interface FnResponse {
     'X-Invocation-Id': string;
   };
 }
-
-const describeEvent = (event: GithubEvent): string => {
-  if ('action' in event.payload) {
-    return `${event.name}$${event.payload.action}`;
-  }
-
-  return event.name;
-};
 
 export const handler = async (
   context: Context,
