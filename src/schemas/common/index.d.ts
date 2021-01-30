@@ -6,6 +6,7 @@ export * from './committer';
 export * from './installation-lite';
 export * from './installation';
 export * from './label';
+export * from './license';
 export * from './link';
 export * from './milestone';
 export * from './organization';

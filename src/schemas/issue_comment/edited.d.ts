@@ -48,12 +48,7 @@ export interface IssueCommentEditedEvent {
     locked: boolean;
     assignee: User | null;
     assignees: User[];
-    milestone: Milestone & {
-      description: string;
-      due_on: string;
-      closed_at: string;
-      [k: string]: unknown;
-    };
+    milestone: Milestone | null;
     comments: number;
     created_at: string;
     updated_at: string;

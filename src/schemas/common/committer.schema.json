@@ -18,6 +18,9 @@
     "date": {
       "type": "string",
       "format": "date-time"
+    },
+    "username": {
+      "type": "string"
     }
   },
   "additionalProperties": false,
