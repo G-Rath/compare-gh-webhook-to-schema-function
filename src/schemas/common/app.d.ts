@@ -43,6 +43,7 @@ export interface App {
     metadata?: 'read' | 'write';
     organization_administration?: 'read' | 'write';
     organization_hooks?: 'read' | 'write';
+    organization_packages?: 'read' | 'write';
     organization_plan?: 'read' | 'write';
     organization_projects?: 'read' | 'write';
     organization_user_blocking?: 'read' | 'write';
@@ -51,6 +52,7 @@ export interface App {
     pull_requests?: 'read' | 'write';
     repository_hooks?: 'read' | 'write';
     repository_projects?: 'read' | 'write';
+    security_events?: 'read' | 'write';
     statuses?: 'read' | 'write';
     team_discussions?: 'read' | 'write';
     vulnerability_alerts?: 'read' | 'write';

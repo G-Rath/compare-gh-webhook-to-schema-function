@@ -17,6 +17,7 @@ export interface PullRequestReviewRequestRemovedEvent {
   action: 'review_request_removed';
   number: number;
   pull_request: PullRequest;
+  requested_reviewer: User;
   label?: Label;
   assignee?: User;
   repository: Repository;

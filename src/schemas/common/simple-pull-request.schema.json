@@ -149,108 +149,37 @@
       }
     },
     "milestone": {
-      "type": [
-        "object",
-        "null"
-      ],
-      "required": [
-        "url",
-        "html_url",
-        "labels_url",
-        "id",
-        "node_id",
-        "number",
-        "title",
-        "description",
-        "creator",
-        "open_issues",
-        "closed_issues",
-        "state",
-        "created_at",
-        "updated_at",
-        "due_on",
-        "closed_at"
-      ],
-      "properties": {
-        "url": {
-          "type": "string",
-          "format": "uri"
+      "oneOf": [
+        {
+          "type": "null"
         },
-        "html_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "labels_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "id": {
-          "type": "integer"
-        },
-        "node_id": {
-          "type": "string"
-        },
-        "number": {
-          "type": "integer",
-          "description": "The number of the milestone."
-        },
-        "title": {
-          "type": "string",
-          "description": "The title of the milestone."
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
+        {
+          "allOf": [
+            {
+              "$ref": "milestone.schema.json"
+            },
+            {
+              "type": "object",
+              "required": [
+                "state",
+                "closed_at"
+              ],
+              "properties": {
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "closed"
+                  ]
+                },
+                "closed_at": {
+                  "type": "string"
+                }
+              },
+              "tsAdditionalProperties": false
+            }
           ]
-        },
-        "creator": {
-          "$ref": "user.schema.json"
-        },
-        "open_issues": {
-          "type": "integer"
-        },
-        "closed_issues": {
-          "type": "integer"
-        },
-        "state": {
-          "type": "string",
-          "enum": [
-            "open",
-            "closed"
-          ],
-          "description": "The state of the milestone."
-        },
-        "created_at": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "date-time"
-        },
-        "updated_at": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "date-time"
-        },
-        "due_on": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "date-time"
-        },
-        "closed_at": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "date-time"
         }
-      },
-      "additionalProperties": false
+      ]
     },
     "draft": {
       "type": "boolean"
@@ -340,100 +269,28 @@
       ],
       "properties": {
         "self": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "html": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "issue": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "comments": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "review_comments": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "review_comment": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "commits": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "statuses": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         }
       },
       "additionalProperties": false

@@ -1,18 +1,18 @@
 export * from './created';
 export * from './deleted';
 export * from './new_permissions_accepted';
-export * from './suspended';
-export * from './unsuspended';
+export * from './suspend';
+export * from './unsuspend';
 
 import { InstallationCreatedEvent } from './created';
 import { InstallationDeletedEvent } from './deleted';
 import { InstallationNewPermissionsAcceptedEvent } from './new_permissions_accepted';
-import { InstallationSuspendedEvent } from './suspended';
-import { InstallationUnsuspendedEvent } from './unsuspended';
+import { InstallationSuspendEvent } from './suspend';
+import { InstallationUnsuspendEvent } from './unsuspend';
 
 export type InstallationEvent =
   | InstallationCreatedEvent
   | InstallationDeletedEvent
   | InstallationNewPermissionsAcceptedEvent
-  | InstallationSuspendedEvent
-  | InstallationUnsuspendedEvent;
+  | InstallationSuspendEvent
+  | InstallationUnsuspendEvent;

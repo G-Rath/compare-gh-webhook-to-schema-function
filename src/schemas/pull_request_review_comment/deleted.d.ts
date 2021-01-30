@@ -3,6 +3,7 @@ import {
   AuthorAssociation,
   InstallationLite,
   Label,
+  Link,
   Milestone,
   Organization,
   Repository,
@@ -75,15 +76,9 @@ export interface PullRequestReviewCommentDeletedEvent {
     pull_request_url: string;
     author_association: AuthorAssociation;
     _links: {
-      self: {
-        href: string;
-      };
-      html: {
-        href: string;
-      };
-      pull_request: {
-        href: string;
-      };
+      self: Link;
+      html: Link;
+      pull_request: Link;
     };
     /**
      * The first line of the range for a multi-line comment.
@@ -159,30 +154,14 @@ export interface PullRequestReviewCommentDeletedEvent {
       repo: Repository;
     };
     _links: {
-      self: {
-        href: string;
-      };
-      html: {
-        href: string;
-      };
-      issue: {
-        href: string;
-      };
-      comments: {
-        href: string;
-      };
-      review_comments: {
-        href: string;
-      };
-      review_comment: {
-        href: string;
-      };
-      commits: {
-        href: string;
-      };
-      statuses: {
-        href: string;
-      };
+      self: Link;
+      html: Link;
+      issue: Link;
+      comments: Link;
+      review_comments: Link;
+      review_comment: Link;
+      commits: Link;
+      statuses: Link;
     };
     author_association: AuthorAssociation;
   };

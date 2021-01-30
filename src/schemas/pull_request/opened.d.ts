@@ -3,6 +3,7 @@ import {
   AuthorAssociation,
   InstallationLite,
   Label,
+  Link,
   Milestone,
   Organization,
   Repository,
@@ -63,30 +64,14 @@ export interface PullRequestOpenedEvent {
       repo: Repository;
     };
     _links: {
-      self: {
-        href: string;
-      };
-      html: {
-        href: string;
-      };
-      issue: {
-        href: string;
-      };
-      comments: {
-        href: string;
-      };
-      review_comments: {
-        href: string;
-      };
-      review_comment: {
-        href: string;
-      };
-      commits: {
-        href: string;
-      };
-      statuses: {
-        href: string;
-      };
+      self: Link;
+      html: Link;
+      issue: Link;
+      comments: Link;
+      review_comments: Link;
+      review_comment: Link;
+      commits: Link;
+      statuses: Link;
     };
     author_association: AuthorAssociation;
     active_lock_reason: null;

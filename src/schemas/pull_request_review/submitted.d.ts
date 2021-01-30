@@ -2,6 +2,7 @@
 import {
   AuthorAssociation,
   InstallationLite,
+  Link,
   Organization,
   Repository,
   SimplePullRequest,
@@ -36,12 +37,8 @@ export interface PullRequestReviewSubmittedEvent {
     pull_request_url: string;
     author_association: AuthorAssociation;
     _links: {
-      html: {
-        href: string;
-      };
-      pull_request: {
-        href: string;
-      };
+      html: Link;
+      pull_request: Link;
     };
   };
   pull_request: SimplePullRequest;

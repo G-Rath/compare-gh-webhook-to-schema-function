@@ -6,7 +6,7 @@ import { Installation, User } from '../common';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface InstallationSuspendedEvent {
+export interface InstallationSuspendEvent {
   action: 'suspend';
   installation: Installation;
   repositories?: {
