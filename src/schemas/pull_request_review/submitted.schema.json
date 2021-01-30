@@ -79,28 +79,10 @@
           ],
           "properties": {
             "html": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             },
             "pull_request": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             }
           },
           "additionalProperties": false

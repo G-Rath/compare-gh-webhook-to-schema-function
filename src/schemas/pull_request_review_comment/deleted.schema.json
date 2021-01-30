@@ -116,43 +116,13 @@
           ],
           "properties": {
             "self": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             },
             "html": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             },
             "pull_request": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             }
           },
           "additionalProperties": false
@@ -447,100 +417,28 @@
           ],
           "properties": {
             "self": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             },
             "html": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             },
             "issue": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             },
             "comments": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             },
             "review_comments": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             },
             "review_comment": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             },
             "commits": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             },
             "statuses": {
-              "type": "object",
-              "required": [
-                "href"
-              ],
-              "properties": {
-                "href": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/link.schema.json"
             }
           },
           "additionalProperties": false

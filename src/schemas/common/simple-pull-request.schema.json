@@ -269,100 +269,28 @@
       ],
       "properties": {
         "self": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "html": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "issue": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "comments": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "review_comments": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "review_comment": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "commits": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         },
         "statuses": {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "link.schema.json"
         }
       },
       "additionalProperties": false
