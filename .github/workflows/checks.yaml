@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - update-octokit-webhooks
 
 env:
   # reduces noise from npm post-install scripts
