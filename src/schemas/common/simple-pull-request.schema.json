@@ -151,33 +151,10 @@
     "milestone": {
       "oneOf": [
         {
-          "type": "null"
+          "$ref": "milestone.schema.json"
         },
         {
-          "allOf": [
-            {
-              "$ref": "milestone.schema.json"
-            },
-            {
-              "type": "object",
-              "required": [
-                "state",
-                "closed_at"
-              ],
-              "properties": {
-                "state": {
-                  "type": "string",
-                  "enum": [
-                    "closed"
-                  ]
-                },
-                "closed_at": {
-                  "type": "string"
-                }
-              },
-              "tsAdditionalProperties": false
-            }
-          ]
+          "type": "null"
         }
       ]
     },
