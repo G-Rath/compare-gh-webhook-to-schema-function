@@ -17,7 +17,6 @@ export interface MilestoneCreatedEvent {
   milestone: Milestone & {
     state: 'open';
     closed_at: null;
-    [k: string]: unknown;
   };
   repository: Repository;
   sender: User;
