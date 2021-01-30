@@ -90,44 +90,42 @@
           ],
           "properties": {
             "author": {
-              "type": "object",
-              "required": [
-                "name",
-                "email",
-                "date"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
+              "allOf": [
+                {
+                  "$ref": "common/committer.schema.json"
                 },
-                "email": {
-                  "type": "string"
-                },
-                "date": {
-                  "type": "string"
+                {
+                  "type": "object",
+                  "required": [
+                    "date"
+                  ],
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    }
+                  },
+                  "tsAdditionalProperties": false
                 }
-              },
-              "additionalProperties": false
+              ]
             },
             "committer": {
-              "type": "object",
-              "required": [
-                "name",
-                "email",
-                "date"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
+              "allOf": [
+                {
+                  "$ref": "common/committer.schema.json"
                 },
-                "email": {
-                  "type": "string"
-                },
-                "date": {
-                  "type": "string"
+                {
+                  "type": "object",
+                  "required": [
+                    "date"
+                  ],
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    }
+                  },
+                  "tsAdditionalProperties": false
                 }
-              },
-              "additionalProperties": false
+              ]
             },
             "message": {
               "type": "string"

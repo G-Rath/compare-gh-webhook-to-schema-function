@@ -341,41 +341,13 @@
         "license": {
           "oneOf": [
             {
-              "type": "object",
-              "required": [
-                "key",
-                "name",
-                "spdx_id",
-                "url",
-                "node_id"
-              ],
-              "properties": {
-                "key": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "spdx_id": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "node_id": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "common/license.schema.json"
             },
             {
-              "type": [
-                "string",
-                "null"
-              ]
+              "type": "string"
+            },
+            {
+              "type": "null"
             }
           ]
         },

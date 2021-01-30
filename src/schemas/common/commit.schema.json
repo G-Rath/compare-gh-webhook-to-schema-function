@@ -35,44 +35,42 @@
       "type": "string"
     },
     "author": {
-      "type": "object",
-      "required": [
-        "name",
-        "email",
-        "username"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
+      "allOf": [
+        {
+          "$ref": "committer.schema.json"
         },
-        "email": {
-          "type": "string"
-        },
-        "username": {
-          "type": "string"
+        {
+          "type": "object",
+          "required": [
+            "username"
+          ],
+          "properties": {
+            "username": {
+              "type": "string"
+            }
+          },
+          "tsAdditionalProperties": false
         }
-      },
-      "additionalProperties": false
+      ]
     },
     "committer": {
-      "type": "object",
-      "required": [
-        "name",
-        "email",
-        "username"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
+      "allOf": [
+        {
+          "$ref": "committer.schema.json"
         },
-        "email": {
-          "type": "string"
-        },
-        "username": {
-          "type": "string"
+        {
+          "type": "object",
+          "required": [
+            "username"
+          ],
+          "properties": {
+            "username": {
+              "type": "string"
+            }
+          },
+          "tsAdditionalProperties": false
         }
-      },
-      "additionalProperties": false
+      ]
     },
     "added": {
       "type": "array",

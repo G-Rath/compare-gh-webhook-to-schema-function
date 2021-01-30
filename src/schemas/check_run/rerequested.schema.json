@@ -169,9 +169,7 @@
               ]
             },
             "conclusion": {
-              "type": [
-                "string"
-              ],
+              "type": "string",
               "enum": [
                 "success",
                 "failure",

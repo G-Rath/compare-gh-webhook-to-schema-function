@@ -5,12 +5,10 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-/**
- * Metaproperties for Git author/committer information.
- */
-export interface Committer {
+export interface License {
+  key: string;
   name: string;
-  email: string;
-  date?: string;
-  username?: string;
+  spdx_id: string;
+  url: string | null;
+  node_id: string;
 }

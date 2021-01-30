@@ -355,8 +355,7 @@
       "type": [
         "string",
         "null"
-      ],
-      "format": "uri"
+      ]
     },
     "size": {
       "type": "integer"
@@ -418,38 +417,14 @@
       "type": "integer"
     },
     "license": {
-      "type": [
-        "object",
-        "null"
-      ],
-      "required": [
-        "key",
-        "name",
-        "spdx_id",
-        "url",
-        "node_id"
-      ],
-      "properties": {
-        "key": {
-          "type": "string"
+      "oneOf": [
+        {
+          "$ref": "license.schema.json"
         },
-        "name": {
-          "type": "string"
-        },
-        "spdx_id": {
-          "type": "string"
-        },
-        "url": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "node_id": {
-          "type": "string"
+        {
+          "type": "null"
         }
-      },
-      "additionalProperties": false
+      ]
     },
     "forks": {
       "type": "integer"
