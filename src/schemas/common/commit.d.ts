@@ -15,11 +15,9 @@ export interface Commit {
   url: string;
   author: Committer & {
     username: string;
-    [k: string]: unknown;
   };
   committer: Committer & {
     username: string;
-    [k: string]: unknown;
   };
   added: string[];
   removed: string[];

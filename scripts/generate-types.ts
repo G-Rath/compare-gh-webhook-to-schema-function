@@ -3,8 +3,8 @@
 import { ResolverOptions } from '@apidevtools/json-schema-ref-parser';
 import { strict as assert } from 'assert';
 import { promises as fs } from 'fs';
-import { JSONSchema7 } from 'json-schema';
-import { compileFromFile } from 'json-schema-to-typescript';
+import { JSONSchema4, JSONSchema7 } from 'json-schema';
+import { compile } from 'json-schema-to-typescript';
 import path from 'path';
 import { Options, format } from 'prettier';
 import { prettier as prettierConfigPackage } from '../package.json';
@@ -73,7 +73,11 @@ const createCommonSchemaResolver = async (
   commonSchemas ||= await fetchCommonSchemas();
 
   return {
-    canRead: /common\/.*\.schema\.json$/u,
+    canRead: file => {
+      const { base } = path.parse(file.url);
+
+      return commonSchemas.has(base);
+    },
     read: file => {
       const { base } = path.parse(file.url);
       const schema = commonSchemas.get(base);
@@ -108,11 +112,34 @@ const createCommonSchemaResolver = async (
   };
 };
 
+declare module 'json-schema' {
+  interface JSONSchema7 {
+    tsAdditionalProperties?: JSONSchema7['additionalProperties'];
+  }
+}
+
+const isJsonSchemaObject = (object: unknown): object is JSONSchema7 =>
+  typeof object === 'object' && object !== null && !Array.isArray(object);
+
+const stripExtension = (filename: string): string =>
+  filename.replace(path.extname(filename), '');
+
 const compileSchema = async (pathToSchema: string): Promise<string> => {
   const commonSchemaResolver = await createCommonSchemaResolver(pathToSchema);
+  // has to be 4 due to https://github.com/bcherny/json-schema-to-typescript/issues/359
+  const schema: JSONSchema4 = JSON.parse(
+    await fs.readFile(pathToSchema, 'utf-8'),
+    (key, value: unknown) => {
+      if (isJsonSchemaObject(value) && 'tsAdditionalProperties' in value) {
+        value.additionalProperties = value.tsAdditionalProperties;
+      }
+
+      return value;
+    }
+  ) as JSONSchema4;
 
   return commonSchemaResolver.addImports(
-    await compileFromFile(pathToSchema, {
+    await compile(schema, stripExtension(pathToSchema), {
       $refOptions: {
         resolve: {
           commonSchemaResolver,

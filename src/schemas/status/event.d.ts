@@ -27,11 +27,9 @@ export interface StatusEvent {
     commit: {
       author: Committer & {
         date: string;
-        [k: string]: unknown;
       };
       committer: Committer & {
         date: string;
-        [k: string]: unknown;
       };
       message: string;
       tree: {
