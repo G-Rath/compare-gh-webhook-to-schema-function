@@ -30,6 +30,8 @@ export class EventValidator<
     this._eventName = eventName;
     this._logger = logger;
 
+    this._ajv.addKeyword('tsAdditionalProperties');
+
     this._addSchemasFromDirectory('common');
     const schemaIds = this._addSchemasFromDirectory(eventName);
 
