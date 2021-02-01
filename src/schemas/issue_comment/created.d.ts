@@ -3,8 +3,8 @@ import {
   App,
   AuthorAssociation,
   InstallationLite,
+  Issue,
   Label,
-  Milestone,
   Organization,
   Repository,
   User
@@ -17,50 +17,21 @@ import {
 
 export interface IssueCommentCreatedEvent {
   action: 'created';
-  issue: {
-    /**
-     * URL for the issue
-     */
-    url: string;
-    repository_url: string;
-    labels_url: string;
-    comments_url: string;
-    events_url: string;
-    html_url: string;
-    id: number;
-    node_id: string;
-    number: number;
-    /**
-     * Title of the issue
-     */
-    title: string;
-    user: User;
-    labels: Label[];
+  issue: Issue & {
+    assignee: User | null;
     /**
      * State of the issue; either 'open' or 'closed'
      */
     state: 'open' | 'closed';
-    locked: boolean;
-    assignee: User | null;
-    assignees: User[];
-    milestone: Milestone | null;
-    comments: number;
-    created_at: string;
-    updated_at: string;
     closed_at: null;
-    author_association: AuthorAssociation;
-    active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
+    locked: boolean;
+    labels: Label[];
     pull_request?: {
       url: string;
       html_url: string;
       diff_url: string;
       patch_url: string;
     };
-    /**
-     * Contents of the issue
-     */
-    body: string;
-    performed_via_github_app?: App | null;
   };
   comment: {
     /**
