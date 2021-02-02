@@ -1,4 +1,6 @@
 export * from './assigned';
+export * from './auto_merge_disabled';
+export * from './auto_merge_enabled';
 export * from './closed';
 export * from './converted_to_draft';
 export * from './edited';
@@ -15,6 +17,8 @@ export * from './unlabeled';
 export * from './unlocked';
 
 import { PullRequestAssignedEvent } from './assigned';
+import { PullRequestAutoMergeDisabledEvent } from './auto_merge_disabled';
+import { PullRequestAutoMergeEnabledEvent } from './auto_merge_enabled';
 import { PullRequestClosedEvent } from './closed';
 import { PullRequestConvertedToDraftEvent } from './converted_to_draft';
 import { PullRequestEditedEvent } from './edited';
@@ -32,6 +36,8 @@ import { PullRequestUnlockedEvent } from './unlocked';
 
 export type PullRequestEvent =
   | PullRequestAssignedEvent
+  | PullRequestAutoMergeDisabledEvent
+  | PullRequestAutoMergeEnabledEvent
   | PullRequestClosedEvent
   | PullRequestConvertedToDraftEvent
   | PullRequestEditedEvent
