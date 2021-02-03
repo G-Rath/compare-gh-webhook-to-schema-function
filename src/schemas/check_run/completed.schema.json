@@ -165,11 +165,15 @@
             "status": {
               "type": "string",
               "enum": [
+                "in_progress",
                 "completed"
               ]
             },
             "conclusion": {
-              "type": "string",
+              "type": [
+                "string",
+                "null"
+              ],
               "enum": [
                 "success",
                 "failure",
@@ -177,7 +181,8 @@
                 "cancelled",
                 "timed_out",
                 "action_required",
-                "stale"
+                "stale",
+                null
               ]
             },
             "url": {

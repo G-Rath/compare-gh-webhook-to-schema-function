@@ -72,7 +72,7 @@ export interface CheckRunCompletedEvent {
        * The SHA of the head commit that is being checked.
        */
       head_sha: string;
-      status: 'completed';
+      status: 'in_progress' | 'completed';
       conclusion:
         | 'success'
         | 'failure'
@@ -80,7 +80,8 @@ export interface CheckRunCompletedEvent {
         | 'cancelled'
         | 'timed_out'
         | 'action_required'
-        | 'stale';
+        | 'stale'
+        | null;
       url: string;
       before: string | null;
       after: string | null;

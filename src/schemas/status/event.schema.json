@@ -210,10 +210,24 @@
           "type": "string"
         },
         "author": {
-          "$ref": "common/user.schema.json"
+          "oneOf": [
+            {
+              "$ref": "common/user.schema.json"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "committer": {
-          "$ref": "common/user.schema.json"
+          "oneOf": [
+            {
+              "$ref": "common/user.schema.json"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "parents": {
           "type": "array",
