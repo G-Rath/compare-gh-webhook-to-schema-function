@@ -21,4 +21,5 @@ export * from './simple-pull-request';
 export * from './sponsorship-tier';
 export * from './team';
 export * from './user';
+export * from './workflow-run';
 export * from './workflow';
