@@ -14,7 +14,11 @@
       "type": "string"
     },
     "ref_type": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "tag",
+        "branch"
+      ]
     },
     "pusher_type": {
       "type": "string"
