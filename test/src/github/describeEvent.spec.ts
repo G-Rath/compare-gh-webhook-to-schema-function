@@ -1,9 +1,9 @@
 import { GithubEvent, describeEvent } from '../../../src/github';
-import pingEvent from '../../fixtures/ping.json';
+import { pingEventPayload } from '../../fixtures';
 
 describe('describeEvent', () => {
   it('uses the event name', () => {
-    const event: GithubEvent = { name: 'ping', payload: pingEvent };
+    const event: GithubEvent = { name: 'ping', payload: pingEventPayload };
 
     expect(describeEvent(event)).toBe('ping');
   });
@@ -17,6 +17,7 @@ describe('describeEvent', () => {
           sender: {
             login: 'octocat',
             id: 1,
+            node_id: '',
             avatar_url: 'https://url.com',
             gravatar_id: '',
             url: 'https://url.com',

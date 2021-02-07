@@ -1,43 +1,18 @@
-import { EventTypesPayload, WebhookEvents } from '@octokit/webhooks';
+import {
+  WebhookEventMap,
+  WebhookEventName
+} from '@octokit/webhooks-definitions/schema';
 
-type WebhookEventName = Exclude<
-  WebhookEvents,
-  `${string}.${string}` | 'errors' | '*'
->;
-
-type HasPayload<
-  TName extends WebhookEventName
-> = EventTypesPayload[TName] extends { payload: unknown }
-  ? TName //
-  : never;
-
-type PayloadAndName<TEventName extends WebhookEventName> = Omit<
-  EventTypesPayload[TEventName],
-  'id' | 'name'
-> & { name: TEventName };
-
-type PayloadsWithNames = {
-  [K in WebhookEventName as HasPayload<K>]: PayloadAndName<K>;
-};
-
-type ActionsForEvent<
-  TName extends WebhookEventName,
-  TActions = Extract<WebhookEvents, `${TName}.${string}`>
-> = TActions extends `${TName}.${infer TAction}`
-  ? TAction //
-  : never;
-
-type WithAction<
-  TEvent extends { payload: unknown; name: WebhookEventName }
-> = TEvent extends { payload: { action: string } }
-  ? TEvent & { payload: { action: ActionsForEvent<TEvent['name']> } }
-  : TEvent;
+interface EventWithPayload<TName extends WebhookEventName> {
+  name: TName;
+  payload: WebhookEventMap[TName];
+}
 
 type GithubEventsMap = {
-  [K in keyof PayloadsWithNames]: WithAction<PayloadsWithNames[K]>;
+  [K in WebhookEventName]: EventWithPayload<K>;
 };
 
-type GithubEventName = keyof GithubEventsMap;
+type GithubEventName = WebhookEventName;
 export type GithubEvent = GithubEventsMap[GithubEventName];
 
 declare module '@azure/functions' {

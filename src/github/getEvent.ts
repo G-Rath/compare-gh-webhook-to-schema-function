@@ -18,7 +18,7 @@ export const getEvent = (request: HttpRequest): GithubEvent => {
   if (verify(GH_WEBHOOK_SECRET, rawBody, signature)) {
     // ensure we're referencing a header that is defined, outside of the cast
     const name = request.headers['x-github-event'];
-    const payload = JSON.parse(rawBody) as Record<string, unknown>;
+    const payload = JSON.parse(rawBody) as GithubEvent['payload'];
 
     return { name, payload } as GithubEvent;
   }

@@ -4,7 +4,7 @@ import { mocked } from 'ts-jest/utils';
 import { handler } from '../../src';
 import { EventValidator, GithubEvent, getEvent } from '../../src/github';
 import { Notifier } from '../../src/notifier';
-import pingEvent from '../fixtures/ping.json';
+import { pingEventPayload } from '../fixtures';
 
 jest.mock('../../src/notifier');
 jest.mock('../../src/github/getEvent');
@@ -78,7 +78,7 @@ describe('handler', () => {
       getEventMock.mockReturnValue(event);
     });
 
-    const event: GithubEvent = { name: 'ping', payload: pingEvent };
+    const event: GithubEvent = { name: 'ping', payload: pingEventPayload };
 
     it('validates the event', async () => {
       const request = buildHttpRequest();

@@ -1,7 +1,7 @@
 import { HttpRequest } from '@azure/functions';
 import { sign } from '@octokit/webhooks';
 import { GithubEvent, getEvent } from '../../../src/github';
-import pingEvent from '../../fixtures/ping.json';
+import { pingEventPayload } from '../../fixtures';
 
 const buildHttpRequest = (
   event: GithubEvent,
@@ -31,7 +31,10 @@ describe('getEvent', () => {
     beforeEach(() => (process.env.GH_WEBHOOK_SECRET = ''));
 
     it('throws', () => {
-      const request = buildHttpRequest({ name: 'ping', payload: pingEvent });
+      const request = buildHttpRequest({
+        name: 'ping',
+        payload: pingEventPayload
+      });
 
       expect(() => getEvent(request)).toThrowErrorMatchingInlineSnapshot(
         `"[@octokit/webhooks] secret, eventPayload & signature required"`
@@ -41,7 +44,10 @@ describe('getEvent', () => {
 
   describe('when the signature is empty', () => {
     it('throws', () => {
-      const request = buildHttpRequest({ name: 'ping', payload: pingEvent });
+      const request = buildHttpRequest({
+        name: 'ping',
+        payload: pingEventPayload
+      });
 
       request.headers['x-hub-signature-256'] = '';
 
@@ -53,13 +59,16 @@ describe('getEvent', () => {
 
   describe('when the signature is correct', () => {
     it('does not throw', () => {
-      const request = buildHttpRequest({ name: 'ping', payload: pingEvent });
+      const request = buildHttpRequest({
+        name: 'ping',
+        payload: pingEventPayload
+      });
 
       expect(() => getEvent(request)).not.toThrow();
     });
 
     it('returns the parsed body', () => {
-      const ghEvent: GithubEvent = { name: 'ping', payload: pingEvent };
+      const ghEvent: GithubEvent = { name: 'ping', payload: pingEventPayload };
       const request = buildHttpRequest(ghEvent);
 
       expect(getEvent(request)).toStrictEqual(ghEvent);
@@ -69,7 +78,7 @@ describe('getEvent', () => {
   describe('when the signature is incorrect', () => {
     it('throws', () => {
       const request = buildHttpRequest(
-        { name: 'ping', payload: pingEvent },
+        { name: 'ping', payload: pingEventPayload },
         'wrong'
       );
 
