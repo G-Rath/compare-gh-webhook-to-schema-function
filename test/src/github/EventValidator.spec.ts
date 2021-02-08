@@ -5,7 +5,7 @@ import { JSONSchema7 } from 'json-schema';
 import { vol } from 'memfs';
 import { mocked } from 'ts-jest/utils';
 import { EventValidator, GithubEvent, Logger } from '../../../src/github';
-import pingEvent from '../../fixtures/ping.json';
+import { pingEventPayload } from '../../fixtures';
 
 jest.mock('ajv');
 jest.mock('ajv-formats', () => (ajv: Ajv) => ajv);
@@ -41,7 +41,7 @@ describe('EventValidator', () => {
 
   describe('~validate', () => {
     it('returns the result of #validate', () => {
-      const event: GithubEvent = { name: 'ping', payload: pingEvent };
+      const event: GithubEvent = { name: 'ping', payload: pingEventPayload };
       const errors: typeof schemaValidatorMock.errors = [oneOfError()];
 
       schemaValidatorMock.errors = errors;
@@ -51,7 +51,7 @@ describe('EventValidator', () => {
 
     describe('when given a custom logger', () => {
       it('is used for logging', () => {
-        const event: GithubEvent = { name: 'ping', payload: pingEvent };
+        const event: GithubEvent = { name: 'ping', payload: pingEventPayload };
 
         EventValidator.validate(event, mockLogger);
 
@@ -110,7 +110,7 @@ describe('EventValidator', () => {
 
   describe('#validate', () => {
     it('validates against the payload', () => {
-      const event: GithubEvent = { name: 'ping', payload: pingEvent };
+      const event: GithubEvent = { name: 'ping', payload: pingEventPayload };
       const validator = new EventValidator(event.name, mockLogger);
 
       validator.validate(event);
@@ -152,7 +152,7 @@ describe('EventValidator', () => {
           oneOfError()
         ];
 
-        const event: GithubEvent = { name: 'ping', payload: pingEvent };
+        const event: GithubEvent = { name: 'ping', payload: pingEventPayload };
         const validator = new EventValidator(event.name, mockLogger);
 
         const resultedErrors = validator.validate(event);
@@ -191,7 +191,7 @@ describe('EventValidator', () => {
           }
         ];
 
-        const event: GithubEvent = { name: 'ping', payload: pingEvent };
+        const event: GithubEvent = { name: 'ping', payload: pingEventPayload };
         const validator = new EventValidator(event.name, mockLogger);
 
         const resultedErrors = validator.validate(event);
