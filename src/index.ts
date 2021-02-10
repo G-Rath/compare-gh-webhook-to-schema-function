@@ -3,16 +3,6 @@ import 'source-map-support/register';
 import { EventValidator, describeEvent, getEvent } from './github';
 import { Notifier } from './notifier';
 
-enum SentimentEmoji {
-  'Debug' = ':mag:',
-  'Info' = ':information_source:',
-  'Warning' = ':warning:',
-  'Unknown' = ':interrobang:',
-  'Failure' = ':exclamation:',
-  'Success' = ':green_heart:',
-  'None' = ':heavy_minus_sign:'
-}
-
 interface FnResult {
   summary: string;
   errors?: unknown[];
@@ -42,10 +32,6 @@ export const handler = async (
     const eventDescription = describeEvent(githubEvent);
 
     if (errors.length) {
-      await notifier.send({
-        text: `${SentimentEmoji.Warning} ${eventDescription} does not match its schema!`
-      });
-
       context.log.info(errors);
 
       return {
@@ -54,10 +40,6 @@ export const handler = async (
         statusCode: 422
       };
     }
-
-    await notifier.send({
-      text: `${SentimentEmoji.Success} ${eventDescription} matches its schema!`
-    });
 
     return {
       body: { summary: `success! ${eventDescription} matches its schema :D` },
