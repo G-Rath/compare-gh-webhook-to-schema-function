@@ -56,10 +56,12 @@
       "format": "uri"
     },
     "members_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "repositories_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "permission": {
       "type": "string",
@@ -123,10 +125,12 @@
           "format": "uri"
         },
         "members_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri-template"
         },
         "repositories_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "permission": {
           "type": "string",

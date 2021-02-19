@@ -60,7 +60,8 @@
       "properties": {
         "url": {
           "type": "string",
-          "description": "URL for the pull request review comment"
+          "description": "URL for the pull request review comment",
+          "format": "uri"
         },
         "pull_request_review_id": {
           "type": "integer",
@@ -234,7 +235,8 @@
       ],
       "properties": {
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "id": {
           "type": "integer"
@@ -243,16 +245,20 @@
           "type": "string"
         },
         "html_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "diff_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "patch_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "issue_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "number": {
           "type": "integer"
@@ -352,19 +358,24 @@
           ]
         },
         "commits_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "review_comments_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "review_comment_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri-template"
         },
         "comments_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "statuses_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "head": {
           "type": "object",

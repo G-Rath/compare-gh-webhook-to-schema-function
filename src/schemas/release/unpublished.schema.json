@@ -43,10 +43,12 @@
           "format": "uri"
         },
         "assets_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "upload_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri-template"
         },
         "html_url": {
           "type": "string",

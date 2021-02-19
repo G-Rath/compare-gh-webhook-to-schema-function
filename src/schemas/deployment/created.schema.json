@@ -36,7 +36,8 @@
       ],
       "properties": {
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "id": {
           "type": "integer"
@@ -77,10 +78,12 @@
           "type": "string"
         },
         "statuses_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "repository_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "performed_via_github_app": {
           "oneOf": [

@@ -40,7 +40,8 @@
       "type": "null"
     },
     "compare": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "commits": {
       "type": "array",

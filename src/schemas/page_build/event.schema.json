@@ -27,7 +27,8 @@
       ],
       "properties": {
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "status": {
           "type": "string"

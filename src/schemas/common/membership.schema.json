@@ -11,7 +11,8 @@
   "type": "object",
   "properties": {
     "url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "state": {
       "type": "string"
@@ -20,7 +21,8 @@
       "type": "string"
     },
     "organization_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "user": {
       "$ref": "user.schema.json"

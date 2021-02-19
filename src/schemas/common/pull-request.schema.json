@@ -183,19 +183,24 @@
       ]
     },
     "commits_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "review_comments_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "review_comment_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "comments_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "statuses_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "head": {
       "type": "object",

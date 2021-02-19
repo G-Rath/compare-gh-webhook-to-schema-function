@@ -27,31 +27,40 @@
       "type": "string"
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "html_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "repos_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "events_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "hooks_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "issues_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "members_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "public_members_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "avatar_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "description": {
       "type": [

@@ -49,13 +49,16 @@
           "type": "string"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "html_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "details_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "status": {
           "type": "string",
@@ -124,7 +127,8 @@
               "type": "integer"
             },
             "annotations_url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             }
           },
           "additionalProperties": false
@@ -177,7 +181,8 @@
               "type": "null"
             },
             "url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "before": {
               "type": [
@@ -204,7 +209,8 @@
                 ],
                 "properties": {
                   "url": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "uri"
                   },
                   "id": {
                     "type": "integer"
@@ -286,7 +292,8 @@
             ],
             "properties": {
               "url": {
-                "type": "string"
+                "type": "string",
+                "format": "uri"
               },
               "id": {
                 "type": "integer"
