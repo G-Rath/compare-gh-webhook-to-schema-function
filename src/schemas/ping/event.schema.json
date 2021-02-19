@@ -62,7 +62,8 @@
               "type": "string"
             },
             "url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "insecure_ssl": {
               "type": "string"
@@ -77,13 +78,16 @@
           "type": "string"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "test_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "ping_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "last_response": {
           "type": "object",

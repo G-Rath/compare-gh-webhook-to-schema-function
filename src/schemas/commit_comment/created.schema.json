@@ -34,10 +34,12 @@
       ],
       "properties": {
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "html_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "id": {
           "type": "integer"

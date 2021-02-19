@@ -31,13 +31,15 @@
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "format": "uri"
     },
     "target_url": {
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "format": "uri"
     },
     "context": {
       "type": "string"
@@ -141,13 +143,15 @@
                   "type": "string"
                 },
                 "url": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "uri"
                 }
               },
               "additionalProperties": false
             },
             "url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "comment_count": {
               "type": "integer"
@@ -201,13 +205,16 @@
           "additionalProperties": false
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "html_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "comments_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "author": {
           "oneOf": [
@@ -243,10 +250,12 @@
                 "type": "string"
               },
               "url": {
-                "type": "string"
+                "type": "string",
+                "format": "uri"
               },
               "html_url": {
-                "type": "string"
+                "type": "string",
+                "format": "uri"
               }
             },
             "additionalProperties": false
@@ -279,7 +288,8 @@
                 "type": "string"
               },
               "url": {
-                "type": "string"
+                "type": "string",
+                "format": "uri"
               }
             },
             "additionalProperties": false

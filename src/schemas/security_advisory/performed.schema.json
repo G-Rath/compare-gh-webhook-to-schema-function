@@ -68,7 +68,8 @@
             ],
             "properties": {
               "url": {
-                "type": "string"
+                "type": "string",
+                "format": "uri"
               }
             },
             "additionalProperties": false

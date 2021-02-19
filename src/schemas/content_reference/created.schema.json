@@ -31,7 +31,8 @@
           "type": "string"
         },
         "reference": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       },
       "additionalProperties": false

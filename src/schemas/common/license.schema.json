@@ -23,7 +23,8 @@
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "format": "uri"
     },
     "node_id": {
       "type": "string"

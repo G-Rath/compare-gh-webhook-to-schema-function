@@ -16,13 +16,15 @@
   "type": "object",
   "properties": {
     "badge_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "created_at": {
       "type": "string"
     },
     "html_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "id": {
       "type": "integer"
@@ -43,7 +45,8 @@
       "type": "string"
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     }
   },
   "additionalProperties": false,

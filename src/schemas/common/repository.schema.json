@@ -117,112 +117,148 @@
       "format": "uri"
     },
     "forks_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "keys_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "collaborators_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "teams_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "hooks_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "issue_events_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "events_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "assignees_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "branches_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "tags_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "blobs_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "git_tags_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "git_refs_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "trees_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "statuses_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "languages_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "stargazers_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "contributors_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "subscribers_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "subscription_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "commits_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "git_commits_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "comments_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "issue_comment_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "contents_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "compare_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "merges_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "archive_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "downloads_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "issues_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "pulls_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "milestones_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "notifications_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "labels_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "releases_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri-template"
     },
     "deployments_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "created_at": {
       "oneOf": [
@@ -251,16 +287,19 @@
       ]
     },
     "git_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "ssh_url": {
       "type": "string"
     },
     "clone_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "svn_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "homepage": {
       "type": [
@@ -313,7 +352,8 @@
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "format": "uri"
     },
     "archived": {
       "type": "boolean",

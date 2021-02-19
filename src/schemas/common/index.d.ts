@@ -3,6 +3,7 @@ export * from './author_association';
 export * from './commit-simple';
 export * from './commit';
 export * from './committer';
+export * from './github-org';
 export * from './installation-lite';
 export * from './installation';
 export * from './issue';

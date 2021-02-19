@@ -39,7 +39,8 @@
           "type": "string"
         },
         "html_url": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "created_at": {
           "type": "string"
@@ -106,10 +107,12 @@
               ],
               "properties": {
                 "url": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "uri"
                 },
                 "html_url": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "uri"
                 },
                 "id": {
                   "type": "integer"
@@ -145,7 +148,8 @@
               "type": "string"
             },
             "html_url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "tag_name": {
               "type": "string"
@@ -191,7 +195,8 @@
                 ],
                 "properties": {
                   "download_url": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "uri"
                   },
                   "id": {
                     "type": "integer"
@@ -247,7 +252,8 @@
           ],
           "properties": {
             "about_url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "name": {
               "type": "string"
@@ -256,7 +262,8 @@
               "type": "string"
             },
             "url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "vendor": {
               "type": "string"
