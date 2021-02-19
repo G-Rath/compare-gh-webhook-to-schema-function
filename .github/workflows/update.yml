@@ -46,6 +46,6 @@ jobs:
           owner: ${{ github.repository_owner }}
           repo: ${{ github.event.repository.name }}
           workflow_id: checks.yaml
-          ref: ${{ github.ref }}
+          ref: update-octokit-webhooks
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
