@@ -40,7 +40,6 @@ jobs:
           commit-message: 'feat: update `@octokit/webhooks-definitions`'
       - name: trigger ci checks
         uses: octokit/request-action@v2.x
-        id: workflow_dispatch
         with:
           route: |
             POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches
