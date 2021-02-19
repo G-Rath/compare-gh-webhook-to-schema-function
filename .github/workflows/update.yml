@@ -38,3 +38,14 @@ jobs:
           branch: 'update-octokit-webhooks'
           author: 'github-actions <41898282+github-actions[bot]@users.noreply.github.com>'
           commit-message: 'feat: update `@octokit/webhooks-definitions`'
+      - name: trigger ci checks
+        uses: octokit/request-action@v2.x
+        with:
+          route: |
+            POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
+          workflow_id: checks.yaml
+          ref: ${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
