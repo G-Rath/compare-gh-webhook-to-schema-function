@@ -84,6 +84,7 @@ export interface CodeScanningAlertAppearedInBranchEvent {
   ref: string;
   commit_oid: string;
   repository: Repository;
+  sender: User;
   installation?: InstallationLite;
   organization?: Organization;
 }
