@@ -18,7 +18,6 @@ export interface PullRequestUnlabeledEvent {
   number: number;
   pull_request: PullRequest;
   label?: Label;
-  assignee?: User;
   repository: Repository;
   installation?: InstallationLite;
   organization?: Organization;

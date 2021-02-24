@@ -18,9 +18,6 @@
     "issue": {
       "$ref": "common/issue.schema.json"
     },
-    "label": {
-      "$ref": "common/label.schema.json"
-    },
     "assignee": {
       "oneOf": [
         {
@@ -30,12 +27,6 @@
           "type": "null"
         }
       ]
-    },
-    "assignees": {
-      "type": "array",
-      "items": {
-        "$ref": "common/user.schema.json"
-      }
     },
     "repository": {
       "$ref": "common/repository.schema.json"

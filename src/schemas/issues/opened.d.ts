@@ -2,7 +2,6 @@
 import {
   InstallationLite,
   Issue,
-  Label,
   Organization,
   Repository,
   User
@@ -19,9 +18,6 @@ export interface IssuesOpenedEvent {
     state: 'open';
     closed_at: null;
   };
-  label?: Label;
-  assignee?: User | null;
-  assignees?: User[];
   repository: Repository;
   sender: User;
   installation?: InstallationLite;

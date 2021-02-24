@@ -2,7 +2,6 @@
 import {
   InstallationLite,
   Issue,
-  Label,
   Organization,
   Repository,
   User
@@ -19,9 +18,6 @@ export interface IssuesLockedEvent {
     locked: true;
     active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam';
   };
-  label?: Label;
-  assignee?: User | null;
-  assignees?: User[];
   repository: Repository;
   sender: User;
   installation?: InstallationLite;

@@ -1,7 +1,6 @@
 /* tslint:disable */
 import {
   InstallationLite,
-  Label,
   Organization,
   PullRequest,
   Repository,
@@ -17,8 +16,6 @@ export interface PullRequestSynchronizeEvent {
   action: 'synchronize';
   number: number;
   pull_request: PullRequest;
-  label?: Label;
-  assignee?: User;
   repository: Repository;
   installation?: InstallationLite;
   organization?: Organization;

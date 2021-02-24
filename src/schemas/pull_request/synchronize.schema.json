@@ -22,12 +22,6 @@
     "pull_request": {
       "$ref": "common/pull-request.schema.json"
     },
-    "label": {
-      "$ref": "common/label.schema.json"
-    },
-    "assignee": {
-      "$ref": "common/user.schema.json"
-    },
     "repository": {
       "$ref": "common/repository.schema.json"
     },
