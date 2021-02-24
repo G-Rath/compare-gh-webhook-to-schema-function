@@ -1,6 +1,7 @@
 /* tslint:disable */
 import {
   App,
+  CheckRunDeployment,
   InstallationLite,
   Organization,
   RepoRef,
@@ -119,6 +120,7 @@ export interface CheckRunRerequestedEvent {
         repo: RepoRef;
       };
     }[];
+    deployment?: CheckRunDeployment;
   };
   requested_action?: {
     identifier?: string;

@@ -1,5 +1,6 @@
 /* tslint:disable */
 import {
+  AlertInstance,
   GitHubOrg,
   InstallationLite,
   Organization,
@@ -27,24 +28,9 @@ export interface CodeScanningAlertReopenedEvent {
      * The GitHub URL of the alert resource.
      */
     html_url: string;
-    instances: {
-      /**
-       * The full Git reference, formatted as `refs/heads/<branch name>`.
-       */
-      ref: string;
-      /**
-       * Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name.
-       */
-      analysis_key: string;
-      /**
-       * Identifies the variable values associated with the environment in which the analysis that generated this alert instance was performed, such as the language that was analyzed.
-       */
-      environment: string;
-      /**
-       * State of a code scanning alert.
-       */
+    instances: (AlertInstance & {
       state: 'open';
-    }[];
+    })[];
     /**
      * State of a code scanning alert.
      */
