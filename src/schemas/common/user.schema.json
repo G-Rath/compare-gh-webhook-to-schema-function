@@ -36,7 +36,10 @@
       "type": "string"
     },
     "email": {
-      "type": "string"
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "avatar_url": {
       "type": "string",

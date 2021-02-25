@@ -2,9 +2,9 @@
 import {
   App,
   CheckRunDeployment,
+  CheckRunPullRequest,
   InstallationLite,
   Organization,
-  RepoRef,
   Repository,
   User
 } from '../common';
@@ -86,41 +86,13 @@ export interface CheckRunRequestedActionEvent {
       url: string;
       before: string | null;
       after: string | null;
-      pull_requests: {
-        url: string;
-        id: number;
-        number: number;
-        head: {
-          ref: string;
-          sha: string;
-          repo: RepoRef;
-        };
-        base: {
-          ref: string;
-          sha: string;
-          repo: RepoRef;
-        };
-      }[];
+      pull_requests: CheckRunPullRequest[];
       app: App;
       created_at: string;
       updated_at: string;
     };
     app: App;
-    pull_requests: {
-      url: string;
-      id: number;
-      number: number;
-      head: {
-        ref: string;
-        sha: string;
-        repo: RepoRef;
-      };
-      base: {
-        ref: string;
-        sha: string;
-        repo: RepoRef;
-      };
-    }[];
+    pull_requests: CheckRunPullRequest[];
     deployment?: CheckRunDeployment;
   };
   requested_action?: {

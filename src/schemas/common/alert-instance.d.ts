@@ -22,4 +22,16 @@ export interface AlertInstance {
    * State of a code scanning alert.
    */
   state: 'open' | 'dismissed' | 'fixed';
+  commit_sha?: string;
+  message?: {
+    text?: string;
+  };
+  location?: {
+    path?: string;
+    start_line?: number;
+    end_line?: number;
+    start_column?: number;
+    end_column?: number;
+  };
+  classifications?: string[];
 }

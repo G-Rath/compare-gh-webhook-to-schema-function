@@ -57,6 +57,10 @@ export interface CodeScanningAlertCreatedEvent {
        * A short description of the rule used to detect the alert.
        */
       description: string;
+      name?: string;
+      full_description?: string;
+      tags?: null;
+      help?: null;
     };
     tool: {
       /**
@@ -67,6 +71,7 @@ export interface CodeScanningAlertCreatedEvent {
        * The version of the tool used to detect the alert.
        */
       version: string | null;
+      guid?: string | null;
     };
   };
   /**
