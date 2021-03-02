@@ -312,7 +312,9 @@
     },
     "pull_requests": {
       "type": "array",
-      "items": {}
+      "items": {
+        "$ref": "pull-request.schema.json"
+      }
     },
     "repository": {
       "type": "object",
