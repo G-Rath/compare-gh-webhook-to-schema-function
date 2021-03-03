@@ -23,6 +23,7 @@ export * from './project';
 export * from './pull-request';
 export * from './release-asset';
 export * from './repo-ref';
+export * from './repository-lite';
 export * from './repository';
 export * from './simple-pull-request';
 export * from './sponsorship-tier';
