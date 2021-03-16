@@ -10,7 +10,7 @@ export interface User {
   id: number;
   node_id: string;
   name?: string;
-  email?: string;
+  email?: string | null;
   avatar_url: string;
   gravatar_id: string;
   url: string;

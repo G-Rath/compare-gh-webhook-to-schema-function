@@ -51,12 +51,6 @@
         }
       ]
     },
-    "label": {
-      "$ref": "common/label.schema.json"
-    },
-    "assignee": {
-      "$ref": "common/user.schema.json"
-    },
     "repository": {
       "$ref": "common/repository.schema.json"
     },

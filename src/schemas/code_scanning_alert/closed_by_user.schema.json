@@ -54,35 +54,26 @@
         "instances": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "ref",
-              "analysis_key",
-              "environment",
-              "state"
-            ],
-            "properties": {
-              "ref": {
-                "type": "string",
-                "description": "The full Git reference, formatted as `refs/heads/<branch name>`."
+            "allOf": [
+              {
+                "$ref": "common/alert-instance.schema.json"
               },
-              "analysis_key": {
-                "type": "string",
-                "description": "Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name."
-              },
-              "environment": {
-                "type": "string",
-                "description": "Identifies the variable values associated with the environment in which the analysis that generated this alert instance was performed, such as the language that was analyzed."
-              },
-              "state": {
-                "type": "string",
-                "description": "State of a code scanning alert.",
-                "enum": [
-                  "dismissed"
-                ]
+              {
+                "type": "object",
+                "required": [
+                  "state"
+                ],
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "dismissed"
+                    ]
+                  }
+                },
+                "tsAdditionalProperties": false
               }
-            },
-            "additionalProperties": false
+            ]
           }
         },
         "state": {
@@ -139,6 +130,18 @@
             "description": {
               "type": "string",
               "description": "A short description of the rule used to detect the alert."
+            },
+            "name": {
+              "type": "string"
+            },
+            "full_description": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "null"
+            },
+            "help": {
+              "type": "null"
             }
           },
           "additionalProperties": false
@@ -160,6 +163,12 @@
                 "null"
               ],
               "description": "The version of the tool used to detect the alert."
+            },
+            "guid": {
+              "type": [
+                "string",
+                "null"
+              ]
             }
           },
           "additionalProperties": false

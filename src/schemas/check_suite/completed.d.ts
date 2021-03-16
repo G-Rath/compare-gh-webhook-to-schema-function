@@ -1,9 +1,9 @@
 /* tslint:disable */
 import {
   App,
+  CheckRunPullRequest,
   InstallationLite,
   Organization,
-  RepoRef,
   Repository,
   SimpleCommit,
   User
@@ -37,21 +37,7 @@ export interface CheckSuiteCompletedEvent {
     url: string;
     before: string;
     after: string;
-    pull_requests: {
-      url: string;
-      id: number;
-      number: number;
-      head: {
-        ref: string;
-        sha: string;
-        repo: RepoRef;
-      };
-      base: {
-        ref: string;
-        sha: string;
-        repo: RepoRef;
-      };
-    }[];
+    pull_requests: CheckRunPullRequest[];
     app: App;
     created_at: string;
     updated_at: string;

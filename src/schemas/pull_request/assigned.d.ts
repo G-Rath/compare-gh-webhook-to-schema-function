@@ -1,7 +1,6 @@
 /* tslint:disable */
 import {
   InstallationLite,
-  Label,
   Organization,
   PullRequest,
   Repository,
@@ -17,7 +16,6 @@ export interface PullRequestAssignedEvent {
   action: 'assigned';
   number: number;
   pull_request: PullRequest;
-  label?: Label;
   assignee?: User;
   repository: Repository;
   installation?: InstallationLite;

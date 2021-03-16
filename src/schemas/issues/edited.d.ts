@@ -25,8 +25,6 @@ export interface IssuesEditedEvent {
       from: string;
     };
   };
-  assignee?: User | null;
-  assignees?: User[];
   repository: Repository;
   sender: User;
   installation?: InstallationLite;

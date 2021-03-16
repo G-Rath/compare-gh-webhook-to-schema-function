@@ -203,67 +203,7 @@
             "pull_requests": {
               "type": "array",
               "items": {
-                "type": "object",
-                "required": [
-                  "url",
-                  "id",
-                  "number",
-                  "head",
-                  "base"
-                ],
-                "properties": {
-                  "url": {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  "id": {
-                    "type": "integer"
-                  },
-                  "number": {
-                    "type": "integer"
-                  },
-                  "head": {
-                    "type": "object",
-                    "required": [
-                      "ref",
-                      "sha",
-                      "repo"
-                    ],
-                    "properties": {
-                      "ref": {
-                        "type": "string"
-                      },
-                      "sha": {
-                        "type": "string"
-                      },
-                      "repo": {
-                        "$ref": "common/repo-ref.schema.json"
-                      }
-                    },
-                    "additionalProperties": false
-                  },
-                  "base": {
-                    "type": "object",
-                    "required": [
-                      "ref",
-                      "sha",
-                      "repo"
-                    ],
-                    "properties": {
-                      "ref": {
-                        "type": "string"
-                      },
-                      "sha": {
-                        "type": "string"
-                      },
-                      "repo": {
-                        "$ref": "common/repo-ref.schema.json"
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                },
-                "additionalProperties": false
+                "$ref": "common/check-run-pull-request.schema.json"
               }
             },
             "app": {
@@ -286,68 +226,11 @@
         "pull_requests": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "url",
-              "id",
-              "number",
-              "head",
-              "base"
-            ],
-            "properties": {
-              "url": {
-                "type": "string",
-                "format": "uri"
-              },
-              "id": {
-                "type": "integer"
-              },
-              "number": {
-                "type": "integer"
-              },
-              "head": {
-                "type": "object",
-                "required": [
-                  "ref",
-                  "sha",
-                  "repo"
-                ],
-                "properties": {
-                  "ref": {
-                    "type": "string"
-                  },
-                  "sha": {
-                    "type": "string"
-                  },
-                  "repo": {
-                    "$ref": "common/repo-ref.schema.json"
-                  }
-                },
-                "additionalProperties": false
-              },
-              "base": {
-                "type": "object",
-                "required": [
-                  "ref",
-                  "sha",
-                  "repo"
-                ],
-                "properties": {
-                  "ref": {
-                    "type": "string"
-                  },
-                  "sha": {
-                    "type": "string"
-                  },
-                  "repo": {
-                    "$ref": "common/repo-ref.schema.json"
-                  }
-                },
-                "additionalProperties": false
-              }
-            },
-            "additionalProperties": false
+            "$ref": "common/check-run-pull-request.schema.json"
           }
+        },
+        "deployment": {
+          "$ref": "common/check-run-deployment.schema.json"
         }
       },
       "additionalProperties": false

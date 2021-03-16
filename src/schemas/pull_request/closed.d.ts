@@ -1,7 +1,6 @@
 /* tslint:disable */
 import {
   InstallationLite,
-  Label,
   Organization,
   PullRequest,
   Repository,
@@ -24,8 +23,6 @@ export interface PullRequestClosedEvent {
     closed_at: string;
     merged: boolean;
   };
-  label?: Label;
-  assignee?: User;
   repository: Repository;
   installation?: InstallationLite;
   organization?: Organization;

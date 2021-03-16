@@ -17,8 +17,6 @@ export interface IssuesUnlabeledEvent {
   action: 'unlabeled';
   issue: Issue;
   label?: Label;
-  assignee?: User | null;
-  assignees?: User[];
   repository: Repository;
   sender: User;
   installation?: InstallationLite;

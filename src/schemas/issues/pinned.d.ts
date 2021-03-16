@@ -2,7 +2,6 @@
 import {
   InstallationLite,
   Issue,
-  Label,
   Organization,
   Repository,
   User
@@ -16,9 +15,6 @@ import {
 export interface IssuesPinnedEvent {
   action: 'pinned';
   issue: Issue;
-  label?: Label;
-  assignee?: User | null;
-  assignees?: User[];
   repository: Repository;
   sender: User;
   installation?: InstallationLite;
