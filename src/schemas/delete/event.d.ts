@@ -9,6 +9,9 @@ import { InstallationLite, Organization, Repository, User } from '../common';
 export interface DeleteEvent {
   ref: string;
   ref_type: 'tag' | 'branch';
+  /**
+   * The pusher type for the event. Can be either `user` or a deploy key.
+   */
   pusher_type: string;
   repository: Repository;
   sender: User;
