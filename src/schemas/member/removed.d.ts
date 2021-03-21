@@ -8,6 +8,9 @@ import { InstallationLite, Repository, User } from '../common';
 
 export interface MemberRemovedEvent {
   action: 'removed';
+  /**
+   * The user that was removed.
+   */
   member: User;
   repository: Repository;
   installation?: InstallationLite;

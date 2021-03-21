@@ -14,11 +14,20 @@ import {
 
 export interface ProjectEditedEvent {
   action: 'edited';
+  /**
+   * The changes to the project if the action was `edited`.
+   */
   changes: {
     name?: {
+      /**
+       * The changes to the project if the action was `edited`.
+       */
       from: string;
     };
     body?: {
+      /**
+       * The previous version of the body if the action was `edited`.
+       */
       from: string;
     };
   };

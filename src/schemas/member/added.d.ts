@@ -6,8 +6,14 @@ import { InstallationLite, Repository, User } from '../common';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * Activity related to repository collaborators. The type of activity is specified in the action property.
+ */
 export interface MemberAddedEvent {
   action: 'added';
+  /**
+   * The user that was added.
+   */
   member: User;
   repository: Repository;
   installation?: InstallationLite;

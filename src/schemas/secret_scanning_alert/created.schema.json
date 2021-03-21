@@ -17,6 +17,7 @@
     },
     "alert": {
       "type": "object",
+      "description": "The secret scanning alert involved in the event.",
       "required": [
         "number",
         "secret_type",

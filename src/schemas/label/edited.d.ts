@@ -14,12 +14,24 @@ import {
 
 export interface LabelEditedEvent {
   action: 'edited';
+  /**
+   * The label that was edited.
+   */
   label: Label;
+  /**
+   * The changes to the label if the action was `edited`.
+   */
   changes?: {
     color?: {
+      /**
+       * The previous version of the color if the action was `edited`.
+       */
       from: string;
     };
     name?: {
+      /**
+       * The previous version of the name if the action was `edited`.
+       */
       from: string;
     };
   };

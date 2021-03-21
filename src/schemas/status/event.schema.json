@@ -19,10 +19,12 @@
   ],
   "properties": {
     "id": {
-      "type": "integer"
+      "type": "integer",
+      "description": "The unique identifier of the status."
     },
     "sha": {
-      "type": "string"
+      "type": "string",
+      "description": "The Commit SHA."
     },
     "name": {
       "type": "string"
@@ -39,7 +41,8 @@
         "string",
         "null"
       ],
-      "format": "uri"
+      "format": "uri",
+      "description": "The optional link added to the status."
     },
     "context": {
       "type": "string"
@@ -48,7 +51,8 @@
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "description": "The optional human-readable description added to the status."
     },
     "state": {
       "type": "string",
@@ -57,7 +61,8 @@
         "success",
         "failure",
         "error"
-      ]
+      ],
+      "description": "The new state. Can be `pending`, `success`, `failure`, or `error`."
     },
     "commit": {
       "type": "object",
@@ -266,6 +271,7 @@
     },
     "branches": {
       "type": "array",
+      "description": "An array of branch objects containing the status' SHA. Each branch contains the given SHA, but the SHA may or may not be the head of the branch. The array includes a maximum of 10 branches.",
       "items": {
         "type": "object",
         "required": [

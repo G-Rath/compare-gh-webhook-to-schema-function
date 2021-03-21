@@ -14,6 +14,9 @@ import {
 
 export interface PullRequestSynchronizeEvent {
   action: 'synchronize';
+  /**
+   * The pull request number.
+   */
   number: number;
   pull_request: PullRequest;
   repository: Repository;

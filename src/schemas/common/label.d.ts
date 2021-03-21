@@ -5,9 +5,6 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-/**
- * Color-coded labels help you categorize and filter your issues (just like labels in Gmail).
- */
 export interface Label {
   id: number;
   node_id: string;

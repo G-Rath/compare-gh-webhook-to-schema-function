@@ -16,6 +16,9 @@ import {
 
 export interface CheckRunRequestedActionEvent {
   action: 'requested_action';
+  /**
+   * The [check_run](https://docs.github.com/en/rest/reference/checks#get-a-check-run).
+   */
   check_run: {
     /**
      * The id of the check.
@@ -31,11 +34,11 @@ export interface CheckRunRequestedActionEvent {
     html_url: string;
     details_url?: string;
     /**
-     * The phase of the lifecycle that the check is currently in.
+     * The current status of the check run. Can be `queued`, `in_progress`, or `completed`.
      */
     status: 'queued' | 'in_progress' | 'completed';
     /**
-     * The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `skipped`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`.
+     * The result of the completed check run. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `action_required` or `stale`. This value will be `null` until the check run has completed.
      */
     conclusion:
       | 'success'
@@ -62,10 +65,13 @@ export interface CheckRunRequestedActionEvent {
       annotations_url: string;
     };
     /**
-     * The name of the check.
+     * The name of the check run.
      */
     name: string;
     check_suite: {
+      /**
+       * The id of the check suite that this check run is part of.
+       */
       id: number;
       node_id?: string;
       head_branch: string | null;
@@ -86,6 +92,9 @@ export interface CheckRunRequestedActionEvent {
       url: string;
       before: string | null;
       after: string | null;
+      /**
+       * An array of pull requests that match this check suite. A pull request matches a check suite if they have the same `head_sha` and `head_branch`. When the check suite's `head_branch` is in a forked repository it will be `null` and the `pull_requests` array will be empty.
+       */
       pull_requests: CheckRunPullRequest[];
       app: App;
       created_at: string;
@@ -95,7 +104,13 @@ export interface CheckRunRequestedActionEvent {
     pull_requests: CheckRunPullRequest[];
     deployment?: CheckRunDeployment;
   };
-  requested_action?: {
+  /**
+   * The action requested by the user.
+   */
+  requested_action: {
+    /**
+     * The integrator reference of the action requested by the user.
+     */
     identifier?: string;
   };
   repository: Repository;

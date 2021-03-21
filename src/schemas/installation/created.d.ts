@@ -9,6 +9,9 @@ import { Installation, User } from '../common';
 export interface InstallationCreatedEvent {
   action: 'created';
   installation: Installation;
+  /**
+   * An array of repository objects that the installation can access.
+   */
   repositories?: {
     /**
      * Unique identifier of the repository

@@ -14,6 +14,9 @@ import {
 
 export interface LabelDeletedEvent {
   action: 'deleted';
+  /**
+   * The label that was removed.
+   */
   label: Label;
   repository: Repository;
   sender: User;

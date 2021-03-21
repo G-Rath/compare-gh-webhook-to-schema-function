@@ -14,12 +14,24 @@ import {
 
 export interface PullRequestEditedEvent {
   action: 'edited';
+  /**
+   * The pull request number.
+   */
   number: number;
+  /**
+   * The changes to the comment if the action was `edited`.
+   */
   changes: {
     body?: {
+      /**
+       * The previous version of the body if the action was `edited`.
+       */
       from: string;
     };
     title?: {
+      /**
+       * The previous version of the title if the action was `edited`.
+       */
       from: string;
     };
   };

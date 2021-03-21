@@ -8,6 +8,9 @@ import { InstallationLite, Organization, User } from '../common';
 
 export interface OrganizationMemberInvitedEvent {
   action: 'member_invited';
+  /**
+   * The invitation for the user or email if the action is `member_invited`.
+   */
   invitation: {};
   sender: User;
   installation?: InstallationLite;

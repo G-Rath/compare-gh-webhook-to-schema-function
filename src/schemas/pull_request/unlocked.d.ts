@@ -14,6 +14,9 @@ import {
 
 export interface PullRequestUnlockedEvent {
   action: 'unlocked';
+  /**
+   * The pull request number.
+   */
   number: number;
   pull_request: PullRequest;
   repository: Repository;

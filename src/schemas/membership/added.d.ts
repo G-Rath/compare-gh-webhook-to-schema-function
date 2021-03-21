@@ -8,9 +8,18 @@ import { InstallationLite, Organization, Team, User } from '../common';
 
 export interface MembershipAddedEvent {
   action: 'added';
+  /**
+   * The scope of the membership. Currently, can only be `team`.
+   */
   scope: 'team';
+  /**
+   * The [user](https://docs.github.com/en/rest/reference/users) that was added or removed.
+   */
   member: User;
   sender: User;
+  /**
+   * The [team](https://docs.github.com/en/rest/reference/teams) for the membership.
+   */
   team: Team;
   organization: Organization;
   installation?: InstallationLite;

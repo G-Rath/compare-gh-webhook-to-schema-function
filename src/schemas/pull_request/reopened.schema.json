@@ -17,7 +17,8 @@
       ]
     },
     "number": {
-      "type": "integer"
+      "type": "integer",
+      "description": "The pull request number."
     },
     "pull_request": {
       "allOf": [

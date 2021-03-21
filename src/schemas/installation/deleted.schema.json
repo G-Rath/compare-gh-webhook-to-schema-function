@@ -19,6 +19,7 @@
     },
     "repositories": {
       "type": "array",
+      "description": "An array of repository objects that the installation can access.",
       "items": {
         "type": "object",
         "required": [

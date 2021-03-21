@@ -16,12 +16,21 @@ export interface ReleaseEditedEvent {
   action: 'edited';
   changes: {
     body?: {
+      /**
+       * The previous version of the body if the action was `edited`.
+       */
       from: string;
     };
     name?: {
+      /**
+       * The previous version of the name if the action was `edited`.
+       */
       from: string;
     };
   };
+  /**
+   * The [release](https://docs.github.com/en/rest/reference/repos/#get-a-release) object.
+   */
   release: {
     url: string;
     assets_url: string;

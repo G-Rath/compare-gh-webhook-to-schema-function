@@ -16,7 +16,8 @@
       ]
     },
     "member": {
-      "$ref": "common/user.schema.json"
+      "$ref": "common/user.schema.json",
+      "description": "The user that was removed."
     },
     "repository": {
       "$ref": "common/repository.schema.json"

@@ -16,6 +16,9 @@ import {
 export interface IssuesUnlabeledEvent {
   action: 'unlabeled';
   issue: Issue;
+  /**
+   * The optional label that was added or removed from the issue.
+   */
   label?: Label;
   repository: Repository;
   sender: User;

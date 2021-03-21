@@ -13,13 +13,28 @@ import {
  */
 
 export interface StatusEvent {
+  /**
+   * The unique identifier of the status.
+   */
   id: number;
+  /**
+   * The Commit SHA.
+   */
   sha: string;
   name: string;
   avatar_url?: string | null;
+  /**
+   * The optional link added to the status.
+   */
   target_url: string | null;
   context: string;
+  /**
+   * The optional human-readable description added to the status.
+   */
   description: string | null;
+  /**
+   * The new state. Can be `pending`, `success`, `failure`, or `error`.
+   */
   state: 'pending' | 'success' | 'failure' | 'error';
   commit: {
     sha: string;
@@ -69,6 +84,9 @@ export interface StatusEvent {
       html_url: string;
     }[];
   };
+  /**
+   * An array of branch objects containing the status' SHA. Each branch contains the given SHA, but the SHA may or may not be the head of the branch. The array includes a maximum of 10 branches.
+   */
   branches: {
     name: string;
     commit: {

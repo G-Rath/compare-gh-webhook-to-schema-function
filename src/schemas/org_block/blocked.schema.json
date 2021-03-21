@@ -16,7 +16,8 @@
       ]
     },
     "blocked_user": {
-      "$ref": "common/user.schema.json"
+      "$ref": "common/user.schema.json",
+      "description": "Information about the user that was blocked or unblocked."
     },
     "sender": {
       "$ref": "common/user.schema.json"

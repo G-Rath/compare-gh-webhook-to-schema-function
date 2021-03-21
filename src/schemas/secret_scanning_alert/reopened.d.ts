@@ -8,6 +8,9 @@ import { InstallationLite, Organization, Repository, User } from '../common';
 
 export interface SecretScanningAlertReopenedEvent {
   action: 'reopened';
+  /**
+   * The secret scanning alert involved in the event.
+   */
   alert: {
     number: number;
     secret_type: string;

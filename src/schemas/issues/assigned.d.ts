@@ -12,9 +12,21 @@ import {
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * Activity related to an issue. The type of activity is specified in the action property.
+ */
 export interface IssuesAssignedEvent {
+  /**
+   * The action that was performed.
+   */
   action: 'assigned';
+  /**
+   * The [issue](https://docs.github.com/en/rest/reference/issues) itself.
+   */
   issue: Issue;
+  /**
+   * The optional user who was assigned or unassigned from the issue.
+   */
   assignee?: User | null;
   repository: Repository;
   sender: User;

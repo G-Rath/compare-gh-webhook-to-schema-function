@@ -17,11 +17,20 @@ export interface IssuesEditedEvent {
   action: 'edited';
   issue: Issue;
   label?: Label;
+  /**
+   * The changes to the issue.
+   */
   changes: {
     body?: {
+      /**
+       * The previous version of the body.
+       */
       from: string;
     };
     title?: {
+      /**
+       * The previous version of the title.
+       */
       from: string;
     };
   };

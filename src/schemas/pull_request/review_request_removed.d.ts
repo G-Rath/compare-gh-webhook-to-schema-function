@@ -14,6 +14,9 @@ import {
 
 export interface PullRequestReviewRequestRemovedEvent {
   action: 'review_request_removed';
+  /**
+   * The pull request number.
+   */
   number: number;
   pull_request: PullRequest;
   requested_reviewer: User;

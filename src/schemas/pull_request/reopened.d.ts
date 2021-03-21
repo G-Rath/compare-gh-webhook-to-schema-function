@@ -14,6 +14,9 @@ import {
 
 export interface PullRequestReopenedEvent {
   action: 'reopened';
+  /**
+   * The pull request number.
+   */
   number: number;
   pull_request: PullRequest & {
     state: 'open';

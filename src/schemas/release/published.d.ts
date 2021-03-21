@@ -14,6 +14,9 @@ import {
 
 export interface ReleasePublishedEvent {
   action: 'published';
+  /**
+   * The [release](https://docs.github.com/en/rest/reference/repos/#get-a-release) object.
+   */
   release: {
     url: string;
     assets_url: string;

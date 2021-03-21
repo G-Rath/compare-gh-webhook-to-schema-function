@@ -18,6 +18,7 @@
     },
     "changes": {
       "type": "object",
+      "description": "The changes to the team if the action was `edited`.",
       "required": [],
       "properties": {
         "description": {
@@ -27,7 +28,8 @@
           ],
           "properties": {
             "from": {
-              "type": "string"
+              "type": "string",
+              "description": "The previous version of the description if the action was `edited`."
             }
           },
           "additionalProperties": false
@@ -39,7 +41,8 @@
           ],
           "properties": {
             "from": {
-              "type": "string"
+              "type": "string",
+              "description": "The previous version of the name if the action was `edited`."
             }
           },
           "additionalProperties": false
@@ -51,7 +54,8 @@
           ],
           "properties": {
             "from": {
-              "type": "string"
+              "type": "string",
+              "description": "The previous version of the team's privacy if the action was `edited`."
             }
           },
           "additionalProperties": false
@@ -72,13 +76,16 @@
                   "type": "object",
                   "properties": {
                     "admin": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "The previous version of the team member's `admin` permission on a repository, if the action was `edited`."
                     },
                     "pull": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "The previous version of the team member's `pull` permission on a repository, if the action was `edited`."
                     },
                     "push": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "The previous version of the team member's `push` permission on a repository, if the action was `edited`."
                     }
                   },
                   "additionalProperties": false

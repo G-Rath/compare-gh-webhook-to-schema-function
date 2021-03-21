@@ -17,6 +17,7 @@
       ]
     },
     "issue": {
+      "description": "The [issue](https://docs.github.com/en/rest/reference/issues) the comment belongs to.",
       "allOf": [
         {
           "$ref": "common/issue.schema.json"
@@ -96,6 +97,7 @@
     },
     "comment": {
       "type": "object",
+      "description": "The [comment](https://docs.github.com/en/rest/reference/issues#comments) itself.",
       "required": [
         "url",
         "html_url",

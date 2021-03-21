@@ -12,21 +12,51 @@ import {
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * A commit comment is created. The type of activity is specified in the `action` property.
+ */
 export interface CommitCommentCreatedEvent {
+  /**
+   * The action performed. Can be `created`.
+   */
   action: 'created';
+  /**
+   * The [commit comment](https://docs.github.com/en/rest/reference/repos#get-a-commit-comment) resource.
+   */
   comment: {
     url: string;
     html_url: string;
+    /**
+     * The ID of the commit comment.
+     */
     id: number;
+    /**
+     * The node ID of the commit comment.
+     */
     node_id: string;
     user: User;
+    /**
+     * The line index in the diff to which the comment applies.
+     */
     position: number | null;
+    /**
+     * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
+     */
     line: number | null;
+    /**
+     * The relative path of the file to which the comment applies.
+     */
     path: string | null;
+    /**
+     * The SHA of the commit to which the comment applies.
+     */
     commit_id: string;
     created_at: string;
     updated_at: string;
     author_association: AuthorAssociation;
+    /**
+     * The text of the comment.
+     */
     body: string;
   };
   repository: Repository;

@@ -18,6 +18,9 @@ export interface SponsorshipEditedEvent {
   };
   changes: {
     privacy_level?: {
+      /**
+       * The `edited` event types include the details about the change when someone edits a sponsorship to change the privacy.
+       */
       from: string;
     };
   };

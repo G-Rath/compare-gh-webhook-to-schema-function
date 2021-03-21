@@ -16,6 +16,7 @@
     },
     "hook": {
       "type": "object",
+      "description": "The [webhook configuration](https://docs.github.com/en/rest/reference/repos#get-a-repository-webhook).",
       "required": [
         "type",
         "id",

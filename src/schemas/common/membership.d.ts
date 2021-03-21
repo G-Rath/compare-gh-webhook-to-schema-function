@@ -6,6 +6,9 @@ import { User } from '.';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * The membership between the user and the organization. Not present when the action is `member_invited`.
+ */
 export interface Membership {
   url: string;
   state: string;

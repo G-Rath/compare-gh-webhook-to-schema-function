@@ -14,6 +14,9 @@ import {
 
 export interface PullRequestReadyForReviewEvent {
   action: 'ready_for_review';
+  /**
+   * The pull request number.
+   */
   number: number;
   pull_request: PullRequest & {
     state: 'open';

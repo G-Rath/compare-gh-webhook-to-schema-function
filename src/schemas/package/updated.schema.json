@@ -17,6 +17,7 @@
     },
     "package": {
       "type": "object",
+      "description": "Information about the package.",
       "required": [
         "id",
         "name",

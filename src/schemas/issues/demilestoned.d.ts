@@ -14,6 +14,9 @@ import {
 
 export interface IssuesDemilestonedEvent {
   action: 'demilestoned';
+  /**
+   * The [issue](https://docs.github.com/en/rest/reference/issues) itself.
+   */
   issue: Issue;
   repository: Repository;
   sender: User;

@@ -9,11 +9,13 @@
   "type": "object",
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "The git author's name."
     },
     "email": {
       "type": "string",
-      "format": "email"
+      "format": "email",
+      "description": "The git author's email address."
     },
     "date": {
       "type": "string",

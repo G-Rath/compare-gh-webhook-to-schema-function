@@ -9,6 +9,9 @@ import { Organization, Repository, User } from '../common';
 export interface PingEvent {
   zen: string;
   hook_id: number;
+  /**
+   * The [webhook configuration](https://docs.github.com/en/rest/reference/repos#get-a-repository-webhook).
+   */
   hook: {
     type: string;
     id: number;

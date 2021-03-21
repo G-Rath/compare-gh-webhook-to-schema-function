@@ -18,9 +18,15 @@ export interface PullRequestReviewEditedEvent {
   action: 'edited';
   changes: {
     body: {
+      /**
+       * The previous version of the body if the action was `edited`.
+       */
       from: string;
     };
   };
+  /**
+   * The review that was affected.
+   */
   review: {
     /**
      * Unique identifier of the review

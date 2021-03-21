@@ -13,8 +13,14 @@ import {
  */
 
 export interface IssuesUnassignedEvent {
+  /**
+   * The action that was performed.
+   */
   action: 'unassigned';
   issue: Issue;
+  /**
+   * The optional user who was assigned or unassigned from the issue.
+   */
   assignee?: User | null;
   repository: Repository;
   sender: User;

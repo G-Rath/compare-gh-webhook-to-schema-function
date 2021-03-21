@@ -7,6 +7,9 @@
 
 export interface SecurityAdvisoryPerformedEvent {
   action: 'performed';
+  /**
+   * The details of the security advisory, including summary, description, and severity.
+   */
   security_advisory: {
     ghsa_id: string;
     summary: string;

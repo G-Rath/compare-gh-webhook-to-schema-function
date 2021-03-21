@@ -14,6 +14,9 @@ import {
 
 export interface PullRequestLockedEvent {
   action: 'locked';
+  /**
+   * The pull request number.
+   */
   number: number;
   pull_request: PullRequest;
   repository: Repository;
