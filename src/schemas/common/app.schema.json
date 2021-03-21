@@ -108,6 +108,13 @@
             "write"
           ]
         },
+        "emails": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "metadata": {
           "type": "string",
           "enum": [
