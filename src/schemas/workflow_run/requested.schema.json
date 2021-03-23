@@ -29,7 +29,25 @@
       "$ref": "common/workflow.schema.json"
     },
     "workflow_run": {
-      "$ref": "common/workflow-run.schema.json"
+      "allOf": [
+        {
+          "$ref": "common/workflow-run.schema.json"
+        },
+        {
+          "type": "object",
+          "required": [
+            "conclusion"
+          ],
+          "properties": {
+            "conclusion": {
+              "type": [
+                "null"
+              ]
+            }
+          },
+          "tsAdditionalProperties": false
+        }
+      ]
     },
     "installation": {
       "$ref": "common/installation-lite.schema.json"

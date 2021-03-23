@@ -19,6 +19,8 @@ export interface WorkflowRunCompletedEvent {
   repository: Repository;
   sender: User;
   workflow: Workflow;
-  workflow_run: WorkflowRun;
+  workflow_run: WorkflowRun & {
+    conclusion: string;
+  };
   installation?: InstallationLite;
 }
