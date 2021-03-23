@@ -16,6 +16,9 @@ import {
 
 export interface PullRequestReviewSubmittedEvent {
   action: 'submitted';
+  /**
+   * The review that was affected.
+   */
   review: {
     /**
      * Unique identifier of the review

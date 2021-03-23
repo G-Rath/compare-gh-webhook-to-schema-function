@@ -16,6 +16,9 @@ export interface SponsorshipPendingTierChangeEvent {
     privacy_level: string;
     tier: SponsorshipTier;
   };
+  /**
+   * The `pending_cancellation` and `pending_tier_change` event types will include the date the cancellation or tier change will take effect.
+   */
   effective_date?: string;
   changes: {
     tier: {

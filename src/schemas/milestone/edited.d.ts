@@ -14,14 +14,26 @@ import {
 
 export interface MilestoneEditedEvent {
   action: 'edited';
+  /**
+   * The changes to the milestone if the action was `edited`.
+   */
   changes: {
     description?: {
+      /**
+       * The previous version of the description if the action was `edited`.
+       */
       from: string;
     };
     due_on?: {
+      /**
+       * The previous version of the due date if the action was `edited`.
+       */
       from: string;
     };
     title?: {
+      /**
+       * The previous version of the title if the action was `edited`.
+       */
       from: string;
     };
   };

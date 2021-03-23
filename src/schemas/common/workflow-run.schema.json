@@ -41,6 +41,9 @@
       "type": "string",
       "format": "uri"
     },
+    "check_suite_id": {
+      "type": "integer"
+    },
     "conclusion": {
       "type": [
         "string",

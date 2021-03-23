@@ -14,6 +14,9 @@ import {
 
 export interface DeploymentCreatedEvent {
   action: 'created';
+  /**
+   * The [deployment](https://docs.github.com/en/rest/reference/repos#list-deployments).
+   */
   deployment: {
     url: string;
     id: number;

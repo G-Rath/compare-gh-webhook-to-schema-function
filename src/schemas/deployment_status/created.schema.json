@@ -18,6 +18,7 @@
     },
     "deployment_status": {
       "type": "object",
+      "description": "The [deployment status](https://docs.github.com/en/rest/reference/repos#list-deployment-statuses).",
       "required": [
         "url",
         "id",
@@ -44,19 +45,22 @@
           "type": "string"
         },
         "state": {
-          "type": "string"
+          "type": "string",
+          "description": "The new state. Can be `pending`, `success`, `failure`, or `error`."
         },
         "creator": {
           "$ref": "common/user.schema.json"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "description": "The optional human-readable description added to the status."
         },
         "environment": {
           "type": "string"
         },
         "target_url": {
-          "type": "string"
+          "type": "string",
+          "description": "The optional link added to the status."
         },
         "created_at": {
           "type": "string"
@@ -87,6 +91,7 @@
     },
     "deployment": {
       "type": "object",
+      "description": "The [deployment](https://docs.github.com/en/rest/reference/repos#list-deployments) that this status is associated with.",
       "required": [
         "url",
         "id",

@@ -8,6 +8,9 @@ import { Organization, Repository, User } from '../common';
 
 export interface PackagePublishedEvent {
   action: 'published';
+  /**
+   * Information about the package.
+   */
   package: {
     id: number;
     name: string;

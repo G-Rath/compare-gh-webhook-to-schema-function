@@ -2,6 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "member$added",
   "type": "object",
+  "description": "Activity related to repository collaborators. The type of activity is specified in the action property.",
   "required": [
     "action",
     "member",
@@ -16,7 +17,8 @@
       ]
     },
     "member": {
-      "$ref": "common/user.schema.json"
+      "$ref": "common/user.schema.json",
+      "description": "The user that was added."
     },
     "repository": {
       "$ref": "common/repository.schema.json"

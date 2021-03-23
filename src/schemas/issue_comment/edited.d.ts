@@ -16,11 +16,20 @@ import {
 
 export interface IssueCommentEditedEvent {
   action: 'edited';
+  /**
+   * The changes to the comment.
+   */
   changes: {
     body?: {
+      /**
+       * The previous version of the body.
+       */
       from: string;
     };
   };
+  /**
+   * The [issue](https://docs.github.com/en/rest/reference/issues) the comment belongs to.
+   */
   issue: Issue & {
     assignee: User | null;
     /**
@@ -37,6 +46,9 @@ export interface IssueCommentEditedEvent {
       patch_url: string;
     };
   };
+  /**
+   * The [comment](https://docs.github.com/en/rest/reference/issues#comments) itself.
+   */
   comment: {
     /**
      * URL for the issue comment

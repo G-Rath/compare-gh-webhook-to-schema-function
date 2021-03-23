@@ -17,6 +17,7 @@
     },
     "alert": {
       "type": "object",
+      "description": "The secret scanning alert involved in the event.",
       "required": [
         "number",
         "secret_type",
@@ -51,9 +52,6 @@
     },
     "installation": {
       "$ref": "common/installation-lite.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
     }
   },
   "additionalProperties": false,

@@ -14,6 +14,9 @@ import {
 
 export interface IssuesDeletedEvent {
   action: 'deleted';
+  /**
+   * The [issue](https://docs.github.com/en/rest/reference/issues) itself.
+   */
   issue: Issue;
   repository: Repository;
   sender: User;

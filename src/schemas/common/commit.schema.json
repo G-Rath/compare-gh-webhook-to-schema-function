@@ -23,17 +23,21 @@
       "type": "string"
     },
     "distinct": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "Whether this commit is distinct from any that have been pushed before."
     },
     "message": {
-      "type": "string"
+      "type": "string",
+      "description": "The commit message."
     },
     "timestamp": {
-      "type": "string"
+      "type": "string",
+      "description": "The ISO 8601 timestamp of the commit."
     },
     "url": {
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "description": "URL that points to the commit API resource."
     },
     "author": {
       "allOf": [
@@ -77,19 +81,22 @@
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "description": "An array of files added in the commit."
     },
     "removed": {
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "description": "An array of files modified by the commit."
     },
     "modified": {
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "description": "An array of files removed in the commit."
     }
   },
   "additionalProperties": false,

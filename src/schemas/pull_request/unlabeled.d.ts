@@ -15,9 +15,12 @@ import {
 
 export interface PullRequestUnlabeledEvent {
   action: 'unlabeled';
+  /**
+   * The pull request number.
+   */
   number: number;
   pull_request: PullRequest;
-  label?: Label;
+  label: Label;
   repository: Repository;
   installation?: InstallationLite;
   organization?: Organization;

@@ -18,6 +18,9 @@ import {
 
 export interface PullRequestReviewCommentCreatedEvent {
   action: 'created';
+  /**
+   * The [comment](https://docs.github.com/en/rest/reference/pulls#comments) itself.
+   */
   comment: {
     /**
      * URL for the pull request review comment

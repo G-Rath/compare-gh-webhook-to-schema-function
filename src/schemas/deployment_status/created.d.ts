@@ -14,14 +14,26 @@ import {
 
 export interface DeploymentStatusCreatedEvent {
   action: 'created';
+  /**
+   * The [deployment status](https://docs.github.com/en/rest/reference/repos#list-deployment-statuses).
+   */
   deployment_status: {
     url: string;
     id: number;
     node_id: string;
+    /**
+     * The new state. Can be `pending`, `success`, `failure`, or `error`.
+     */
     state: string;
     creator: User;
+    /**
+     * The optional human-readable description added to the status.
+     */
     description: string;
     environment: string;
+    /**
+     * The optional link added to the status.
+     */
     target_url: string;
     created_at: string;
     updated_at: string;
@@ -29,6 +41,9 @@ export interface DeploymentStatusCreatedEvent {
     repository_url: string;
     performed_via_github_app?: App | null;
   };
+  /**
+   * The [deployment](https://docs.github.com/en/rest/reference/repos#list-deployments) that this status is associated with.
+   */
   deployment: {
     url: string;
     id: number;

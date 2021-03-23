@@ -9,6 +9,9 @@ import { Installation, User } from '../common';
 export interface InstallationUnsuspendEvent {
   action: 'unsuspend';
   installation: Installation;
+  /**
+   * An array of repository objects that the installation can access.
+   */
   repositories?: {
     /**
      * Unique identifier of the repository

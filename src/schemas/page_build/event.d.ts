@@ -11,6 +11,9 @@ import { InstallationLite, Organization, Repository, User } from '../common';
  */
 export interface PageBuildEvent {
   id: number;
+  /**
+   * The [List GitHub Pages builds](https://docs.github.com/en/rest/reference/repos#list-github-pages-builds) itself.
+   */
   build: {
     url: string;
     status: string;

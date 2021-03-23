@@ -8,7 +8,13 @@ import { Repository, User } from '../common';
 
 export interface MetaDeletedEvent {
   action: 'deleted';
+  /**
+   * The id of the modified webhook.
+   */
   hook_id: number;
+  /**
+   * The modified webhook. This will contain different keys based on the type of webhook it is: repository, organization, business, app, or GitHub Marketplace.
+   */
   hook: {
     type: string;
     id: number;

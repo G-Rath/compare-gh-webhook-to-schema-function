@@ -6,7 +6,13 @@ import { InstallationLite, Organization, Repository, User } from '../common';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * A user forks a repository.
+ */
 export interface ForkEvent {
+  /**
+   * The created [`repository`](https://docs.github.com/en/rest/reference/repos#get-a-repository) resource.
+   */
   forkee: Repository & {
     fork?: true;
   };

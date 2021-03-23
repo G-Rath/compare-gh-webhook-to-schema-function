@@ -8,6 +8,9 @@ import { InstallationLite, Organization, Repository, User } from '../common';
 
 export interface StarCreatedEvent {
   action: 'created';
+  /**
+   * The time the star was created. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Will be `null` for the `deleted` action.
+   */
   starred_at: string;
   repository: Repository;
   sender: User;

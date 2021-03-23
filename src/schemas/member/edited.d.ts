@@ -8,9 +8,18 @@ import { InstallationLite, Repository, User } from '../common';
 
 export interface MemberEditedEvent {
   action: 'edited';
+  /**
+   * The user who's permissions are changed.
+   */
   member: User;
+  /**
+   * The changes to the collaborator permissions
+   */
   changes: {
     old_permission: {
+      /**
+       * The previous permissions of the collaborator if the action was edited.
+       */
       from: string;
     };
   };

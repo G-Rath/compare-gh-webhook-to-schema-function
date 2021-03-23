@@ -15,6 +15,7 @@
     },
     "security_advisory": {
       "type": "object",
+      "description": "The details of the security advisory, including summary, description, and severity.",
       "required": [
         "ghsa_id",
         "summary",

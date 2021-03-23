@@ -9,7 +9,13 @@
  * Metaproperties for Git author/committer information.
  */
 export interface Committer {
+  /**
+   * The git author's name.
+   */
   name: string;
+  /**
+   * The git author's email address.
+   */
   email: string;
   date?: string;
   username?: string;

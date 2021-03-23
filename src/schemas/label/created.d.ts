@@ -14,6 +14,9 @@ import {
 
 export interface LabelCreatedEvent {
   action: 'created';
+  /**
+   * The label that was added.
+   */
   label: Label;
   repository: Repository;
   sender: User;

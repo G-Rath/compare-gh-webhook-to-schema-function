@@ -6,13 +6,34 @@ import { InstallationLite, Organization, Repository, User } from '../common';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * A wiki page is created or updated.
+ */
 export interface GollumEvent {
+  /**
+   * The pages that were updated.
+   */
   pages: {
+    /**
+     * The name of the page.
+     */
     page_name: string;
+    /**
+     * The current page title.
+     */
     title: string;
     summary: null;
+    /**
+     * The action that was performed on the page. Can be `created` or `edited`.
+     */
     action: 'created' | 'edited';
+    /**
+     * The latest commit SHA of the page.
+     */
     sha: string;
+    /**
+     * Points to the HTML wiki page.
+     */
     html_url: string;
   }[];
   repository: Repository;

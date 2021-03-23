@@ -19,13 +19,16 @@
   ],
   "properties": {
     "ref": {
-      "type": "string"
+      "type": "string",
+      "description": "The full git ref that was pushed. Example: `refs/heads/main`."
     },
     "before": {
-      "type": "string"
+      "type": "string",
+      "description": "The SHA of the most recent commit on `ref` before the push."
     },
     "after": {
-      "type": "string"
+      "type": "string",
+      "description": "The SHA of the most recent commit on `ref` after the push."
     },
     "created": {
       "type": "boolean"
@@ -45,6 +48,7 @@
     },
     "commits": {
       "type": "array",
+      "description": "An array of commit objects describing the pushed commits.",
       "items": {
         "$ref": "common/commit.schema.json"
       }

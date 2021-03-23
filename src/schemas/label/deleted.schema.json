@@ -16,7 +16,8 @@
       ]
     },
     "label": {
-      "$ref": "common/label.schema.json"
+      "$ref": "common/label.schema.json",
+      "description": "The label that was removed."
     },
     "repository": {
       "$ref": "common/repository.schema.json"

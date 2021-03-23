@@ -18,11 +18,20 @@ import {
 
 export interface PullRequestReviewCommentEditedEvent {
   action: 'edited';
+  /**
+   * The changes to the comment.
+   */
   changes: {
     body?: {
+      /**
+       * The previous version of the body.
+       */
       from: string;
     };
   };
+  /**
+   * The [comment](https://docs.github.com/en/rest/reference/pulls#comments) itself.
+   */
   comment: {
     /**
      * URL for the pull request review comment

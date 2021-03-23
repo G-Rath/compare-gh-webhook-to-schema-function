@@ -57,7 +57,8 @@
           ],
           "properties": {
             "from": {
-              "type": "string"
+              "type": "string",
+              "description": "The `edited` event types include the details about the change when someone edits a sponsorship to change the privacy."
             }
           },
           "additionalProperties": false

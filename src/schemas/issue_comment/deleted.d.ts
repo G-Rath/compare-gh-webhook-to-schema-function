@@ -16,6 +16,9 @@ import {
 
 export interface IssueCommentDeletedEvent {
   action: 'deleted';
+  /**
+   * The [issue](https://docs.github.com/en/rest/reference/issues) the comment belongs to.
+   */
   issue: Issue & {
     assignee: User | null;
     /**
@@ -32,6 +35,9 @@ export interface IssueCommentDeletedEvent {
       patch_url: string;
     };
   };
+  /**
+   * The [comment](https://docs.github.com/en/rest/reference/issues#comments) itself.
+   */
   comment: {
     /**
      * URL for the issue comment

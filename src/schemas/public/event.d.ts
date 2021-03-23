@@ -6,6 +6,9 @@ import { InstallationLite, Organization, Repository, User } from '../common';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * When a private repository is made public.
+ */
 export interface PublicEvent {
   repository: Repository & {
     private: false;

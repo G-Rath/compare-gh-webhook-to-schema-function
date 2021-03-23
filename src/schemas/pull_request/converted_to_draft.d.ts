@@ -14,6 +14,9 @@ import {
 
 export interface PullRequestConvertedToDraftEvent {
   action: 'converted_to_draft';
+  /**
+   * The pull request number.
+   */
   number: number;
   pull_request: PullRequest & {
     closed_at: null;

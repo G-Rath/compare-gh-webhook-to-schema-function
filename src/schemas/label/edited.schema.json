@@ -16,10 +16,12 @@
       ]
     },
     "label": {
-      "$ref": "common/label.schema.json"
+      "$ref": "common/label.schema.json",
+      "description": "The label that was edited."
     },
     "changes": {
       "type": "object",
+      "description": "The changes to the label if the action was `edited`.",
       "properties": {
         "color": {
           "type": "object",
@@ -28,7 +30,8 @@
           ],
           "properties": {
             "from": {
-              "type": "string"
+              "type": "string",
+              "description": "The previous version of the color if the action was `edited`."
             }
           },
           "additionalProperties": false
@@ -40,7 +43,8 @@
           ],
           "properties": {
             "from": {
-              "type": "string"
+              "type": "string",
+              "description": "The previous version of the name if the action was `edited`."
             }
           },
           "additionalProperties": false

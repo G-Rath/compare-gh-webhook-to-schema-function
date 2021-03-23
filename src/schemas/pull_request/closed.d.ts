@@ -14,6 +14,9 @@ import {
 
 export interface PullRequestClosedEvent {
   action: 'closed';
+  /**
+   * The pull request number.
+   */
   number: number;
   pull_request: PullRequest & {
     /**

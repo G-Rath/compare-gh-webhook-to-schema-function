@@ -16,7 +16,8 @@
       ]
     },
     "starred_at": {
-      "type": "string"
+      "type": "string",
+      "description": "The time the star was created. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Will be `null` for the `deleted` action."
     },
     "repository": {
       "$ref": "common/repository.schema.json"

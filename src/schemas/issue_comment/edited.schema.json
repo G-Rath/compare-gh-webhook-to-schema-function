@@ -19,6 +19,7 @@
     },
     "changes": {
       "type": "object",
+      "description": "The changes to the comment.",
       "properties": {
         "body": {
           "type": "object",
@@ -27,7 +28,8 @@
           ],
           "properties": {
             "from": {
-              "type": "string"
+              "type": "string",
+              "description": "The previous version of the body."
             }
           },
           "additionalProperties": false
@@ -36,6 +38,7 @@
       "additionalProperties": false
     },
     "issue": {
+      "description": "The [issue](https://docs.github.com/en/rest/reference/issues) the comment belongs to.",
       "allOf": [
         {
           "$ref": "common/issue.schema.json"
@@ -115,6 +118,7 @@
     },
     "comment": {
       "type": "object",
+      "description": "The [comment](https://docs.github.com/en/rest/reference/issues#comments) itself.",
       "required": [
         "url",
         "html_url",

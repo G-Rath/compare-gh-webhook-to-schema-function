@@ -6,6 +6,7 @@
     "action",
     "number",
     "pull_request",
+    "assignee",
     "repository",
     "sender"
   ],
@@ -17,7 +18,8 @@
       ]
     },
     "number": {
-      "type": "integer"
+      "type": "integer",
+      "description": "The pull request number."
     },
     "pull_request": {
       "$ref": "common/pull-request.schema.json"

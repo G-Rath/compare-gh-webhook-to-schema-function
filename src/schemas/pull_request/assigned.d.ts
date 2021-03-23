@@ -14,9 +14,12 @@ import {
 
 export interface PullRequestAssignedEvent {
   action: 'assigned';
+  /**
+   * The pull request number.
+   */
   number: number;
   pull_request: PullRequest;
-  assignee?: User;
+  assignee: User;
   repository: Repository;
   installation?: InstallationLite;
   organization?: Organization;

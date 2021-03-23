@@ -9,9 +9,21 @@ import { Committer } from '.';
 export interface Commit {
   id: string;
   tree_id: string;
+  /**
+   * Whether this commit is distinct from any that have been pushed before.
+   */
   distinct: boolean;
+  /**
+   * The commit message.
+   */
   message: string;
+  /**
+   * The ISO 8601 timestamp of the commit.
+   */
   timestamp: string;
+  /**
+   * URL that points to the commit API resource.
+   */
   url: string;
   author: Committer & {
     username: string;
@@ -19,7 +31,16 @@ export interface Commit {
   committer: Committer & {
     username: string;
   };
+  /**
+   * An array of files added in the commit.
+   */
   added: string[];
+  /**
+   * An array of files modified by the commit.
+   */
   removed: string[];
+  /**
+   * An array of files removed in the commit.
+   */
   modified: string[];
 }

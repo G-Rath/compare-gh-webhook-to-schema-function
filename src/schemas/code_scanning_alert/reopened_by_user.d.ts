@@ -14,6 +14,9 @@ import {
 
 export interface CodeScanningAlertReopenedByUserEvent {
   action: 'reopened_by_user';
+  /**
+   * The code scanning alert involved in the event.
+   */
   alert: {
     /**
      * The code scanning alert number.
@@ -70,9 +73,12 @@ export interface CodeScanningAlertReopenedByUserEvent {
     };
   };
   /**
-   * The full Git reference, formatted as `refs/heads/<branch name>`.
+   * The Git reference of the code scanning alert. When the action is `reopened_by_user` or `closed_by_user`, the event was triggered by the `sender` and this value will be empty.
    */
   ref: string;
+  /**
+   * The commit SHA of the code scanning alert. When the action is `reopened_by_user` or `closed_by_user`, the event was triggered by the `sender` and this value will be empty.
+   */
   commit_oid: string;
   repository: Repository;
   sender: User;

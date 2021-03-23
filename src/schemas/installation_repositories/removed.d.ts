@@ -13,7 +13,13 @@ export interface InstallationRepositoriesRemovedEvent {
    * Describe whether all repositories have been selected or there's a selection involved
    */
   repository_selection: 'all' | 'selected';
+  /**
+   * An array of repository objects, which were added to the installation.
+   */
   repositories_added: [];
+  /**
+   * An array of repository objects, which were removed from the installation.
+   */
   repositories_removed: {
     /**
      * Unique identifier of the repository

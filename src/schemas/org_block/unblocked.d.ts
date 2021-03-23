@@ -8,6 +8,9 @@ import { InstallationLite, Organization, User } from '../common';
 
 export interface OrgBlockUnblockedEvent {
   action: 'unblocked';
+  /**
+   * Information about the user that was blocked or unblocked.
+   */
   blocked_user: User;
   sender: User;
   installation?: InstallationLite;

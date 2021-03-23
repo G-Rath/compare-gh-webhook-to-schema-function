@@ -6,8 +6,17 @@ import { InstallationLite, Organization, Repository, User } from '../common';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * A Git branch or tag is deleted.
+ */
 export interface DeleteEvent {
+  /**
+   * The [`git ref`](https://docs.github.com/en/rest/reference/git#get-a-reference) resource.
+   */
   ref: string;
+  /**
+   * The type of Git ref object deleted in the repository. Can be either `branch` or `tag`.
+   */
   ref_type: 'tag' | 'branch';
   /**
    * The pusher type for the event. Can be either `user` or a deploy key.

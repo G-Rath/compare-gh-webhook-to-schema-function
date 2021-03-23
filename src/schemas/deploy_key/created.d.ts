@@ -8,6 +8,9 @@ import { InstallationLite, Organization, Repository, User } from '../common';
 
 export interface DeployKeyCreatedEvent {
   action: 'created';
+  /**
+   * The [`deploy key`](https://docs.github.com/en/rest/reference/repos#get-a-deploy-key) resource.
+   */
   key: {
     id: number;
     key: string;

@@ -7,7 +7,7 @@ import { User } from '.';
  */
 
 /**
- * Installation
+ * The GitHub App installation.
  */
 export interface Installation {
   /**
