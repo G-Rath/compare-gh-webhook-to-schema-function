@@ -5,8 +5,7 @@
   "required": [
     "action",
     "alert",
-    "repository",
-    "sender"
+    "repository"
   ],
   "properties": {
     "action": {
