@@ -49,8 +49,7 @@
             "labels",
             "state",
             "locked",
-            "assignee",
-            "closed_at"
+            "assignee"
           ],
           "properties": {
             "assignee": {
@@ -70,9 +69,6 @@
                 "closed"
               ],
               "description": "State of the issue; either 'open' or 'closed'"
-            },
-            "closed_at": {
-              "type": "null"
             },
             "locked": {
               "type": "boolean"

@@ -105,7 +105,7 @@ export interface PullRequestReviewCommentEditedEvent {
     /**
      * The side of the first line of the range for a multi-line comment.
      */
-    start_side?: ('LEFT' | 'RIGHT') | null;
+    start_side?: 'LEFT' | 'RIGHT' | null;
     /**
      * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
      */
