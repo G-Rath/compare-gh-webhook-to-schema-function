@@ -4,6 +4,7 @@
   "type": "object",
   "required": [
     "action",
+    "changes",
     "project_card",
     "repository",
     "sender"
@@ -14,6 +15,27 @@
       "enum": [
         "edited"
       ]
+    },
+    "changes": {
+      "type": "object",
+      "required": [
+        "note"
+      ],
+      "properties": {
+        "note": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
     },
     "project_card": {
       "$ref": "common/project-card.schema.json"

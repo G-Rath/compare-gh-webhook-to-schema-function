@@ -40,9 +40,7 @@
           ],
           "properties": {
             "conclusion": {
-              "type": [
-                "null"
-              ]
+              "type": "null"
             }
           },
           "tsAdditionalProperties": false

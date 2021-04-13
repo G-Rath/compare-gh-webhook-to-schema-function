@@ -18,6 +18,8 @@ export interface PullRequestSynchronizeEvent {
    * The pull request number.
    */
   number: number;
+  before: string;
+  after: string;
   pull_request: PullRequest;
   repository: Repository;
   installation?: InstallationLite;

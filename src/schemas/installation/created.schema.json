@@ -53,7 +53,7 @@
       }
     },
     "requester": {
-      "type": "null"
+      "$ref": "common/user.schema.json"
     },
     "sender": {
       "$ref": "common/user.schema.json"

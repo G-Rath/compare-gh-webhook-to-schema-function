@@ -28,6 +28,6 @@ export interface InstallationCreatedEvent {
      */
     private: boolean;
   }[];
-  requester?: null;
+  requester?: User;
   sender: User;
 }
