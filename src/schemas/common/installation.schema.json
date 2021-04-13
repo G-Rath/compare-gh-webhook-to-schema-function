@@ -124,6 +124,13 @@
             "write"
           ]
         },
+        "packages": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "pull_requests": {
           "type": "string",
           "enum": [
@@ -146,6 +153,13 @@
           ]
         },
         "statuses": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
+        "members": {
           "type": "string",
           "enum": [
             "read",

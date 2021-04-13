@@ -40,42 +40,10 @@
       "description": "URL that points to the commit API resource."
     },
     "author": {
-      "allOf": [
-        {
-          "$ref": "committer.schema.json"
-        },
-        {
-          "type": "object",
-          "required": [
-            "username"
-          ],
-          "properties": {
-            "username": {
-              "type": "string"
-            }
-          },
-          "tsAdditionalProperties": false
-        }
-      ]
+      "$ref": "committer.schema.json"
     },
     "committer": {
-      "allOf": [
-        {
-          "$ref": "committer.schema.json"
-        },
-        {
-          "type": "object",
-          "required": [
-            "username"
-          ],
-          "properties": {
-            "username": {
-              "type": "string"
-            }
-          },
-          "tsAdditionalProperties": false
-        }
-      ]
+      "$ref": "committer.schema.json"
     },
     "added": {
       "type": "array",

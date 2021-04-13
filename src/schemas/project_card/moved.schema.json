@@ -4,6 +4,7 @@
   "type": "object",
   "required": [
     "action",
+    "changes",
     "project_card",
     "repository",
     "sender"
@@ -15,8 +16,45 @@
         "moved"
       ]
     },
+    "changes": {
+      "type": "object",
+      "required": [
+        "column_id"
+      ],
+      "properties": {
+        "column_id": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
     "project_card": {
-      "$ref": "common/project-card.schema.json"
+      "allOf": [
+        {
+          "$ref": "common/project-card.schema.json"
+        },
+        {
+          "type": "object",
+          "required": [
+            "after_id"
+          ],
+          "properties": {
+            "after_id": {
+              "type": "null"
+            }
+          },
+          "tsAdditionalProperties": false
+        }
+      ]
     },
     "repository": {
       "$ref": "common/repository.schema.json"

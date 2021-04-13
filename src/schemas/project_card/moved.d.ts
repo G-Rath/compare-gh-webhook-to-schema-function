@@ -14,7 +14,14 @@ import {
 
 export interface ProjectCardMovedEvent {
   action: 'moved';
-  project_card: ProjectCard;
+  changes: {
+    column_id: {
+      from: number;
+    };
+  };
+  project_card: ProjectCard & {
+    after_id: null;
+  };
   repository: Repository;
   sender: User;
   organization?: Organization;

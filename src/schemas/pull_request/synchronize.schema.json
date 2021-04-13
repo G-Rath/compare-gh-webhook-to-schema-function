@@ -5,6 +5,8 @@
   "required": [
     "action",
     "number",
+    "before",
+    "after",
     "pull_request",
     "repository",
     "sender"
@@ -19,6 +21,12 @@
     "number": {
       "type": "integer",
       "description": "The pull request number."
+    },
+    "before": {
+      "type": "string"
+    },
+    "after": {
+      "type": "string"
     },
     "pull_request": {
       "$ref": "common/pull-request.schema.json"

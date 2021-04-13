@@ -171,7 +171,8 @@
           ],
           "enum": [
             "LEFT",
-            "RIGHT"
+            "RIGHT",
+            null
           ],
           "default": "RIGHT",
           "description": "The side of the first line of the range for a multi-line comment."

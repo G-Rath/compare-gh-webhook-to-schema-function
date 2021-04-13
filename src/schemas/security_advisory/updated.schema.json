@@ -29,6 +29,9 @@
         "vulnerabilities"
       ],
       "properties": {
+        "cvss": {
+          "type": "string"
+        },
         "ghsa_id": {
           "type": "string"
         },

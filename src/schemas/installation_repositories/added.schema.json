@@ -92,6 +92,9 @@
       },
       "maxItems": 0
     },
+    "requester": {
+      "$ref": "common/user.schema.json"
+    },
     "sender": {
       "$ref": "common/user.schema.json"
     }

@@ -16,7 +16,7 @@ export interface ProjectCard {
    */
   id: number;
   node_id: string;
-  note: string;
+  note: string | null;
   /**
    * Whether or not the card is archived
    */
@@ -25,4 +25,5 @@ export interface ProjectCard {
   created_at: string;
   updated_at: string;
   content_url: string;
+  after_id?: null;
 }

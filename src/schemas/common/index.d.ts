@@ -6,6 +6,7 @@ export * from './check-run-pull-request';
 export * from './commit-simple';
 export * from './commit';
 export * from './committer';
+export * from './discussion';
 export * from './github-org';
 export * from './installation-lite';
 export * from './installation';

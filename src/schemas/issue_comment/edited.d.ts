@@ -1,5 +1,6 @@
 /* tslint:disable */
 import {
+  App,
   AuthorAssociation,
   InstallationLite,
   Issue,
@@ -36,7 +37,6 @@ export interface IssueCommentEditedEvent {
      * State of the issue; either 'open' or 'closed'
      */
     state: 'open' | 'closed';
-    closed_at: null;
     locked: boolean;
     labels: Label[];
     pull_request?: {
@@ -69,6 +69,7 @@ export interface IssueCommentEditedEvent {
      * Contents of the issue comment
      */
     body: string;
+    performed_via_github_app: App | null;
   };
   repository: Repository;
   sender: User;

@@ -14,6 +14,11 @@ import {
 
 export interface ProjectCardConvertedEvent {
   action: 'converted';
+  changes: {
+    note: {
+      from: string;
+    };
+  };
   project_card: ProjectCard;
   repository: Repository;
   sender: User;

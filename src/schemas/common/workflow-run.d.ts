@@ -23,6 +23,7 @@ export interface WorkflowRun {
   jobs_url: string;
   logs_url: string;
   node_id: string;
+  name: string;
   pull_requests: PullRequest[];
   repository: RepositoryLite;
   rerun_url: string;
