@@ -3,7 +3,6 @@
 /* eslint-disable node/no-sync */
 
 import webhooksSchema from '@octokit/webhooks-definitions/schema.json';
-import { strict as assert } from 'assert';
 import fs from 'fs';
 import { JSONSchema7 } from 'json-schema';
 
@@ -16,14 +15,13 @@ fs.mkdirSync(`${outDir}/common`, { recursive: true });
 // as that's whats expected by the other scripts (for now)
 
 const getFolderAndSchemaName = (
-  id: string,
   key: string
 ): [folderName: string, schemaName: string] => {
-  if (id.startsWith('#/definitions/')) {
-    return ['common', key];
-  }
+  const [folderName, schemaName] = key.replace('#/definitions/', '').split('$');
 
-  const [folderName, schemaName] = id.split('$');
+  if (folderName && !schemaName) {
+    return ['common', folderName];
+  }
 
   return [folderName, schemaName];
 };
@@ -35,27 +33,33 @@ Object.entries(
     return;
   }
 
-  assert.ok(definition.$id);
+  const [folderName, schemaName] = getFolderAndSchemaName(key);
 
-  const [folderName, schemaName] = getFolderAndSchemaName(definition.$id, key);
-
+  // restore $id that is removed when compiling the schemas
+  definition.$id =
+    folderName === 'common'
+      ? `${folderName}/${schemaName}.schema.json`
+      : `${folderName}$${schemaName}`;
   fs.mkdirSync(`${outDir}/${folderName}`, { recursive: true });
 
   const contents = JSON.parse(
-    JSON.stringify(definition, (key, value: unknown) => {
-      if (typeof value === 'string' && value.startsWith('#/definitions/')) {
-        const ref = value.substring('#/definitions/'.length);
+    JSON.stringify(
+      { $schema: definition.$schema, $id: definition.$id, ...definition },
+      (key, value: unknown) => {
+        if (typeof value === 'string' && value.startsWith('#/definitions/')) {
+          const ref = value.substring('#/definitions/'.length);
 
-        const fileName = `${ref}.schema.json`;
+          const fileName = `${ref}.schema.json`;
 
-        // restore $refs back to pointing at common schemas
-        return folderName !== 'common' || key === '$id'
-          ? `common/${fileName}`
-          : fileName;
+          // restore $refs back to pointing at common schemas
+          return folderName !== 'common' || key === '$id'
+            ? `common/${fileName}`
+            : fileName;
+        }
+
+        return value;
       }
-
-      return value;
-    })
+    )
   ) as JSONSchema7;
 
   fs.writeFileSync(
