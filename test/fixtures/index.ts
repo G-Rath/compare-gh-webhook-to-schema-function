@@ -1,4 +1,4 @@
-import { PingEvent } from '@octokit/webhooks-definitions/schema';
+import { PingEvent } from '@octokit/webhooks-types';
 import pingEvent from './ping.json';
 
 // we have to typecast all the json imports as they're not imported with const,

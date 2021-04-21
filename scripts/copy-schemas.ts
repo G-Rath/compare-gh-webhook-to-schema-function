@@ -2,7 +2,7 @@
 
 /* eslint-disable node/no-sync */
 
-import webhooksSchema from '@octokit/webhooks-definitions/schema.json';
+import webhooksSchema from '@octokit/webhooks-schemas';
 import fs from 'fs';
 import { JSONSchema7 } from 'json-schema';
 
