@@ -35,6 +35,7 @@ export interface Installation {
     checks?: 'read' | 'write';
     contents?: 'read' | 'write';
     deployments?: 'read' | 'write';
+    discussions?: 'read' | 'write';
     issues?: 'read' | 'write';
     organization_administration?: 'read' | 'write';
     pages?: 'read' | 'write';

@@ -67,7 +67,7 @@ export interface Repository {
   deployments_url: string;
   created_at: number | string;
   updated_at: string;
-  pushed_at: number | string;
+  pushed_at: number | string | null;
   git_url: string;
   ssh_url: string;
   clone_url: string;

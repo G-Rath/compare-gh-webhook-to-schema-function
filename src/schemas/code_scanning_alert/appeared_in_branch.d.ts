@@ -33,6 +33,7 @@ export interface CodeScanningAlertAppearedInBranchEvent {
      */
     html_url: string;
     instances: AlertInstance[];
+    most_recent_instance?: AlertInstance;
     /**
      * State of a code scanning alert.
      */

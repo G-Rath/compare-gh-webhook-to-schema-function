@@ -60,7 +60,7 @@ export interface PullRequestReviewCommentEditedEvent {
     /**
      * The line index in the diff to which the comment applies.
      */
-    position: number;
+    position: number | null;
     /**
      * The index of the original line in the diff to which the comment applies.
      */
@@ -148,6 +148,7 @@ export interface PullRequestReviewCommentEditedEvent {
     requested_teams: Team[];
     labels: Label[];
     milestone: Milestone | null;
+    draft?: boolean;
     commits_url: string;
     review_comments_url: string;
     review_comment_url: string;
