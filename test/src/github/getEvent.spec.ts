@@ -3,10 +3,10 @@ import { sign } from '@octokit/webhooks-methods';
 import { GithubEvent, getEvent } from '../../../src/github';
 import { pingEventPayload } from '../../fixtures';
 
-const buildHttpRequest = (
+const buildHttpRequest = async (
   event: GithubEvent,
   secret = 'mysecret'
-): HttpRequest => {
+): Promise<HttpRequest> => {
   const rawBody = JSON.stringify(event.payload);
 
   return {
@@ -17,8 +17,11 @@ const buildHttpRequest = (
     headers: {
       'x-github-event': event.name,
       'x-github-delivery': 'hello world',
-      'x-hub-signature': sign({ secret, algorithm: 'sha1' }, rawBody),
-      'x-hub-signature-256': sign({ secret, algorithm: 'sha256' }, rawBody)
+      'x-hub-signature': await sign({ secret, algorithm: 'sha1' }, rawBody),
+      'x-hub-signature-256': await sign(
+        { secret, algorithm: 'sha256' },
+        rawBody
+      )
     },
     rawBody
   };
@@ -31,7 +34,7 @@ describe('getEvent', () => {
     beforeEach(() => (process.env.GH_WEBHOOK_SECRET = ''));
 
     it('throws', async () => {
-      const request = buildHttpRequest({
+      const request = await buildHttpRequest({
         name: 'ping',
         payload: pingEventPayload
       });
@@ -46,7 +49,7 @@ describe('getEvent', () => {
 
   describe('when the signature is empty', () => {
     it('throws', async () => {
-      const request = buildHttpRequest({
+      const request = await buildHttpRequest({
         name: 'ping',
         payload: pingEventPayload
       });
@@ -63,7 +66,7 @@ describe('getEvent', () => {
 
   describe('when the signature is correct', () => {
     it('does not throw', async () => {
-      const request = buildHttpRequest({
+      const request = await buildHttpRequest({
         name: 'ping',
         payload: pingEventPayload
       });
@@ -73,7 +76,7 @@ describe('getEvent', () => {
 
     it('returns the parsed body', async () => {
       const ghEvent: GithubEvent = { name: 'ping', payload: pingEventPayload };
-      const request = buildHttpRequest(ghEvent);
+      const request = await buildHttpRequest(ghEvent);
 
       await expect(getEvent(request)).resolves.toStrictEqual(ghEvent);
     });
@@ -81,7 +84,7 @@ describe('getEvent', () => {
 
   describe('when the signature is incorrect', () => {
     it('throws', async () => {
-      const request = buildHttpRequest(
+      const request = await buildHttpRequest(
         { name: 'ping', payload: pingEventPayload },
         'wrong'
       );

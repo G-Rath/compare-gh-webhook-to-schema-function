@@ -75,7 +75,7 @@ const buildHttpRequest = (): HttpRequest => {
 describe('handler', () => {
   describe('when the event is from github', () => {
     beforeEach(() => {
-      getEventMock.mockReturnValue(event);
+      getEventMock.mockResolvedValue(event);
     });
 
     const event: GithubEvent = { name: 'ping', payload: pingEventPayload };
