@@ -1,5 +1,5 @@
 import { HttpRequest } from '@azure/functions';
-import { sign } from '@octokit/webhooks';
+import { sign } from '@octokit/webhooks-methods';
 import { GithubEvent, getEvent } from '../../../src/github';
 import { pingEventPayload } from '../../fixtures';
 
@@ -30,20 +30,22 @@ describe('getEvent', () => {
   describe('when the secret is missing from the env', () => {
     beforeEach(() => (process.env.GH_WEBHOOK_SECRET = ''));
 
-    it('throws', () => {
+    it('throws', async () => {
       const request = buildHttpRequest({
         name: 'ping',
         payload: pingEventPayload
       });
 
-      expect(() => getEvent(request)).toThrowErrorMatchingInlineSnapshot(
-        `"[@octokit/webhooks] secret, eventPayload & signature required"`
+      await expect(
+        getEvent(request)
+      ).rejects.toThrowErrorMatchingInlineSnapshot(
+        `"[@octokit/webhooks-methods] secret, eventPayload & signature required"`
       );
     });
   });
 
   describe('when the signature is empty', () => {
-    it('throws', () => {
+    it('throws', async () => {
       const request = buildHttpRequest({
         name: 'ping',
         payload: pingEventPayload
@@ -51,38 +53,42 @@ describe('getEvent', () => {
 
       request.headers['x-hub-signature-256'] = '';
 
-      expect(() => getEvent(request)).toThrowErrorMatchingInlineSnapshot(
-        `"[@octokit/webhooks] secret, eventPayload & signature required"`
+      await expect(
+        getEvent(request)
+      ).rejects.toThrowErrorMatchingInlineSnapshot(
+        `"[@octokit/webhooks-methods] secret, eventPayload & signature required"`
       );
     });
   });
 
   describe('when the signature is correct', () => {
-    it('does not throw', () => {
+    it('does not throw', async () => {
       const request = buildHttpRequest({
         name: 'ping',
         payload: pingEventPayload
       });
 
-      expect(() => getEvent(request)).not.toThrow();
+      await expect(getEvent(request)).resolves.not.toThrow();
     });
 
-    it('returns the parsed body', () => {
+    it('returns the parsed body', async () => {
       const ghEvent: GithubEvent = { name: 'ping', payload: pingEventPayload };
       const request = buildHttpRequest(ghEvent);
 
-      expect(getEvent(request)).toStrictEqual(ghEvent);
+      await expect(getEvent(request)).resolves.toStrictEqual(ghEvent);
     });
   });
 
   describe('when the signature is incorrect', () => {
-    it('throws', () => {
+    it('throws', async () => {
       const request = buildHttpRequest(
         { name: 'ping', payload: pingEventPayload },
         'wrong'
       );
 
-      expect(() => getEvent(request)).toThrowErrorMatchingInlineSnapshot(
+      await expect(
+        getEvent(request)
+      ).rejects.toThrowErrorMatchingInlineSnapshot(
         `"event did not come from github"`
       );
     });

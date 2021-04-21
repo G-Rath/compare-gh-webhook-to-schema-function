@@ -27,7 +27,7 @@ export const handler = async (
   const notifier = new Notifier();
 
   try {
-    const githubEvent = getEvent(request);
+    const githubEvent = await getEvent(request);
     const errors = EventValidator.validate(githubEvent, context.log);
     const eventDescription = describeEvent(githubEvent);
 
