@@ -29,7 +29,7 @@ const getFolderAndSchemaName = (
 Object.entries(
   webhooksSchema.definitions as Record<string, JSONSchema7>
 ).forEach(([key, definition]) => {
-  if (definition.oneOf) {
+  if (key.includes('_event')) {
     return;
   }
 
