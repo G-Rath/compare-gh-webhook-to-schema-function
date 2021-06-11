@@ -27,7 +27,8 @@ const getFolderAndSchemaName = (
 };
 
 Object.entries(
-  webhooksSchema.definitions as Record<string, JSONSchema7>
+  // Temporary fix, the types have regressed against `@octokit/webhooks-schema@3.75.2`
+  (webhooksSchema.definitions as unknown) as Record<string, JSONSchema7>
 ).forEach(([key, definition]) => {
   if (key.includes('_event')) {
     return;
