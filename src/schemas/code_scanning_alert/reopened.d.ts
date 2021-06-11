@@ -34,6 +34,7 @@ export interface CodeScanningAlertReopenedEvent {
     instances: (AlertInstance & {
       state: 'open';
     })[];
+    most_recent_instance?: AlertInstance;
     /**
      * State of a code scanning alert.
      */

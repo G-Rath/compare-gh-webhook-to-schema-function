@@ -107,7 +107,8 @@
         "created_at",
         "updated_at",
         "statuses_url",
-        "repository_url"
+        "repository_url",
+        "performed_via_github_app"
       ],
       "properties": {
         "url": {
@@ -159,6 +160,16 @@
         "repository_url": {
           "type": "string",
           "format": "uri"
+        },
+        "performed_via_github_app": {
+          "oneOf": [
+            {
+              "$ref": "common/app.schema.json"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
       "additionalProperties": false

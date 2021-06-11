@@ -11,7 +11,14 @@ export interface SecurityAdvisoryPublishedEvent {
    * The details of the security advisory, including summary, description, and severity.
    */
   security_advisory: {
-    cvss?: string;
+    cvss: {
+      vector_string: string;
+      score: number;
+    };
+    cwes: {
+      cwe_id: string;
+      name: string;
+    }[];
     ghsa_id: string;
     summary: string;
     description: string;

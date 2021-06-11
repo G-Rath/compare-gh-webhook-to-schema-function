@@ -60,6 +60,7 @@ export interface DeploymentStatusCreatedEvent {
     updated_at: string;
     statuses_url: string;
     repository_url: string;
+    performed_via_github_app: App | null;
   };
   repository: Repository;
   sender: User;

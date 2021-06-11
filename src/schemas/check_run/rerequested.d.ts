@@ -48,6 +48,7 @@ export interface CheckRunRerequestedEvent {
       | 'timed_out'
       | 'action_required'
       | 'stale'
+      | 'skipped'
       | null;
     /**
      * The time that the check run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.

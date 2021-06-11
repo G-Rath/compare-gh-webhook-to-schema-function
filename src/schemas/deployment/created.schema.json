@@ -5,6 +5,8 @@
   "required": [
     "action",
     "deployment",
+    "workflow",
+    "workflow_run",
     "repository",
     "sender"
   ],
@@ -98,6 +100,12 @@
         }
       },
       "additionalProperties": false
+    },
+    "workflow": {
+      "type": "null"
+    },
+    "workflow_run": {
+      "type": "null"
     },
     "repository": {
       "$ref": "common/repository.schema.json"
