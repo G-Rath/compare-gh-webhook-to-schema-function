@@ -36,7 +36,7 @@
   },
   "prettier": "prettier-config-ackama",
   "dependencies": {
-    "@octokit/webhooks": "^8.4.1",
+    "@octokit/webhooks-methods": "^1.0.0",
     "@slack/webhook": "^6.0.0",
     "ajv": "^7.1.1",
     "ajv-formats": "^1.5.1",
