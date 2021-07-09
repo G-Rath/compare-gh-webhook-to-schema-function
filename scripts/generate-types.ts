@@ -26,9 +26,9 @@ const removeExtension = (fileName: string, ext: string): string => {
 
 const fetchCommonSchemas = async (): Promise<Map<string, JSONSchema7>> => {
   const pathToCommonSchemasDir = `${pathToWebhookSchemas}/common`;
-  const commonSchemaFiles = (
-    await fs.readdir(pathToCommonSchemasDir)
-  ).filter(fileName => fileName.endsWith('.schema.json'));
+  const commonSchemaFiles = (await fs.readdir(pathToCommonSchemasDir)).filter(
+    fileName => fileName.endsWith('.schema.json')
+  );
 
   return new Map(
     await Promise.all(
