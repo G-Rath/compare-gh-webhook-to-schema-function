@@ -11,7 +11,8 @@ jest.mock('ajv');
 jest.mock('ajv-formats', () => (ajv: Ajv) => ajv);
 
 const mockedAjv = mocked(Ajv, true);
-const schemaValidatorMock = (jest.fn() as unknown) as jest.MockedFunction<ValidateFunction>;
+const schemaValidatorMock =
+  jest.fn() as unknown as jest.MockedFunction<ValidateFunction>;
 
 const jsonSchema = (s: JSONSchema7): string => JSON.stringify(s, null, 2);
 
@@ -26,7 +27,7 @@ const oneOfError = (): OneOfError => ({
   dataPath: '',
   schemaPath: '#/oneOf',
   // https://github.com/ajv-validator/ajv/issues/1367
-  params: { passingSchemas: (null as unknown) as [number, number] },
+  params: { passingSchemas: null as unknown as [number, number] },
   message: 'should match exactly one schema in oneOf'
 });
 

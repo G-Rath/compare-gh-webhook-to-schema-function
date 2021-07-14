@@ -17,7 +17,7 @@ const getEventMock = mocked(getEvent);
 const doneFn = jest.fn();
 
 const createMockLogger = (): jest.Mocked<Logger> => {
-  const logger = (jest.fn() as unknown) as jest.Mocked<Logger>;
+  const logger = jest.fn() as unknown as jest.Mocked<Logger>;
 
   /* eslint-disable jest/prefer-spy-on */
   logger.info = jest.fn();
@@ -36,7 +36,7 @@ const oneOfError = (): OneOfError => ({
   dataPath: '',
   schemaPath: '#/oneOf',
   // https://github.com/ajv-validator/ajv/issues/1367
-  params: { passingSchemas: (null as unknown) as [number, number] },
+  params: { passingSchemas: null as unknown as [number, number] },
   message: 'should match exactly one schema in oneOf'
 });
 
