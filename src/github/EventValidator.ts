@@ -104,7 +104,8 @@ export class EventValidator<
 
     this._validator.errors?.forEach(error => {
       const similarError = finalErrors.find(
-        er => er.keyword === error.keyword && er.dataPath === error.dataPath
+        er =>
+          er.keyword === error.keyword && er.instancePath === error.instancePath
       ) as DefinedError | undefined;
 
       if (similarError?.keyword === 'enum') {

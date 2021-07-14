@@ -1,4 +1,5 @@
 import Ajv, { ValidateFunction } from 'ajv';
+import { ErrorObject } from 'ajv/dist/types';
 import { OneOfError } from 'ajv/dist/vocabularies/applicator/oneOf';
 import { EnumError } from 'ajv/dist/vocabularies/validation/enum';
 import { JSONSchema7 } from 'json-schema';
@@ -24,10 +25,9 @@ const mockLogger: jest.Mocked<Logger> = {
 
 const oneOfError = (): OneOfError => ({
   keyword: 'oneOf',
-  dataPath: '',
+  instancePath: '',
   schemaPath: '#/oneOf',
-  // https://github.com/ajv-validator/ajv/issues/1367
-  params: { passingSchemas: null as unknown as [number, number] },
+  params: { passingSchemas: null },
   message: 'should match exactly one schema in oneOf'
 });
 
@@ -122,10 +122,10 @@ describe('EventValidator', () => {
     describe('when the errors include an enum', () => {
       const enumError = (
         allowedValues: string[],
-        dataPath: string
+        instancePath: string
       ): EnumError => ({
         keyword: 'enum',
-        dataPath,
+        instancePath,
         schemaPath: '#/properties/action/enum',
         params: { allowedValues },
         message: 'should be equal to one of the allowed values'
@@ -137,14 +137,14 @@ describe('EventValidator', () => {
           enumError(['locked'], '/action'),
           {
             keyword: 'additionalProperties',
-            dataPath: '/pull_request',
+            instancePath: '/pull_request',
             schemaPath: '#/properties/pull_request/additionalProperties',
             params: { additionalProperty: 'active_lock_reason' },
             message: 'should NOT have additional properties'
           },
           {
             keyword: 'additionalProperties',
-            dataPath: '/pull_request',
+            instancePath: '/pull_request',
             schemaPath: '#/properties/pull_request/additionalProperties',
             params: { additionalProperty: 'active_lock_reason' },
             message: 'should NOT have additional properties (seriously)'
@@ -158,18 +158,18 @@ describe('EventValidator', () => {
 
         const resultedErrors = validator.validate(event);
 
-        expect(resultedErrors).toStrictEqual([
+        expect(resultedErrors).toStrictEqual<ErrorObject[]>([
           enumError(['opened', 'locked', 'unlocked'], '/action'),
           {
             keyword: 'additionalProperties',
-            dataPath: '/pull_request',
+            instancePath: '/pull_request',
             schemaPath: '#/properties/pull_request/additionalProperties',
             params: { additionalProperty: 'active_lock_reason' },
             message: 'should NOT have additional properties'
           },
           {
             keyword: 'additionalProperties',
-            dataPath: '/pull_request',
+            instancePath: '/pull_request',
             schemaPath: '#/properties/pull_request/additionalProperties',
             params: { additionalProperty: 'active_lock_reason' },
             message: 'should NOT have additional properties (seriously)'
@@ -178,14 +178,14 @@ describe('EventValidator', () => {
         ]);
       });
 
-      it('merges them based on their dataPaths', () => {
+      it('merges them based on their instancePaths', () => {
         schemaValidatorMock.errors = [
           enumError(['completed'], '/action'),
           enumError(['queued'], '/check_run/status'),
           enumError(['completed'], '/check_run/status'),
           {
             keyword: 'oneOf',
-            dataPath: '',
+            instancePath: '',
             schemaPath: '#/oneOf',
             params: { passingSchemas: null },
             message: 'should match exactly one schema in oneOf'
@@ -197,7 +197,7 @@ describe('EventValidator', () => {
 
         const resultedErrors = validator.validate(event);
 
-        expect(resultedErrors).toStrictEqual([
+        expect(resultedErrors).toStrictEqual<ErrorObject[]>([
           enumError(['completed'], '/action'),
           enumError(['queued', 'completed'], '/check_run/status'),
           oneOfError()

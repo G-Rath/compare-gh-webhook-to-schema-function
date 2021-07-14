@@ -33,10 +33,9 @@ const mockLogger = createMockLogger();
 
 const oneOfError = (): OneOfError => ({
   keyword: 'oneOf',
-  dataPath: '',
+  instancePath: '',
   schemaPath: '#/oneOf',
-  // https://github.com/ajv-validator/ajv/issues/1367
-  params: { passingSchemas: null as unknown as [number, number] },
+  params: { passingSchemas: null },
   message: 'should match exactly one schema in oneOf'
 });
 
