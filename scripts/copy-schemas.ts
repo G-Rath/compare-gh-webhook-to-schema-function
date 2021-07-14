@@ -45,14 +45,14 @@ Object.entries(
   const contents = JSON.parse(
     JSON.stringify(
       { $schema: definition.$schema, $id: definition.$id, ...definition },
-      (key, value: unknown) => {
+      (prop, value: unknown) => {
         if (typeof value === 'string' && value.startsWith('#/definitions/')) {
           const ref = value.substring('#/definitions/'.length);
 
           const fileName = `${ref}.schema.json`;
 
           // restore $refs back to pointing at common schemas
-          return folderName !== 'common' || key === '$id'
+          return folderName !== 'common' || prop === '$id'
             ? `common/${fileName}`
             : fileName;
         }
