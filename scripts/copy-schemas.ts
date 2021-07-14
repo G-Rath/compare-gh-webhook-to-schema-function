@@ -27,7 +27,7 @@ const getFolderAndSchemaName = (
 };
 
 Object.entries(
-  webhooksSchema.definitions as Record<string, JSONSchema7>
+  webhooksSchema.definitions as unknown as Record<string, JSONSchema7>
 ).forEach(([key, definition]) => {
   if (definition.oneOf) {
     return;
