@@ -1,10 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "release$released",
+  "$id": "discussion$unlabeled",
   "type": "object",
   "required": [
     "action",
-    "release",
+    "discussion",
+    "label",
     "repository",
     "sender"
   ],
@@ -12,11 +13,14 @@
     "action": {
       "type": "string",
       "enum": [
-        "released"
+        "unlabeled"
       ]
     },
-    "release": {
-      "$ref": "common/release.schema.json"
+    "discussion": {
+      "$ref": "common/discussion.schema.json"
+    },
+    "label": {
+      "$ref": "common/label.schema.json"
     },
     "repository": {
       "$ref": "common/repository.schema.json"
@@ -32,5 +36,5 @@
     }
   },
   "additionalProperties": false,
-  "title": "release released event"
+  "title": "discussion unlabeled event"
 }

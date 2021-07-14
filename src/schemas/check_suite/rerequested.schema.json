@@ -91,7 +91,10 @@
           "description": "URL that points to the check suite API resource."
         },
         "before": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "after": {
           "type": "string"

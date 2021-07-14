@@ -21,6 +21,9 @@
       "required": [
         "id",
         "name",
+        "namespace",
+        "description",
+        "ecosystem",
         "package_type",
         "html_url",
         "created_at",
@@ -34,6 +37,18 @@
           "type": "integer"
         },
         "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ecosystem": {
           "type": "string"
         },
         "package_type": {
@@ -58,6 +73,8 @@
             "id",
             "version",
             "summary",
+            "name",
+            "description",
             "body",
             "body_html",
             "release",
@@ -71,8 +88,10 @@
             "created_at",
             "updated_at",
             "metadata",
+            "docker_metadata",
             "package_files",
             "author",
+            "source_url",
             "installation_command"
           ],
           "properties": {
@@ -83,6 +102,12 @@
               "type": "string"
             },
             "summary": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
               "type": "string"
             },
             "body": {
@@ -177,6 +202,10 @@
               "type": "array",
               "items": {}
             },
+            "docker_metadata": {
+              "type": "array",
+              "items": {}
+            },
             "package_files": {
               "type": "array",
               "items": {
@@ -235,6 +264,10 @@
             },
             "author": {
               "$ref": "common/user.schema.json"
+            },
+            "source_url": {
+              "type": "string",
+              "format": "uri"
             },
             "installation_command": {
               "type": "string"

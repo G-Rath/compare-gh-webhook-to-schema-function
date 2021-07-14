@@ -59,13 +59,6 @@
       "description": "The set of permissions for the GitHub app",
       "type": "object",
       "properties": {
-        "administration": {
-          "type": "string",
-          "enum": [
-            "read",
-            "write"
-          ]
-        },
         "actions": {
           "type": "string",
           "enum": [
@@ -73,7 +66,21 @@
             "write"
           ]
         },
+        "administration": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "checks": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
+        "content_references": {
           "type": "string",
           "enum": [
             "read",
@@ -94,6 +101,27 @@
             "write"
           ]
         },
+        "discussions": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
+        "emails": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
+        "environments": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "issues": {
           "type": "string",
           "enum": [
@@ -102,13 +130,6 @@
           ]
         },
         "members": {
-          "type": "string",
-          "enum": [
-            "read",
-            "write"
-          ]
-        },
-        "emails": {
           "type": "string",
           "enum": [
             "read",
@@ -157,6 +178,20 @@
             "write"
           ]
         },
+        "organization_secrets": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
+        "organization_self_hosted_runners": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "organization_user_blocking": {
           "type": "string",
           "enum": [
@@ -164,14 +199,14 @@
             "write"
           ]
         },
-        "pages": {
+        "packages": {
           "type": "string",
           "enum": [
             "read",
             "write"
           ]
         },
-        "packages": {
+        "pages": {
           "type": "string",
           "enum": [
             "read",
@@ -199,7 +234,35 @@
             "write"
           ]
         },
+        "secret_scanning_alerts": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
+        "secrets": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "security_events": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
+        "security_scanning_alert": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
+        "single_file": {
           "type": "string",
           "enum": [
             "read",
@@ -226,6 +289,13 @@
             "read",
             "write"
           ]
+        },
+        "workflows": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
         }
       },
       "additionalProperties": false
@@ -234,7 +304,53 @@
       "description": "The list of events for the GitHub app",
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "enum": [
+          "check_run",
+          "check_suite",
+          "code_scanning_alert",
+          "commit_comment",
+          "content_reference",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_review",
+          "deployment_status",
+          "deploy_key",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "issues",
+          "issue_comment",
+          "label",
+          "member",
+          "membership",
+          "milestone",
+          "organization",
+          "org_block",
+          "page_build",
+          "project",
+          "project_card",
+          "project_column",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "push",
+          "registry_package",
+          "release",
+          "repository",
+          "repository_dispatch",
+          "secret_scanning_alert",
+          "star",
+          "status",
+          "team",
+          "team_add",
+          "watch",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
       }
     }
   },

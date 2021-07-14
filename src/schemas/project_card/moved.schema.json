@@ -49,7 +49,10 @@
           ],
           "properties": {
             "after_id": {
-              "type": "null"
+              "type": [
+                "number",
+                "null"
+              ]
             }
           },
           "tsAdditionalProperties": false

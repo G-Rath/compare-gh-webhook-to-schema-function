@@ -16,8 +16,7 @@
       ]
     },
     "issue": {
-      "$ref": "common/issue.schema.json",
-      "description": "The [issue](https://docs.github.com/en/rest/reference/issues) itself."
+      "$ref": "common/issue.schema.json"
     },
     "repository": {
       "$ref": "common/repository.schema.json"

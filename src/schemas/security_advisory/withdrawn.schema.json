@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "security_advisory$published",
+  "$id": "security_advisory$withdrawn",
   "type": "object",
   "required": [
     "action",
@@ -10,7 +10,7 @@
     "action": {
       "type": "string",
       "enum": [
-        "published"
+        "withdrawn"
       ]
     },
     "security_advisory": {
@@ -123,10 +123,7 @@
           "type": "string"
         },
         "withdrawn_at": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "vulnerabilities": {
           "type": "array",
@@ -185,5 +182,5 @@
     }
   },
   "additionalProperties": false,
-  "title": "security_advisory published event"
+  "title": "security_advisory withdrawn event"
 }

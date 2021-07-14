@@ -40,7 +40,10 @@
       "type": "boolean"
     },
     "base_ref": {
-      "type": "null"
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "compare": {
       "type": "string"

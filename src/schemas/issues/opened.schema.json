@@ -15,6 +15,22 @@
         "opened"
       ]
     },
+    "changes": {
+      "type": "object",
+      "required": [
+        "old_issue",
+        "old_repository"
+      ],
+      "properties": {
+        "old_issue": {
+          "$ref": "common/issue.schema.json"
+        },
+        "old_repository": {
+          "$ref": "common/repository.schema.json"
+        }
+      },
+      "additionalProperties": false
+    },
     "issue": {
       "allOf": [
         {

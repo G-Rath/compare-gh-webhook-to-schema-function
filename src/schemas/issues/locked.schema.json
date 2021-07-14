@@ -34,12 +34,16 @@
               ]
             },
             "active_lock_reason": {
-              "type": "string",
+              "type": [
+                "string",
+                "null"
+              ],
               "enum": [
                 "resolved",
                 "off-topic",
                 "too heated",
-                "spam"
+                "spam",
+                null
               ]
             }
           },

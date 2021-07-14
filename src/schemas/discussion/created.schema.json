@@ -33,7 +33,8 @@
             "state": {
               "type": "string",
               "enum": [
-                "open"
+                "open",
+                "converting"
               ]
             },
             "locked": {

@@ -30,7 +30,6 @@
           "required": [
             "closed_at",
             "merged_at",
-            "merge_commit_sha",
             "draft",
             "merged",
             "merged_by"
@@ -42,9 +41,6 @@
             "merged_at": {
               "type": "null"
             },
-            "merge_commit_sha": {
-              "type": "null"
-            },
             "draft": {
               "type": "boolean",
               "enum": [
@@ -53,7 +49,10 @@
               "description": "Indicates whether or not the pull request is a draft."
             },
             "merged": {
-              "type": "boolean"
+              "type": "boolean",
+              "enum": [
+                false
+              ]
             },
             "merged_by": {
               "type": "null"

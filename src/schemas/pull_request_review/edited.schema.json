@@ -19,9 +19,6 @@
     },
     "changes": {
       "type": "object",
-      "required": [
-        "body"
-      ],
       "properties": {
         "body": {
           "type": "object",

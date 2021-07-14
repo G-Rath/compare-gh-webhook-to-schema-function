@@ -47,10 +47,7 @@
           "type": "boolean"
         },
         "events": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "$ref": "common/webhook-events.schema.json"
         },
         "config": {
           "type": "object",
@@ -61,7 +58,11 @@
           ],
           "properties": {
             "content_type": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "json",
+                "form"
+              ]
             },
             "insecure_ssl": {
               "type": "string"

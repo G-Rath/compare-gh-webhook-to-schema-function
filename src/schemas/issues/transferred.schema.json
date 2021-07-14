@@ -4,6 +4,7 @@
   "type": "object",
   "required": [
     "action",
+    "changes",
     "issue",
     "repository",
     "sender"
@@ -14,6 +15,22 @@
       "enum": [
         "transferred"
       ]
+    },
+    "changes": {
+      "type": "object",
+      "required": [
+        "new_issue",
+        "new_repository"
+      ],
+      "properties": {
+        "new_issue": {
+          "$ref": "common/issue.schema.json"
+        },
+        "new_repository": {
+          "$ref": "common/repository.schema.json"
+        }
+      },
+      "additionalProperties": false
     },
     "issue": {
       "$ref": "common/issue.schema.json"

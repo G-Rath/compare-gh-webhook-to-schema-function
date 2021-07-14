@@ -16,6 +16,7 @@
       "required": [
         "type",
         "id",
+        "node_id",
         "login",
         "organization_billing_email"
       ],
@@ -25,6 +26,9 @@
         },
         "id": {
           "type": "integer"
+        },
+        "node_id": {
+          "type": "string"
         },
         "login": {
           "type": "string"

@@ -12,7 +12,8 @@
       "type": "string"
     },
     "hook_id": {
-      "type": "integer"
+      "type": "integer",
+      "description": "The ID of the webhook that triggered the ping."
     },
     "hook": {
       "type": "object",
@@ -42,11 +43,12 @@
         "active": {
           "type": "boolean"
         },
+        "app_id": {
+          "type": "integer",
+          "description": "When you register a new GitHub App, GitHub sends a ping event to the **webhook URL** you specified during registration. The event contains the `app_id`, which is required for [authenticating](https://docs.github.com/en/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps) an app."
+        },
         "events": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "$ref": "common/webhook-events.schema.json"
         },
         "config": {
           "type": "object",
@@ -57,7 +59,11 @@
           ],
           "properties": {
             "content_type": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "json",
+                "form"
+              ]
             },
             "secret": {
               "type": "string"

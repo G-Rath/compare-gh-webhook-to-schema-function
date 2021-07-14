@@ -37,7 +37,10 @@
       "type": "string"
     },
     "label": {
-      "type": "string"
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "state": {
       "description": "State of the release asset.",

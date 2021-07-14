@@ -210,6 +210,9 @@
                 "$ref": "common/check-run-pull-request.schema.json"
               }
             },
+            "deployment": {
+              "$ref": "common/check-run-deployment.schema.json"
+            },
             "app": {
               "$ref": "common/app.schema.json"
             },
@@ -232,9 +235,6 @@
           "items": {
             "$ref": "common/check-run-pull-request.schema.json"
           }
-        },
-        "deployment": {
-          "$ref": "common/check-run-deployment.schema.json"
         }
       },
       "additionalProperties": false

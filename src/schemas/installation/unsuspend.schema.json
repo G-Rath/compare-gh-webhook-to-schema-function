@@ -15,7 +15,27 @@
       ]
     },
     "installation": {
-      "$ref": "common/installation.schema.json"
+      "allOf": [
+        {
+          "$ref": "common/installation.schema.json"
+        },
+        {
+          "type": "object",
+          "required": [
+            "suspended_by",
+            "suspended_at"
+          ],
+          "properties": {
+            "suspended_by": {
+              "type": "null"
+            },
+            "suspended_at": {
+              "type": "null"
+            }
+          },
+          "tsAdditionalProperties": false
+        }
+      ]
     },
     "repositories": {
       "type": "array",

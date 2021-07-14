@@ -5,6 +5,7 @@
   "required": [
     "action",
     "issue",
+    "milestone",
     "repository",
     "sender"
   ],
@@ -16,7 +17,26 @@
       ]
     },
     "issue": {
-      "$ref": "common/issue.schema.json"
+      "allOf": [
+        {
+          "$ref": "common/issue.schema.json"
+        },
+        {
+          "type": "object",
+          "required": [
+            "milestone"
+          ],
+          "properties": {
+            "milestone": {
+              "$ref": "common/milestone.schema.json"
+            }
+          },
+          "tsAdditionalProperties": false
+        }
+      ]
+    },
+    "milestone": {
+      "$ref": "common/milestone.schema.json"
     },
     "repository": {
       "$ref": "common/repository.schema.json"

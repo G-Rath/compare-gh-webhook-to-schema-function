@@ -48,12 +48,22 @@
       "type": "integer"
     },
     "check_suite_node_id": {
-      "type": "integer"
+      "type": "string"
     },
     "conclusion": {
       "type": [
         "string",
         "null"
+      ],
+      "enum": [
+        "success",
+        "failure",
+        "neutral",
+        "cancelled",
+        "timed_out",
+        "action_required",
+        "stale",
+        null
       ]
     },
     "created_at": {
@@ -99,7 +109,67 @@
     "pull_requests": {
       "type": "array",
       "items": {
-        "$ref": "pull-request.schema.json"
+        "type": "object",
+        "required": [
+          "url",
+          "id",
+          "number",
+          "head",
+          "base"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "number"
+          },
+          "number": {
+            "type": "number"
+          },
+          "head": {
+            "type": "object",
+            "required": [
+              "ref",
+              "sha",
+              "repo"
+            ],
+            "properties": {
+              "ref": {
+                "type": "string"
+              },
+              "sha": {
+                "type": "string"
+              },
+              "repo": {
+                "$ref": "repo-ref.schema.json"
+              }
+            },
+            "additionalProperties": false
+          },
+          "base": {
+            "type": "object",
+            "required": [
+              "ref",
+              "sha",
+              "repo"
+            ],
+            "properties": {
+              "ref": {
+                "type": "string"
+              },
+              "sha": {
+                "type": "string"
+              },
+              "repo": {
+                "$ref": "repo-ref.schema.json"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
       }
     },
     "repository": {
@@ -113,7 +183,13 @@
       "type": "integer"
     },
     "status": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "requested",
+        "in_progress",
+        "completed",
+        "queued"
+      ]
     },
     "updated_at": {
       "type": "string",

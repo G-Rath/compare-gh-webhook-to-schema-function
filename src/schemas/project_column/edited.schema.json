@@ -4,6 +4,7 @@
   "type": "object",
   "required": [
     "action",
+    "changes",
     "project_column",
     "repository",
     "sender"
@@ -14,6 +15,24 @@
       "enum": [
         "edited"
       ]
+    },
+    "changes": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
     },
     "project_column": {
       "$ref": "common/project-column.schema.json"

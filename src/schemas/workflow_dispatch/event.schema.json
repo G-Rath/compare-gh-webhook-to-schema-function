@@ -11,9 +11,16 @@
   ],
   "properties": {
     "inputs": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": true
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "ref": {
       "type": "string"
