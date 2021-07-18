@@ -1,8 +1,8 @@
 /* tslint:disable */
 import {
-  AuthorAssociation,
   InstallationLite,
   Issue,
+  IssueComment,
   Label,
   Organization,
   Repository,
@@ -25,7 +25,6 @@ export interface IssueCommentDeletedEvent {
      * State of the issue; either 'open' or 'closed'
      */
     state: 'open' | 'closed';
-    closed_at: null;
     locked: boolean;
     labels: Label[];
     pull_request?: {
@@ -35,30 +34,7 @@ export interface IssueCommentDeletedEvent {
       patch_url: string;
     };
   };
-  /**
-   * The [comment](https://docs.github.com/en/rest/reference/issues#comments) itself.
-   */
-  comment: {
-    /**
-     * URL for the issue comment
-     */
-    url: string;
-    html_url: string;
-    issue_url: string;
-    /**
-     * Unique identifier of the issue comment
-     */
-    id: number;
-    node_id: string;
-    user: User;
-    created_at: string;
-    updated_at: string;
-    author_association: AuthorAssociation;
-    /**
-     * Contents of the issue comment
-     */
-    body: string;
-  };
+  comment: IssueComment;
   repository: Repository;
   sender: User;
   installation?: InstallationLite;

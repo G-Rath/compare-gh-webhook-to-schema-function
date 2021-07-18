@@ -50,7 +50,7 @@ export interface CheckSuiteRerequestedEvent {
      * URL that points to the check suite API resource.
      */
     url: string;
-    before: string;
+    before: string | null;
     after: string;
     /**
      * An array of pull requests that match this check suite. A pull request matches a check suite if they have the same `head_sha` and `head_branch`. When the check suite's `head_branch` is in a forked repository it will be `null` and the `pull_requests` array will be empty.

@@ -14,6 +14,9 @@ export interface PackagePublishedEvent {
   package: {
     id: number;
     name: string;
+    namespace: string;
+    description: string | null;
+    ecosystem: string;
     package_type: string;
     html_url: string;
     created_at: string;
@@ -23,6 +26,8 @@ export interface PackagePublishedEvent {
       id: number;
       version: string;
       summary: string;
+      name: string;
+      description: string;
       body: string;
       body_html: string;
       release: {
@@ -48,6 +53,7 @@ export interface PackagePublishedEvent {
       created_at: string;
       updated_at: string;
       metadata: unknown[];
+      docker_metadata: unknown[];
       package_files: {
         download_url: string;
         id: number;
@@ -62,6 +68,7 @@ export interface PackagePublishedEvent {
         updated_at: string;
       }[];
       author: User;
+      source_url: string;
       installation_command: string;
     };
     registry: {

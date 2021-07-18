@@ -28,7 +28,7 @@ export interface Discussion {
   number: number;
   title: string;
   user: User;
-  state: 'open' | 'locked';
+  state: 'open' | 'locked' | 'converting';
   locked: boolean;
   comments: number;
   created_at: string;

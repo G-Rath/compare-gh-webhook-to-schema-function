@@ -9,7 +9,7 @@ import { InstallationLite, Organization, Repository, User } from '../common';
 export interface WorkflowDispatchEvent {
   inputs: {
     [k: string]: unknown;
-  };
+  } | null;
   ref: string;
   repository: Repository;
   sender: User;

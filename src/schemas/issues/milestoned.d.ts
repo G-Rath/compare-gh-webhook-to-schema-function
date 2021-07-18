@@ -2,6 +2,7 @@
 import {
   InstallationLite,
   Issue,
+  Milestone,
   Organization,
   Repository,
   User
@@ -14,7 +15,10 @@ import {
 
 export interface IssuesMilestonedEvent {
   action: 'milestoned';
-  issue: Issue;
+  issue: Issue & {
+    milestone: Milestone;
+  };
+  milestone: Milestone;
   repository: Repository;
   sender: User;
   installation?: InstallationLite;

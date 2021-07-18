@@ -11,6 +11,11 @@ import { InstallationLite, Repository, User } from '../common';
  */
 export interface MemberAddedEvent {
   action: 'added';
+  changes?: {
+    permission?: {
+      to: 'write' | 'admin';
+    };
+  };
   /**
    * The user that was added.
    */

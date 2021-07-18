@@ -81,7 +81,15 @@ export interface CheckRunCreatedEvent {
        */
       head_sha: string;
       status: 'queued' | 'in_progress' | 'completed';
-      conclusion: null;
+      conclusion:
+        | 'success'
+        | 'failure'
+        | 'neutral'
+        | 'cancelled'
+        | 'timed_out'
+        | 'action_required'
+        | 'stale'
+        | null;
       url: string;
       before: string | null;
       after: string | null;
@@ -89,13 +97,13 @@ export interface CheckRunCreatedEvent {
        * An array of pull requests that match this check suite. A pull request matches a check suite if they have the same `head_sha` and `head_branch`. When the check suite's `head_branch` is in a forked repository it will be `null` and the `pull_requests` array will be empty.
        */
       pull_requests: CheckRunPullRequest[];
+      deployment?: CheckRunDeployment;
       app: App;
       created_at: string;
       updated_at: string;
     };
     app: App;
     pull_requests: CheckRunPullRequest[];
-    deployment?: CheckRunDeployment;
   };
   /**
    * The action requested by the user.

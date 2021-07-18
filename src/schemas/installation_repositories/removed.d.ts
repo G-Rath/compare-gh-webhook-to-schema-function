@@ -36,5 +36,6 @@ export interface InstallationRepositoriesRemovedEvent {
      */
     private: boolean;
   }[];
+  requester: User | null;
   sender: User;
 }

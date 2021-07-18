@@ -70,5 +70,6 @@ export interface SimplePullRequest {
     statuses: Link;
   };
   author_association: AuthorAssociation;
+  auto_merge: null;
   active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
 }

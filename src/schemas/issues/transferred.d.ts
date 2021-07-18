@@ -14,6 +14,10 @@ import {
 
 export interface IssuesTransferredEvent {
   action: 'transferred';
+  changes: {
+    new_issue: Issue;
+    new_repository: Repository;
+  };
   issue: Issue;
   repository: Repository;
   sender: User;

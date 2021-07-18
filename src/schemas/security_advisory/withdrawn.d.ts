@@ -5,8 +5,8 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface SecurityAdvisoryUpdatedEvent {
-  action: 'updated';
+export interface SecurityAdvisoryWithdrawnEvent {
+  action: 'withdrawn';
   /**
    * The details of the security advisory, including summary, description, and severity.
    */
@@ -32,7 +32,7 @@ export interface SecurityAdvisoryUpdatedEvent {
     }[];
     published_at: string;
     updated_at: string;
-    withdrawn_at: string | null;
+    withdrawn_at: string;
     vulnerabilities: {
       package: {
         ecosystem: string;

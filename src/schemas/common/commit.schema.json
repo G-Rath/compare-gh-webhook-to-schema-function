@@ -52,14 +52,14 @@
       },
       "description": "An array of files added in the commit."
     },
-    "removed": {
+    "modified": {
       "type": "array",
       "items": {
         "type": "string"
       },
       "description": "An array of files modified by the commit."
     },
-    "modified": {
+    "removed": {
       "type": "array",
       "items": {
         "type": "string"

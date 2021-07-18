@@ -8,6 +8,13 @@ import { InstallationLite, Organization, Repository, User } from '../common';
 
 export interface RepositoryRenamedEvent {
   action: 'renamed';
+  changes: {
+    repository: {
+      name: {
+        from: string;
+      };
+    };
+  };
   repository: Repository;
   sender: User;
   installation?: InstallationLite;

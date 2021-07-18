@@ -18,7 +18,7 @@ export interface ReleaseAsset {
    * The file name of the asset.
    */
   name: string;
-  label: string;
+  label: string | null;
   /**
    * State of the release asset.
    */

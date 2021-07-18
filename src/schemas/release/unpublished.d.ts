@@ -2,7 +2,7 @@
 import {
   InstallationLite,
   Organization,
-  ReleaseAsset,
+  Release,
   Repository,
   User
 } from '../common';
@@ -14,40 +14,8 @@ import {
 
 export interface ReleaseUnpublishedEvent {
   action: 'unpublished';
-  /**
-   * The [release](https://docs.github.com/en/rest/reference/repos/#get-a-release) object.
-   */
-  release: {
-    url: string;
-    assets_url: string;
-    upload_url: string;
-    html_url: string;
-    id: number;
-    node_id: string;
-    /**
-     * The name of the tag.
-     */
-    tag_name: string;
-    /**
-     * Specifies the commitish value that determines where the Git tag is created from.
-     */
-    target_commitish: string;
-    name: null;
-    /**
-     * true to create a draft (unpublished) release, false to create a published one.
-     */
-    draft: boolean;
-    author: User;
-    /**
-     * Whether the release is identified as a prerelease or a full release.
-     */
-    prerelease: boolean;
-    created_at: string | null;
-    published_at: string | null;
-    assets: ReleaseAsset[];
-    tarball_url: string | null;
-    zipball_url: string | null;
-    body: string | null;
+  release: Release & {
+    published_at: null;
   };
   repository: Repository;
   sender: User;

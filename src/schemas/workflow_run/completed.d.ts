@@ -20,7 +20,14 @@ export interface WorkflowRunCompletedEvent {
   sender: User;
   workflow: Workflow;
   workflow_run: WorkflowRun & {
-    conclusion: string;
+    conclusion:
+      | 'success'
+      | 'failure'
+      | 'neutral'
+      | 'cancelled'
+      | 'timed_out'
+      | 'action_required'
+      | 'stale';
   };
   installation?: InstallationLite;
 }

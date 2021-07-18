@@ -24,6 +24,6 @@ export interface ProjectCard {
   creator: User;
   created_at: string;
   updated_at: string;
-  content_url: string;
+  content_url?: string;
   after_id?: null;
 }

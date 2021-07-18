@@ -6,6 +6,9 @@ import { App, AuthorAssociation, Label, Milestone, User } from '.';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * The [issue](https://docs.github.com/en/rest/reference/issues) itself.
+ */
 export interface Issue {
   /**
    * URL for the issue
@@ -49,5 +52,5 @@ export interface Issue {
   /**
    * Contents of the issue
    */
-  body: string;
+  body: string | null;
 }

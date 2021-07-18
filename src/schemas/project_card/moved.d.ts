@@ -20,7 +20,7 @@ export interface ProjectCardMovedEvent {
     };
   };
   project_card: ProjectCard & {
-    after_id: null;
+    after_id: number | null;
   };
   repository: Repository;
   sender: User;

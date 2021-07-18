@@ -4,6 +4,7 @@ import {
   Organization,
   PullRequest,
   Repository,
+  Team,
   User
 } from '../common';
 /**
@@ -12,16 +13,30 @@ import {
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface PullRequestReviewRequestRemovedEvent {
-  action: 'review_request_removed';
-  /**
-   * The pull request number.
-   */
-  number: number;
-  pull_request: PullRequest;
-  requested_reviewer: User;
-  repository: Repository;
-  installation?: InstallationLite;
-  organization?: Organization;
-  sender: User;
-}
+export type PullRequestReviewRequestRemovedEvent =
+  | {
+      action: 'review_request_removed';
+      /**
+       * The pull request number.
+       */
+      number: number;
+      pull_request: PullRequest;
+      requested_reviewer: User;
+      repository: Repository;
+      installation?: InstallationLite;
+      organization?: Organization;
+      sender: User;
+    }
+  | {
+      action: 'review_request_removed';
+      /**
+       * The pull request number.
+       */
+      number: number;
+      pull_request: PullRequest;
+      requested_team: Team;
+      repository: Repository;
+      installation?: InstallationLite;
+      organization?: Organization;
+      sender: User;
+    };
