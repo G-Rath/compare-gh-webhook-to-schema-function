@@ -2,6 +2,7 @@
 import {
   InstallationLite,
   Issue,
+  Milestone,
   Organization,
   Repository,
   User
@@ -14,10 +15,10 @@ import {
 
 export interface IssuesDemilestonedEvent {
   action: 'demilestoned';
-  /**
-   * The [issue](https://docs.github.com/en/rest/reference/issues) itself.
-   */
-  issue: Issue;
+  issue: Issue & {
+    milestone: null;
+  };
+  milestone: Milestone;
   repository: Repository;
   sender: User;
   installation?: InstallationLite;

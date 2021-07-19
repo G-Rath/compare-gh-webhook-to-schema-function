@@ -161,6 +161,13 @@
             "write"
           ]
         },
+        "organization_events": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "organization_hooks": {
           "type": "string",
           "enum": [
@@ -336,6 +343,7 @@
           "label",
           "member",
           "membership",
+          "merge_queue_entry",
           "milestone",
           "organization",
           "org_block",

@@ -33,33 +33,88 @@ export interface App {
    * The set of permissions for the GitHub app
    */
   permissions?: {
-    administration?: 'read' | 'write';
     actions?: 'read' | 'write';
+    administration?: 'read' | 'write';
     checks?: 'read' | 'write';
+    content_references?: 'read' | 'write';
     contents?: 'read' | 'write';
     deployments?: 'read' | 'write';
+    discussions?: 'read' | 'write';
+    emails?: 'read' | 'write';
+    environments?: 'read' | 'write';
     issues?: 'read' | 'write';
     members?: 'read' | 'write';
-    emails?: 'read' | 'write';
     metadata?: 'read' | 'write';
     organization_administration?: 'read' | 'write';
     organization_hooks?: 'read' | 'write';
     organization_packages?: 'read' | 'write';
     organization_plan?: 'read' | 'write';
     organization_projects?: 'read' | 'write';
+    organization_secrets?: 'read' | 'write';
+    organization_self_hosted_runners?: 'read' | 'write';
     organization_user_blocking?: 'read' | 'write';
-    pages?: 'read' | 'write';
     packages?: 'read' | 'write';
+    pages?: 'read' | 'write';
     pull_requests?: 'read' | 'write';
     repository_hooks?: 'read' | 'write';
     repository_projects?: 'read' | 'write';
+    secret_scanning_alerts?: 'read' | 'write';
+    secrets?: 'read' | 'write';
     security_events?: 'read' | 'write';
+    security_scanning_alert?: 'read' | 'write';
+    single_file?: 'read' | 'write';
     statuses?: 'read' | 'write';
     team_discussions?: 'read' | 'write';
     vulnerability_alerts?: 'read' | 'write';
+    workflows?: 'read' | 'write';
   };
   /**
    * The list of events for the GitHub app
    */
-  events?: string[];
+  events?: (
+    | 'check_run'
+    | 'check_suite'
+    | 'code_scanning_alert'
+    | 'commit_comment'
+    | 'content_reference'
+    | 'create'
+    | 'delete'
+    | 'deployment'
+    | 'deployment_review'
+    | 'deployment_status'
+    | 'deploy_key'
+    | 'discussion'
+    | 'discussion_comment'
+    | 'fork'
+    | 'gollum'
+    | 'issues'
+    | 'issue_comment'
+    | 'label'
+    | 'member'
+    | 'membership'
+    | 'milestone'
+    | 'organization'
+    | 'org_block'
+    | 'page_build'
+    | 'project'
+    | 'project_card'
+    | 'project_column'
+    | 'public'
+    | 'pull_request'
+    | 'pull_request_review'
+    | 'pull_request_review_comment'
+    | 'push'
+    | 'registry_package'
+    | 'release'
+    | 'repository'
+    | 'repository_dispatch'
+    | 'secret_scanning_alert'
+    | 'star'
+    | 'status'
+    | 'team'
+    | 'team_add'
+    | 'watch'
+    | 'workflow_dispatch'
+    | 'workflow_run'
+  )[];
 }

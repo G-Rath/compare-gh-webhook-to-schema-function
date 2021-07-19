@@ -34,6 +34,12 @@ export interface LabelEditedEvent {
        */
       from: string;
     };
+    description?: {
+      /**
+       * The previous version of the description if the action was `edited`.
+       */
+      from: string;
+    };
   };
   repository: Repository;
   sender: User;

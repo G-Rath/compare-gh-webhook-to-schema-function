@@ -1,9 +1,8 @@
 /* tslint:disable */
 import {
-  App,
-  AuthorAssociation,
   InstallationLite,
   Issue,
+  IssueComment,
   Label,
   Organization,
   Repository,
@@ -46,31 +45,7 @@ export interface IssueCommentEditedEvent {
       patch_url: string;
     };
   };
-  /**
-   * The [comment](https://docs.github.com/en/rest/reference/issues#comments) itself.
-   */
-  comment: {
-    /**
-     * URL for the issue comment
-     */
-    url: string;
-    html_url: string;
-    issue_url: string;
-    /**
-     * Unique identifier of the issue comment
-     */
-    id: number;
-    node_id: string;
-    user: User;
-    created_at: string;
-    updated_at: string;
-    author_association: AuthorAssociation;
-    /**
-     * Contents of the issue comment
-     */
-    body: string;
-    performed_via_github_app: App | null;
-  };
+  comment: IssueComment;
   repository: Repository;
   sender: User;
   installation?: InstallationLite;

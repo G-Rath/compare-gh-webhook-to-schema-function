@@ -10,13 +10,13 @@ export interface RepositoryEditedEvent {
   action: 'edited';
   changes: {
     description?: {
-      from: string;
+      from: string | null;
     };
     default_branch?: {
       from: string;
     };
     homepage?: {
-      from: string;
+      from: string | null;
     };
   };
   repository: Repository;

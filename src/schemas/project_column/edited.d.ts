@@ -14,6 +14,11 @@ import {
 
 export interface ProjectColumnEditedEvent {
   action: 'edited';
+  changes: {
+    name?: {
+      from: string;
+    };
+  };
   project_column: ProjectColumn;
   repository: Repository;
   sender: User;

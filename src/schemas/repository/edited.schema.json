@@ -25,7 +25,10 @@
           ],
           "properties": {
             "from": {
-              "type": "string"
+              "type": [
+                "string",
+                "null"
+              ]
             }
           },
           "additionalProperties": false
@@ -49,7 +52,10 @@
           ],
           "properties": {
             "from": {
-              "type": "string"
+              "type": [
+                "string",
+                "null"
+              ]
             }
           },
           "additionalProperties": false

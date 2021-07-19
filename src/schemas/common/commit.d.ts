@@ -34,9 +34,9 @@ export interface Commit {
   /**
    * An array of files modified by the commit.
    */
-  removed: string[];
+  modified: string[];
   /**
    * An array of files removed in the commit.
    */
-  modified: string[];
+  removed: string[];
 }

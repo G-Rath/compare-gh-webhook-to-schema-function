@@ -21,12 +21,11 @@ export interface PullRequestConvertedToDraftEvent {
   pull_request: PullRequest & {
     closed_at: null;
     merged_at: null;
-    merge_commit_sha: null;
     /**
      * Indicates whether or not the pull request is a draft.
      */
     draft: true;
-    merged: boolean;
+    merged: false;
     merged_by: null;
   };
   repository: Repository;

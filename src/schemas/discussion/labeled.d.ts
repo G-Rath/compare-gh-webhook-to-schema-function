@@ -1,7 +1,8 @@
 /* tslint:disable */
 import {
+  Discussion,
   InstallationLite,
-  Issue,
+  Label,
   Organization,
   Repository,
   User
@@ -12,9 +13,10 @@ import {
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface IssuesDeletedEvent {
-  action: 'deleted';
-  issue: Issue;
+export interface DiscussionLabeledEvent {
+  action: 'labeled';
+  discussion: Discussion;
+  label: Label;
   repository: Repository;
   sender: User;
   installation?: InstallationLite;

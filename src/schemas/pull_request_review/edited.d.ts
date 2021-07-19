@@ -17,7 +17,7 @@ import {
 export interface PullRequestReviewEditedEvent {
   action: 'edited';
   changes: {
-    body: {
+    body?: {
       /**
        * The previous version of the body if the action was `edited`.
        */
