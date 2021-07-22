@@ -20,7 +20,7 @@
     },
     "label": {
       "$ref": "common/label.schema.json",
-      "description": "The optional label that was added or removed from the issue."
+      "description": "The label that was added to the issue."
     },
     "repository": {
       "$ref": "common/repository.schema.json"

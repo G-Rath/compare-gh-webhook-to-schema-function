@@ -17,7 +17,7 @@ export interface IssuesLabeledEvent {
   action: 'labeled';
   issue: Issue;
   /**
-   * The optional label that was added or removed from the issue.
+   * The label that was added to the issue.
    */
   label?: Label;
   repository: Repository;
