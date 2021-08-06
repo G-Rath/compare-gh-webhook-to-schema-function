@@ -191,6 +191,7 @@ const titleCase = (str: string) => `${str[0].toUpperCase()}${str.substring(1)}`;
 
 const guessAtInterfaceName = (str: string): string =>
   str
+    .replace(/[()]/gu, '')
     .split(/[$_ -]/u)
     .map(titleCase)
     .join('');
