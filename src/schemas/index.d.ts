@@ -51,6 +51,7 @@ export * from './team';
 export * from './team_add';
 export * from './watch';
 export * from './workflow_dispatch';
+export * from './workflow_job';
 export * from './workflow_run';
 
 import { CheckRunEvent } from './check_run';
@@ -105,6 +106,7 @@ import { TeamEvent } from './team';
 import { TeamAddEvent } from './team_add';
 import { WatchEvent } from './watch';
 import { WorkflowDispatchEvent } from './workflow_dispatch';
+import { WorkflowJobEvent } from './workflow_job';
 import { WorkflowRunEvent } from './workflow_run';
 
 export interface EventPayloadMap {
@@ -160,5 +162,6 @@ export interface EventPayloadMap {
   team_add: TeamAddEvent;
   watch: WatchEvent;
   workflow_dispatch: WorkflowDispatchEvent;
+  workflow_job: WorkflowJobEvent;
   workflow_run: WorkflowRunEvent;
 }
