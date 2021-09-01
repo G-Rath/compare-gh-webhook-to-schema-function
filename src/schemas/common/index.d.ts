@@ -1,6 +1,7 @@
 export * from './alert-instance';
 export * from './app';
 export * from './author_association';
+export * from './branch-protection-rule';
 export * from './check-run-deployment';
 export * from './check-run-pull-request';
 export * from './commit-simple';
