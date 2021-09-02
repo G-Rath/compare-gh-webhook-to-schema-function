@@ -1,3 +1,4 @@
+export * from './branch_protection_rule';
 export * from './check_run';
 export * from './check_suite';
 export * from './code_scanning_alert';
@@ -54,6 +55,7 @@ export * from './workflow_dispatch';
 export * from './workflow_job';
 export * from './workflow_run';
 
+import { BranchProtectionRuleEvent } from './branch_protection_rule';
 import { CheckRunEvent } from './check_run';
 import { CheckSuiteEvent } from './check_suite';
 import { CodeScanningAlertEvent } from './code_scanning_alert';
@@ -110,6 +112,7 @@ import { WorkflowJobEvent } from './workflow_job';
 import { WorkflowRunEvent } from './workflow_run';
 
 export interface EventPayloadMap {
+  branch_protection_rule: BranchProtectionRuleEvent;
   check_run: CheckRunEvent;
   check_suite: CheckSuiteEvent;
   code_scanning_alert: CodeScanningAlertEvent;
