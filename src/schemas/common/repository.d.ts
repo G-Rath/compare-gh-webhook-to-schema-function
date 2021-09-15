@@ -127,6 +127,14 @@ export interface Repository {
    */
   allow_rebase_merge?: boolean;
   /**
+   * Whether to allow auto-merge for pull requests.
+   */
+  allow_auto_merge?: boolean;
+  /**
+   * Whether to allow private forks
+   */
+  allow_forking?: boolean;
+  /**
    * Whether to delete head branches when pull requests are merged
    */
   delete_branch_on_merge?: boolean;

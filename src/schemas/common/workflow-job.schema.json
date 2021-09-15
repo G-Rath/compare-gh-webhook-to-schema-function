@@ -54,6 +54,7 @@
     "status": {
       "type": "string",
       "enum": [
+        "queued",
         "in_progress",
         "completed"
       ]

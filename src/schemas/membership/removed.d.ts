@@ -11,7 +11,7 @@ export interface MembershipRemovedEvent {
   /**
    * The scope of the membership. Currently, can only be `team`.
    */
-  scope: 'team';
+  scope: 'team' | 'organization';
   /**
    * The [user](https://docs.github.com/en/rest/reference/users) that was added or removed.
    */
@@ -20,7 +20,13 @@ export interface MembershipRemovedEvent {
   /**
    * The [team](https://docs.github.com/en/rest/reference/teams) for the membership.
    */
-  team: Team;
+  team:
+    | Team
+    | {
+        id: number;
+        name: string;
+        deleted?: boolean;
+      };
   organization: Organization;
   installation?: InstallationLite;
 }
