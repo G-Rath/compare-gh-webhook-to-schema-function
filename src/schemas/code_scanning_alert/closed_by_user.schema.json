@@ -96,7 +96,10 @@
           "description": "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
         },
         "dismissed_reason": {
-          "type": "string",
+          "type": [
+            "string",
+            "null"
+          ],
           "enum": [
             "false positive",
             "won't fix",
