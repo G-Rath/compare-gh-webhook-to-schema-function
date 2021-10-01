@@ -19,6 +19,7 @@
           "type": "object",
           "properties": {
             "fork": {
+              "type": "boolean",
               "enum": [
                 true
               ]
