@@ -20,6 +20,10 @@ export interface WorkflowJob {
   steps: [WorkflowStep, ...WorkflowStep[]];
   conclusion: 'success' | 'failure' | null;
   labels: string[];
+  runner_id: number;
+  runner_name: string;
+  runner_group_id: number;
+  runner_group_name: string;
   started_at: string;
   completed_at: string | null;
 }

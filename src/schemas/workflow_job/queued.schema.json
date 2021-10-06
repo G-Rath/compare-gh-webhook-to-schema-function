@@ -44,7 +44,11 @@
         "name",
         "steps",
         "check_run_url",
-        "labels"
+        "labels",
+        "runner_id",
+        "runner_name",
+        "runner_group_id",
+        "runner_group_name"
       ],
       "properties": {
         "id": {
@@ -98,6 +102,18 @@
           "items": {
             "type": "string"
           }
+        },
+        "runner_id": {
+          "type": "integer"
+        },
+        "runner_name": {
+          "type": "string"
+        },
+        "runner_group_id": {
+          "type": "integer"
+        },
+        "runner_group_name": {
+          "type": "string"
         },
         "started_at": {
           "type": "string",
