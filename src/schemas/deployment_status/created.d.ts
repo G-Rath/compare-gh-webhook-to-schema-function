@@ -31,6 +31,7 @@ export interface DeploymentStatusCreatedEvent {
      */
     description: string;
     environment: string;
+    environment_url?: string;
     /**
      * The optional link added to the status.
      */

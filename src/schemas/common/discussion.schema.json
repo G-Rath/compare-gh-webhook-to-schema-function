@@ -145,6 +145,9 @@
     },
     "body": {
       "type": "string"
+    },
+    "reactions": {
+      "$ref": "reactions.schema.json"
     }
   },
   "additionalProperties": false,

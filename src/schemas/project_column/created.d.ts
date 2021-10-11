@@ -15,7 +15,7 @@ import {
 export interface ProjectColumnCreatedEvent {
   action: 'created';
   project_column: ProjectColumn;
-  repository: Repository;
+  repository?: Repository;
   sender: User;
   installation?: InstallationLite;
   organization?: Organization;

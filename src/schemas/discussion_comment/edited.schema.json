@@ -53,7 +53,8 @@
         "user",
         "created_at",
         "updated_at",
-        "body"
+        "body",
+        "reactions"
       ],
       "properties": {
         "id": {
@@ -94,6 +95,9 @@
         },
         "body": {
           "type": "string"
+        },
+        "reactions": {
+          "$ref": "common/reactions.schema.json"
         }
       },
       "additionalProperties": false

@@ -67,6 +67,7 @@ export interface Installation {
     workflows?: 'read' | 'write';
   };
   events: (
+    | 'branch_protection_rule'
     | 'check_run'
     | 'check_suite'
     | 'code_scanning_alert'
@@ -99,6 +100,7 @@ export interface Installation {
     | 'pull_request'
     | 'pull_request_review'
     | 'pull_request_review_comment'
+    | 'pull_request_review_thread'
     | 'push'
     | 'registry_package'
     | 'release'
@@ -111,6 +113,7 @@ export interface Installation {
     | 'team_add'
     | 'watch'
     | 'workflow_dispatch'
+    | 'workflow_job'
     | 'workflow_run'
   )[];
   created_at: string | number;

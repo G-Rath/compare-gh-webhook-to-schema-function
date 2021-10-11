@@ -103,6 +103,13 @@
     },
     "body": {
       "type": "string"
+    },
+    "reactions": {
+      "$ref": "reactions.schema.json"
+    },
+    "discussion_url": {
+      "type": "string",
+      "format": "uri"
     }
   },
   "additionalProperties": false,

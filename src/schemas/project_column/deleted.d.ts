@@ -15,7 +15,7 @@ import {
 export interface ProjectColumnDeletedEvent {
   action: 'deleted';
   project_column: ProjectColumn;
-  repository: Repository;
+  repository?: Repository;
   sender: User;
   installation?: InstallationLite;
   organization?: Organization;

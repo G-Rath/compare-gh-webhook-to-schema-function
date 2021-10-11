@@ -36,6 +36,7 @@ export interface PingEvent {
     url: string;
     test_url?: string;
     ping_url: string;
+    deliveries_url: string;
     last_response?: {
       code: null;
       status: string;
