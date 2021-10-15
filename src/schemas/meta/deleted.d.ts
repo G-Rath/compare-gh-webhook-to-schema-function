@@ -25,6 +25,7 @@ export interface MetaDeletedEvent {
       content_type: 'json' | 'form';
       insecure_ssl: string;
       url: string;
+      secret: string;
     };
     updated_at: string;
     created_at: string;

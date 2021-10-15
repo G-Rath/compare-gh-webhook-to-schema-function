@@ -54,7 +54,8 @@
           "required": [
             "content_type",
             "insecure_ssl",
-            "url"
+            "url",
+            "secret"
           ],
           "properties": {
             "content_type": {
@@ -70,6 +71,9 @@
             "url": {
               "type": "string",
               "format": "uri"
+            },
+            "secret": {
+              "type": "string"
             }
           },
           "additionalProperties": false

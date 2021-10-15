@@ -25,7 +25,8 @@
     "original_line",
     "line",
     "start_side",
-    "side"
+    "side",
+    "reactions"
   ],
   "type": "object",
   "properties": {
@@ -120,6 +121,9 @@
         }
       },
       "additionalProperties": false
+    },
+    "reactions": {
+      "$ref": "reactions.schema.json"
     },
     "start_line": {
       "type": [

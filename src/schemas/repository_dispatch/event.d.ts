@@ -6,8 +6,8 @@ import { InstallationLite, Organization, Repository, User } from '../common';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface RepositoryDispatchOnDemandTestEvent {
-  action: 'on-demand-test';
+export interface RepositoryDispatchEvent {
+  action: string;
   branch: string;
   client_payload: {
     [k: string]: unknown;

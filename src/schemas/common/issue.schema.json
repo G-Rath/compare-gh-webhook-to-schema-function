@@ -22,7 +22,8 @@
     "closed_at",
     "author_association",
     "active_lock_reason",
-    "body"
+    "body",
+    "reactions"
   ],
   "type": "object",
   "properties": {
@@ -182,6 +183,13 @@
         "null"
       ],
       "description": "Contents of the issue"
+    },
+    "reactions": {
+      "$ref": "reactions.schema.json"
+    },
+    "timeline_url": {
+      "type": "string",
+      "format": "uri"
     }
   },
   "additionalProperties": false,

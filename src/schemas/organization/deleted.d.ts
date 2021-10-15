@@ -8,7 +8,7 @@ import { InstallationLite, Membership, Organization, User } from '../common';
 
 export interface OrganizationDeletedEvent {
   action: 'deleted';
-  membership: Membership;
+  membership?: Membership;
   sender: User;
   installation?: InstallationLite;
   organization: Organization;

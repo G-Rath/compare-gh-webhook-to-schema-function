@@ -68,6 +68,12 @@
         "environment": {
           "type": "string"
         },
+        "transient_environment": {
+          "type": "boolean"
+        },
+        "production_environment": {
+          "type": "boolean"
+        },
         "description": {
           "type": "null"
         },

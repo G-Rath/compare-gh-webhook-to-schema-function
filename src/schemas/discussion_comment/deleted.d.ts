@@ -4,6 +4,7 @@ import {
   Discussion,
   InstallationLite,
   Organization,
+  Reactions,
   Repository,
   User
 } from '../common';
@@ -28,6 +29,7 @@ export interface DiscussionCommentDeletedEvent {
     created_at: string;
     updated_at: string;
     body: string;
+    reactions: Reactions;
   };
   discussion: Discussion;
   repository: Repository;

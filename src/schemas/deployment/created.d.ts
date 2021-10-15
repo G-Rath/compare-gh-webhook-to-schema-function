@@ -27,6 +27,8 @@ export interface DeploymentCreatedEvent {
     payload: {};
     original_environment: string;
     environment: string;
+    transient_environment?: boolean;
+    production_environment?: boolean;
     description: null;
     creator: User;
     created_at: string;

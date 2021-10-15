@@ -16,10 +16,14 @@ export interface WorkflowJob {
   run_url: string;
   html_url: string;
   url: string;
-  status: 'in_progress' | 'completed';
+  status: 'queued' | 'in_progress' | 'completed';
   steps: [WorkflowStep, ...WorkflowStep[]];
   conclusion: 'success' | 'failure' | null;
   labels: string[];
+  runner_id: number;
+  runner_name: string;
+  runner_group_id: number;
+  runner_group_name: string;
   started_at: string;
   completed_at: string | null;
 }

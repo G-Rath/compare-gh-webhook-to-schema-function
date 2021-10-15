@@ -13,15 +13,14 @@ import {
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface WorkflowJobStartedEvent {
-  action: 'started';
+export interface WorkflowJobInProgressEvent {
+  action: 'in_progress';
   organization?: Organization;
   installation?: InstallationLite;
   repository: Repository;
   sender: User;
   workflow_job: WorkflowJob & {
-    steps: [WorkflowStepInProgress];
-    conclusion: null;
-    completed_at: null;
+    status: 'in_progress';
+    steps: [WorkflowStepInProgress, ...WorkflowStepInProgress[]];
   };
 }

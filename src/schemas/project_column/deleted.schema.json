@@ -5,7 +5,6 @@
   "required": [
     "action",
     "project_column",
-    "repository",
     "sender"
   ],
   "properties": {

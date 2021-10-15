@@ -28,7 +28,8 @@
         "updated_at",
         "created_at",
         "url",
-        "ping_url"
+        "ping_url",
+        "deliveries_url"
       ],
       "properties": {
         "type": {
@@ -93,6 +94,10 @@
           "format": "uri"
         },
         "ping_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "deliveries_url": {
           "type": "string",
           "format": "uri"
         },
