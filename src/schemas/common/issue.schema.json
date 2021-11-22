@@ -23,7 +23,8 @@
     "author_association",
     "active_lock_reason",
     "body",
-    "reactions"
+    "reactions",
+    "draft"
   ],
   "type": "object",
   "properties": {
@@ -144,6 +145,9 @@
         "spam",
         null
       ]
+    },
+    "draft": {
+      "type": "boolean"
     },
     "performed_via_github_app": {
       "oneOf": [

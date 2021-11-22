@@ -15,7 +15,7 @@ import {
 export interface ProjectCardDeletedEvent {
   action: 'deleted';
   project_card: ProjectCard;
-  repository: Repository;
+  repository?: Repository;
   sender: User;
   organization?: Organization;
   installation?: InstallationLite;

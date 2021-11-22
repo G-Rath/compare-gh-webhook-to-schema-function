@@ -5,7 +5,6 @@
   "required": [
     "action",
     "project_card",
-    "repository",
     "sender"
   ],
   "properties": {

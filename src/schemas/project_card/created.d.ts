@@ -15,7 +15,7 @@ import {
 export interface ProjectCardCreatedEvent {
   action: 'created';
   project_card: ProjectCard;
-  repository: Repository;
+  repository?: Repository;
   sender: User;
   organization?: Organization;
   installation?: InstallationLite;

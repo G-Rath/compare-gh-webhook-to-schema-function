@@ -20,7 +20,7 @@ export interface ProjectCardConvertedEvent {
     };
   };
   project_card: ProjectCard;
-  repository: Repository;
+  repository?: Repository;
   sender: User;
   organization?: Organization;
   installation?: InstallationLite;
