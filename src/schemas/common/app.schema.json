@@ -129,6 +129,13 @@
             "write"
           ]
         },
+        "keys": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "members": {
           "type": "string",
           "enum": [
@@ -306,6 +313,7 @@
       "items": {
         "type": "string",
         "enum": [
+          "branch_protection_rule",
           "check_run",
           "check_suite",
           "code_scanning_alert",

@@ -97,7 +97,10 @@
           ]
         },
         "after": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "pull_requests": {
           "type": "array",

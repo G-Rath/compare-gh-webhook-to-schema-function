@@ -21,11 +21,12 @@ export interface WorkflowJobQueuedEvent {
   workflow_job: {
     id: number;
     run_id: number;
+    run_url: string;
+    run_attempt: number;
     head_sha: string;
     node_id: string;
     name: string;
     check_run_url: string;
-    run_url: string;
     html_url: string;
     url: string;
     status: 'queued';

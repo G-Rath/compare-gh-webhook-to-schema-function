@@ -43,6 +43,7 @@ export interface App {
     emails?: 'read' | 'write';
     environments?: 'read' | 'write';
     issues?: 'read' | 'write';
+    keys?: 'read' | 'write';
     members?: 'read' | 'write';
     metadata?: 'read' | 'write';
     organization_administration?: 'read' | 'write';
@@ -72,6 +73,7 @@ export interface App {
    * The list of events for the GitHub app
    */
   events?: (
+    | 'branch_protection_rule'
     | 'check_run'
     | 'check_suite'
     | 'code_scanning_alert'

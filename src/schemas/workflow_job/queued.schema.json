@@ -33,6 +33,7 @@
         "id",
         "run_id",
         "run_url",
+        "run_attempt",
         "node_id",
         "head_sha",
         "url",
@@ -57,6 +58,13 @@
         "run_id": {
           "type": "number"
         },
+        "run_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "run_attempt": {
+          "type": "integer"
+        },
         "head_sha": {
           "type": "string"
         },
@@ -67,10 +75,6 @@
           "type": "string"
         },
         "check_run_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "run_url": {
           "type": "string",
           "format": "uri"
         },

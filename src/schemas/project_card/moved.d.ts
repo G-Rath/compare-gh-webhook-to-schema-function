@@ -22,7 +22,7 @@ export interface ProjectCardMovedEvent {
   project_card: ProjectCard & {
     after_id: number | null;
   };
-  repository: Repository;
+  repository?: Repository;
   sender: User;
   organization?: Organization;
   installation?: InstallationLite;

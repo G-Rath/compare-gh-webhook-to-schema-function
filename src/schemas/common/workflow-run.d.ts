@@ -56,4 +56,7 @@ export interface WorkflowRun {
   url: string;
   workflow_id: number;
   workflow_url: string;
+  run_attempt: number;
+  run_started_at: string;
+  previous_attempt_url: string | null;
 }
