@@ -22,7 +22,6 @@ export interface PullRequestReopenedEvent {
     state: 'open';
     closed_at: null;
     merged_at: null;
-    merge_commit_sha: null;
     merged: boolean;
     merged_by: null;
   };

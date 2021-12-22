@@ -23,8 +23,7 @@
     "author_association",
     "active_lock_reason",
     "body",
-    "reactions",
-    "draft"
+    "reactions"
   ],
   "type": "object",
   "properties": {
@@ -177,6 +176,13 @@
         "patch_url": {
           "type": "string",
           "format": "uri"
+        },
+        "merged_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
         }
       },
       "additionalProperties": false

@@ -34,6 +34,14 @@ export interface PullRequestEditedEvent {
        */
       from: string;
     };
+    base?: {
+      ref: {
+        from: string;
+      };
+      sha: {
+        from: string;
+      };
+    };
   };
   pull_request: PullRequest;
   repository: Repository;

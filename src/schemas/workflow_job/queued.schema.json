@@ -108,16 +108,28 @@
           }
         },
         "runner_id": {
-          "type": "integer"
+          "type": [
+            "integer",
+            "null"
+          ]
         },
         "runner_name": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "runner_group_id": {
-          "type": "integer"
+          "type": [
+            "integer",
+            "null"
+          ]
         },
         "runner_group_name": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "started_at": {
           "type": "string",
