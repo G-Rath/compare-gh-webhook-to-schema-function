@@ -31,7 +31,6 @@
             "state",
             "closed_at",
             "merged_at",
-            "merge_commit_sha",
             "merged",
             "merged_by"
           ],
@@ -46,9 +45,6 @@
               "type": "null"
             },
             "merged_at": {
-              "type": "null"
-            },
-            "merge_commit_sha": {
               "type": "null"
             },
             "merged": {

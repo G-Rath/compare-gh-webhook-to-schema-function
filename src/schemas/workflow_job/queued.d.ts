@@ -33,10 +33,10 @@ export interface WorkflowJobQueuedEvent {
     steps: WorkflowStep[];
     conclusion: null;
     labels: string[];
-    runner_id: number;
-    runner_name: string;
-    runner_group_id: number;
-    runner_group_name: string;
+    runner_id: number | null;
+    runner_name: string | null;
+    runner_group_id: number | null;
+    runner_group_name: string | null;
     started_at: string;
     completed_at: null;
   };

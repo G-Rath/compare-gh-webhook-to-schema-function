@@ -15,7 +15,7 @@ import {
 export interface DeploymentCreatedEvent {
   action: 'created';
   /**
-   * The [deployment](https://docs.github.com/en/rest/reference/repos#list-deployments).
+   * The [deployment](https://docs.github.com/en/rest/reference/deployments#list-deployments).
    */
   deployment: {
     url: string;
@@ -24,7 +24,9 @@ export interface DeploymentCreatedEvent {
     sha: string;
     ref: string;
     task: string;
-    payload: {};
+    payload: {
+      [k: string]: unknown;
+    };
     original_environment: string;
     environment: string;
     transient_environment?: boolean;
