@@ -7,6 +7,8 @@ export * from './check-run-pull-request';
 export * from './commit-simple';
 export * from './commit';
 export * from './committer';
+export * from './deployment-workflow-run';
+export * from './deployment';
 export * from './discussion';
 export * from './github-org';
 export * from './installation-lite';
