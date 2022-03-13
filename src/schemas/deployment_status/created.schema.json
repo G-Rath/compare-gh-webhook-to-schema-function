@@ -201,6 +201,9 @@
     "workflow_run": {
       "$ref": "common/deployment-workflow-run.schema.json"
     },
+    "workflow": {
+      "$ref": "common/workflow.schema.json"
+    },
     "repository": {
       "$ref": "common/repository.schema.json"
     },

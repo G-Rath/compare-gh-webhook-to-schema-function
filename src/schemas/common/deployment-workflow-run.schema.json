@@ -20,6 +20,8 @@
     "pull_requests",
     "created_at",
     "updated_at",
+    "actor",
+    "triggering_actor",
     "run_attempt",
     "run_started_at"
   ],
@@ -100,6 +102,12 @@
     "updated_at": {
       "type": "string",
       "format": "date-time"
+    },
+    "actor": {
+      "$ref": "user.schema.json"
+    },
+    "triggering_actor": {
+      "$ref": "user.schema.json"
     },
     "run_attempt": {
       "type": "integer"

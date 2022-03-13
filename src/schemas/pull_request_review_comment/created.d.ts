@@ -6,6 +6,7 @@ import {
   Link,
   Milestone,
   Organization,
+  PullRequestAutoMerge,
   PullRequestReviewComment,
   Repository,
   Team,
@@ -75,7 +76,7 @@ export interface PullRequestReviewCommentCreatedEvent {
       commits: Link;
       statuses: Link;
     };
-    auto_merge?: null;
+    auto_merge?: PullRequestAutoMerge | null;
     author_association: AuthorAssociation;
     active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
   };

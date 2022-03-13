@@ -28,6 +28,9 @@ export interface BranchProtectionRuleEditedEvent {
     authorized_actor_names?: {
       from: string[];
     };
+    required_status_checks?: {
+      from: string[];
+    };
   };
   repository: Repository;
   sender: User;

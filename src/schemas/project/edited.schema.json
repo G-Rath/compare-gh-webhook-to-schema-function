@@ -4,7 +4,6 @@
   "type": "object",
   "required": [
     "action",
-    "changes",
     "project",
     "repository",
     "sender"
