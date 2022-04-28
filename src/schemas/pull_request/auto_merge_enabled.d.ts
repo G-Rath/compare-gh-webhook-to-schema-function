@@ -16,6 +16,7 @@ export interface PullRequestAutoMergeEnabledEvent {
   action: 'auto_merge_enabled';
   number: number;
   pull_request: PullRequest;
+  reason: string;
   repository: Repository;
   installation?: InstallationLite;
   organization?: Organization;

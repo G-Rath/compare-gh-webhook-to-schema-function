@@ -27,12 +27,6 @@ export interface IssueCommentCreatedEvent {
     state: 'open' | 'closed';
     locked: boolean;
     labels: Label[];
-    pull_request?: {
-      url: string;
-      html_url: string;
-      diff_url: string;
-      patch_url: string;
-    };
   };
   comment: IssueComment;
   repository: Repository;

@@ -120,6 +120,12 @@
           "type": "string",
           "format": "date-time"
         },
+        "runs_rerequestable": {
+          "type": "boolean"
+        },
+        "rerequestable": {
+          "type": "boolean"
+        },
         "latest_check_runs_count": {
           "type": "integer"
         },

@@ -59,6 +59,8 @@ export interface CheckSuiteRequestedEvent {
     app: App;
     created_at: string;
     updated_at: string;
+    runs_rerequestable?: boolean;
+    rerequestable?: boolean;
     latest_check_runs_count: number;
     check_runs_url: string;
     head_commit: SimpleCommit;

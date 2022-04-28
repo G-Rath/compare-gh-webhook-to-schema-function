@@ -94,7 +94,12 @@ export interface CheckRunCompletedEvent {
       before: string | null;
       after: string | null;
       /**
-       * An array of pull requests that match this check suite. A pull request matches a check suite if they have the same `head_sha` and `head_branch`. When the check suite's `head_branch` is in a forked repository it will be `null` and the `pull_requests` array will be empty.
+       * An array of pull requests that match this check suite. A pull request matches a check suite if they have the same `head_branch`.
+       *
+       * **Note:**
+       *
+       * *   The `head_sha` of the check suite can differ from the `sha` of the pull request if subsequent pushes are made into the PR.
+       * *   When the check suite's `head_branch` is in a forked repository it will be `null` and the `pull_requests` array will be empty.
        */
       pull_requests: CheckRunPullRequest[];
       deployment?: CheckRunDeployment;
@@ -104,6 +109,7 @@ export interface CheckRunCompletedEvent {
     };
     app: App;
     pull_requests: CheckRunPullRequest[];
+    deployment?: CheckRunDeployment;
   };
   /**
    * The action requested by the user.

@@ -64,7 +64,10 @@
       "format": "uri"
     },
     "after_id": {
-      "type": "null"
+      "type": [
+        "string",
+        "null"
+      ]
     }
   },
   "additionalProperties": false,

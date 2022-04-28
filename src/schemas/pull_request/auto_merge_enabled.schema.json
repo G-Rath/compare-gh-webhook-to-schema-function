@@ -6,6 +6,7 @@
     "action",
     "number",
     "pull_request",
+    "reason",
     "repository",
     "sender"
   ],
@@ -21,6 +22,9 @@
     },
     "pull_request": {
       "$ref": "common/pull-request.schema.json"
+    },
+    "reason": {
+      "type": "string"
     },
     "repository": {
       "$ref": "common/repository.schema.json"

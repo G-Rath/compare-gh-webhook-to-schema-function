@@ -20,7 +20,8 @@
       "format": "uri"
     },
     "created_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "html_url": {
       "type": "string",
@@ -42,7 +43,8 @@
       "type": "string"
     },
     "updated_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "url": {
       "type": "string",

@@ -287,7 +287,14 @@
       "$ref": "author_association.schema.json"
     },
     "auto_merge": {
-      "type": "null"
+      "oneOf": [
+        {
+          "$ref": "auto-merge.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "active_lock_reason": {
       "type": [

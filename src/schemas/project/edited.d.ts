@@ -17,7 +17,7 @@ export interface ProjectEditedEvent {
   /**
    * The changes to the project if the action was `edited`.
    */
-  changes: {
+  changes?: {
     name?: {
       /**
        * The changes to the project if the action was `edited`.
