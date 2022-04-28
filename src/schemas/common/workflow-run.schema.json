@@ -68,6 +68,7 @@
         "timed_out",
         "action_required",
         "stale",
+        "skipped",
         null
       ]
     },
@@ -193,7 +194,8 @@
         "requested",
         "in_progress",
         "completed",
-        "queued"
+        "queued",
+        "waiting"
       ]
     },
     "updated_at": {

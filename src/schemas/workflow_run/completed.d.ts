@@ -27,7 +27,8 @@ export interface WorkflowRunCompletedEvent {
       | 'cancelled'
       | 'timed_out'
       | 'action_required'
-      | 'stale';
+      | 'stale'
+      | 'skipped';
   };
   installation?: InstallationLite;
 }

@@ -20,6 +20,7 @@ export interface WorkflowRun {
     | 'timed_out'
     | 'action_required'
     | 'stale'
+    | 'skipped'
     | null;
   created_at: string;
   event: string;
@@ -51,7 +52,7 @@ export interface WorkflowRun {
   repository: RepositoryLite;
   rerun_url: string;
   run_number: number;
-  status: 'requested' | 'in_progress' | 'completed' | 'queued';
+  status: 'requested' | 'in_progress' | 'completed' | 'queued' | 'waiting';
   updated_at: string;
   url: string;
   workflow_id: number;

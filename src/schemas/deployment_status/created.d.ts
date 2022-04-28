@@ -68,7 +68,7 @@ export interface DeploymentStatusCreatedEvent {
     /**
      * The current status of the check run. Can be `queued`, `in_progress`, or `completed`.
      */
-    status: 'queued' | 'in_progress' | 'completed';
+    status: 'queued' | 'in_progress' | 'completed' | 'waiting';
     /**
      * The result of the completed check run. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `action_required` or `stale`. This value will be `null` until the check run has completed.
      */
