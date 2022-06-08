@@ -11,6 +11,7 @@
   ],
   "properties": {
     "inputs": {
+      "description": "Inputs to the workflow. Each key represents the name of the input while it's value represents the value of that input.",
       "oneOf": [
         {
           "type": "object",
@@ -23,6 +24,7 @@
       ]
     },
     "ref": {
+      "description": "The branch ref from which the workflow was run.",
       "type": "string"
     },
     "repository": {
@@ -38,6 +40,7 @@
       "$ref": "common/organization.schema.json"
     },
     "workflow": {
+      "description": "Relative path to the workflow file which contains the workflow.",
       "type": "string"
     }
   },

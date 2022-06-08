@@ -7,13 +7,22 @@ import { InstallationLite, Organization, Repository, User } from '../common';
  */
 
 export interface WorkflowDispatchEvent {
+  /**
+   * Inputs to the workflow. Each key represents the name of the input while it's value represents the value of that input.
+   */
   inputs: {
     [k: string]: unknown;
   } | null;
+  /**
+   * The branch ref from which the workflow was run.
+   */
   ref: string;
   repository: Repository;
   sender: User;
   installation?: InstallationLite;
   organization?: Organization;
+  /**
+   * Relative path to the workflow file which contains the workflow.
+   */
   workflow: string;
 }
