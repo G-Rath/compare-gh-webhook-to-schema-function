@@ -26,6 +26,7 @@ export * from './organization';
 export * from './project-card';
 export * from './project-column';
 export * from './project';
+export * from './projects_v2_item';
 export * from './pull-request-review-comment';
 export * from './pull-request';
 export * from './reactions';
