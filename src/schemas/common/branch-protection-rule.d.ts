@@ -29,6 +29,7 @@ export interface BranchProtectionRule {
     | 'non_admins'
     | 'everyone';
   admin_enforced: boolean;
+  create_protected?: boolean;
   allow_force_pushes_enforcement_level: 'off' | 'non_admins' | 'everyone';
   allow_deletions_enforcement_level: 'off' | 'non_admins' | 'everyone';
   merge_queue_enforcement_level: 'off' | 'non_admins' | 'everyone';

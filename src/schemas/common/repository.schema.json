@@ -426,6 +426,9 @@
     "allow_update_branch": {
       "type": "boolean"
     },
+    "use_squash_pr_title_as_default": {
+      "type": "boolean"
+    },
     "is_template": {
       "type": "boolean"
     },

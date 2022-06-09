@@ -32,6 +32,9 @@
     "name": {
       "type": "string"
     },
+    "path": {
+      "type": "string"
+    },
     "node_id": {
       "type": "string"
     },

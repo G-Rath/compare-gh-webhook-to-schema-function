@@ -28,6 +28,7 @@ export interface WorkflowRun {
   head_commit: SimpleCommit;
   head_repository: RepositoryLite;
   head_sha: string;
+  path?: string;
   html_url: string;
   id: number;
   jobs_url: string;

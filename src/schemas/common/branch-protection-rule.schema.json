@@ -106,6 +106,9 @@
     "admin_enforced": {
       "type": "boolean"
     },
+    "create_protected": {
+      "type": "boolean"
+    },
     "allow_force_pushes_enforcement_level": {
       "type": "string",
       "enum": [

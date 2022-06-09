@@ -25,7 +25,7 @@ export interface WorkflowJob {
    */
   status: 'queued' | 'in_progress' | 'completed';
   steps: [WorkflowStep, ...WorkflowStep[]];
-  conclusion: 'success' | 'failure' | null;
+  conclusion: 'success' | 'failure' | 'cancelled' | 'skipped' | null;
   /**
    * Custom labels for the job. Specified by the [`"runs-on"` attribute](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on) in the workflow YAML.
    */

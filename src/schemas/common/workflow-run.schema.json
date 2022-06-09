@@ -91,6 +91,9 @@
     "head_sha": {
       "type": "string"
     },
+    "path": {
+      "type": "string"
+    },
     "html_url": {
       "type": "string",
       "format": "uri"

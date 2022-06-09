@@ -57,4 +57,5 @@ export interface Issue {
   body: string | null;
   reactions: Reactions;
   timeline_url?: string;
+  state_reason?: string | null;
 }

@@ -19,6 +19,6 @@ export interface WorkflowJobCompletedEvent {
   repository: Repository;
   sender: User;
   workflow_job: WorkflowJob & {
-    conclusion: 'success' | 'failure';
+    conclusion: 'success' | 'failure' | 'cancelled' | 'skipped';
   };
 }
