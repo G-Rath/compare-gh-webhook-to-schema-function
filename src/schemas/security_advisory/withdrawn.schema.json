@@ -117,13 +117,16 @@
           }
         },
         "published_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "withdrawn_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "vulnerabilities": {
           "type": "array",

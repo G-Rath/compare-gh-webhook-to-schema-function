@@ -125,12 +125,18 @@
       "description": "The name of the runner group that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`."
     },
     "started_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "completed_at": {
-      "type": [
-        "string",
-        "null"
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
       ]
     }
   },

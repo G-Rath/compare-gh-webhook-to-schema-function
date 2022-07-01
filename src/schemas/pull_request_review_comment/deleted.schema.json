@@ -107,21 +107,33 @@
           "type": "string"
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "closed_at": {
-          "type": [
-            "string",
-            "null"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "merged_at": {
-          "type": [
-            "string",
-            "null"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "merge_commit_sha": {

@@ -49,7 +49,15 @@
       "type": "boolean"
     },
     "free_trial_ends_on": {
-      "type": "null"
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "next_billing_date": {
       "type": "string"

@@ -88,10 +88,12 @@
           "$ref": "common/user.schema.json"
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "body": {
           "type": "string"

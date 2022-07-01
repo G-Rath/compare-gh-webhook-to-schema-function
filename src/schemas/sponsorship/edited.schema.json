@@ -30,7 +30,8 @@
           "type": "string"
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "sponsorable": {
           "$ref": "common/user.schema.json"

@@ -59,10 +59,12 @@
           "format": "uri"
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "owner": {
           "$ref": "common/user.schema.json"
@@ -162,10 +164,12 @@
                   "type": "boolean"
                 },
                 "created_at": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "date-time"
                 },
                 "published_at": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "date-time"
                 }
               },
               "additionalProperties": false
@@ -193,10 +197,12 @@
               "type": "boolean"
             },
             "created_at": {
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             },
             "updated_at": {
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             },
             "metadata": {
               "type": "array",
@@ -253,10 +259,12 @@
                     "type": "integer"
                   },
                   "created_at": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date-time"
                   },
                   "updated_at": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date-time"
                   }
                 },
                 "additionalProperties": false

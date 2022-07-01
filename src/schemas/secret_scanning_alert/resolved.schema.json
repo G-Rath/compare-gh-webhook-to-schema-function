@@ -45,7 +45,8 @@
           "$ref": "common/user.schema.json"
         },
         "resolved_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         }
       },
       "additionalProperties": false

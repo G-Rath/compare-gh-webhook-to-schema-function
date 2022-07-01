@@ -80,10 +80,12 @@
           "additionalProperties": false
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "url": {
           "type": "string",
