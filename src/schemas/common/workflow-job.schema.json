@@ -73,8 +73,7 @@
       "type": "array",
       "items": {
         "$ref": "workflow-step.schema.json"
-      },
-      "minItems": 1
+      }
     },
     "conclusion": {
       "type": [
