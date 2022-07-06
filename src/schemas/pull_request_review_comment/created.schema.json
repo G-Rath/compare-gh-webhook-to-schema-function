@@ -104,7 +104,10 @@
           "$ref": "common/user.schema.json"
         },
         "body": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "created_at": {
           "type": "string",

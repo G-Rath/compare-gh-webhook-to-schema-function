@@ -137,6 +137,7 @@ export interface Repository {
   allow_update_branch?: boolean;
   use_squash_pr_title_as_default?: boolean;
   is_template: boolean;
+  web_commit_signoff_required: boolean;
   topics: string[];
   visibility: 'public' | 'private' | 'internal';
   /**

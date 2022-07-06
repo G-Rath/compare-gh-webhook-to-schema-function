@@ -45,6 +45,7 @@ export interface App {
     issues?: 'read' | 'write';
     keys?: 'read' | 'write';
     members?: 'read' | 'write';
+    merge_queues?: 'read' | 'write';
     metadata?: 'read' | 'write';
     organization_administration?: 'read' | 'write';
     organization_hooks?: 'read' | 'write';
@@ -94,11 +95,14 @@ export interface App {
     | 'label'
     | 'member'
     | 'membership'
+    | 'merge_group'
+    | 'merge_queue_entry'
     | 'milestone'
     | 'organization'
     | 'org_block'
     | 'page_build'
     | 'project'
+    | 'projects_v2_item'
     | 'project_card'
     | 'project_column'
     | 'public'
@@ -111,6 +115,8 @@ export interface App {
     | 'repository'
     | 'repository_dispatch'
     | 'secret_scanning_alert'
+    | 'secret_scanning_alert_location'
+    | 'security_and_analysis'
     | 'star'
     | 'status'
     | 'team'

@@ -33,7 +33,11 @@
       ],
       "properties": {
         "type": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "Repository",
+            "Organization"
+          ]
         },
         "id": {
           "type": "integer"

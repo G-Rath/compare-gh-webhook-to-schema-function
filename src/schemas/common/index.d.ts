@@ -30,6 +30,7 @@ export * from './projects_v2_item';
 export * from './pull-request-review-comment';
 export * from './pull-request';
 export * from './reactions';
+export * from './referenced-workflow';
 export * from './release-asset';
 export * from './release';
 export * from './repo-ref';

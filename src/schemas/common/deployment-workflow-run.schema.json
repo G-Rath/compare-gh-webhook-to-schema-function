@@ -118,6 +118,12 @@
     "run_started_at": {
       "type": "string",
       "format": "date-time"
+    },
+    "referenced_workflows": {
+      "type": "array",
+      "items": {
+        "$ref": "referenced-workflow.schema.json"
+      }
     }
   },
   "additionalProperties": false,
