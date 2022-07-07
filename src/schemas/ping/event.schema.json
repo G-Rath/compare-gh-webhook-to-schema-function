@@ -36,7 +36,8 @@
           "type": "string",
           "enum": [
             "Repository",
-            "Organization"
+            "Organization",
+            "App"
           ]
         },
         "id": {

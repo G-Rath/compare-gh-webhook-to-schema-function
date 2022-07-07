@@ -124,5 +124,6 @@ export interface App {
     | 'watch'
     | 'workflow_dispatch'
     | 'workflow_run'
+    | 'workflow_job'
   )[];
 }

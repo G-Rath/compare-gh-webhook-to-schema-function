@@ -16,7 +16,7 @@ export interface PingEvent {
    * The [webhook configuration](https://docs.github.com/en/rest/reference/repos#get-a-repository-webhook).
    */
   hook: {
-    type: 'Repository' | 'Organization';
+    type: 'Repository' | 'Organization' | 'App';
     id: number;
     name: string;
     active: boolean;

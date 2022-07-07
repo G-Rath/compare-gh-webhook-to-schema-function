@@ -369,7 +369,8 @@
           "team_add",
           "watch",
           "workflow_dispatch",
-          "workflow_run"
+          "workflow_run",
+          "workflow_job"
         ]
       }
     }
