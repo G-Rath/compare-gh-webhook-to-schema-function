@@ -74,7 +74,8 @@
           "format": "date-time"
         },
         "body": {
-          "type": "string"
+          "type": "string",
+          "description": "The main text of the comment."
         },
         "reactions": {
           "$ref": "common/reactions.schema.json"

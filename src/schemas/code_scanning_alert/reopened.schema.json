@@ -45,7 +45,8 @@
         },
         "url": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "description": "The REST API URL of the alert resource."
         },
         "html_url": {
           "type": "string",

@@ -113,7 +113,8 @@
       "type": "integer"
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "description": "The discussion post's title."
     },
     "user": {
       "$ref": "user.schema.json"
@@ -150,7 +151,8 @@
       ]
     },
     "body": {
-      "type": "string"
+      "type": "string",
+      "description": "The discussion post's body text."
     },
     "reactions": {
       "$ref": "reactions.schema.json"

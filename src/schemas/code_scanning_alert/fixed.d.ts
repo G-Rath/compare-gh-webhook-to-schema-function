@@ -27,6 +27,9 @@ export interface CodeScanningAlertFixedEvent {
      * The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`
      */
     created_at: string;
+    /**
+     * The REST API URL of the alert resource.
+     */
     url: string;
     /**
      * The GitHub URL of the alert resource.

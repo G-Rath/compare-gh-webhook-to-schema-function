@@ -11,17 +11,35 @@ import { App, User } from '.';
  */
 export interface Deployment {
   url: string;
+  /**
+   * Unique identifier of the deployment
+   */
   id: number;
   node_id: string;
   sha: string;
+  /**
+   * The ref to deploy. This can be a branch, tag, or sha.
+   */
   ref: string;
+  /**
+   * Parameter to specify a task to execute
+   */
   task: string;
   payload: {
     [k: string]: unknown;
   };
   original_environment: string;
+  /**
+   * Name of the target deployment environment.
+   */
   environment: string;
+  /**
+   * Specifies if the given environment will no longer exist at some point in the future. Default: false.
+   */
   transient_environment?: boolean;
+  /**
+   * Specifies if the given environment is one that end-users directly interact with. Default: false.
+   */
   production_environment?: boolean;
   description: string | null;
   creator: User;

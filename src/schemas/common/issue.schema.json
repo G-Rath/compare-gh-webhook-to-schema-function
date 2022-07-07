@@ -59,7 +59,8 @@
       "type": "string"
     },
     "number": {
-      "type": "integer"
+      "type": "integer",
+      "description": "Number uniquely identifying the issue within its repository"
     },
     "title": {
       "type": "string",
@@ -205,7 +206,8 @@
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "description": "The reason for the current state"
     }
   },
   "additionalProperties": false,

@@ -25,7 +25,8 @@
       "format": "uri"
     },
     "id": {
-      "type": "integer"
+      "type": "integer",
+      "description": "Unique identifier of the deployment"
     },
     "node_id": {
       "type": "string"
@@ -34,10 +35,12 @@
       "type": "string"
     },
     "ref": {
-      "type": "string"
+      "type": "string",
+      "description": "The ref to deploy. This can be a branch, tag, or sha."
     },
     "task": {
-      "type": "string"
+      "type": "string",
+      "description": "Parameter to specify a task to execute"
     },
     "payload": {
       "type": "object",
@@ -48,13 +51,16 @@
       "type": "string"
     },
     "environment": {
-      "type": "string"
+      "type": "string",
+      "description": "Name of the target deployment environment."
     },
     "transient_environment": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "Specifies if the given environment will no longer exist at some point in the future. Default: false."
     },
     "production_environment": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "Specifies if the given environment is one that end-users directly interact with. Default: false."
     },
     "description": {
       "type": [

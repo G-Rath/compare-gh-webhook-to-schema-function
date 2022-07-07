@@ -25,11 +25,26 @@ export interface PingEvent {
      */
     app_id?: number;
     events: WebhookEvents;
+    /**
+     * Configuration object of the webhook
+     */
     config: {
+      /**
+       * The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
+       */
       content_type: 'json' | 'form';
+      /**
+       * If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/webhooks/event-payloads/#delivery-headers).
+       */
       secret?: string;
+      /**
+       * The URL to which the payloads will be delivered.
+       */
       url: string;
-      insecure_ssl: string;
+      /**
+       * Determines whether the SSL certificate of the host for `url` will be verified when delivering payloads. Supported values include `0` (verification is performed) and `1` (verification is not performed). The default is `0`.
+       */
+      insecure_ssl: '0' | '1';
     };
     updated_at: string;
     created_at: string;

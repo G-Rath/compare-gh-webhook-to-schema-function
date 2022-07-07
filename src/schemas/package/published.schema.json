@@ -34,10 +34,12 @@
       ],
       "properties": {
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "description": "Unique identifier of the package."
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "The name of the package."
         },
         "namespace": {
           "type": "string"
@@ -52,7 +54,16 @@
           "type": "string"
         },
         "package_type": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "npm",
+            "maven",
+            "rubygems",
+            "docker",
+            "nuget",
+            "container"
+          ],
+          "description": "The type of supported package. Packages in GitHub's Gradle registry have the type `maven`. Docker images pushed to GitHub's Container registry (`ghcr.io`) have the type `container`. You can use the type `docker` to find images that were pushed to GitHub's Docker registry (`docker.pkg.github.com`), even if these have now been migrated to the Container registry."
         },
         "html_url": {
           "type": "string",
@@ -96,9 +107,11 @@
             "source_url",
             "installation_command"
           ],
+          "description": "A version of a software package",
           "properties": {
             "id": {
-              "type": "integer"
+              "type": "integer",
+              "description": "Unique identifier of the package version."
             },
             "version": {
               "type": "string"
@@ -107,7 +120,8 @@
               "type": "string"
             },
             "name": {
-              "type": "string"
+              "type": "string",
+              "description": "The name of the package version."
             },
             "description": {
               "type": "string"
@@ -206,7 +220,8 @@
             },
             "metadata": {
               "type": "array",
-              "items": {}
+              "items": {},
+              "description": "Package Version Metadata"
             },
             "docker_metadata": {
               "type": "array",

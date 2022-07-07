@@ -28,6 +28,9 @@ export interface DiscussionCommentDeletedEvent {
     user: User;
     created_at: string;
     updated_at: string;
+    /**
+     * The main text of the comment.
+     */
     body: string;
     reactions: Reactions;
   };
