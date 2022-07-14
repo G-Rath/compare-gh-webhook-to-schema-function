@@ -66,7 +66,7 @@
             "queued",
             null
           ],
-          "description": "The summary status for all check runs that are part of the check suite. Can be `requested`, `in_progress`, or `completed`."
+          "description": "The summary status for all check runs that are part of the check suite. Can be `queued`, `requested`, `in_progress`, or `completed`."
         },
         "conclusion": {
           "description": "The summary conclusion for all check runs that are part of the check suite. Can be one of `success`, `failure`,` neutral`, `cancelled`, `timed_out`, `action_required` or `stale`. This value will be `null` until the check run has completed.",
