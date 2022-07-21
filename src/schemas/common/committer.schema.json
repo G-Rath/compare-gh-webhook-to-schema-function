@@ -16,8 +16,7 @@
       "description": "The git author's email address.",
       "oneOf": [
         {
-          "type": "string",
-          "format": "email"
+          "type": "string"
         },
         {
           "type": "null"
