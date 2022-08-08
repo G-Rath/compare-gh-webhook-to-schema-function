@@ -53,5 +53,5 @@
     }
   },
   "additionalProperties": false,
-  "title": "merg group checks requested event"
+  "title": "merge group checks requested event"
 }

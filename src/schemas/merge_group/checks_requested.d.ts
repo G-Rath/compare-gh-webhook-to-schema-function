@@ -6,7 +6,7 @@ import { InstallationLite, Organization, Repository, User } from '../common';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface MergGroupChecksRequestedEvent {
+export interface MergeGroupChecksRequestedEvent {
   action: 'checks_requested';
   /**
    * The merge group.
