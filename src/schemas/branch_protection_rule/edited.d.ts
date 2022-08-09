@@ -21,15 +21,54 @@ export interface BranchProtectionRuleEditedEvent {
   /**
    * If the action was `edited`, the changes to the rule.
    */
-  changes: {
+  changes?: {
+    admin_enforced?: {
+      from: boolean;
+    };
+    allow_deletions_enforcement_level?: {
+      from: ('off' | 'non_admins' | 'everyone') | null;
+    };
+    allow_force_pushes_enforcement_level?: {
+      from: 'off' | 'non_admins' | 'everyone';
+    };
     authorized_actors_only?: {
       from: boolean;
     };
     authorized_actor_names?: {
       from: string[];
     };
+    authorized_dismissal_actors_only?: {
+      from: boolean | null;
+    };
+    dismiss_stale_reviews_on_push?: {
+      from: boolean;
+    };
+    pull_request_reviews_enforcement_level?: {
+      from: 'off' | 'non_admins' | 'everyone';
+    };
+    require_code_owner_review?: {
+      from: boolean;
+    };
+    required_approving_review_count?: {
+      from: number;
+    };
+    required_conversation_resolution_level?: {
+      from: 'off' | 'required' | 'requested_and_required';
+    };
+    required_deployments_enforcement_level?: {
+      from: 'off' | 'non_admins' | 'everyone';
+    };
     required_status_checks?: {
       from: string[];
+    };
+    required_status_checks_enforcement_level?: {
+      from: 'off' | 'non_admins' | 'everyone';
+    };
+    signature_requirement_enforcement_level?: {
+      from: 'off' | 'non_admins' | 'everyone';
+    };
+    linear_history_requirement_enforcement_level?: {
+      from: 'off' | 'non_admins' | 'everyone';
     };
   };
   repository: Repository;

@@ -35,6 +35,7 @@ export interface App {
   permissions?: {
     actions?: 'read' | 'write';
     administration?: 'read' | 'write';
+    blocking?: 'read' | 'write';
     checks?: 'read' | 'write';
     content_references?: 'read' | 'write';
     contents?: 'read' | 'write';

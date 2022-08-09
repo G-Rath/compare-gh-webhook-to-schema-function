@@ -38,6 +38,7 @@ export interface Installation {
      * The level of permission granted to the access token for repository creation, deletion, settings, teams, and collaborators creation.
      */
     administration?: 'read' | 'write';
+    blocking?: 'read' | 'write';
     /**
      * The level of permission granted to the access token for checks on code.
      */
