@@ -53,7 +53,7 @@ export interface BranchProtectionRuleEditedEvent {
       from: number;
     };
     required_conversation_resolution_level?: {
-      from: 'off' | 'required' | 'requested_and_required';
+      from: 'off' | 'non_admins' | 'everyone';
     };
     required_deployments_enforcement_level?: {
       from: 'off' | 'non_admins' | 'everyone';

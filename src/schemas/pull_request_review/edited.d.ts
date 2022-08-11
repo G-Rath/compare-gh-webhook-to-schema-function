@@ -43,7 +43,7 @@ export interface PullRequestReviewEditedEvent {
      */
     commit_id: string;
     submitted_at: string;
-    state: string;
+    state: 'commented' | 'changes_requested' | 'approved';
     html_url: string;
     pull_request_url: string;
     author_association: AuthorAssociation;

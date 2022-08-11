@@ -179,8 +179,8 @@
               "type": "string",
               "enum": [
                 "off",
-                "required",
-                "requested_and_required"
+                "non_admins",
+                "everyone"
               ]
             }
           },

@@ -59,7 +59,12 @@
           "format": "date-time"
         },
         "state": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "commented",
+            "changes_requested",
+            "approved"
+          ]
         },
         "html_url": {
           "type": "string",
