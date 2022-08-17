@@ -1,6 +1,10 @@
 /* tslint:disable */
 import {
   BranchProtectionRule,
+  BranchProtectionRuleArray,
+  BranchProtectionRuleBoolean,
+  BranchProtectionRuleEnforcementLevel,
+  BranchProtectionRuleNumber,
   InstallationLite,
   Organization,
   Repository,
@@ -23,19 +27,40 @@ export interface BranchProtectionRuleEditedEvent {
    */
   changes?: {
     admin_enforced?: {
-      from: boolean;
+      from: BranchProtectionRuleBoolean;
     };
     allow_deletions_enforcement_level?: {
-      from: ('off' | 'non_admins' | 'everyone') | null;
+      from: BranchProtectionRuleEnforcementLevel | null;
     };
     allow_force_pushes_enforcement_level?: {
-      from: 'off' | 'non_admins' | 'everyone';
+      from: BranchProtectionRuleEnforcementLevel;
     };
     authorized_actors_only?: {
-      from: boolean;
+      from: BranchProtectionRuleBoolean;
     };
     authorized_actor_names?: {
-      from: string[];
+      from: BranchProtectionRuleArray;
+    };
+    authorized_dismissal_actors_only?: {
+      from: BranchProtectionRuleBoolean | null;
+    };
+    dismiss_stale_reviews_on_push?: {
+      from: BranchProtectionRuleBoolean;
+    };
+    pull_request_reviews_enforcement_level?: {
+      from: BranchProtectionRuleEnforcementLevel;
+    };
+    require_code_owner_review?: {
+      from: BranchProtectionRuleBoolean;
+    };
+    required_approving_review_count?: {
+      from: BranchProtectionRuleNumber;
+    };
+    required_conversation_resolution_level?: {
+      from: BranchProtectionRuleEnforcementLevel;
+    };
+    required_deployments_enforcement_level?: {
+      from: BranchProtectionRuleEnforcementLevel;
     };
     authorized_dismissal_actors_only?: {
       from: boolean | null;
@@ -59,7 +84,16 @@ export interface BranchProtectionRuleEditedEvent {
       from: 'off' | 'non_admins' | 'everyone';
     };
     required_status_checks?: {
-      from: string[];
+      from: BranchProtectionRuleArray;
+    };
+    required_status_checks_enforcement_level?: {
+      from: BranchProtectionRuleEnforcementLevel;
+    };
+    signature_requirement_enforcement_level?: {
+      from: BranchProtectionRuleEnforcementLevel;
+    };
+    linear_history_requirement_enforcement_level?: {
+      from: BranchProtectionRuleEnforcementLevel;
     };
     required_status_checks_enforcement_level?: {
       from: 'off' | 'non_admins' | 'everyone';
