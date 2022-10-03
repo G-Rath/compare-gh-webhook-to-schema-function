@@ -62,27 +62,6 @@ export interface BranchProtectionRuleEditedEvent {
     required_deployments_enforcement_level?: {
       from: BranchProtectionRuleEnforcementLevel;
     };
-    authorized_dismissal_actors_only?: {
-      from: boolean | null;
-    };
-    dismiss_stale_reviews_on_push?: {
-      from: boolean;
-    };
-    pull_request_reviews_enforcement_level?: {
-      from: 'off' | 'non_admins' | 'everyone';
-    };
-    require_code_owner_review?: {
-      from: boolean;
-    };
-    required_approving_review_count?: {
-      from: number;
-    };
-    required_conversation_resolution_level?: {
-      from: 'off' | 'non_admins' | 'everyone';
-    };
-    required_deployments_enforcement_level?: {
-      from: 'off' | 'non_admins' | 'everyone';
-    };
     required_status_checks?: {
       from: BranchProtectionRuleArray;
     };
@@ -94,15 +73,6 @@ export interface BranchProtectionRuleEditedEvent {
     };
     linear_history_requirement_enforcement_level?: {
       from: BranchProtectionRuleEnforcementLevel;
-    };
-    required_status_checks_enforcement_level?: {
-      from: 'off' | 'non_admins' | 'everyone';
-    };
-    signature_requirement_enforcement_level?: {
-      from: 'off' | 'non_admins' | 'everyone';
-    };
-    linear_history_requirement_enforcement_level?: {
-      from: 'off' | 'non_admins' | 'everyone';
     };
   };
   repository: Repository;

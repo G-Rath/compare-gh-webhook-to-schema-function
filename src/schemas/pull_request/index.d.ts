@@ -3,10 +3,12 @@ export * from './auto_merge_disabled';
 export * from './auto_merge_enabled';
 export * from './closed';
 export * from './converted_to_draft';
+export * from './dequeued';
 export * from './edited';
 export * from './labeled';
 export * from './locked';
 export * from './opened';
+export * from './queued';
 export * from './ready_for_review';
 export * from './reopened';
 export * from './review_request_removed';
@@ -21,10 +23,12 @@ import { PullRequestAutoMergeDisabledEvent } from './auto_merge_disabled';
 import { PullRequestAutoMergeEnabledEvent } from './auto_merge_enabled';
 import { PullRequestClosedEvent } from './closed';
 import { PullRequestConvertedToDraftEvent } from './converted_to_draft';
+import { PullRequestDequeuedEvent } from './dequeued';
 import { PullRequestEditedEvent } from './edited';
 import { PullRequestLabeledEvent } from './labeled';
 import { PullRequestLockedEvent } from './locked';
 import { PullRequestOpenedEvent } from './opened';
+import { PullRequestQueuedEvent } from './queued';
 import { PullRequestReadyForReviewEvent } from './ready_for_review';
 import { PullRequestReopenedEvent } from './reopened';
 import { PullRequestReviewRequestRemovedEvent } from './review_request_removed';
@@ -40,10 +44,12 @@ export type PullRequestEvent =
   | PullRequestAutoMergeEnabledEvent
   | PullRequestClosedEvent
   | PullRequestConvertedToDraftEvent
+  | PullRequestDequeuedEvent
   | PullRequestEditedEvent
   | PullRequestLabeledEvent
   | PullRequestLockedEvent
   | PullRequestOpenedEvent
+  | PullRequestQueuedEvent
   | PullRequestReadyForReviewEvent
   | PullRequestReopenedEvent
   | PullRequestReviewRequestRemovedEvent

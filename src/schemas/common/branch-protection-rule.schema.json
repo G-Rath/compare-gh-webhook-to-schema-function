@@ -86,9 +86,6 @@
     "create_protected": {
       "$ref": "branch-protection-rule-boolean.schema.json"
     },
-    "create_protected": {
-      "type": "boolean"
-    },
     "allow_force_pushes_enforcement_level": {
       "$ref": "branch-protection-rule-enforcement-level.schema.json"
     },
