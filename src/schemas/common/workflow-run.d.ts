@@ -55,7 +55,8 @@ export interface WorkflowRun {
   /**
    * The full path of the workflow
    */
-  path?: string;
+  path: string;
+  display_title: string;
   html_url: string;
   /**
    * The ID of the workflow run.

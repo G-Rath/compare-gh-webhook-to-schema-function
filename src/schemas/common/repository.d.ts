@@ -262,6 +262,10 @@ export interface Repository {
   allow_forking?: boolean;
   allow_update_branch?: boolean;
   use_squash_pr_title_as_default?: boolean;
+  squash_merge_commit_message?: string;
+  squash_merge_commit_title?: string;
+  merge_commit_message?: string;
+  merge_commit_title?: string;
   is_template: boolean;
   web_commit_signoff_required: boolean;
   topics: string[];

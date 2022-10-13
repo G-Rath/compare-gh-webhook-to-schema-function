@@ -1,11 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "pull_request_review$dismissed",
+  "$id": "dependabot_alert$dismissed",
   "type": "object",
   "required": [
     "action",
-    "review",
-    "pull_request",
+    "alert",
     "repository",
     "sender"
   ],
@@ -16,15 +15,18 @@
         "dismissed"
       ]
     },
-    "review": {
+    "alert": {
       "allOf": [
         {
-          "$ref": "common/pull-request-review.schema.json"
+          "$ref": "common/dependabot-alert.schema.json"
         },
         {
           "type": "object",
           "required": [
-            "state"
+            "state",
+            "dismissed_at",
+            "dismissed_by",
+            "dismissed_reason"
           ],
           "properties": {
             "state": {
@@ -32,28 +34,42 @@
               "enum": [
                 "dismissed"
               ]
+            },
+            "dismissed_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dismissed_by": {
+              "$ref": "common/user.schema.json"
+            },
+            "dismissed_reason": {
+              "type": "string",
+              "enum": [
+                "fix_started",
+                "inaccurate",
+                "no_bandwidth",
+                "not_used",
+                "tolerable_risk"
+              ]
             }
           },
           "tsAdditionalProperties": false
         }
       ]
     },
-    "pull_request": {
-      "$ref": "common/simple-pull-request.schema.json"
-    },
     "repository": {
       "$ref": "common/repository.schema.json"
+    },
+    "sender": {
+      "$ref": "common/user.schema.json"
     },
     "installation": {
       "$ref": "common/installation-lite.schema.json"
     },
     "organization": {
       "$ref": "common/organization.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
     }
   },
   "additionalProperties": false,
-  "title": "pull_request_review dismissed event"
+  "title": "dependabot_alert dismissed event"
 }

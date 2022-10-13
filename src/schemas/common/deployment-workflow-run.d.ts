@@ -10,6 +10,7 @@ export interface DeploymentWorkflowRun {
   id: number;
   name: string;
   path?: string;
+  display_title?: string;
   node_id: string;
   head_branch: string;
   head_sha: string;

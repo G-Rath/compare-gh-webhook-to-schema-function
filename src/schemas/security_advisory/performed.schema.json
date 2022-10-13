@@ -19,6 +19,7 @@
       "required": [
         "cvss",
         "cwes",
+        "cve_id",
         "ghsa_id",
         "summary",
         "description",
@@ -71,6 +72,12 @@
         },
         "ghsa_id": {
           "type": "string"
+        },
+        "cve_id": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "summary": {
           "type": "string"

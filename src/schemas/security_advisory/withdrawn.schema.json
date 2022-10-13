@@ -20,6 +20,7 @@
         "cvss",
         "cwes",
         "ghsa_id",
+        "cve_id",
         "summary",
         "description",
         "severity",
@@ -71,6 +72,12 @@
         },
         "ghsa_id": {
           "type": "string"
+        },
+        "cve_id": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "summary": {
           "type": "string"

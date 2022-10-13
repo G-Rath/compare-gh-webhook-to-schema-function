@@ -35,6 +35,9 @@
     "path": {
       "type": "string"
     },
+    "display_title": {
+      "type": "string"
+    },
     "node_id": {
       "type": "string"
     },

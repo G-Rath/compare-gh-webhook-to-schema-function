@@ -1,10 +1,9 @@
 /* tslint:disable */
 import {
+  DependabotAlert,
   InstallationLite,
   Organization,
-  PullRequestReview,
   Repository,
-  SimplePullRequest,
   User
 } from '../common';
 /**
@@ -13,14 +12,21 @@ import {
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface PullRequestReviewDismissedEvent {
+export interface DependabotAlertDismissedEvent {
   action: 'dismissed';
-  review: PullRequestReview & {
+  alert: DependabotAlert & {
     state: 'dismissed';
+    dismissed_at: string;
+    dismissed_by: User;
+    dismissed_reason:
+      | 'fix_started'
+      | 'inaccurate'
+      | 'no_bandwidth'
+      | 'not_used'
+      | 'tolerable_risk';
   };
-  pull_request: SimplePullRequest;
   repository: Repository;
+  sender: User;
   installation?: InstallationLite;
   organization?: Organization;
-  sender: User;
 }

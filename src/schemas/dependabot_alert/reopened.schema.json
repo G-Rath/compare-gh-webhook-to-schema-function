@@ -1,11 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "pull_request_review$submitted",
+  "$id": "dependabot_alert$reopened",
   "type": "object",
   "required": [
     "action",
-    "review",
-    "pull_request",
+    "alert",
     "repository",
     "sender"
   ],
@@ -13,28 +12,25 @@
     "action": {
       "type": "string",
       "enum": [
-        "submitted"
+        "reopened"
       ]
     },
-    "review": {
-      "$ref": "common/pull-request-review.schema.json"
-    },
-    "pull_request": {
-      "$ref": "common/simple-pull-request.schema.json"
+    "alert": {
+      "$ref": "common/dependabot-alert.schema.json"
     },
     "repository": {
       "$ref": "common/repository.schema.json"
+    },
+    "sender": {
+      "$ref": "common/user.schema.json"
     },
     "installation": {
       "$ref": "common/installation-lite.schema.json"
     },
     "organization": {
       "$ref": "common/organization.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
     }
   },
   "additionalProperties": false,
-  "title": "pull_request_review submitted event"
+  "title": "dependabot_alert reopened event"
 }
