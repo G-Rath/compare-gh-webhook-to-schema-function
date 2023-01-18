@@ -29,6 +29,8 @@ export * from './marketplace-purchase';
 export * from './membership';
 export * from './milestone';
 export * from './organization';
+export * from './package-npm-metadata';
+export * from './package-nuget-metadata';
 export * from './project-card';
 export * from './project-column';
 export * from './project';

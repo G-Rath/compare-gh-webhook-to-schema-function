@@ -162,6 +162,13 @@
           ],
           "description": "The level of permission granted to the access token for organization teams and members."
         },
+        "merge_queues": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "metadata": {
           "type": "string",
           "enum": [

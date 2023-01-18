@@ -129,6 +129,13 @@
             "write"
           ]
         },
+        "followers": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "issues": {
           "type": "string",
           "enum": [

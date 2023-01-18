@@ -66,6 +66,7 @@ export interface Installation {
      * The level of permission granted to the access token for organization teams and members.
      */
     members?: 'read' | 'write';
+    merge_queues?: 'read' | 'write';
     /**
      * The level of permission granted to the access token to search repositories, list collaborators, and access repository metadata.
      */

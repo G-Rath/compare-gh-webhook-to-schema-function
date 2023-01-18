@@ -48,4 +48,5 @@ export interface WorkflowJob {
   runner_group_name: string | null;
   started_at: string;
   completed_at: string | null;
+  workflow_name: string;
 }

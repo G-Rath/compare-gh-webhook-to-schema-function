@@ -220,6 +220,10 @@ export interface Repository {
    */
   has_wiki: boolean;
   has_pages: boolean;
+  /**
+   * Whether discussions are enabled.
+   */
+  has_discussions?: boolean;
   forks_count: number;
   mirror_url: string | null;
   /**
