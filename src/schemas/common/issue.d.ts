@@ -21,6 +21,9 @@ export interface Issue {
   html_url: string;
   id: number;
   node_id: string;
+  /**
+   * Number uniquely identifying the issue within its repository
+   */
   number: number;
   /**
    * Title of the issue
@@ -57,4 +60,8 @@ export interface Issue {
   body: string | null;
   reactions: Reactions;
   timeline_url?: string;
+  /**
+   * The reason for the current state
+   */
+  state_reason?: string | null;
 }

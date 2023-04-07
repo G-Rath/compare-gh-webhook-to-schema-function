@@ -3,20 +3,38 @@
   "$id": "organization$renamed",
   "type": "object",
   "required": [
+    "changes",
     "action",
-    "membership",
     "organization",
     "sender"
   ],
   "properties": {
+    "changes": {
+      "type": "object",
+      "required": [
+        "login"
+      ],
+      "properties": {
+        "login": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
     "action": {
       "type": "string",
       "enum": [
         "renamed"
       ]
-    },
-    "membership": {
-      "$ref": "common/membership.schema.json"
     },
     "sender": {
       "$ref": "common/user.schema.json"

@@ -32,6 +32,12 @@
     "name": {
       "type": "string"
     },
+    "path": {
+      "type": "string"
+    },
+    "display_title": {
+      "type": "string"
+    },
     "node_id": {
       "type": "string"
     },
@@ -115,6 +121,12 @@
     "run_started_at": {
       "type": "string",
       "format": "date-time"
+    },
+    "referenced_workflows": {
+      "type": "array",
+      "items": {
+        "$ref": "referenced-workflow.schema.json"
+      }
     }
   },
   "additionalProperties": false,

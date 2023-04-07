@@ -40,6 +40,7 @@ export interface Release {
   tarball_url: string | null;
   zipball_url: string | null;
   body: string;
+  mentions_count?: number;
   reactions?: Reactions;
   discussion_url?: string;
 }

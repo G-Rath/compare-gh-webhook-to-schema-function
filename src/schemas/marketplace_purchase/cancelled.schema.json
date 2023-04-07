@@ -16,7 +16,8 @@
       ]
     },
     "effective_date": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "sender": {
       "type": "object",
@@ -122,7 +123,8 @@
           ],
           "properties": {
             "next_billing_date": {
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             }
           },
           "tsAdditionalProperties": false

@@ -6,7 +6,6 @@
   "required": [
     "action",
     "rule",
-    "changes",
     "repository",
     "sender"
   ],
@@ -24,6 +23,49 @@
       "type": "object",
       "description": "If the action was `edited`, the changes to the rule.",
       "properties": {
+        "admin_enforced": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "common/branch-protection-rule-boolean.schema.json"
+            }
+          },
+          "additionalProperties": false
+        },
+        "allow_deletions_enforcement_level": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "oneOf": [
+                {
+                  "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "allow_force_pushes_enforcement_level": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
+            }
+          },
+          "additionalProperties": false
+        },
         "authorized_actors_only": {
           "type": "object",
           "required": [
@@ -31,7 +73,7 @@
           ],
           "properties": {
             "from": {
-              "type": "boolean"
+              "$ref": "common/branch-protection-rule-boolean.schema.json"
             }
           },
           "additionalProperties": false
@@ -43,10 +85,98 @@
           ],
           "properties": {
             "from": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "$ref": "common/branch-protection-rule-array.schema.json"
+            }
+          },
+          "additionalProperties": false
+        },
+        "authorized_dismissal_actors_only": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "oneOf": [
+                {
+                  "$ref": "common/branch-protection-rule-boolean.schema.json"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "dismiss_stale_reviews_on_push": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "common/branch-protection-rule-boolean.schema.json"
+            }
+          },
+          "additionalProperties": false
+        },
+        "pull_request_reviews_enforcement_level": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
+            }
+          },
+          "additionalProperties": false
+        },
+        "require_code_owner_review": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "common/branch-protection-rule-boolean.schema.json"
+            }
+          },
+          "additionalProperties": false
+        },
+        "required_approving_review_count": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "common/branch-protection-rule-number.schema.json"
+            }
+          },
+          "additionalProperties": false
+        },
+        "required_conversation_resolution_level": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
+            }
+          },
+          "additionalProperties": false
+        },
+        "required_deployments_enforcement_level": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
             }
           },
           "additionalProperties": false
@@ -58,10 +188,43 @@
           ],
           "properties": {
             "from": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "$ref": "common/branch-protection-rule-array.schema.json"
+            }
+          },
+          "additionalProperties": false
+        },
+        "required_status_checks_enforcement_level": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
+            }
+          },
+          "additionalProperties": false
+        },
+        "signature_requirement_enforcement_level": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
+            }
+          },
+          "additionalProperties": false
+        },
+        "linear_history_requirement_enforcement_level": {
+          "type": "object",
+          "required": [
+            "from"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
             }
           },
           "additionalProperties": false

@@ -61,7 +61,8 @@
           "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "slug": {
           "type": "string"
@@ -79,9 +80,14 @@
       ]
     },
     "answer_chosen_at": {
-      "type": [
-        "string",
-        "null"
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "answer_chosen_by": {
@@ -107,7 +113,8 @@
       "type": "integer"
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "description": "The discussion post's title."
     },
     "user": {
       "$ref": "user.schema.json"
@@ -144,7 +151,8 @@
       ]
     },
     "body": {
-      "type": "string"
+      "type": "string",
+      "description": "The discussion post's body text."
     },
     "reactions": {
       "$ref": "reactions.schema.json"

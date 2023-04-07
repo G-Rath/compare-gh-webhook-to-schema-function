@@ -64,9 +64,16 @@
       "format": "uri"
     },
     "after_id": {
-      "type": [
-        "string",
-        "null"
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
       ]
     }
   },

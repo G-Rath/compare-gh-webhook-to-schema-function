@@ -26,6 +26,9 @@ export interface Discussion {
   id: number;
   node_id: string;
   number: number;
+  /**
+   * The discussion post's title.
+   */
   title: string;
   user: User;
   state: 'open' | 'locked' | 'converting';
@@ -35,6 +38,9 @@ export interface Discussion {
   updated_at: string;
   author_association: AuthorAssociation;
   active_lock_reason: string | null;
+  /**
+   * The discussion post's body text.
+   */
   body: string;
   reactions?: Reactions;
 }

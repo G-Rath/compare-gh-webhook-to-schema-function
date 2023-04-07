@@ -229,7 +229,14 @@
           "$ref": "user.schema.json"
         },
         "repo": {
-          "$ref": "repository.schema.json"
+          "oneOf": [
+            {
+              "$ref": "repository.schema.json"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
       "additionalProperties": false

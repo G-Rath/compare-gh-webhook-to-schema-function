@@ -32,10 +32,12 @@
       "type": "integer"
     },
     "started_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "completed_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     }
   },
   "additionalProperties": false,

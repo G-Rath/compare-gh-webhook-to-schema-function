@@ -11,7 +11,13 @@ import { User } from '.';
  */
 export interface Membership {
   url: string;
+  /**
+   * The state of the user's membership in the team.
+   */
   state: string;
+  /**
+   * The role of the user in the team.
+   */
   role: string;
   organization_url: string;
   user: User;

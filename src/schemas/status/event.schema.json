@@ -307,10 +307,12 @@
       }
     },
     "created_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "updated_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "repository": {
       "$ref": "common/repository.schema.json"

@@ -81,10 +81,12 @@
           "description": "The optional link added to the status."
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updated_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "deployment_url": {
           "type": "string",

@@ -35,8 +35,7 @@
         {
           "type": "object",
           "required": [
-            "status",
-            "steps"
+            "status"
           ],
           "properties": {
             "status": {
@@ -44,13 +43,6 @@
               "enum": [
                 "in_progress"
               ]
-            },
-            "steps": {
-              "type": "array",
-              "items": {
-                "$ref": "common/workflow-step-in_progress.schema.json"
-              },
-              "minItems": 1
             }
           },
           "tsAdditionalProperties": false

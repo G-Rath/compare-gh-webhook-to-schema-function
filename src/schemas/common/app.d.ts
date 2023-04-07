@@ -35,6 +35,7 @@ export interface App {
   permissions?: {
     actions?: 'read' | 'write';
     administration?: 'read' | 'write';
+    blocking?: 'read' | 'write';
     checks?: 'read' | 'write';
     content_references?: 'read' | 'write';
     contents?: 'read' | 'write';
@@ -42,9 +43,13 @@ export interface App {
     discussions?: 'read' | 'write';
     emails?: 'read' | 'write';
     environments?: 'read' | 'write';
+    followers?: 'read' | 'write';
+    gpg_keys?: 'read' | 'write';
+    interaction_limits?: 'read' | 'write';
     issues?: 'read' | 'write';
     keys?: 'read' | 'write';
     members?: 'read' | 'write';
+    merge_queues?: 'read' | 'write';
     metadata?: 'read' | 'write';
     organization_administration?: 'read' | 'write';
     organization_hooks?: 'read' | 'write';
@@ -56,6 +61,7 @@ export interface App {
     organization_user_blocking?: 'read' | 'write';
     packages?: 'read' | 'write';
     pages?: 'read' | 'write';
+    plan?: 'read' | 'write';
     pull_requests?: 'read' | 'write';
     repository_hooks?: 'read' | 'write';
     repository_projects?: 'read' | 'write';
@@ -64,9 +70,11 @@ export interface App {
     security_events?: 'read' | 'write';
     security_scanning_alert?: 'read' | 'write';
     single_file?: 'read' | 'write';
+    starring?: 'read' | 'write';
     statuses?: 'read' | 'write';
     team_discussions?: 'read' | 'write';
     vulnerability_alerts?: 'read' | 'write';
+    watching?: 'read' | 'write';
     workflows?: 'read' | 'write';
   };
   /**
@@ -94,23 +102,29 @@ export interface App {
     | 'label'
     | 'member'
     | 'membership'
+    | 'merge_group'
+    | 'merge_queue_entry'
     | 'milestone'
     | 'organization'
     | 'org_block'
     | 'page_build'
     | 'project'
+    | 'projects_v2_item'
     | 'project_card'
     | 'project_column'
     | 'public'
     | 'pull_request'
     | 'pull_request_review'
     | 'pull_request_review_comment'
+    | 'pull_request_review_thread'
     | 'push'
     | 'registry_package'
     | 'release'
     | 'repository'
     | 'repository_dispatch'
     | 'secret_scanning_alert'
+    | 'secret_scanning_alert_location'
+    | 'security_and_analysis'
     | 'star'
     | 'status'
     | 'team'
@@ -118,5 +132,6 @@ export interface App {
     | 'watch'
     | 'workflow_dispatch'
     | 'workflow_run'
+    | 'workflow_job'
   )[];
 }

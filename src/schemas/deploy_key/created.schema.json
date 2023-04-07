@@ -45,7 +45,8 @@
           "type": "boolean"
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "read_only": {
           "type": "boolean"

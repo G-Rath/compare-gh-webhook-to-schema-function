@@ -16,10 +16,12 @@
       "format": "uri"
     },
     "state": {
-      "type": "string"
+      "type": "string",
+      "description": "The state of the user's membership in the team."
     },
     "role": {
-      "type": "string"
+      "type": "string",
+      "description": "The role of the user in the team."
     },
     "organization_url": {
       "type": "string",

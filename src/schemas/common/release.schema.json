@@ -104,6 +104,9 @@
     "body": {
       "type": "string"
     },
+    "mentions_count": {
+      "type": "integer"
+    },
     "reactions": {
       "$ref": "reactions.schema.json"
     },
