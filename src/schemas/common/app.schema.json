@@ -136,6 +136,20 @@
             "write"
           ]
         },
+        "gpg_keys": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
+        "interaction_limits": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "issues": {
           "type": "string",
           "enum": [
@@ -241,6 +255,13 @@
             "write"
           ]
         },
+        "plan": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "pull_requests": {
           "type": "string",
           "enum": [
@@ -297,6 +318,13 @@
             "write"
           ]
         },
+        "starring": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "statuses": {
           "type": "string",
           "enum": [
@@ -312,6 +340,13 @@
           ]
         },
         "vulnerability_alerts": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
+        "watching": {
           "type": "string",
           "enum": [
             "read",
@@ -369,6 +404,7 @@
           "pull_request",
           "pull_request_review",
           "pull_request_review_comment",
+          "pull_request_review_thread",
           "push",
           "registry_package",
           "release",

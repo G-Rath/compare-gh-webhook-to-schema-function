@@ -48,5 +48,13 @@ export interface WorkflowJob {
   runner_group_name: string | null;
   started_at: string;
   completed_at: string | null;
-  workflow_name: string;
+  /**
+   * The name of the workflow.
+   */
+  workflow_name: string | null;
+  /**
+   * The name of the current branch.
+   */
+  head_branch: string | null;
+  created_at: string;
 }
