@@ -68,7 +68,8 @@
       "enum": [
         "queued",
         "in_progress",
-        "completed"
+        "completed",
+        "waiting"
       ],
       "description": "The current status of the job. Can be `queued`, `in_progress`, or `completed`."
     },

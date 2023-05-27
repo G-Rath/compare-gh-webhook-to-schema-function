@@ -2,8 +2,8 @@
 import {
   InstallationLite,
   Organization,
-  PullRequest,
   Repository,
+  SecretScanningAlert,
   User
 } from '../common';
 /**
@@ -12,15 +12,15 @@ import {
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface PullRequestQueuedEvent {
-  action: 'queued';
-  /**
-   * The pull request number.
-   */
-  number: number;
-  pull_request: PullRequest;
+export interface SecretScanningAlertRevokedEvent {
+  action: 'revoked';
+  alert: SecretScanningAlert & {
+    resolution: 'revoked';
+    resolved_by: User;
+    resolved_at: string;
+  };
   repository: Repository;
-  installation?: InstallationLite;
   organization?: Organization;
+  installation?: InstallationLite;
   sender: User;
 }

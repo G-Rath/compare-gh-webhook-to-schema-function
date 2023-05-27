@@ -26,6 +26,7 @@ export interface BranchProtectionRule {
   require_code_owner_review: BranchProtectionRuleBoolean;
   authorized_dismissal_actors_only: BranchProtectionRuleBoolean;
   ignore_approvals_from_contributors: BranchProtectionRuleBoolean;
+  require_last_push_approval?: BranchProtectionRuleBoolean;
   required_status_checks: BranchProtectionRuleArray;
   required_status_checks_enforcement_level: BranchProtectionRuleEnforcementLevel;
   strict_required_status_checks_policy: BranchProtectionRuleBoolean;

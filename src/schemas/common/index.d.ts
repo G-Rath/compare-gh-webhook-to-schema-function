@@ -46,6 +46,8 @@ export * from './repo-ref';
 export * from './repository-lite';
 export * from './repository-vulnerability-alert-alert';
 export * from './repository';
+export * from './secret-scanning-alert';
+export * from './secret-scanning-location';
 export * from './security-advisory-cvss';
 export * from './security-advisory-cwes';
 export * from './simple-pull-request';

@@ -23,7 +23,7 @@ export interface WorkflowJob {
   /**
    * The current status of the job. Can be `queued`, `in_progress`, or `completed`.
    */
-  status: 'queued' | 'in_progress' | 'completed';
+  status: 'queued' | 'in_progress' | 'completed' | 'waiting';
   steps: WorkflowStep[];
   conclusion: 'success' | 'failure' | 'cancelled' | 'skipped' | null;
   /**
