@@ -4,6 +4,7 @@
   "title": "secret_scanning_alert_location created event",
   "type": "object",
   "required": [
+    "action",
     "location",
     "alert",
     "repository",
