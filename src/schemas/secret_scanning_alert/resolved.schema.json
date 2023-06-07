@@ -32,7 +32,7 @@
               "type": "string",
               "enum": [
                 "false_positive",
-                "wontfix",
+                "wont_fix",
                 "revoked",
                 "used_in_tests"
               ]

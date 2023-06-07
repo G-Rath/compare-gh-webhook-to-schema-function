@@ -15,7 +15,7 @@ import {
 export interface SecretScanningAlertResolvedEvent {
   action: 'resolved';
   alert: SecretScanningAlert & {
-    resolution: 'false_positive' | 'wontfix' | 'revoked' | 'used_in_tests';
+    resolution: 'false_positive' | 'wont_fix' | 'revoked' | 'used_in_tests';
     resolved_by: User;
     resolved_at: string;
   };
