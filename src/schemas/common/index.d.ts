@@ -59,5 +59,6 @@ export * from './workflow-job';
 export * from './workflow-run';
 export * from './workflow-step-completed';
 export * from './workflow-step-in_progress';
+export * from './workflow-step-queued';
 export * from './workflow-step';
 export * from './workflow';

@@ -1,5 +1,6 @@
 /* tslint:disable */
 import {
+  InstallationLite,
   Organization,
   PackageNPMMetadata,
   PackageNugetMetadata,
@@ -147,5 +148,6 @@ export interface PackagePublishedEvent {
   };
   repository: Repository;
   sender: User;
+  installation?: InstallationLite;
   organization?: Organization;
 }

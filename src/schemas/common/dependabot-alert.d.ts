@@ -22,7 +22,7 @@ export interface DependabotAlert {
   /**
    * The state of the Dependabot alert.
    */
-  state: 'dismissed' | 'fixed' | 'open';
+  state: 'dismissed' | 'fixed' | 'open' | 'auto_dismissed';
   /**
    * Details for the vulnerable dependency.
    */
@@ -167,6 +167,10 @@ export interface DependabotAlert {
    * The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
    */
   dismissed_at: string | null;
+  /**
+   * The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+   */
+  auto_dismissed_at?: string | null;
   dismissed_by: User | null;
   /**
    * The reason that the alert was dismissed.
