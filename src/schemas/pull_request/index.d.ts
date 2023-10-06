@@ -6,11 +6,11 @@ export * from './converted_to_draft';
 export * from './demilestoned';
 export * from './dequeued';
 export * from './edited';
+export * from './enqueued';
 export * from './labeled';
 export * from './locked';
 export * from './milestoned';
 export * from './opened';
-export * from './queued';
 export * from './ready_for_review';
 export * from './reopened';
 export * from './review_request_removed';
@@ -28,11 +28,11 @@ import { PullRequestConvertedToDraftEvent } from './converted_to_draft';
 import { PullRequestDemilestonedEvent } from './demilestoned';
 import { PullRequestDequeuedEvent } from './dequeued';
 import { PullRequestEditedEvent } from './edited';
+import { PullRequestEnqueuedEvent } from './enqueued';
 import { PullRequestLabeledEvent } from './labeled';
 import { PullRequestLockedEvent } from './locked';
 import { PullRequestMilestonedEvent } from './milestoned';
 import { PullRequestOpenedEvent } from './opened';
-import { PullRequestQueuedEvent } from './queued';
 import { PullRequestReadyForReviewEvent } from './ready_for_review';
 import { PullRequestReopenedEvent } from './reopened';
 import { PullRequestReviewRequestRemovedEvent } from './review_request_removed';
@@ -51,11 +51,11 @@ export type PullRequestEvent =
   | PullRequestDemilestonedEvent
   | PullRequestDequeuedEvent
   | PullRequestEditedEvent
+  | PullRequestEnqueuedEvent
   | PullRequestLabeledEvent
   | PullRequestLockedEvent
   | PullRequestMilestonedEvent
   | PullRequestOpenedEvent
-  | PullRequestQueuedEvent
   | PullRequestReadyForReviewEvent
   | PullRequestReopenedEvent
   | PullRequestReviewRequestRemovedEvent

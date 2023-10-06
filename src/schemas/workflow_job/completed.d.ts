@@ -1,5 +1,6 @@
 /* tslint:disable */
 import {
+  Deployment,
   InstallationLite,
   Organization,
   Repository,
@@ -18,6 +19,7 @@ export interface WorkflowJobCompletedEvent {
   installation?: InstallationLite;
   repository: Repository;
   sender: User;
+  deployment?: Deployment;
   workflow_job: WorkflowJob & {
     conclusion: 'success' | 'failure' | 'cancelled' | 'skipped';
   };

@@ -6,12 +6,7 @@
  */
 
 export interface PackageNugetMetadata {
-  id?:
-    | string
-    | {
-        [k: string]: unknown;
-      }
-    | number;
+  id?: string | number;
   name?: string;
   value?:
     | boolean

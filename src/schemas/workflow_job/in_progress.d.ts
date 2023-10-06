@@ -1,5 +1,6 @@
 /* tslint:disable */
 import {
+  Deployment,
   InstallationLite,
   Organization,
   Repository,
@@ -18,7 +19,8 @@ export interface WorkflowJobInProgressEvent {
   installation?: InstallationLite;
   repository: Repository;
   sender: User;
+  deployment?: Deployment;
   workflow_job: WorkflowJob & {
-    status: 'in_progress';
+    status: 'queued' | 'in_progress';
   };
 }

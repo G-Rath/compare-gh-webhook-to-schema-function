@@ -18,6 +18,9 @@ export interface RepositoryEditedEvent {
     homepage?: {
       from: string | null;
     };
+    topics?: {
+      from: string[];
+    };
   };
   repository: Repository;
   sender: User;

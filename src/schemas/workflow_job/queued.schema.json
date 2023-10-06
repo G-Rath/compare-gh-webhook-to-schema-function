@@ -27,6 +27,9 @@
     "sender": {
       "$ref": "common/user.schema.json"
     },
+    "deployment": {
+      "$ref": "common/deployment.schema.json"
+    },
     "workflow_job": {
       "allOf": [
         {
@@ -41,7 +44,8 @@
             "status": {
               "type": "string",
               "enum": [
-                "queued"
+                "queued",
+                "waiting"
               ]
             }
           },

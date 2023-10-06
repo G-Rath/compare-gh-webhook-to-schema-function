@@ -62,5 +62,13 @@ export interface Team {
      * Permission that the team will have for its repositories
      */
     permission: string;
+    /**
+     * Whether team members will receive notifications when their team is @mentioned
+     */
+    notification_setting?: 'notifications_enabled' | 'notifications_disabled';
   } | null;
+  /**
+   * Whether team members will receive notifications when their team is @mentioned
+   */
+  notification_setting?: 'notifications_enabled' | 'notifications_disabled';
 }

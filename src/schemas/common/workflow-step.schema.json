@@ -7,6 +7,9 @@
       "$ref": "workflow-step-in_progress.schema.json"
     },
     {
+      "$ref": "workflow-step-queued.schema.json"
+    },
+    {
       "$ref": "workflow-step-completed.schema.json"
     }
   ],

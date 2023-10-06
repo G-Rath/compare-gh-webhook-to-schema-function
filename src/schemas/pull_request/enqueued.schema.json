@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "pull_request$queued",
+  "$id": "pull_request$enqueued",
   "type": "object",
   "required": [
     "action",
@@ -13,7 +13,7 @@
     "action": {
       "type": "string",
       "enum": [
-        "queued"
+        "enqueued"
       ]
     },
     "number": {
@@ -37,5 +37,5 @@
     }
   },
   "additionalProperties": false,
-  "title": "pull_request queued event"
+  "title": "pull_request enqueued event"
 }

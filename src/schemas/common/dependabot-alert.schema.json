@@ -30,7 +30,8 @@
       "enum": [
         "dismissed",
         "fixed",
-        "open"
+        "open",
+        "auto_dismissed"
       ]
     },
     "dependency": {
@@ -307,6 +308,14 @@
       ],
       "format": "date-time",
       "description": "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
+    },
+    "auto_dismissed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
     },
     "dismissed_by": {
       "oneOf": [
