@@ -8,7 +8,7 @@
 export interface WorkflowStepCompleted {
   name: string;
   status: 'completed';
-  conclusion: 'failure' | 'skipped' | 'success';
+  conclusion: 'failure' | 'skipped' | 'success' | 'cancelled';
   number: number;
   started_at: string;
   completed_at: string;

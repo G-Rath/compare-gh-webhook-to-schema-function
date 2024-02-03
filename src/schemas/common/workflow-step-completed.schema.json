@@ -25,7 +25,8 @@
       "enum": [
         "failure",
         "skipped",
-        "success"
+        "success",
+        "cancelled"
       ]
     },
     "number": {
