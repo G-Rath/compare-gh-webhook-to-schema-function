@@ -16,5 +16,5 @@ export interface SponsorshipTier {
   monthly_price_in_dollars: number;
   name: string;
   is_one_time: boolean;
-  is_custom_ammount: boolean;
+  is_custom_amount: boolean;
 }

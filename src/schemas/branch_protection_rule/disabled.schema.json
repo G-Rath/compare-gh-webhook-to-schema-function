@@ -1,0 +1,31 @@
+{
+  "$id": "branch_protection_rule$disabled",
+  "title": "branch protection configuration disabled event",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "disabled"
+      ]
+    },
+    "installation": {
+      "$ref": "common/installation-lite.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository.schema.json"
+    },
+    "sender": {
+      "$ref": "common/user.schema.json"
+    }
+  },
+  "required": [
+    "action",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
+}

@@ -26,7 +26,7 @@ export interface Release {
   target_commitish: string;
   name: string;
   /**
-   * Wether the release is a draft or published
+   * Whether the release is a draft or published
    */
   draft: boolean;
   author: User;

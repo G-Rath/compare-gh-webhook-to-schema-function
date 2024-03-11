@@ -10,7 +10,7 @@
     "monthly_price_in_dollars",
     "name",
     "is_one_time",
-    "is_custom_ammount"
+    "is_custom_amount"
   ],
   "type": "object",
   "properties": {
@@ -36,7 +36,7 @@
     "is_one_time": {
       "type": "boolean"
     },
-    "is_custom_ammount": {
+    "is_custom_amount": {
       "type": "boolean"
     }
   },
